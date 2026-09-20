@@ -39,7 +39,7 @@ add_filter( 'block_categories_all', 'jgor_st_block_categories' );
  * @return void
  */
 function jgor_st_register_blocks() {
-	$blocks = array( 'story' );
+	$blocks = array( 'story', 'step' );
 
 	foreach ( $blocks as $block ) {
 		$path = JGOR_ST_PATH . 'build/' . $block;
@@ -92,16 +92,17 @@ function jgor_st_render_stage_item( $attributes, $index ) {
 			esc_url( $media_url )
 		);
 	} elseif ( $media_id > 0 ) {
-		$inner = wp_get_attachment_image(
-			$media_id,
-			'full',
-			false,
-			array(
-				'class'   => 'jgor-st-stage__media',
-				'alt'     => $media_alt,
-				'loading' => 0 === $index ? 'eager' : 'lazy',
-			)
+		$image_attr = array(
+			'class'   => 'jgor-st-stage__media',
+			'loading' => 0 === $index ? 'eager' : 'lazy',
 		);
+
+		// An empty alt text falls back to the one stored in the media library.
+		if ( '' !== $media_alt ) {
+			$image_attr['alt'] = $media_alt;
+		}
+
+		$inner = wp_get_attachment_image( $media_id, 'full', false, $image_attr );
 	} elseif ( '' !== $media_url ) {
 		$inner = sprintf(
 			'<img class="jgor-st-stage__media" src="%1$s" alt="%2$s" loading="%3$s" decoding="async" />',

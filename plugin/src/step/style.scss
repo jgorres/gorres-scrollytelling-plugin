@@ -1,0 +1,33 @@
+/**
+ * Front end styles of the step block.
+ *
+ * The height of a step decides how long its medium stays on the stage, so it
+ * is driven by the custom property the story block sets.
+ */
+
+.jgor-st-step {
+	display: flex;
+	min-height: var(--jgor-st-step-min, 100svh);
+	padding-block: clamp(1.5rem, 6vh, 4rem);
+}
+
+.jgor-st-story.is-align-start .jgor-st-step {
+	align-items: flex-start;
+}
+
+.jgor-st-story.is-align-center .jgor-st-step {
+	align-items: center;
+}
+
+.jgor-st-story.is-align-end .jgor-st-step {
+	align-items: flex-end;
+}
+
+.jgor-st-step__content {
+	width: 100%;
+}
+
+/* The last step needs no trailing space, the stage is released there anyway. */
+.jgor-st-step:last-child {
+	min-height: auto;
+}

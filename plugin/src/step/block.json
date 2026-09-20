@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jgor-scrollytelling/step",
+	"version": "1.2.0",
+	"title": "Scrollytelling-Schritt",
+	"category": "jgor-bloecke",
+	"icon": "align-left",
+	"description": "Ein Schritt der Story: Text, der an dem zugehörigen Medium vorbeiscrollt.",
+	"keywords": [ "scrollytelling", "schritt", "step" ],
+	"textdomain": "jgor-scrollytelling",
+	"parent": [ "jgor-scrollytelling/story" ],
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"reusable": false,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		}
+	},
+	"attributes": {
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"focalPoint": {
+			"type": "object"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
