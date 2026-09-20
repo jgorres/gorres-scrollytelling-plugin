@@ -11,7 +11,7 @@
 
 // Plugin scrollstage (defined in plugin/scrollstage.php).
 if ( ! defined( 'JGOR_ST_VERSION' ) ) {
-	define( 'JGOR_ST_VERSION', '2.0.0' );
+	define( 'JGOR_ST_VERSION', '2.0.1' );
 }
 if ( ! defined( 'JGOR_ST_MIN_PHP' ) ) {
 	define( 'JGOR_ST_MIN_PHP', '8.1' );

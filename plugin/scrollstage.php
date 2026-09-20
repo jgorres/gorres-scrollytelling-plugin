@@ -3,10 +3,10 @@
  * Plugin Name:       Scrollstage
  * Plugin URI:        https://joern.gorres.com/scrollstage
  * Description:       Full-screen media that stay in place while text boxes scroll across them.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Requires at least: 6.7
  * Requires PHP:      8.1
- * Tested up to:      6.8
+ * Tested up to:      7.1
  * Author:            Jörn Gorres
  * Author URI:        https://joern.gorres.com
  * License:           GPL v2 or later
@@ -25,29 +25,11 @@ defined( 'ABSPATH' ) || exit;
  * JGOR_ST_VERSION is also used as the asset version for cache busting and must
  * be kept in sync with the "Version" header above on every release.
  */
-define( 'JGOR_ST_VERSION', '2.0.0' );
+define( 'JGOR_ST_VERSION', '2.0.1' );
 define( 'JGOR_ST_MIN_PHP', '8.1' );
 define( 'JGOR_ST_FILE', __FILE__ );
 define( 'JGOR_ST_PATH', plugin_dir_path( __FILE__ ) );
 define( 'JGOR_ST_URL', plugin_dir_url( __FILE__ ) );
-
-/**
- * Loads the plugin translations.
- *
- * The plugin is not hosted on wordpress.org, so the language files shipped in
- * /languages have to be registered explicitly. Runs on "init" because loading
- * a text domain earlier triggers the _load_textdomain_just_in_time notice.
- *
- * @return void
- */
-function jgor_st_load_textdomain() {
-	load_plugin_textdomain(
-		'scrollstage',
-		false,
-		dirname( plugin_basename( __FILE__ ) ) . '/languages'
-	);
-}
-add_action( 'init', 'jgor_st_load_textdomain' );
 
 /**
  * Includes the module files from includes/.
