@@ -3,7 +3,7 @@
  * Plugin Name:       Scrollstage
  * Plugin URI:        https://joern.gorres.com/scrollstage
  * Description:       Full-screen media that stay in place while text boxes scroll across them.
- * Version:           2.1.0
+ * Version:           2.1.1
  * Requires at least: 6.7
  * Requires PHP:      8.1
  * Tested up to:      7.1
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
  * JGOR_ST_VERSION is also used as the asset version for cache busting and must
  * be kept in sync with the "Version" header above on every release.
  */
-define( 'JGOR_ST_VERSION', '2.1.0' );
+define( 'JGOR_ST_VERSION', '2.1.1' );
 define( 'JGOR_ST_MIN_PHP', '8.1' );
 define( 'JGOR_ST_FILE', __FILE__ );
 define( 'JGOR_ST_PATH', plugin_dir_path( __FILE__ ) );

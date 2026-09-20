@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.1 · Stand: 20.09.2026 · Plugin-Version: 2.1.0
+Version: 1.2 · Stand: 20.09.2026 · Plugin-Version: 2.1.1
 
 ## 1. Zweck
 
@@ -177,3 +177,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | --- | --- | --- |
 | 1.0 | 20.09.2026 | Erste Fassung zum Plugin-Stand 2.0.1 |
 | 1.1 | 20.09.2026 | Hinweis auf fehlendes GeneratePress ergänzt (Plugin 2.1.0) |
+| 1.2 | 20.09.2026 | Begrenzte Bühne übernimmt das Seitenverhältnis des Mediums (Plugin 2.1.1) |

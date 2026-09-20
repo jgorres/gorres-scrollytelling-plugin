@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,9 @@ The story dims its media; you can set how much. Each step can also carry its own
 3. A single step with its medium and its text.
 
 == Changelog ==
+
+= 2.1.1 =
+* Fixed: with "Limit the stage to the medium" the stage now takes the shape of the medium instead of only its maximum width. Inside a narrow column it stayed screen-high, which left dimmed margins above and below the medium.
 
 = 2.1.0 =
 * The plugin now points out on the plugins and themes screens when GeneratePress is missing, because the page template needs it.

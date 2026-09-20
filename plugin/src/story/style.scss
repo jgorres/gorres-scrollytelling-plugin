@@ -78,14 +78,23 @@
 	object-fit: contain;
 }
 
-/* Optional: stage and steps only take the width the medium actually fills, so
-   the text boxes sit on the medium instead of next to it. The ratio comes from
-   the narrowest medium of the story and is set by render.php. */
+/* Optional: the stage takes exactly the shape of the medium, so the text boxes
+   sit on it instead of next to it and no dimmed margins show up. The ratio
+   comes from the narrowest medium of the story and is set by render.php. */
 .jgor-st-story.is-stage-limited .jgor-st-story__stage,
 .jgor-st-story.is-stage-limited .jgor-st-story__steps {
 	width: 100%;
 	max-width: calc((100svh - var(--jgor-st-offset)) * var(--jgor-st-stage-ratio, 1));
 	margin-inline: auto;
+}
+
+/* The height has to follow as well: with the width alone the stage would stay
+   screen-high inside a narrower column, and the medium would fall short of its
+   top and bottom edge again. */
+.jgor-st-story.is-stage-limited .jgor-st-story__stage {
+	aspect-ratio: var(--jgor-st-stage-ratio, 1);
+	height: auto;
+	max-height: calc(100svh - var(--jgor-st-offset));
 }
 
 /* The column of steps is a query container: the text boxes have to react to
