@@ -18,6 +18,7 @@ import {
 import {
 	Button,
 	FocalPointPicker,
+	Notice,
 	PanelBody,
 	TextareaControl,
 } from '@wordpress/components';
@@ -40,6 +41,14 @@ const EMPTY_MEDIA = {
 export default function Edit( { attributes, setAttributes } ) {
 	const { mediaId, mediaUrl, mediaAlt, mediaType, focalPoint } = attributes;
 	const hasMedia = '' !== mediaUrl;
+
+	/*
+	 * Picking a medium copies the alternative text of the media library into
+	 * the attribute. An empty attribute therefore means that neither place
+	 * holds a description.
+	 */
+	const missingAlt =
+		hasMedia && 'image' === mediaType && '' === mediaAlt.trim();
 
 	const blockProps = useBlockProps( {
 		className: `jgor-st-step--editor${ hasMedia ? ' has-media' : '' }`,
@@ -99,6 +108,15 @@ export default function Edit( { attributes, setAttributes } ) {
 								'jgor-scrollytelling'
 							) }
 						</p>
+					) }
+
+					{ missingAlt && (
+						<Notice status="warning" isDismissible={ false }>
+							{ __(
+								'Dieses Bild hat keinen Alternativtext. Menschen, die einen Screenreader nutzen, erfahren sonst nicht, was zu sehen ist.',
+								'jgor-scrollytelling'
+							) }
+						</Notice>
 					) }
 
 					{ hasMedia && 'image' === mediaType && (

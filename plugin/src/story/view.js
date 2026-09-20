@@ -14,6 +14,17 @@ const ITEM_SELECTOR = '.jgor-st-stage__item';
 const STEP_SELECTOR = '.jgor-st-step';
 
 /**
+ * Tells whether the visitor asked for as little motion as possible.
+ *
+ * Read on every change, so a setting changed while reading takes effect.
+ *
+ * @return {boolean} True when motion should be avoided.
+ */
+function prefersReducedMotion() {
+	return window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+}
+
+/**
  * Activates the medium belonging to a step.
  *
  * @param {HTMLElement[]} items       Stage items, in the order of the steps.
@@ -33,16 +44,26 @@ function activateItem( items, index, activeIndex ) {
 		return activeIndex;
 	}
 
+	const reducedMotion = prefersReducedMotion();
+
 	items.forEach( ( item, position ) => {
 		const isActive = position === target;
 
 		item.classList.toggle( 'is-active', isActive );
 
-		// Only the visible video should run.
+		// Only the visible medium belongs in the accessibility tree.
+		if ( isActive ) {
+			item.removeAttribute( 'aria-hidden' );
+		} else {
+			item.setAttribute( 'aria-hidden', 'true' );
+		}
+
+		// Only the visible video should run, and none at all when the visitor
+		// asked for reduced motion.
 		const video = item.querySelector( 'video' );
 
 		if ( video ) {
-			if ( isActive ) {
+			if ( isActive && ! reducedMotion ) {
 				const playing = video.play();
 
 				if ( playing && 'function' === typeof playing.catch ) {

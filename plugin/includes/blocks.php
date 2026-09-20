@@ -58,6 +58,11 @@ add_action( 'init', 'jgor_st_register_blocks' );
  * the stage. Steps without media produce an empty item on purpose: the script
  * keeps the previous image visible for them.
  *
+ * Every item except the first is hidden from assistive technology: all media
+ * of the story live in the document at once, and without that a screen reader
+ * would read every alternative text in a row before reaching the first text.
+ * The script moves the marker along with the visible medium.
+ *
  * @param array<string, mixed> $attributes Attributes of the step block.
  * @param int                  $index      Zero based position of the step.
  * @param string               $fit        How the medium fills the stage:
@@ -116,10 +121,11 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 	}
 
 	return sprintf(
-		'<figure class="%1$s" style="%2$s" data-jgor-st-step="%3$d">%4$s</figure>',
+		'<figure class="%1$s" style="%2$s" data-jgor-st-step="%3$d"%4$s>%5$s</figure>',
 		esc_attr( $classes ),
 		esc_attr( $styles ),
 		$index,
+		0 === $index ? '' : ' aria-hidden="true"',
 		$inner
 	);
 }
