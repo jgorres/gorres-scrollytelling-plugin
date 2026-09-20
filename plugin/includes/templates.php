@@ -1,10 +1,11 @@
 <?php
 /**
- * Page template "full width" shipped with the plugin.
+ * Page template "full width" for GeneratePress.
  *
- * Registers the template, loads it from the plugin directory and removes the
- * width restriction and the sidebars for that page. GeneratePress is steered
- * through its own filters, every other theme through a stylesheet.
+ * Registers the template, loads it from the plugin directory and switches the
+ * sidebars and the width restriction off for that page. The template relies on
+ * the hooks and the markup of GeneratePress and is therefore only offered when
+ * that theme is active.
  *
  * @package Jgor_Scrollytelling
  */
@@ -24,16 +25,25 @@ function jgor_st_template_slug() {
 }
 
 /**
- * Adds the template to the list in the editor.
+ * Tells whether GeneratePress is the active theme.
  *
- * Block themes build their templates from HTML files in the theme and ignore
- * PHP templates, so the entry is only offered for classic themes.
+ * The constant is defined by the theme itself, so a child theme of
+ * GeneratePress counts as well.
+ *
+ * @return bool True when GeneratePress is running.
+ */
+function jgor_st_is_generatepress() {
+	return defined( 'GENERATE_VERSION' );
+}
+
+/**
+ * Adds the template to the list in the editor.
  *
  * @param array<string, string> $templates Templates offered by the theme.
  * @return array<string, string> Templates including the plugin one.
  */
 function jgor_st_page_templates( $templates ) {
-	if ( wp_is_block_theme() ) {
+	if ( ! jgor_st_is_generatepress() ) {
 		return $templates;
 	}
 
@@ -46,14 +56,13 @@ add_filter( 'theme_page_templates', 'jgor_st_page_templates' );
 /**
  * Tells whether the current request renders a page using the template.
  *
- * Under a block theme the answer is always no: the template file works with
- * get_header() and get_footer(), which such themes do not provide. A page
- * keeps its stored setting and simply falls back to the theme template.
+ * Without GeneratePress the answer is always no: a page keeps its stored
+ * setting and simply falls back to the template of the active theme.
  *
  * @return bool True when the template is active.
  */
 function jgor_st_is_fullwidth_template() {
-	if ( ! is_singular() || wp_is_block_theme() ) {
+	if ( ! is_singular() || ! jgor_st_is_generatepress() ) {
 		return false;
 	}
 
@@ -81,7 +90,7 @@ function jgor_st_template_include( $template ) {
 add_filter( 'template_include', 'jgor_st_template_include' );
 
 /**
- * Registers everything the template needs, but only where it is used.
+ * Registers the layout filters, but only on pages using the template.
  *
  * @return void
  */
@@ -91,15 +100,12 @@ function jgor_st_fullwidth_setup() {
 	}
 
 	add_filter( 'generate_sidebar_layout', 'jgor_st_fullwidth_sidebar_layout' );
-	add_filter( 'get_post_metadata', 'jgor_st_fullwidth_generatepress_meta', 10, 3 );
-	add_filter( 'sidebars_widgets', 'jgor_st_fullwidth_sidebars_widgets' );
-	add_filter( 'body_class', 'jgor_st_fullwidth_body_class' );
-	add_action( 'wp_enqueue_scripts', 'jgor_st_fullwidth_styles' );
+	add_filter( 'get_post_metadata', 'jgor_st_fullwidth_content_container', 10, 3 );
 }
 add_action( 'template_redirect', 'jgor_st_fullwidth_setup' );
 
 /**
- * GeneratePress: switches the sidebar layout off.
+ * Switches the sidebar layout off.
  *
  * @return string Layout identifier understood by GeneratePress.
  */
@@ -108,7 +114,7 @@ function jgor_st_fullwidth_sidebar_layout() {
 }
 
 /**
- * GeneratePress: reports a full width content container for this page.
+ * Reports a full width content container for this page.
  *
  * The theme reads the setting from the post meta. Answering the request
  * instead of writing to the database keeps the page unchanged: switching back
@@ -119,7 +125,7 @@ function jgor_st_fullwidth_sidebar_layout() {
  * @param string $meta_key  Requested meta key.
  * @return mixed "true" for the GeneratePress key, otherwise the value untouched.
  */
-function jgor_st_fullwidth_generatepress_meta( $value, $object_id, $meta_key ) {
+function jgor_st_fullwidth_content_container( $value, $object_id, $meta_key ) {
 	if ( '_generate-full-width-content' !== $meta_key ) {
 		return $value;
 	}
@@ -130,50 +136,4 @@ function jgor_st_fullwidth_generatepress_meta( $value, $object_id, $meta_key ) {
 
 	// get_post_meta() with $single = true unwraps the first array entry.
 	return array( 'true' );
-}
-
-/**
- * Empties the content sidebars for this page.
- *
- * Themes that check is_active_sidebar() then skip their sidebar markup. Only
- * areas whose name starts with "sidebar" are cleared, so footer widgets stay
- * where they are.
- *
- * @param array<string, mixed> $sidebars_widgets Widgets per sidebar.
- * @return array<string, mixed> Widgets with the content sidebars emptied.
- */
-function jgor_st_fullwidth_sidebars_widgets( $sidebars_widgets ) {
-	foreach ( array_keys( $sidebars_widgets ) as $sidebar ) {
-		if ( is_string( $sidebar ) && 0 === strpos( $sidebar, 'sidebar' ) ) {
-			$sidebars_widgets[ $sidebar ] = array();
-		}
-	}
-
-	return $sidebars_widgets;
-}
-
-/**
- * Marks the page with a body class the stylesheet can hook into.
- *
- * @param array<int, string> $classes Body classes.
- * @return array<int, string> Body classes including the plugin one.
- */
-function jgor_st_fullwidth_body_class( $classes ) {
-	$classes[] = 'jgor-st-fullwidth';
-
-	return $classes;
-}
-
-/**
- * Loads the stylesheet of the template.
- *
- * @return void
- */
-function jgor_st_fullwidth_styles() {
-	wp_enqueue_style(
-		'jgor-scrollytelling-template',
-		JGOR_ST_URL . 'assets/css/jgor-st-template.css',
-		array(),
-		JGOR_ST_VERSION
-	);
 }

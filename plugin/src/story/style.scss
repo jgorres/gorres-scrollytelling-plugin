@@ -63,9 +63,9 @@
 	opacity: 1;
 }
 
-/* Positioned instead of sized: themes commonly set "height: auto" on images,
-   which would win over a percentage height. With all four insets at zero the
-   medium fills the stage no matter what the theme declares. */
+/* Positioned instead of sized: a percentage height would lose against the
+   "height: auto" that theme or custom CSS puts on images. With all four insets
+   at zero the medium fills the stage in any case. */
 .jgor-st-stage__media {
 	position: absolute;
 	inset: 0;
