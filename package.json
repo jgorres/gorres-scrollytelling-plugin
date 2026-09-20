@@ -1,7 +1,7 @@
 {
 	"name": "jgor-scrollytelling",
-	"version": "1.7.0",
-	"description": "Scroll-Storytelling mit sticky Medienspalte und schrittweisen Texten",
+	"version": "1.7.1",
+	"description": "Scroll-Storytelling: bildschirmfüllende Medien, über die Textkästen hinwegscrollen",
 	"author": "Jörn Gorres",
 	"license": "GPL-2.0-or-later",
 	"private": true,

@@ -1,6 +1,6 @@
 {
     "name": "jg/scrollytelling",
-    "description": "WordPress-Plugin ScrollyTelling: Scroll-Storytelling mit sticky Medienspalte und schrittweisen Texten",
+    "description": "WordPress-Plugin ScrollyTelling: bildschirmfüllende Medien, über die Textkästen hinwegscrollen",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [
