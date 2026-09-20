@@ -5,7 +5,10 @@
  * is driven by the custom property the story block sets.
  */
 
+/* border-box keeps the padding inside the configured step height, so one step
+   really is as tall as the editor asked for. */
 .jgor-st-step {
+	box-sizing: border-box;
 	display: flex;
 	min-height: var(--jgor-st-step-min, 100svh);
 	padding-block: clamp(1.5rem, 6vh, 4rem);
