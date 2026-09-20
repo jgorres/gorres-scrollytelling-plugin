@@ -46,7 +46,17 @@
 	align-items: flex-end;
 }
 
+/* A narrow column always uses the full width; the configured width only
+   applies once the story itself is wide enough. Browsers without container
+   queries keep the full width, which stays readable. */
 .jgor-st-step__content {
 	box-sizing: border-box;
-	width: min(100%, var(--jgor-st-text-width, 45%));
+	width: 100%;
+}
+
+@container jgor-st-story (min-width: 600px) {
+
+	.jgor-st-step__content {
+		width: min(100%, var(--jgor-st-text-width, 45%));
+	}
 }

@@ -6,12 +6,17 @@
  * change arrives as a custom property from render.php.
  */
 
+/* The story is a query container: the text boxes have to react to the width of
+   the column they sit in, not to the width of the window. In a theme layout
+   with sidebars both differ considerably. */
 .jgor-st-story {
 	--jgor-st-offset: 0px;
 	--jgor-st-step-min: 100svh;
 	--jgor-st-text-width: 45%;
 	--jgor-st-overlay: 0.35;
 
+	container-type: inline-size;
+	container-name: jgor-st-story;
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
 }
@@ -77,13 +82,5 @@
 
 	.jgor-st-story.has-fade .jgor-st-stage__item {
 		transition: none;
-	}
-}
-
-/* On narrow screens the text always uses the full width. */
-@media (max-width: 767px) {
-
-	.jgor-st-story {
-		--jgor-st-text-width: 100%;
 	}
 }
