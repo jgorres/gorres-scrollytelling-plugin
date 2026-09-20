@@ -43,6 +43,11 @@
 	object-position: var(--jgor-st-focal-x, 50%) var(--jgor-st-focal-y, 50%);
 }
 
+.jgor-st-story--editor.is-fit-contain .jgor-st-step__backdrop img,
+.jgor-st-story--editor.is-fit-contain .jgor-st-step__backdrop video {
+	object-fit: contain;
+}
+
 .jgor-st-step__text {
 	position: relative;
 	z-index: 1;

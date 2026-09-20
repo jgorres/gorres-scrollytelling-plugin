@@ -60,9 +60,11 @@ add_action( 'init', 'jgor_st_register_blocks' );
  *
  * @param array<string, mixed> $attributes Attributes of the step block.
  * @param int                  $index      Zero based position of the step.
+ * @param string               $fit        How the medium fills the stage:
+ *                                         "cover" or "contain".
  * @return string Markup of one stage item.
  */
-function jgor_st_render_stage_item( $attributes, $index ) {
+function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 	$media_id   = isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0;
 	$media_url  = isset( $attributes['mediaUrl'] ) ? (string) $attributes['mediaUrl'] : '';
 	$media_alt  = isset( $attributes['mediaAlt'] ) ? (string) $attributes['mediaAlt'] : '';
@@ -95,6 +97,7 @@ function jgor_st_render_stage_item( $attributes, $index ) {
 		$image_attr = array(
 			'class'   => 'jgor-st-stage__media',
 			'loading' => 0 === $index ? 'eager' : 'lazy',
+			'sizes'   => jgor_st_stage_sizes( $media_id, $fit ),
 		);
 
 		// An empty alt text falls back to the one stored in the media library.
@@ -119,4 +122,32 @@ function jgor_st_render_stage_item( $attributes, $index ) {
 		$index,
 		$inner
 	);
+}
+
+/**
+ * Builds the sizes attribute for a medium on the stage.
+ *
+ * The stage is as tall as the viewport. With "cover" a landscape image has to
+ * be scaled to that height, so the browser needs a file that is wider than the
+ * stage itself: height times the aspect ratio. The default "100vw" would make
+ * it pick a file that is far too small, and the image looks blurry.
+ *
+ * @param int    $media_id Attachment ID.
+ * @param string $fit      How the medium fills the stage: "cover" or "contain".
+ * @return string Value for the sizes attribute.
+ */
+function jgor_st_stage_sizes( $media_id, $fit ) {
+	if ( 'cover' !== $fit ) {
+		return '100vw';
+	}
+
+	$meta = wp_get_attachment_metadata( $media_id );
+
+	if ( ! isset( $meta['width'], $meta['height'] ) || $meta['height'] < 1 ) {
+		return '100vw';
+	}
+
+	$ratio = (int) round( $meta['width'] / $meta['height'] * 100 );
+
+	return sprintf( 'max(100vw, %dvh)', $ratio );
 }

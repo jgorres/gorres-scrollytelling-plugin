@@ -26,6 +26,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		textPosition,
 		textWidth,
 		overlayOpacity,
+		mediaFit,
 		stepAlign,
 		transition,
 		stickyOffset,
@@ -37,6 +38,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			'jgor-st-story--editor',
 			`is-text-${ textPosition }`,
 			`is-align-${ stepAlign }`,
+			`is-fit-${ mediaFit }`,
 		].join( ' ' ),
 		style: {
 			'--jgor-st-text-width': `${ textWidth }%`,
@@ -124,6 +126,34 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 				<PanelBody title={ __( 'Medien', 'jgor-scrollytelling' ) }>
+					<SelectControl
+						__nextHasNoMarginBottom
+						label={ __( 'Bildanpassung', 'jgor-scrollytelling' ) }
+						help={ __(
+							'„Ausschnitt füllen“ beschneidet das Medium auf die Bildschirmgröße, „Ganzes Medium zeigen“ lässt Ränder frei.',
+							'jgor-scrollytelling'
+						) }
+						value={ mediaFit }
+						options={ [
+							{
+								label: __(
+									'Ausschnitt füllen',
+									'jgor-scrollytelling'
+								),
+								value: 'cover',
+							},
+							{
+								label: __(
+									'Ganzes Medium zeigen',
+									'jgor-scrollytelling'
+								),
+								value: 'contain',
+							},
+						] }
+						onChange={ ( value ) =>
+							setAttributes( { mediaFit: value } )
+						}
+					/>
 					<RangeControl
 						__nextHasNoMarginBottom
 						label={ __(

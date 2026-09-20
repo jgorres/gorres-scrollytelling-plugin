@@ -71,6 +71,12 @@
 	object-position: var(--jgor-st-focal-x, 50%) var(--jgor-st-focal-y, 50%);
 }
 
+/* Shows the whole medium instead of a filling crop; the free space around it
+   takes the background colour of the block. */
+.jgor-st-story.is-fit-contain .jgor-st-stage__media {
+	object-fit: contain;
+}
+
 .jgor-st-story__steps {
 	position: relative;
 	z-index: 1;

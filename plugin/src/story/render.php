@@ -24,6 +24,7 @@ $jgor_st_offset        = isset( $attributes['stickyOffset'] ) ? min( 200, absint
 $jgor_st_step_height   = isset( $attributes['minStepHeight'] ) ? min( 200, max( 40, absint( $attributes['minStepHeight'] ) ) ) : 100;
 $jgor_st_text_width    = isset( $attributes['textWidth'] ) ? min( 100, max( 20, absint( $attributes['textWidth'] ) ) ) : 45;
 $jgor_st_overlay       = isset( $attributes['overlayOpacity'] ) ? min( 90, absint( $attributes['overlayOpacity'] ) ) : 35;
+$jgor_st_media_fit     = isset( $attributes['mediaFit'] ) && 'contain' === $attributes['mediaFit'] ? 'contain' : 'cover';
 
 // Media of the child steps, in document order; empty steps keep their slot.
 $jgor_st_stage = '';
@@ -36,7 +37,7 @@ if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_bl
 		}
 
 		$jgor_st_attrs  = isset( $jgor_st_child['attrs'] ) && is_array( $jgor_st_child['attrs'] ) ? $jgor_st_child['attrs'] : array();
-		$jgor_st_stage .= jgor_st_render_stage_item( $jgor_st_attrs, $jgor_st_index );
+		$jgor_st_stage .= jgor_st_render_stage_item( $jgor_st_attrs, $jgor_st_index, $jgor_st_media_fit );
 		++$jgor_st_index;
 	}
 }
@@ -45,6 +46,7 @@ $jgor_st_classes = array(
 	'jgor-st-story',
 	'is-text-' . $jgor_st_text_position,
 	'is-align-' . $jgor_st_step_align,
+	'is-fit-' . $jgor_st_media_fit,
 	'fade' === $jgor_st_transition ? 'has-fade' : 'no-fade',
 );
 

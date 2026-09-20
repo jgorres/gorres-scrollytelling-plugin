@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "jgor-scrollytelling/story",
-	"version": "1.4.1",
+	"version": "1.5.0",
 	"title": "Scrollytelling-Story",
 	"category": "jgor-bloecke",
 	"icon": "images-alt2",
@@ -39,6 +39,10 @@
 		"overlayOpacity": {
 			"type": "number",
 			"default": 35
+		},
+		"mediaFit": {
+			"type": "string",
+			"default": "cover"
 		},
 		"stepAlign": {
 			"type": "string",
