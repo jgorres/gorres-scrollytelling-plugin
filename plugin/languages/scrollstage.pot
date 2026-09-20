@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Scrollstage 2.0.1\n"
+"Project-Id-Version: Scrollstage 2.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/scrollstage\n"
 "Last-Translator: Jörn Gorres <joern@gorres.com>\n"
 "Language-Team: Jörn Gorres <joern@gorres.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-20T17:30:07+00:00\n"
+"POT-Creation-Date: 2026-09-20T17:34:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: scrollstage\n"
@@ -44,13 +44,33 @@ msgstr ""
 msgid "Scrollstage: full width"
 msgstr ""
 
+#. translators: %s: link to the themes screen
+#: includes/templates.php:160
+#, php-format
+msgid "Scrollstage works with any theme. Its page template “Scrollstage: full width” needs GeneratePress, which is installed but not in use: %s"
+msgstr ""
+
+#: includes/templates.php:161
+msgid "activate the theme"
+msgstr ""
+
+#. translators: %s: link to the theme installer
+#: includes/templates.php:170
+#, php-format
+msgid "Scrollstage works with any theme. Its page template “Scrollstage: full width” needs GeneratePress, which is not installed: %s"
+msgstr ""
+
+#: includes/templates.php:171
+msgid "install the theme"
+msgstr ""
+
 #. translators: %s: required PHP version
-#: scrollstage.php:90
+#: scrollstage.php:72
 #, php-format
 msgid "This plugin requires PHP %s or newer."
 msgstr ""
 
-#: scrollstage.php:94
+#: scrollstage.php:76
 msgid "Plugin activation stopped"
 msgstr ""
 

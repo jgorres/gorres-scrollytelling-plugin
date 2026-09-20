@@ -111,3 +111,70 @@ add_action( 'template_redirect', 'jgor_st_fullwidth_setup' );
 function jgor_st_fullwidth_sidebar_layout() {
 	return 'no-sidebar';
 }
+
+/**
+ * Tells how GeneratePress is present on this site.
+ *
+ * @return string "active", "installed" when the theme exists but is not in
+ *                use, or "missing".
+ */
+function jgor_st_generatepress_state() {
+	if ( jgor_st_is_generatepress() ) {
+		return 'active';
+	}
+
+	$themes = wp_get_themes();
+
+	return isset( $themes['generatepress'] ) ? 'installed' : 'missing';
+}
+
+/**
+ * Points out that the page template needs GeneratePress.
+ *
+ * The blocks work with every theme, only the template does not. The note is
+ * therefore a hint, never a blocked activation, and it only shows on the
+ * screens where it can be acted upon.
+ *
+ * @return void
+ */
+function jgor_st_theme_notice() {
+	$screen = get_current_screen();
+
+	if ( ! $screen || ! in_array( $screen->id, array( 'plugins', 'themes' ), true ) ) {
+		return;
+	}
+
+	$state = jgor_st_generatepress_state();
+
+	if ( 'active' === $state ) {
+		return;
+	}
+
+	if ( 'installed' === $state ) {
+		if ( ! current_user_can( 'switch_themes' ) ) {
+			return;
+		}
+
+		$message = sprintf(
+			/* translators: %s: link to the themes screen */
+			__( 'Scrollstage works with any theme. Its page template “Scrollstage: full width” needs GeneratePress, which is installed but not in use: %s', 'scrollstage' ),
+			'<a href="' . esc_url( admin_url( 'themes.php' ) ) . '">' . esc_html__( 'activate the theme', 'scrollstage' ) . '</a>'
+		);
+	} else {
+		if ( ! current_user_can( 'install_themes' ) ) {
+			return;
+		}
+
+		$message = sprintf(
+			/* translators: %s: link to the theme installer */
+			__( 'Scrollstage works with any theme. Its page template “Scrollstage: full width” needs GeneratePress, which is not installed: %s', 'scrollstage' ),
+			'<a href="' . esc_url( admin_url( 'theme-install.php?theme=generatepress' ) ) . '">' . esc_html__( 'install the theme', 'scrollstage' ) . '</a>'
+		);
+	}
+
+	printf(
+		'<div class="notice notice-info is-dismissible"><p>%s</p></div>',
+		wp_kses( $message, array( 'a' => array( 'href' => array() ) ) )
+	);
+}
+add_action( 'admin_notices', 'jgor_st_theme_notice' );

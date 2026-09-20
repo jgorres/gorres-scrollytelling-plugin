@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.0 · Stand: 20.09.2026 · Plugin-Version: 2.0.1
+Version: 1.1 · Stand: 20.09.2026 · Plugin-Version: 2.1.0
 
 ## 1. Zweck
 
@@ -102,6 +102,11 @@ Bewusst nicht enthalten: ein Umschalten des Inhalts-Containers auf volle
 Breite. Das hatte zur Folge, dass auch Fließtext neben der Story am Rand
 klebte.
 
+Fehlt GeneratePress, weist das Plugin auf den Bildschirmen „Plugins" und
+„Themes" einmal darauf hin – je nach Lage mit Link zum Aktivieren oder zum
+Installieren. Die Aktivierung wird nie blockiert, denn die Blöcke selbst
+arbeiten mit jedem Theme.
+
 ## 6. Barrierefreiheit
 
 * Nur das sichtbare Bühnenelement steht im Accessibility-Baum; die übrigen
@@ -171,3 +176,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | Version | Datum | Änderung |
 | --- | --- | --- |
 | 1.0 | 20.09.2026 | Erste Fassung zum Plugin-Stand 2.0.1 |
+| 1.1 | 20.09.2026 | Hinweis auf fehlendes GeneratePress ergänzt (Plugin 2.1.0) |
