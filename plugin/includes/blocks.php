@@ -151,3 +151,28 @@ function jgor_st_stage_sizes( $media_id, $fit ) {
 
 	return sprintf( 'max(100vw, %dvh)', $ratio );
 }
+
+/**
+ * Returns the aspect ratio of the medium of a step.
+ *
+ * Only images from the media library carry the necessary metadata. Everything
+ * else reports 0, the caller then ignores that step.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @return float Width divided by height, or 0 when unknown.
+ */
+function jgor_st_media_ratio( $attributes ) {
+	$media_id = isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0;
+
+	if ( $media_id < 1 ) {
+		return 0.0;
+	}
+
+	$meta = wp_get_attachment_metadata( $media_id );
+
+	if ( ! isset( $meta['width'], $meta['height'] ) || $meta['height'] < 1 ) {
+		return 0.0;
+	}
+
+	return round( $meta['width'] / $meta['height'], 4 );
+}

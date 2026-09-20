@@ -12,7 +12,12 @@ import {
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	RangeControl,
+	SelectControl,
+	ToggleControl,
+} from '@wordpress/components';
 
 const ALLOWED_BLOCKS = [ 'jgor-scrollytelling/step' ];
 
@@ -27,6 +32,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		textWidth,
 		overlayOpacity,
 		mediaFit,
+		limitStage,
 		stepAlign,
 		transition,
 		stickyOffset,
@@ -154,6 +160,23 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { mediaFit: value } )
 						}
 					/>
+					{ 'contain' === mediaFit && (
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __(
+								'Bühne auf das Medium begrenzen',
+								'jgor-scrollytelling'
+							) }
+							help={ __(
+								'Die Medien stehen sonst in voller Breite, der Text kann dann neben dem Medium landen. Die Breite richtet sich nach dem schmalsten Medium der Story. Wirkt nur im Frontend.',
+								'jgor-scrollytelling'
+							) }
+							checked={ limitStage }
+							onChange={ ( value ) =>
+								setAttributes( { limitStage: value } )
+							}
+						/>
+					) }
 					<RangeControl
 						__nextHasNoMarginBottom
 						label={ __(

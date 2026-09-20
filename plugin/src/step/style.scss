@@ -54,7 +54,7 @@
 	width: 100%;
 }
 
-@container jgor-st-story (min-width: 600px) {
+@container jgor-st-steps (min-width: 600px) {
 
 	.jgor-st-step__content {
 		width: min(100%, var(--jgor-st-text-width, 45%));

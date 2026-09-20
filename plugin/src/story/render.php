@@ -25,10 +25,12 @@ $jgor_st_step_height   = isset( $attributes['minStepHeight'] ) ? min( 200, max( 
 $jgor_st_text_width    = isset( $attributes['textWidth'] ) ? min( 100, max( 20, absint( $attributes['textWidth'] ) ) ) : 45;
 $jgor_st_overlay       = isset( $attributes['overlayOpacity'] ) ? min( 90, absint( $attributes['overlayOpacity'] ) ) : 35;
 $jgor_st_media_fit     = isset( $attributes['mediaFit'] ) && 'contain' === $attributes['mediaFit'] ? 'contain' : 'cover';
+$jgor_st_limit_stage   = ! empty( $attributes['limitStage'] ) && 'contain' === $jgor_st_media_fit;
 
 // Media of the child steps, in document order; empty steps keep their slot.
 $jgor_st_stage = '';
 $jgor_st_index = 0;
+$jgor_st_ratio = 0.0;
 
 if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_block['innerBlocks'] ) ) {
 	foreach ( $block->parsed_block['innerBlocks'] as $jgor_st_child ) {
@@ -39,6 +41,18 @@ if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_bl
 		$jgor_st_attrs  = isset( $jgor_st_child['attrs'] ) && is_array( $jgor_st_child['attrs'] ) ? $jgor_st_child['attrs'] : array();
 		$jgor_st_stage .= jgor_st_render_stage_item( $jgor_st_attrs, $jgor_st_index, $jgor_st_media_fit );
 		++$jgor_st_index;
+
+		/*
+		 * The narrowest medium sets the width of the stage: only then does
+		 * every step keep its text on top of its medium.
+		 */
+		if ( $jgor_st_limit_stage ) {
+			$jgor_st_step_ratio = jgor_st_media_ratio( $jgor_st_attrs );
+
+			if ( $jgor_st_step_ratio > 0 && ( 0.0 === $jgor_st_ratio || $jgor_st_step_ratio < $jgor_st_ratio ) ) {
+				$jgor_st_ratio = $jgor_st_step_ratio;
+			}
+		}
 	}
 }
 
@@ -50,15 +64,20 @@ $jgor_st_classes = array(
 	'fade' === $jgor_st_transition ? 'has-fade' : 'no-fade',
 );
 
+if ( $jgor_st_limit_stage && $jgor_st_ratio > 0 ) {
+	$jgor_st_classes[] = 'is-stage-limited';
+}
+
 $jgor_st_wrapper = get_block_wrapper_attributes(
 	array(
 		'class' => implode( ' ', $jgor_st_classes ),
 		'style' => sprintf(
-			'--jgor-st-offset:%1$dpx;--jgor-st-step-min:%2$dsvh;--jgor-st-text-width:%3$d%%;--jgor-st-overlay:%4$s;',
+			'--jgor-st-offset:%1$dpx;--jgor-st-step-min:%2$dsvh;--jgor-st-text-width:%3$d%%;--jgor-st-overlay:%4$s;%5$s',
 			$jgor_st_offset,
 			$jgor_st_step_height,
 			$jgor_st_text_width,
-			round( $jgor_st_overlay / 100, 2 )
+			round( $jgor_st_overlay / 100, 2 ),
+			$jgor_st_ratio > 0 ? sprintf( '--jgor-st-stage-ratio:%s;', $jgor_st_ratio ) : ''
 		),
 	)
 );
