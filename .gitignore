@@ -1,0 +1,19 @@
+# Abhängigkeiten
+/vendor/
+node_modules/
+
+# Build-Ergebnisse (wp-scripts)
+/plugin/build/
+
+# Zugangsdaten
+.env
+
+# Caches und lokale Einstellungen
+.phpcs.cache
+.claude/settings.local.json
+.playwright-mcp/
+*.log
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
