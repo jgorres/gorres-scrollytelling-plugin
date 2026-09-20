@@ -63,10 +63,16 @@
 	opacity: 1;
 }
 
+/* Positioned instead of sized: themes commonly set "height: auto" on images,
+   which would win over a percentage height. With all four insets at zero the
+   medium fills the stage no matter what the theme declares. */
 .jgor-st-stage__media {
+	position: absolute;
+	inset: 0;
 	display: block;
 	width: 100%;
 	height: 100%;
+	max-width: none;
 	object-fit: cover;
 	object-position: var(--jgor-st-focal-x, 50%) var(--jgor-st-focal-y, 50%);
 }

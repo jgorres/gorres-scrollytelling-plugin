@@ -151,3 +151,23 @@ function jgor_st_stage_sizes( $media_id, $fit ) {
 
 	return sprintf( 'max(100vw, %dvh)', $ratio );
 }
+
+/**
+ * Removes inline dimensions that a theme puts on the stage images.
+ *
+ * Twenty Twenty-One adds style="width:100%;height:62.5%;max-width:1920px" to
+ * every attachment image. Such an inline style beats any stylesheet, and the
+ * medium would no longer fill the stage. Only the images of this plugin are
+ * touched, every other image keeps what the theme intends.
+ *
+ * @param array<string, string> $attr Attributes for the image tag.
+ * @return array<string, string> Attributes without a foreign style.
+ */
+function jgor_st_clean_stage_image_attributes( $attr ) {
+	if ( isset( $attr['class'], $attr['style'] ) && false !== strpos( $attr['class'], 'jgor-st-stage__media' ) ) {
+		unset( $attr['style'] );
+	}
+
+	return $attr;
+}
+add_filter( 'wp_get_attachment_image_attributes', 'jgor_st_clean_stage_image_attributes', 999 );
