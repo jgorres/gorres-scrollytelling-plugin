@@ -15,10 +15,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-if ( '' === trim( $content ) ) {
-	return;
-}
-
+/*
+ * A step without text is rendered as well: it still occupies its share of the
+ * scrolling distance, and the script relies on every step having a counterpart
+ * on the stage.
+ */
 $jgor_st_wrapper = get_block_wrapper_attributes( array( 'class' => 'jgor-st-step' ) );
 ?>
 <div <?php echo $jgor_st_wrapper; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
