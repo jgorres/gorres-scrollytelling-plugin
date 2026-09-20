@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       ScrollyTelling
- * Plugin URI:        https://joern.gorres.com/jgor-scrollytelling
- * Description:       Scroll-Storytelling: bildschirmfüllende Medien, über die Textkästen hinwegscrollen.
- * Version:           1.9.0
+ * Plugin Name:       Scrollstage
+ * Plugin URI:        https://joern.gorres.com/scrollstage
+ * Description:       Full-screen media that stay in place while text boxes scroll across them.
+ * Version:           2.0.0
  * Requires at least: 6.7
  * Requires PHP:      8.1
  * Tested up to:      6.8
@@ -11,10 +11,10 @@
  * Author URI:        https://joern.gorres.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       jgor-scrollytelling
+ * Text Domain:       scrollstage
  * Domain Path:       /languages
  *
- * @package Jgor_Scrollytelling
+ * @package Scrollstage
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
  * JGOR_ST_VERSION is also used as the asset version for cache busting and must
  * be kept in sync with the "Version" header above on every release.
  */
-define( 'JGOR_ST_VERSION', '1.9.0' );
+define( 'JGOR_ST_VERSION', '2.0.0' );
 define( 'JGOR_ST_MIN_PHP', '8.1' );
 define( 'JGOR_ST_FILE', __FILE__ );
 define( 'JGOR_ST_PATH', plugin_dir_path( __FILE__ ) );
@@ -42,7 +42,7 @@ define( 'JGOR_ST_URL', plugin_dir_url( __FILE__ ) );
  */
 function jgor_st_load_textdomain() {
 	load_plugin_textdomain(
-		'jgor-scrollytelling',
+		'scrollstage',
 		false,
 		dirname( plugin_basename( __FILE__ ) ) . '/languages'
 	);
@@ -86,12 +86,12 @@ function jgor_st_activate() {
 		wp_die(
 			esc_html(
 				sprintf(
-					/* translators: %s: benötigte PHP-Version */
-					__( 'Dieses Plugin benötigt mindestens PHP %s.', 'jgor-scrollytelling' ),
+					/* translators: %s: required PHP version */
+					__( 'This plugin requires PHP %s or newer.', 'scrollstage' ),
 					JGOR_ST_MIN_PHP
 				)
 			),
-			esc_html__( 'Plugin-Aktivierung abgebrochen', 'jgor-scrollytelling' ),
+			esc_html__( 'Plugin activation stopped', 'scrollstage' ),
 			array( 'back_link' => true )
 		);
 	}

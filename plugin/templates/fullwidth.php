@@ -15,7 +15,7 @@
  * The file is loaded through jgor_st_template_include(); WordPress itself only
  * looks for templates inside the theme.
  *
- * @package Jgor_Scrollytelling
+ * @package Scrollstage
  */
 
 defined( 'ABSPATH' ) || exit;

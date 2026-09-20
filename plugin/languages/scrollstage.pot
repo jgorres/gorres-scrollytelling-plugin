@@ -1,0 +1,259 @@
+# Copyright (C) 2026 Jörn Gorres
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Scrollstage 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/scrollstage\n"
+"Last-Translator: Jörn Gorres <joern@gorres.com>\n"
+"Language-Team: Jörn Gorres <joern@gorres.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-20T17:18:11+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: scrollstage\n"
+
+#. Plugin Name of the plugin
+#: scrollstage.php
+#: includes/blocks.php:24
+msgid "Scrollstage"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: scrollstage.php
+msgid "https://joern.gorres.com/scrollstage"
+msgstr ""
+
+#. Description of the plugin
+#: scrollstage.php
+msgid "Full-screen media that stay in place while text boxes scroll across them."
+msgstr ""
+
+#. Author of the plugin
+#: scrollstage.php
+msgid "Jörn Gorres"
+msgstr ""
+
+#. Author URI of the plugin
+#: scrollstage.php
+msgid "https://joern.gorres.com"
+msgstr ""
+
+#: includes/templates.php:50
+msgid "Scrollstage: full width"
+msgstr ""
+
+#. translators: %s: required PHP version
+#: scrollstage.php:90
+#, php-format
+msgid "This plugin requires PHP %s or newer."
+msgstr ""
+
+#: scrollstage.php:94
+msgid "Plugin activation stopped"
+msgstr ""
+
+#: src/step/edit.js:97
+msgid "Replace medium"
+msgstr ""
+
+#: src/step/edit.js:103
+msgid "Medium"
+msgstr ""
+
+#: src/step/edit.js:106
+msgid "No medium is set for this step. While scrolling, the medium of the previous step stays in place."
+msgstr ""
+
+#: src/step/edit.js:115
+msgid "This image has no alternative text. People using a screen reader will not learn what it shows."
+msgstr ""
+
+#: src/step/edit.js:125
+msgid "Alternative text"
+msgstr ""
+
+#: src/step/edit.js:126
+msgid "Leave empty to use the alternative text from the media library."
+msgstr ""
+
+#: src/step/edit.js:140
+msgid "Focal point"
+msgstr ""
+
+#: src/step/edit.js:141
+msgid "Sets which point stays visible when the medium is cropped."
+msgstr ""
+
+#: src/step/edit.js:160
+msgid "Remove medium"
+msgstr ""
+
+#: src/step/edit.js:181
+msgid "Medium of this step"
+msgstr ""
+
+#: src/step/edit.js:182
+msgid "Choose an image or video for this text to scroll across."
+msgstr ""
+
+#: src/story/edit.js:61
+msgid "Text boxes"
+msgstr ""
+
+#: src/story/edit.js:64
+msgid "Horizontal position"
+msgstr ""
+
+#: src/story/edit.js:68
+msgid "Left"
+msgstr ""
+
+#: src/story/edit.js:72
+#: src/story/edit.js:112
+msgid "Middle"
+msgstr ""
+
+#: src/story/edit.js:76
+msgid "Right"
+msgstr ""
+
+#: src/story/edit.js:86
+msgid "Text box width in percent"
+msgstr ""
+
+#: src/story/edit.js:90
+msgid "On narrow screens the boxes always use the full width."
+msgstr ""
+
+#: src/story/edit.js:104
+msgid "Vertical position"
+msgstr ""
+
+#: src/story/edit.js:108
+msgid "Top"
+msgstr ""
+
+#: src/story/edit.js:116
+msgid "Bottom"
+msgstr ""
+
+#: src/story/edit.js:125
+msgid "Media"
+msgstr ""
+
+#: src/story/edit.js:128
+msgid "Media fit"
+msgstr ""
+
+#: src/story/edit.js:129
+msgid "“Fill the frame” crops the medium to the size of the screen, “Show the whole medium” leaves margins free."
+msgstr ""
+
+#: src/story/edit.js:136
+msgid "Fill the frame"
+msgstr ""
+
+#: src/story/edit.js:140
+msgid "Show the whole medium"
+msgstr ""
+
+#: src/story/edit.js:154
+msgid "Limit the stage to the medium"
+msgstr ""
+
+#: src/story/edit.js:158
+msgid "Otherwise the media use the full width and the text can end up beside the medium. The width follows the narrowest medium of the story. Front end only."
+msgstr ""
+
+#: src/story/edit.js:170
+msgid "Dimming in percent"
+msgstr ""
+
+#: src/story/edit.js:171
+msgid "Sits on top of the media so that text stays readable."
+msgstr ""
+
+#: src/story/edit.js:185
+msgid "Offset from the top (px)"
+msgstr ""
+
+#: src/story/edit.js:189
+msgid "Room for a fixed menu above the media."
+msgstr ""
+
+#: src/story/edit.js:203
+msgid "Step height in percent of the screen height"
+msgstr ""
+
+#: src/story/edit.js:207
+msgid "Decides how long a medium stays in place."
+msgstr ""
+
+#: src/story/edit.js:221
+msgid "Motion"
+msgstr ""
+
+#: src/story/edit.js:226
+msgid "Transition"
+msgstr ""
+
+#: src/story/edit.js:227
+msgid "With “None” the media switch instantly. Systems asking for reduced motion never cross-fade."
+msgstr ""
+
+#: src/story/edit.js:234
+msgid "Cross-fade"
+msgstr ""
+
+#: src/story/edit.js:238
+msgid "None"
+msgstr ""
+
+#: src/step/block.json
+msgctxt "block title"
+msgid "Scrollstage Step"
+msgstr ""
+
+#: src/step/block.json
+msgctxt "block description"
+msgid "One step of the story: text that scrolls across the medium belonging to it."
+msgstr ""
+
+#: src/step/block.json
+#: src/story/block.json
+msgctxt "block keyword"
+msgid "scrollytelling"
+msgstr ""
+
+#: src/step/block.json
+msgctxt "block keyword"
+msgid "step"
+msgstr ""
+
+#: src/step/block.json
+#: src/story/block.json
+msgctxt "block keyword"
+msgid "story"
+msgstr ""
+
+#: src/story/block.json
+msgctxt "block title"
+msgid "Scrollstage Story"
+msgstr ""
+
+#: src/story/block.json
+msgctxt "block description"
+msgid "A full-screen medium that stays in place while the text steps scroll across it."
+msgstr ""
+
+#: src/story/block.json
+msgctxt "block keyword"
+msgid "scroll"
+msgstr ""
+
+#: src/story/block.json
+msgctxt "block keyword"
+msgid "sticky"
+msgstr ""

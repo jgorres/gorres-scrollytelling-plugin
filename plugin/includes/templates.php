@@ -7,7 +7,7 @@
  * the hooks and the markup of GeneratePress and is therefore only offered when
  * that theme is active.
  *
- * @package Jgor_Scrollytelling
+ * @package Scrollstage
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
  * @return string Template slug.
  */
 function jgor_st_template_slug() {
-	return 'jgor-scrollytelling-fullwidth';
+	return 'scrollstage-fullwidth';
 }
 
 /**
@@ -47,7 +47,7 @@ function jgor_st_page_templates( $templates ) {
 		return $templates;
 	}
 
-	$templates[ jgor_st_template_slug() ] = __( 'ScrollyTelling: volle Breite', 'jgor-scrollytelling' );
+	$templates[ jgor_st_template_slug() ] = __( 'Scrollstage: full width', 'scrollstage' );
 
 	return $templates;
 }

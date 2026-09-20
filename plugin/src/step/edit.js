@@ -94,18 +94,18 @@ export default function Edit( { attributes, setAttributes } ) {
 						allowedTypes={ ALLOWED_MEDIA }
 						accept="image/*,video/*"
 						onSelect={ onSelectMedia }
-						name={ __( 'Medium ersetzen', 'jgor-scrollytelling' ) }
+						name={ __( 'Replace medium', 'scrollstage' ) }
 					/>
 				</BlockControls>
 			) }
 
 			<InspectorControls>
-				<PanelBody title={ __( 'Medium', 'jgor-scrollytelling' ) }>
+				<PanelBody title={ __( 'Medium', 'scrollstage' ) }>
 					{ ! hasMedia && (
 						<p>
 							{ __(
-								'Für diesen Schritt ist kein Medium gesetzt. Beim Scrollen bleibt das Medium des vorherigen Schritts stehen.',
-								'jgor-scrollytelling'
+								'No medium is set for this step. While scrolling, the medium of the previous step stays in place.',
+								'scrollstage'
 							) }
 						</p>
 					) }
@@ -113,8 +113,8 @@ export default function Edit( { attributes, setAttributes } ) {
 					{ missingAlt && (
 						<Notice status="warning" isDismissible={ false }>
 							{ __(
-								'Dieses Bild hat keinen Alternativtext. Menschen, die einen Screenreader nutzen, erfahren sonst nicht, was zu sehen ist.',
-								'jgor-scrollytelling'
+								'This image has no alternative text. People using a screen reader will not learn what it shows.',
+								'scrollstage'
 							) }
 						</Notice>
 					) }
@@ -122,13 +122,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					{ hasMedia && 'image' === mediaType && (
 						<TextareaControl
 							__nextHasNoMarginBottom
-							label={ __(
-								'Alternativtext',
-								'jgor-scrollytelling'
-							) }
+							label={ __( 'Alternative text', 'scrollstage' ) }
 							help={ __(
-								'Leer lassen, um den Alternativtext aus der Mediathek zu übernehmen.',
-								'jgor-scrollytelling'
+								'Leave empty to use the alternative text from the media library.',
+								'scrollstage'
 							) }
 							value={ mediaAlt }
 							onChange={ ( value ) =>
@@ -140,13 +137,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					{ hasMedia && (
 						<FocalPointPicker
 							__nextHasNoMarginBottom
-							label={ __(
-								'Bildausschnitt',
-								'jgor-scrollytelling'
-							) }
+							label={ __( 'Focal point', 'scrollstage' ) }
 							help={ __(
-								'Legt fest, welcher Punkt beim Zuschneiden sichtbar bleibt.',
-								'jgor-scrollytelling'
+								'Sets which point stays visible when the medium is cropped.',
+								'scrollstage'
 							) }
 							url={ mediaUrl }
 							value={ focalPoint ?? { x: 0.5, y: 0.5 } }
@@ -163,7 +157,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							variant="secondary"
 							onClick={ () => setAttributes( EMPTY_MEDIA ) }
 						>
-							{ __( 'Medium entfernen', 'jgor-scrollytelling' ) }
+							{ __( 'Remove medium', 'scrollstage' ) }
 						</Button>
 					) }
 				</PanelBody>
@@ -184,13 +178,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					<MediaPlaceholder
 						icon="format-image"
 						labels={ {
-							title: __(
-								'Medium des Schritts',
-								'jgor-scrollytelling'
-							),
+							title: __( 'Medium of this step', 'scrollstage' ),
 							instructions: __(
-								'Bild oder Video auswählen, über das dieser Textabschnitt scrollen soll.',
-								'jgor-scrollytelling'
+								'Choose an image or video for this text to scroll across.',
+								'scrollstage'
 							),
 						} }
 						allowedTypes={ ALLOWED_MEDIA }

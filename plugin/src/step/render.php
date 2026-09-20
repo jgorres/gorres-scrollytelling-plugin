@@ -6,7 +6,7 @@
  * the parent story block builds, which is why nothing media related shows up
  * here.
  *
- * @package Jgor_Scrollytelling
+ * @package Scrollstage
  *
  * @var array<string, mixed> $attributes Block attributes.
  * @var string               $content    Rendered markup of the inner blocks.

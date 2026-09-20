@@ -19,12 +19,9 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'jgor-scrollytelling/step' ];
+const ALLOWED_BLOCKS = [ 'scrollstage/step' ];
 
-const TEMPLATE = [
-	[ 'jgor-scrollytelling/step' ],
-	[ 'jgor-scrollytelling/step' ],
-];
+const TEMPLATE = [ [ 'scrollstage/step' ], [ 'scrollstage/step' ] ];
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
@@ -61,25 +58,22 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Textkästen', 'jgor-scrollytelling' ) }>
+				<PanelBody title={ __( 'Text boxes', 'scrollstage' ) }>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __(
-							'Waagerechte Position',
-							'jgor-scrollytelling'
-						) }
+						label={ __( 'Horizontal position', 'scrollstage' ) }
 						value={ textPosition }
 						options={ [
 							{
-								label: __( 'Links', 'jgor-scrollytelling' ),
+								label: __( 'Left', 'scrollstage' ),
 								value: 'left',
 							},
 							{
-								label: __( 'Mittig', 'jgor-scrollytelling' ),
+								label: __( 'Middle', 'scrollstage' ),
 								value: 'center',
 							},
 							{
-								label: __( 'Rechts', 'jgor-scrollytelling' ),
+								label: __( 'Right', 'scrollstage' ),
 								value: 'right',
 							},
 						] }
@@ -90,12 +84,12 @@ export default function Edit( { attributes, setAttributes } ) {
 					<RangeControl
 						__nextHasNoMarginBottom
 						label={ __(
-							'Breite der Textkästen in Prozent',
-							'jgor-scrollytelling'
+							'Text box width in percent',
+							'scrollstage'
 						) }
 						help={ __(
-							'Auf schmalen Bildschirmen nutzen die Kästen immer die volle Breite.',
-							'jgor-scrollytelling'
+							'On narrow screens the boxes always use the full width.',
+							'scrollstage'
 						) }
 						value={ textWidth }
 						min={ 20 }
@@ -107,22 +101,19 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __(
-							'Senkrechte Position',
-							'jgor-scrollytelling'
-						) }
+						label={ __( 'Vertical position', 'scrollstage' ) }
 						value={ stepAlign }
 						options={ [
 							{
-								label: __( 'Oben', 'jgor-scrollytelling' ),
+								label: __( 'Top', 'scrollstage' ),
 								value: 'start',
 							},
 							{
-								label: __( 'Mittig', 'jgor-scrollytelling' ),
+								label: __( 'Middle', 'scrollstage' ),
 								value: 'center',
 							},
 							{
-								label: __( 'Unten', 'jgor-scrollytelling' ),
+								label: __( 'Bottom', 'scrollstage' ),
 								value: 'end',
 							},
 						] }
@@ -131,27 +122,24 @@ export default function Edit( { attributes, setAttributes } ) {
 						}
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Medien', 'jgor-scrollytelling' ) }>
+				<PanelBody title={ __( 'Media', 'scrollstage' ) }>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Bildanpassung', 'jgor-scrollytelling' ) }
+						label={ __( 'Media fit', 'scrollstage' ) }
 						help={ __(
-							'„Ausschnitt füllen“ beschneidet das Medium auf die Bildschirmgröße, „Ganzes Medium zeigen“ lässt Ränder frei.',
-							'jgor-scrollytelling'
+							'“Fill the frame” crops the medium to the size of the screen, “Show the whole medium” leaves margins free.',
+							'scrollstage'
 						) }
 						value={ mediaFit }
 						options={ [
 							{
-								label: __(
-									'Ausschnitt füllen',
-									'jgor-scrollytelling'
-								),
+								label: __( 'Fill the frame', 'scrollstage' ),
 								value: 'cover',
 							},
 							{
 								label: __(
-									'Ganzes Medium zeigen',
-									'jgor-scrollytelling'
+									'Show the whole medium',
+									'scrollstage'
 								),
 								value: 'contain',
 							},
@@ -164,12 +152,12 @@ export default function Edit( { attributes, setAttributes } ) {
 						<ToggleControl
 							__nextHasNoMarginBottom
 							label={ __(
-								'Bühne auf das Medium begrenzen',
-								'jgor-scrollytelling'
+								'Limit the stage to the medium',
+								'scrollstage'
 							) }
 							help={ __(
-								'Die Medien stehen sonst in voller Breite, der Text kann dann neben dem Medium landen. Die Breite richtet sich nach dem schmalsten Medium der Story. Wirkt nur im Frontend.',
-								'jgor-scrollytelling'
+								'Otherwise the media use the full width and the text can end up beside the medium. The width follows the narrowest medium of the story. Front end only.',
+								'scrollstage'
 							) }
 							checked={ limitStage }
 							onChange={ ( value ) =>
@@ -179,13 +167,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 					<RangeControl
 						__nextHasNoMarginBottom
-						label={ __(
-							'Abdunkelung in Prozent',
-							'jgor-scrollytelling'
-						) }
+						label={ __( 'Dimming in percent', 'scrollstage' ) }
 						help={ __(
-							'Legt sich über die Medien, damit der Text darauf lesbar bleibt.',
-							'jgor-scrollytelling'
+							'Sits on top of the media so that text stays readable.',
+							'scrollstage'
 						) }
 						value={ overlayOpacity }
 						min={ 0 }
@@ -198,12 +183,12 @@ export default function Edit( { attributes, setAttributes } ) {
 					<RangeControl
 						__nextHasNoMarginBottom
 						label={ __(
-							'Abstand von oben (px)',
-							'jgor-scrollytelling'
+							'Offset from the top (px)',
+							'scrollstage'
 						) }
 						help={ __(
-							'Platz für ein festes Menü über den Medien.',
-							'jgor-scrollytelling'
+							'Room for a fixed menu above the media.',
+							'scrollstage'
 						) }
 						value={ stickyOffset }
 						min={ 0 }
@@ -216,12 +201,12 @@ export default function Edit( { attributes, setAttributes } ) {
 					<RangeControl
 						__nextHasNoMarginBottom
 						label={ __(
-							'Höhe eines Schritts in Prozent der Bildschirmhöhe',
-							'jgor-scrollytelling'
+							'Step height in percent of the screen height',
+							'scrollstage'
 						) }
 						help={ __(
-							'Bestimmt, wie lange ein Medium stehen bleibt.',
-							'jgor-scrollytelling'
+							'Decides how long a medium stays in place.',
+							'scrollstage'
 						) }
 						value={ minStepHeight }
 						min={ 40 }
@@ -233,27 +218,24 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Bewegung', 'jgor-scrollytelling' ) }
+					title={ __( 'Motion', 'scrollstage' ) }
 					initialOpen={ false }
 				>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Übergang', 'jgor-scrollytelling' ) }
+						label={ __( 'Transition', 'scrollstage' ) }
 						help={ __(
-							'Bei „Ohne“ wechseln die Medien hart. Systeme mit reduzierter Bewegung blenden nie über.',
-							'jgor-scrollytelling'
+							'With “None” the media switch instantly. Systems asking for reduced motion never cross-fade.',
+							'scrollstage'
 						) }
 						value={ transition }
 						options={ [
 							{
-								label: __(
-									'Überblenden',
-									'jgor-scrollytelling'
-								),
+								label: __( 'Cross-fade', 'scrollstage' ),
 								value: 'fade',
 							},
 							{
-								label: __( 'Ohne', 'jgor-scrollytelling' ),
+								label: __( 'None', 'scrollstage' ),
 								value: 'none',
 							},
 						] }

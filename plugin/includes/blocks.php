@@ -2,7 +2,7 @@
 /**
  * Block category and block registration.
  *
- * @package Jgor_Scrollytelling
+ * @package Scrollstage
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -20,8 +20,8 @@ function jgor_st_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug'  => 'jgor-bloecke',
-			'title' => __( 'JGOR-Blöcke', 'jgor-scrollytelling' ),
+			'slug'  => 'scrollstage',
+			'title' => __( 'Scrollstage', 'scrollstage' ),
 			'icon'  => null,
 		)
 	);

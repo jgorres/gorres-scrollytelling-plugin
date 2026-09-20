@@ -7,7 +7,7 @@
  * across. Without JavaScript the first medium stays visible, which keeps the
  * block readable as a plain image with text.
  *
- * @package Jgor_Scrollytelling
+ * @package Scrollstage
  *
  * @var array<string, mixed> $attributes Block attributes.
  * @var string               $content    Rendered markup of the inner blocks.
@@ -34,7 +34,7 @@ $jgor_st_ratio = 0.0;
 
 if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_block['innerBlocks'] ) ) {
 	foreach ( $block->parsed_block['innerBlocks'] as $jgor_st_child ) {
-		if ( ! isset( $jgor_st_child['blockName'] ) || 'jgor-scrollytelling/step' !== $jgor_st_child['blockName'] ) {
+		if ( ! isset( $jgor_st_child['blockName'] ) || 'scrollstage/step' !== $jgor_st_child['blockName'] ) {
 			continue;
 		}
 
