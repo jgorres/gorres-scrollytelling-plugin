@@ -1,0 +1,81 @@
+/**
+ * Front end styles of the story block.
+ *
+ * The stage is a sticky column, the steps scroll past it. Everything that the
+ * editor can change is passed in as a custom property by render.php.
+ */
+
+.jgor-st-story {
+	--jgor-st-offset: 0px;
+	--jgor-st-step-min: 100svh;
+	--jgor-st-gap: clamp(1.5rem, 4vw, 3rem);
+
+	display: grid;
+	gap: var(--jgor-st-gap);
+	grid-template-columns: 1fr;
+}
+
+/* Two columns from the tablet breakpoint upwards. */
+@media (min-width: 768px) {
+
+	.jgor-st-story {
+		align-items: start;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.jgor-st-story.is-media-right .jgor-st-story__stage {
+		order: 2;
+	}
+}
+
+.jgor-st-story__stage {
+	position: sticky;
+	top: var(--jgor-st-offset);
+	overflow: hidden;
+	height: calc(50svh - var(--jgor-st-offset));
+	border-radius: inherit;
+}
+
+@media (min-width: 768px) {
+
+	.jgor-st-story__stage {
+		height: calc(100svh - var(--jgor-st-offset));
+	}
+}
+
+.jgor-st-stage__item {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	opacity: 0;
+}
+
+.jgor-st-story.has-fade .jgor-st-stage__item {
+	transition: opacity 600ms ease;
+}
+
+/* Before the script takes over, only the first medium is visible. */
+.jgor-st-story:not(.is-enhanced) .jgor-st-stage__item:first-child,
+.jgor-st-stage__item.is-active {
+	opacity: 1;
+}
+
+.jgor-st-stage__media {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: var(--jgor-st-focal-x, 50%) var(--jgor-st-focal-y, 50%);
+}
+
+.jgor-st-story__steps {
+	display: flex;
+	flex-direction: column;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.jgor-st-story.has-fade .jgor-st-stage__item {
+		transition: none;
+	}
+}

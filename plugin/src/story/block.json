@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jgor-scrollytelling/story",
+	"version": "1.1.0",
+	"title": "Scrollytelling-Story",
+	"category": "jgor-bloecke",
+	"icon": "images-alt2",
+	"description": "Container mit fester Medienspalte und Textschritten, die daran vorbeiscrollen.",
+	"keywords": [ "scrollytelling", "story", "scroll", "sticky" ],
+	"textdomain": "jgor-scrollytelling",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [ "wide", "full" ],
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"attributes": {
+		"mediaPosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"stepAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"transition": {
+			"type": "string",
+			"default": "fade"
+		},
+		"stickyOffset": {
+			"type": "number",
+			"default": 0
+		},
+		"minStepHeight": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"providesContext": {
+		"jgor-scrollytelling/transition": "transition"
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

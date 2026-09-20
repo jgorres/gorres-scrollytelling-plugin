@@ -1,0 +1,15 @@
+/**
+ * Editor styles of the story block.
+ *
+ * The canvas shows the steps stacked, separated by a light frame, so the order
+ * of the story stays readable while editing.
+ */
+
+.jgor-st-story--editor {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 1rem;
+	border: 1px dashed #c3c4c7;
+	border-radius: 4px;
+}

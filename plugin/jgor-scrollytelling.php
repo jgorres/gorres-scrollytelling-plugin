@@ -3,7 +3,7 @@
  * Plugin Name:       ScrollyTelling
  * Plugin URI:        https://joern.gorres.com/jgor-scrollytelling
  * Description:       Scroll-Storytelling mit sticky Medienspalte und schrittweisen Texten.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.7
  * Requires PHP:      8.1
  * Tested up to:      6.8
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
  * JGOR_ST_VERSION is also used as the asset version for cache busting and must
  * be kept in sync with the "Version" header above on every release.
  */
-define( 'JGOR_ST_VERSION', '1.0.0' );
+define( 'JGOR_ST_VERSION', '1.1.0' );
 define( 'JGOR_ST_MIN_PHP', '8.1' );
 define( 'JGOR_ST_FILE', __FILE__ );
 define( 'JGOR_ST_PATH', plugin_dir_path( __FILE__ ) );
@@ -48,6 +48,28 @@ function jgor_st_load_textdomain() {
 	);
 }
 add_action( 'init', 'jgor_st_load_textdomain' );
+
+/**
+ * Includes the module files from includes/.
+ *
+ * Add new modules here; every file covers exactly one area of responsibility.
+ * The file_exists() check keeps a partial deployment from fataling the site.
+ *
+ * @return void
+ */
+function jgor_st_includes() {
+	$files = array(
+		'blocks.php',
+	);
+
+	foreach ( $files as $file ) {
+		$path = JGOR_ST_PATH . 'includes/' . $file;
+		if ( file_exists( $path ) ) {
+			require_once $path;
+		}
+	}
+}
+jgor_st_includes();
 
 /**
  * Runs on plugin activation.
