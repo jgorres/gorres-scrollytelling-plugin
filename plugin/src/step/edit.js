@@ -43,6 +43,12 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const blockProps = useBlockProps( {
 		className: `jgor-st-step--editor${ hasMedia ? ' has-media' : '' }`,
+		style: focalPoint
+			? {
+					'--jgor-st-focal-x': `${ focalPoint.x * 100 }%`,
+					'--jgor-st-focal-y': `${ focalPoint.y * 100 }%`,
+				}
+			: undefined,
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
@@ -146,15 +152,17 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				{ hasMedia ? (
-					<div className="jgor-st-step__preview">
+				{ hasMedia && (
+					<div className="jgor-st-step__backdrop" aria-hidden="true">
 						{ 'video' === mediaType ? (
 							<video src={ mediaUrl } muted />
 						) : (
-							<img src={ mediaUrl } alt={ mediaAlt } />
+							<img src={ mediaUrl } alt="" />
 						) }
 					</div>
-				) : (
+				) }
+
+				{ ! hasMedia && (
 					<MediaPlaceholder
 						icon="format-image"
 						labels={ {
@@ -163,7 +171,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								'jgor-scrollytelling'
 							),
 							instructions: __(
-								'Bild oder Video auswählen, das zu diesem Textabschnitt gehört.',
+								'Bild oder Video auswählen, über das dieser Textabschnitt scrollen soll.',
 								'jgor-scrollytelling'
 							),
 						} }

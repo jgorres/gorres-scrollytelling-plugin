@@ -1,8 +1,8 @@
 /**
  * Front end styles of the step block.
  *
- * The height of a step decides how long its medium stays on the stage, so it
- * is driven by the custom property the story block sets.
+ * A step is one screen of scrolling: its height decides how long the medium
+ * behind it stays on the stage, its box holds the text that scrolls across.
  */
 
 /* border-box keeps the padding inside the configured step height, so one step
@@ -11,9 +11,29 @@
 	box-sizing: border-box;
 	display: flex;
 	min-height: var(--jgor-st-step-min, 100svh);
-	padding-block: clamp(1.5rem, 6vh, 4rem);
+	padding: clamp(1.5rem, 6vh, 4rem) clamp(1rem, 4vw, 3rem);
 }
 
+/* Light text is the sensible default on top of a darkened medium; choosing a
+   text colour for the block overrides it. */
+.jgor-st-step:not(.has-text-color) {
+	color: #fff;
+}
+
+/* Horizontal position of the text box. */
+.jgor-st-story.is-text-left .jgor-st-step {
+	justify-content: flex-start;
+}
+
+.jgor-st-story.is-text-center .jgor-st-step {
+	justify-content: center;
+}
+
+.jgor-st-story.is-text-right .jgor-st-step {
+	justify-content: flex-end;
+}
+
+/* Vertical position of the text box. */
 .jgor-st-story.is-align-start .jgor-st-step {
 	align-items: flex-start;
 }
@@ -27,10 +47,6 @@
 }
 
 .jgor-st-step__content {
-	width: 100%;
-}
-
-/* The last step needs no trailing space, the stage is released there anyway. */
-.jgor-st-step:last-child {
-	min-height: auto;
+	box-sizing: border-box;
+	width: min(100%, var(--jgor-st-text-width, 45%));
 }

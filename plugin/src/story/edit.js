@@ -2,8 +2,8 @@
  * Editor implementation of the story block.
  *
  * The editor shows the steps stacked below each other, each one with its own
- * media. Recreating the sticky stage inside the canvas would fight the
- * editor's own scroll container, so the effect is front end only.
+ * medium behind the text. Recreating the sticky stage inside the canvas would
+ * fight the editor's own scroll container, so the effect is front end only.
  */
 
 import { __ } from '@wordpress/i18n';
@@ -23,7 +23,9 @@ const TEMPLATE = [
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
-		mediaPosition,
+		textPosition,
+		textWidth,
+		overlayOpacity,
 		stepAlign,
 		transition,
 		stickyOffset,
@@ -33,9 +35,13 @@ export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( {
 		className: [
 			'jgor-st-story--editor',
-			`is-media-${ mediaPosition }`,
+			`is-text-${ textPosition }`,
 			`is-align-${ stepAlign }`,
 		].join( ' ' ),
+		style: {
+			'--jgor-st-text-width': `${ textWidth }%`,
+			'--jgor-st-overlay': overlayOpacity / 100,
+		},
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
@@ -47,18 +53,22 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Layout', 'jgor-scrollytelling' ) }>
+				<PanelBody title={ __( 'Textkästen', 'jgor-scrollytelling' ) }>
 					<SelectControl
 						__nextHasNoMarginBottom
 						label={ __(
-							'Position der Medien',
+							'Waagerechte Position',
 							'jgor-scrollytelling'
 						) }
-						value={ mediaPosition }
+						value={ textPosition }
 						options={ [
 							{
 								label: __( 'Links', 'jgor-scrollytelling' ),
 								value: 'left',
+							},
+							{
+								label: __( 'Mittig', 'jgor-scrollytelling' ),
+								value: 'center',
 							},
 							{
 								label: __( 'Rechts', 'jgor-scrollytelling' ),
@@ -66,13 +76,31 @@ export default function Edit( { attributes, setAttributes } ) {
 							},
 						] }
 						onChange={ ( value ) =>
-							setAttributes( { mediaPosition: value } )
+							setAttributes( { textPosition: value } )
+						}
+					/>
+					<RangeControl
+						__nextHasNoMarginBottom
+						label={ __(
+							'Breite der Textkästen in Prozent',
+							'jgor-scrollytelling'
+						) }
+						help={ __(
+							'Auf schmalen Bildschirmen nutzen die Kästen immer die volle Breite.',
+							'jgor-scrollytelling'
+						) }
+						value={ textWidth }
+						min={ 20 }
+						max={ 100 }
+						step={ 5 }
+						onChange={ ( value ) =>
+							setAttributes( { textWidth: value ?? 45 } )
 						}
 					/>
 					<SelectControl
 						__nextHasNoMarginBottom
 						label={ __(
-							'Ausrichtung der Schritte',
+							'Senkrechte Position',
 							'jgor-scrollytelling'
 						) }
 						value={ stepAlign }
@@ -94,6 +122,26 @@ export default function Edit( { attributes, setAttributes } ) {
 							setAttributes( { stepAlign: value } )
 						}
 					/>
+				</PanelBody>
+				<PanelBody title={ __( 'Medien', 'jgor-scrollytelling' ) }>
+					<RangeControl
+						__nextHasNoMarginBottom
+						label={ __(
+							'Abdunkelung in Prozent',
+							'jgor-scrollytelling'
+						) }
+						help={ __(
+							'Legt sich über die Medien, damit der Text darauf lesbar bleibt.',
+							'jgor-scrollytelling'
+						) }
+						value={ overlayOpacity }
+						min={ 0 }
+						max={ 90 }
+						step={ 5 }
+						onChange={ ( value ) =>
+							setAttributes( { overlayOpacity: value ?? 35 } )
+						}
+					/>
 					<RangeControl
 						__nextHasNoMarginBottom
 						label={ __(
@@ -101,7 +149,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							'jgor-scrollytelling'
 						) }
 						help={ __(
-							'Platz für ein festes Menü über der Medienspalte.',
+							'Platz für ein festes Menü über den Medien.',
 							'jgor-scrollytelling'
 						) }
 						value={ stickyOffset }
@@ -119,7 +167,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							'jgor-scrollytelling'
 						) }
 						help={ __(
-							'Bestimmt, wie lange ein Schritt sichtbar bleibt.',
+							'Bestimmt, wie lange ein Medium stehen bleibt.',
 							'jgor-scrollytelling'
 						) }
 						value={ minStepHeight }
