@@ -100,7 +100,6 @@ function jgor_st_fullwidth_setup() {
 	}
 
 	add_filter( 'generate_sidebar_layout', 'jgor_st_fullwidth_sidebar_layout' );
-	add_filter( 'get_post_metadata', 'jgor_st_fullwidth_content_container', 10, 3 );
 }
 add_action( 'template_redirect', 'jgor_st_fullwidth_setup' );
 
@@ -111,29 +110,4 @@ add_action( 'template_redirect', 'jgor_st_fullwidth_setup' );
  */
 function jgor_st_fullwidth_sidebar_layout() {
 	return 'no-sidebar';
-}
-
-/**
- * Reports a full width content container for this page.
- *
- * The theme reads the setting from the post meta. Answering the request
- * instead of writing to the database keeps the page unchanged: switching back
- * to another template restores the stored setting.
- *
- * @param mixed  $value     Value that other filters provided, null by default.
- * @param int    $object_id ID of the post the meta belongs to.
- * @param string $meta_key  Requested meta key.
- * @return mixed "true" for the GeneratePress key, otherwise the value untouched.
- */
-function jgor_st_fullwidth_content_container( $value, $object_id, $meta_key ) {
-	if ( '_generate-full-width-content' !== $meta_key ) {
-		return $value;
-	}
-
-	if ( get_queried_object_id() !== $object_id ) {
-		return $value;
-	}
-
-	// get_post_meta() with $single = true unwraps the first array entry.
-	return array( 'true' );
 }

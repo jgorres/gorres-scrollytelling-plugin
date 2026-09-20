@@ -11,7 +11,7 @@
 
 // Plugin jgor-scrollytelling (defined in plugin/jgor-scrollytelling.php).
 if ( ! defined( 'JGOR_ST_VERSION' ) ) {
-	define( 'JGOR_ST_VERSION', '1.7.1' );
+	define( 'JGOR_ST_VERSION', '1.7.2' );
 }
 if ( ! defined( 'JGOR_ST_MIN_PHP' ) ) {
 	define( 'JGOR_ST_MIN_PHP', '8.1' );

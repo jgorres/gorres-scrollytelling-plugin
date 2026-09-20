@@ -3,9 +3,11 @@
  * Page template: full width, no sidebars.
  *
  * Built for GeneratePress and following the structure of its own page.php, so
- * header, footer and every generate_* hook keep working. Only the sidebars and
- * the width restriction are dropped, and the content is printed without the
- * article frame: the story is meant to touch the edges of the screen.
+ * header, footer and every generate_* hook keep working. The sidebars are
+ * dropped and the article frame is left out, everything else stays with the
+ * theme: text keeps the usual content width and margins, while a block set to
+ * "full width" breaks out across the screen. That is what the entry-content
+ * wrapper is for, the theme hangs its alignfull rule on it.
  *
  * Page title and comments are left out on purpose: a story opens with its own
  * first step and ends with the last one.
@@ -27,7 +29,11 @@ get_header();
 
 			while ( have_posts() ) :
 				the_post();
-				the_content();
+				?>
+				<div class="entry-content">
+					<?php the_content(); ?>
+				</div>
+				<?php
 			endwhile;
 
 			do_action( 'generate_after_main_content' );
