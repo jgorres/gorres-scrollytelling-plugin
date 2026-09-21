@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ The story dims its media; you can set how much. Each step can also carry its own
 3. A single step with its medium and its text.
 
 == Changelog ==
+
+= 2.3.1 =
+* Fixed: content pulled up below the stage jittered while scrolling in some browsers. The browser now holds it in place itself.
 
 = 2.3.0 =
 * New: "Pull up the following content" shows the content after a story with a limited stage right below the stage from the first step on. The content keeps its place in the document.

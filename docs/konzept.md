@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.4 · Stand: 21.09.2026 · Plugin-Version: 2.3.0
+Version: 1.5 · Stand: 21.09.2026 · Plugin-Version: 2.3.1
 
 ## 1. Zweck
 
@@ -129,21 +129,26 @@ Der Nachspann ist nur für Inhalt gedacht, der zur Geschichte gehört.
 ### Folgenden Inhalt hochziehen (`pullContent`)
 
 Für gewöhnlichen Seiteninhalt nach der Story, der schon unter dem ersten Bild
-erscheinen soll. Der Inhalt bleibt im Dokument hinter dem Story-Block, nur die
-Darstellung wird verschoben.
+erscheinen soll.
 
-1. `view.js` nimmt die Geschwister nach der Story bis zur nächsten Story
-   (`followingContent()`) und gibt ihnen die Klasse `jgor-st-pulled`.
-2. Bei jedem Scroll-Frame (`requestAnimationFrame`, passiver Listener) und bei
-   Größenänderung erhält jedes dieser Elemente
-   `--jgor-st-pull = Unterkante Bühne (oder angehefteter Nachspann) − Unterkante Story`,
-   höchstens 0. Vor der Story ist das die volle Scrollstrecke, nach dem
-   Lösen der Bühne 0. Umgesetzt als `transform: translate3d()`.
-3. Die Schrittspalte wird per `clip-path: inset()` auf die Bühne beschnitten
-   (`--jgor-st-clip-top`, `--jgor-st-clip-bottom`). Sonst liefen die
-   Schritttexte über den hochgezogenen Inhalt und fingen dessen Klicks ab.
+1. `view.js` nimmt beim Laden die Geschwister nach der Story bis zur nächsten
+   Story (`followingContent()`) und hängt sie einmal in `.jgor-st-follow`
+   innerhalb von `.jgor-st-story__after` um (hinter einen vorhandenen
+   Nachspann). Danach gilt der Mechanismus des Nachspanns: Der Browser hält
+   den Inhalt per `position: sticky` unter der Bühne fest.
+2. Die Reihenfolge im Dokument bleibt gleich, der Inhalt folgt weiter den
+   Schritten. Ohne Skript oder ohne `ResizeObserver` bleibt er, wo er ist.
+3. `.jgor-st-follow` hat oben denselben Abstand wie der Nachspann; das letzte
+   Element verliert den unteren Außenabstand, wie es Themes für das letzte
+   Element des Inhalts tun (GeneratePress: `.entry-content>p:last-child`).
 4. Nur innerhalb des Elternelements: Liegt die Story in einer Gruppe, wird nur
-   der Inhalt dieser Gruppe hochgezogen. Ohne Skript folgt der Inhalt normal.
+   der Inhalt dieser Gruppe hochgezogen. Theme-Regeln der Form
+   `.entry-content > …` greifen für den umgehängten Inhalt nicht mehr.
+
+Verworfen: Verschieben per `transform` bei jedem Scroll-Frame. Der Browser
+scrollt auf einem eigenen Thread, die Verschiebung hinkt einen Frame
+hinterher, der Text flattert (Plugin 2.3.0). Scroll-gesteuerte
+CSS-Animationen wären ruckelfrei, laufen in Firefox aber nicht ohne Flag.
 
 ### Abstand unter der Story
 
@@ -248,3 +253,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | 1.2 | 20.09.2026 | Begrenzte Bühne übernimmt das Seitenverhältnis des Mediums (Plugin 2.1.1) |
 | 1.3 | 21.09.2026 | Nachspann-Block `after`, klebt unter der begrenzten Bühne (Plugin 2.2.0) |
 | 1.4 | 21.09.2026 | Folgenden Inhalt hochziehen, Abstand unter der Story (Plugin 2.3.0) |
+| 1.5 | 21.09.2026 | Hochziehen per Sticky statt Scroll-Transform, kein Flattern mehr (Plugin 2.3.1) |

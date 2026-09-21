@@ -146,17 +146,16 @@
 	background-color: var(--jgor-st-after-bg, transparent);
 }
 
-/* "Pull up the following content": the script shifts the content after the
-   story up below the limited stage and keeps it there while the steps play.
-   Only the rendering moves, the content keeps its place in the document. */
-.jgor-st-pulled {
-	transform: translate3d(0, var(--jgor-st-pull, 0px), 0);
+/* "Pull up the following content": the script moves the content after the
+   story into the afterword area, which then sticks below the stage. The gap
+   matches the one of an afterword. The last element loses its bottom margin,
+   as themes do for the last element of the post content. */
+.jgor-st-follow {
+	padding-top: clamp(1.5rem, 4vh, 2.5rem);
 }
 
-/* The text boxes stay on the stage. Without the clip they would run across
-   the pulled up content and catch its clicks. */
-.jgor-st-story.is-pulling .jgor-st-story__steps {
-	clip-path: inset(var(--jgor-st-clip-top, 0px) 0 var(--jgor-st-clip-bottom, 0px) 0);
+.jgor-st-follow > :last-child {
+	margin-bottom: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
