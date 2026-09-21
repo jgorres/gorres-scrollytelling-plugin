@@ -39,7 +39,7 @@ add_filter( 'block_categories_all', 'jgor_st_block_categories' );
  * @return void
  */
 function jgor_st_register_blocks() {
-	$blocks = array( 'story', 'step' );
+	$blocks = array( 'story', 'step', 'after' );
 
 	foreach ( $blocks as $block ) {
 		$path = JGOR_ST_PATH . 'build/' . $block;
@@ -50,6 +50,81 @@ function jgor_st_register_blocks() {
 	}
 }
 add_action( 'init', 'jgor_st_register_blocks' );
+
+/**
+ * Keeps the markup of afterword blocks until their story picks it up.
+ *
+ * WordPress renders every child before the render callback of its parent and
+ * keeps the child instances in the parent's block list. The markup is stored
+ * per instance, so a story only ever receives its own afterwords, even when
+ * another story sits inside one of its steps. The weak map releases an entry
+ * as soon as the block instance is gone.
+ *
+ * @param WP_Block    $block  Afterword block instance.
+ * @param string|null $markup Markup to store, or null to take and clear it.
+ * @return string Stored markup when taking, otherwise an empty string.
+ */
+function jgor_st_after_store( WP_Block $block, $markup = null ) {
+	/**
+	 * Markup per afterword instance, created on first use.
+	 *
+	 * @var WeakMap<WP_Block, string>|null $store
+	 */
+	static $store = null;
+
+	if ( null === $store ) {
+		$store = new WeakMap();
+	}
+
+	if ( null !== $markup ) {
+		$store[ $block ] = $markup;
+		return '';
+	}
+
+	$taken = $store[ $block ] ?? '';
+	unset( $store[ $block ] );
+
+	return $taken;
+}
+
+/**
+ * Takes the rendered afterword out of the content stream.
+ *
+ * Runs last on the block specific filter, so everything other plugins add or
+ * remove on "render_block" is already applied. The story block places the
+ * markup behind its steps, see story/render.php.
+ *
+ * @param string               $block_content Rendered markup of the afterword.
+ * @param array<string, mixed> $parsed_block  Parsed block, unused.
+ * @param WP_Block|null        $instance      Block instance.
+ * @return string Empty string once stored, the markup itself without instance.
+ */
+function jgor_st_collect_after( $block_content, $parsed_block = array(), $instance = null ) {
+	unset( $parsed_block );
+
+	if ( ! $instance instanceof WP_Block ) {
+		return (string) $block_content;
+	}
+
+	return jgor_st_after_store( $instance, (string) $block_content );
+}
+add_filter( 'render_block_scrollstage/after', 'jgor_st_collect_after', PHP_INT_MAX, 3 );
+
+/**
+ * Keeps the stylesheet of the afterword although its block renders empty.
+ *
+ * Since WordPress 6.9 the assets of a block with empty output are dequeued
+ * again. The afterword is empty on purpose, because jgor_st_collect_after()
+ * hands its markup to the story, so it has to opt out.
+ *
+ * @param bool   $enqueue    Whether to enqueue assets for the empty block.
+ * @param string $block_name Name of the block.
+ * @return bool True for the afterword, otherwise the unchanged value.
+ */
+function jgor_st_keep_after_assets( $enqueue, $block_name ) {
+	return 'scrollstage/after' === $block_name ? true : (bool) $enqueue;
+}
+add_filter( 'enqueue_empty_block_content_assets', 'jgor_st_keep_after_assets', 10, 2 );
 
 /**
  * Builds one item of the sticky media stage.

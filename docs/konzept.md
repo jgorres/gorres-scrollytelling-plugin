@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.2 · Stand: 20.09.2026 · Plugin-Version: 2.1.1
+Version: 1.3 · Stand: 21.09.2026 · Plugin-Version: 2.2.0
 
 ## 1. Zweck
 
@@ -27,7 +27,8 @@ Projektdoku ist deutsch.
 │   ├── src/                   Quellen für wp-scripts
 │   │   ├── story/             block.json, index/edit/save, render.php,
 │   │   │                      style.scss, editor.scss, view.js
-│   │   └── step/              ebenso, ohne view.js
+│   │   ├── step/              ebenso, ohne view.js
+│   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
 │   ├── templates/fullwidth.php
 │   └── languages/scrollstage.pot
@@ -37,13 +38,14 @@ Projektdoku ist deutsch.
 └── package.json
 ```
 
-Namensregeln: Slug und Text-Domain `scrollstage`, Blöcke `scrollstage/story`
-und `scrollstage/step`, Funktionen `jgor_st_`, Konstanten `JGOR_ST_`,
+Namensregeln: Slug und Text-Domain `scrollstage`, Blöcke `scrollstage/story`,
+`scrollstage/step` und `scrollstage/after`, Funktionen `jgor_st_`, Konstanten `JGOR_ST_`,
 CSS-Klassen `jgor-st-`.
 
 ## 3. Aufbau der Blöcke
 
-`story` ist der Rahmen, `step` das einzelne Kapitel. Beide rendern
+`story` ist der Rahmen, `step` das einzelne Kapitel, `after` der optionale
+Nachspann hinter dem letzten Schritt. Alle rendern
 serverseitig (`render.php`), gespeichert werden nur die Kindblöcke. Dadurch
 wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
 
@@ -69,6 +71,15 @@ wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
 | `mediaAlt` | Alternativtext; leer übernimmt den Text der Mediathek |
 | `focalPoint` | Punkt, der beim Zuschneiden sichtbar bleibt |
 
+### Nachspann `after`
+
+Ohne eigene Attribute; nimmt beliebige Blöcke auf, dazu Farben, Innenabstand
+und Schrift über die Block-Supports. Erlaubt nur als Kind von `story`. Der
+Editor zeigt ihn dort, wo er eingefügt wurde, im Frontend steht er immer hinter
+dem letzten Schritt. Ein Innenabstand oben (`clamp(1.5rem, 4vh, 2.5rem)`) hält
+die erste Überschrift von der Bühnenkante fern; ein am Block gesetzter Abstand
+hat Vorrang.
+
 ## 4. Wie der Effekt entsteht
 
 1. `story/render.php` liest die Medien der Kind-Schritte aus
@@ -84,6 +95,33 @@ wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
    rückwärts bis zum letzten vorhandenen.
 4. Ohne JavaScript bleibt das erste Medium sichtbar
    (`:not(.is-enhanced) .jgor-st-stage__item:first-child`).
+
+### Nachspann unter der begrenzten Bühne
+
+Bei begrenzter Bühne ist die Bühne niedriger als der Bildschirm. Ohne
+Nachspann bliebe darunter während aller Schritte weißer Raum, denn Inhalt nach
+dem Block kommt erst nach dem letzten Schritt.
+
+1. Der Filter `render_block_scrollstage/after` (Priorität `PHP_INT_MAX`)
+   nimmt das fertige Markup aus dem Inhalt und legt es je Blockinstanz in
+   einer `WeakMap` ab (`jgor_st_after_store()`). `story/render.php` holt es
+   über `$block->inner_blocks` ab und setzt es als `.jgor-st-story__after`
+   hinter die Schrittspalte. Weil der Block selbst leer rendert, würde WordPress
+   ab 6.9 sein Stylesheet wieder entfernen; `enqueue_empty_block_content_assets`
+   verhindert das.
+2. Ohne Skript und ohne Bühnenbegrenzung liegt der Nachspann in Grid-Zeile 2,
+   also wie gewöhnlicher Inhalt nach der Story.
+3. Mit Begrenzung misst `view.js` per `ResizeObserver` die Höhen von Bühne und
+   Nachspann (`--jgor-st-stage-h`, `--jgor-st-after-h`) und setzt
+   `is-after-pinned`. Der Nachspann rückt in Zeile 1, klebt mit
+   `top: Abstand + Bühnenhöhe` direkt unter der Bühne und liegt mit
+   `z-index: 2` über den Schritten.
+4. Bühne (`margin-bottom`) und Schrittspalte (`padding-bottom`) wachsen um
+   die Höhe des Nachspanns. So lösen sich Bühne und Nachspann im selben Moment,
+   und die Standzeit der Medien bleibt so lang wie ohne Nachspann.
+5. Der Nachspann bekommt die erste deckende Hintergrundfarbe ab der Story
+   aufwärts (`--jgor-st-after-bg`), sonst schienen die weißen Schritttexte
+   durch. Eine eigene Hintergrundfarbe am Block hat Vorrang.
 
 Die Textbreite hängt an einer Container-Query auf der Schrittspalte, nicht an
 einer Media-Query: Die Spalte ist je nach Theme-Layout und Bühnenbegrenzung
@@ -148,7 +186,7 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 
 1. `npm run build`, danach alle Prüfwerkzeuge grün.
 2. `.pot` neu erzeugen, Version in Header, Konstante, `readme.txt`
-   (`Stable tag`), `package.json` und beiden `block.json` gleichziehen.
+   (`Stable tag`), `package.json` und allen drei `block.json` gleichziehen.
 3. Drei Screenshots als `assets/screenshot-1..3.png` außerhalb des Plugins.
 4. Paket ohne `node_modules`, `src`, Konfigurationsdateien schnüren.
 5. Plugin Check laufen lassen, dann einreichen. Drei Warnungen bleiben und
@@ -170,6 +208,8 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | Fremde Themes | nur Blöcke, Vorlage bleibt GeneratePress | kein Code für Fälle, die niemand nutzt |
 | Animationsbibliothek | keine | IntersectionObserver genügt, rund 1 KB statt 70 KB |
 | Editor-Vorschau | vereinfacht, ohne klebende Bühne | der Editor hat einen eigenen Scroll-Container |
+| Nachspann ohne Bühnenbegrenzung | erlaubt, folgt der Story wie normaler Inhalt | beim Umschalten der Begrenzung geht nichts verloren |
+| Nur ein Nachspann je Story | nicht erzwungen, mehrere werden nacheinander ausgegeben | die Sperre bräuchte `@wordpress/data` als zusätzliche Abhängigkeit |
 
 ## Änderungen
 
@@ -178,3 +218,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | 1.0 | 20.09.2026 | Erste Fassung zum Plugin-Stand 2.0.1 |
 | 1.1 | 20.09.2026 | Hinweis auf fehlendes GeneratePress ergänzt (Plugin 2.1.0) |
 | 1.2 | 20.09.2026 | Begrenzte Bühne übernimmt das Seitenverhältnis des Mediums (Plugin 2.1.1) |
+| 1.3 | 21.09.2026 | Nachspann-Block `after`, klebt unter der begrenzten Bühne (Plugin 2.2.0) |

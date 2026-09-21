@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.1.1
+Stable tag: 2.2.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,10 +14,11 @@ Full-screen media that stay in place while text boxes scroll across them, built 
 
 Scrollstage turns a page into a scroll-driven story. One medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.
 
-The story is built from two blocks:
+The story is built from two blocks, plus an optional third:
 
 * **Scrollstage Story** — the frame. It holds the layout of the text boxes, the dimming of the media and the length of a step.
 * **Scrollstage Step** — one step of the story. It carries its own image or video plus any blocks you want as text.
+* **Scrollstage Afterword** — optional content that follows the last step. Below a stage that is limited to the medium it shows up right under the stage from the first step on, instead of leaving that space empty.
 
 = What you can set =
 
@@ -63,6 +64,10 @@ Yes, images and videos from the media library. A video runs muted and only while
 
 Its text scrolls across the medium of the previous step. That is useful for a closing note on the last image.
 
+= Why is there empty space below the stage? =
+
+With "Limit the stage to the medium" the stage is lower than the screen, and content after the story only follows the last step. Put that content into a "Scrollstage Afterword" block inside the story: it then sits right below the stage while the steps play and scrolls on together with it.
+
 = Does the text stay readable on a bright image? =
 
 The story dims its media; you can set how much. Each step can also carry its own background and text colour through the usual block settings.
@@ -74,6 +79,9 @@ The story dims its media; you can set how much. Each step can also carry its own
 3. A single step with its medium and its text.
 
 == Changelog ==
+
+= 2.2.0 =
+* New block "Scrollstage Afterword": content that follows the last step. With "Limit the stage to the medium" it sits right below the stage from the first step on, so the space under the stage no longer stays empty.
 
 = 2.1.1 =
 * Fixed: with "Limit the stage to the medium" the stage now takes the shape of the medium instead of only its maximum width. Inside a narrow column it stayed screen-high, which left dimmed margins above and below the medium.

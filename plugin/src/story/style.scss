@@ -109,6 +109,36 @@
 	flex-direction: column;
 }
 
+/* The afterword follows the steps like ordinary content below the block. */
+.jgor-st-story__after {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+/* With a limited stage the space below it would stay empty while the steps
+   play. The script measures stage and afterword and switches to this mode: the
+   afterword sticks right below the stage and leaves together with it. Stage
+   and steps grow by the height of the afterword, so the medium stays in place
+   exactly as long as without it. The afterword lies above the steps and gets
+   the background of the page, so their text does not show through. */
+.jgor-st-story.is-after-pinned .jgor-st-story__stage {
+	margin-bottom: var(--jgor-st-after-h, 0px);
+}
+
+.jgor-st-story.is-after-pinned .jgor-st-story__steps {
+	padding-bottom: var(--jgor-st-after-h, 0px);
+}
+
+.jgor-st-story.is-after-pinned .jgor-st-story__after {
+	position: sticky;
+	top: calc(var(--jgor-st-offset) + var(--jgor-st-stage-h, 0px));
+	z-index: 2;
+	grid-row: 1;
+	align-self: start;
+	margin-top: var(--jgor-st-stage-h, 0px);
+	background-color: var(--jgor-st-after-bg, transparent);
+}
+
 @media (prefers-reduced-motion: reduce) {
 
 	.jgor-st-story.has-fade .jgor-st-stage__item {

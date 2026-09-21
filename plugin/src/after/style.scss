@@ -1,0 +1,11 @@
+/**
+ * Front end styles of the afterword block.
+ *
+ * The afterword follows the stage directly, pinned or not. A default gap
+ * keeps its first heading off the lower edge of the medium; a padding set on
+ * the block overrides it.
+ */
+
+.jgor-st-after {
+	padding-top: clamp(1.5rem, 4vh, 2.5rem);
+}

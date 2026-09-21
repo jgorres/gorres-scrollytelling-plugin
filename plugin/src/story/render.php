@@ -7,6 +7,9 @@
  * across. Without JavaScript the first medium stays visible, which keeps the
  * block readable as a plain image with text.
  *
+ * An afterword block follows the steps. Its markup was taken out of $content
+ * by jgor_st_collect_after(); the script pins it below a limited stage.
+ *
  * @package Scrollstage
  *
  * @var array<string, mixed> $attributes Block attributes.
@@ -56,6 +59,17 @@ if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_bl
 	}
 }
 
+// Afterwords, in document order, wherever the editor placed them.
+$jgor_st_after = '';
+
+if ( $block->inner_blocks instanceof WP_Block_List ) {
+	foreach ( $block->inner_blocks as $jgor_st_inner ) {
+		if ( $jgor_st_inner instanceof WP_Block && 'scrollstage/after' === $jgor_st_inner->name ) {
+			$jgor_st_after .= jgor_st_after_store( $jgor_st_inner );
+		}
+	}
+}
+
 $jgor_st_classes = array(
 	'jgor-st-story',
 	'is-text-' . $jgor_st_text_position,
@@ -66,6 +80,10 @@ $jgor_st_classes = array(
 
 if ( $jgor_st_limit_stage && $jgor_st_ratio > 0 ) {
 	$jgor_st_classes[] = 'is-stage-limited';
+}
+
+if ( '' !== trim( $jgor_st_after ) ) {
+	$jgor_st_classes[] = 'has-after';
 }
 
 $jgor_st_wrapper = get_block_wrapper_attributes(
@@ -91,4 +109,9 @@ $jgor_st_wrapper = get_block_wrapper_attributes(
 	<div class="jgor-st-story__steps">
 		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Already rendered block content. ?>
 	</div>
+	<?php if ( '' !== trim( $jgor_st_after ) ) : ?>
+		<div class="jgor-st-story__after">
+			<?php echo $jgor_st_after; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Already rendered block content. ?>
+		</div>
+	<?php endif; ?>
 </div>

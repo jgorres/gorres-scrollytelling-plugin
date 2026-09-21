@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "scrollstage/after",
+	"version": "2.2.0",
+	"title": "Scrollstage Afterword",
+	"category": "scrollstage",
+	"icon": "text",
+	"description": "Content that follows the last step. With a stage limited to the medium it sits right below the stage from the first step on.",
+	"keywords": [ "scrollytelling", "after", "outro", "story" ],
+	"textdomain": "scrollstage",
+	"parent": [ "scrollstage/story" ],
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"reusable": false,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
