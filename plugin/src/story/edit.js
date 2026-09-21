@@ -30,6 +30,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		overlayOpacity,
 		mediaFit,
 		limitStage,
+		pullContent,
 		stepAlign,
 		transition,
 		stickyOffset,
@@ -162,6 +163,23 @@ export default function Edit( { attributes, setAttributes } ) {
 							checked={ limitStage }
 							onChange={ ( value ) =>
 								setAttributes( { limitStage: value } )
+							}
+						/>
+					) }
+					{ 'contain' === mediaFit && limitStage && (
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __(
+								'Pull up the following content',
+								'scrollstage'
+							) }
+							help={ __(
+								'The content after the story appears right below the stage from the first step on and only scrolls on once the story ends. Front end only.',
+								'scrollstage'
+							) }
+							checked={ pullContent }
+							onChange={ ( value ) =>
+								setAttributes( { pullContent: value } )
 							}
 						/>
 					) }

@@ -16,6 +16,13 @@
 	grid-template-columns: minmax(0, 1fr);
 }
 
+/* The last medium ends with a hard edge, so the content after the story gets
+   some room. An afterword brings its own gap; a margin set on the block
+   overrides this one through its inline style. */
+.jgor-st-story:not(.has-after) {
+	margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
 /* Both children live in the same cell, so the steps lie on top of the stage. */
 .jgor-st-story__stage,
 .jgor-st-story__steps {
@@ -137,6 +144,19 @@
 	align-self: start;
 	margin-top: var(--jgor-st-stage-h, 0px);
 	background-color: var(--jgor-st-after-bg, transparent);
+}
+
+/* "Pull up the following content": the script shifts the content after the
+   story up below the limited stage and keeps it there while the steps play.
+   Only the rendering moves, the content keeps its place in the document. */
+.jgor-st-pulled {
+	transform: translate3d(0, var(--jgor-st-pull, 0px), 0);
+}
+
+/* The text boxes stay on the stage. Without the clip they would run across
+   the pulled up content and catch its clicks. */
+.jgor-st-story.is-pulling .jgor-st-story__steps {
+	clip-path: inset(var(--jgor-st-clip-top, 0px) 0 var(--jgor-st-clip-bottom, 0px) 0);
 }
 
 @media (prefers-reduced-motion: reduce) {

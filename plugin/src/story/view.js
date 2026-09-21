@@ -9,7 +9,8 @@
  * readable when JavaScript is unavailable.
  *
  * Below a stage that is limited to the medium, the script also pins the
- * afterword of the story. Without the script it simply follows the steps.
+ * afterword of the story and, when asked for, pulls up the content after the
+ * block. Without the script both simply follow the steps.
  */
 
 const STORY_SELECTOR = '.jgor-st-story';
@@ -226,6 +227,113 @@ function setupAfter( story ) {
 }
 
 /**
+ * Collects the content that follows a story.
+ *
+ * Takes the siblings after the story up to the next story, so a second story
+ * further down keeps its own place.
+ *
+ * @param {HTMLElement} story The story element.
+ * @return {HTMLElement[]} Elements that follow the story.
+ */
+function followingContent( story ) {
+	const elements = [];
+
+	for (
+		let node = story.nextElementSibling;
+		node && ! node.matches( STORY_SELECTOR );
+		node = node.nextElementSibling
+	) {
+		elements.push( node );
+	}
+
+	return elements;
+}
+
+/**
+ * Pulls the content after a story up below its limited stage.
+ *
+ * The content keeps its place in the document and is only shifted while
+ * rendering: by the distance between the lower edge of what sticks (stage,
+ * or a pinned afterword) and the lower edge of the story. Before the story
+ * that is the full scrolling distance, once the stage leaves it is zero. The
+ * text boxes are clipped to the stage so that they neither cover the pulled
+ * up content nor catch its clicks.
+ *
+ * @param {HTMLElement} story The story element.
+ * @return {void}
+ */
+function setupPull( story ) {
+	const stage = story.querySelector( ':scope > .jgor-st-story__stage' );
+	const steps = story.querySelector( ':scope > .jgor-st-story__steps' );
+
+	if (
+		! stage ||
+		! steps ||
+		! story.classList.contains( 'is-stage-limited' ) ||
+		! story.classList.contains( 'has-pull-content' )
+	) {
+		return;
+	}
+
+	const content = followingContent( story );
+
+	if ( 0 === content.length ) {
+		return;
+	}
+
+	const after = story.querySelector( ':scope > .jgor-st-story__after' );
+
+	let frame = 0;
+
+	const update = () => {
+		frame = 0;
+
+		const storyRect = story.getBoundingClientRect();
+		const stageRect = stage.getBoundingClientRect();
+		const stepsRect = steps.getBoundingClientRect();
+
+		// A pinned afterword belongs to what sticks, the content goes below it.
+		const pinnedBottom =
+			after && story.classList.contains( 'is-after-pinned' )
+				? after.getBoundingClientRect().bottom
+				: stageRect.bottom;
+
+		const pull = `${ Math.min( 0, pinnedBottom - storyRect.bottom ) }px`;
+
+		content.forEach( ( element ) => {
+			element.style.setProperty( '--jgor-st-pull', pull );
+		} );
+
+		story.style.setProperty(
+			'--jgor-st-clip-top',
+			`${ Math.max( 0, stageRect.top - stepsRect.top ) }px`
+		);
+		story.style.setProperty(
+			'--jgor-st-clip-bottom',
+			`${ Math.max( 0, stepsRect.bottom - stageRect.bottom ) }px`
+		);
+	};
+
+	const schedule = () => {
+		if ( 0 === frame ) {
+			frame = window.requestAnimationFrame( update );
+		}
+	};
+
+	update();
+
+	content.forEach( ( element ) => element.classList.add( 'jgor-st-pulled' ) );
+	story.classList.add( 'is-pulling' );
+
+	window.addEventListener( 'scroll', schedule, { passive: true } );
+	window.addEventListener( 'resize', schedule );
+
+	// Size changes of the story, e.g. from late images or fonts, move the
+	// edges without a scroll event.
+	new window.ResizeObserver( schedule ).observe( story );
+}
+
+/**
  * Sets up every story on the page.
  *
  * @return {void}
@@ -239,6 +347,7 @@ function init() {
 
 	if ( 'ResizeObserver' in window ) {
 		stories.forEach( setupAfter );
+		stories.forEach( setupPull );
 	}
 }
 

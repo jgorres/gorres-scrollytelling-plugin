@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.3 · Stand: 21.09.2026 · Plugin-Version: 2.2.0
+Version: 1.4 · Stand: 21.09.2026 · Plugin-Version: 2.3.0
 
 ## 1. Zweck
 
@@ -58,6 +58,7 @@ wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
 | `stepAlign` | start, center, end | center | senkrechte Lage im Schritt |
 | `mediaFit` | cover, contain | cover | Ausschnitt füllen oder ganzes Medium |
 | `limitStage` | true/false | false | Bühne auf das Medium begrenzen (nur bei contain) |
+| `pullContent` | true/false | false | Inhalt nach der Story unter die begrenzte Bühne ziehen (nur mit `limitStage`) |
 | `overlayOpacity` | 0–90 | 35 | Abdunkelung der Medien in Prozent |
 | `stickyOffset` | 0–200 | 0 | Abstand von oben in Pixeln |
 | `minStepHeight` | 40–200 | 100 | Höhe eines Schritts in Prozent der Bildschirmhöhe |
@@ -122,6 +123,33 @@ dem Block kommt erst nach dem letzten Schritt.
 5. Der Nachspann bekommt die erste deckende Hintergrundfarbe ab der Story
    aufwärts (`--jgor-st-after-bg`), sonst schienen die weißen Schritttexte
    durch. Eine eigene Hintergrundfarbe am Block hat Vorrang.
+
+Der Nachspann ist nur für Inhalt gedacht, der zur Geschichte gehört.
+
+### Folgenden Inhalt hochziehen (`pullContent`)
+
+Für gewöhnlichen Seiteninhalt nach der Story, der schon unter dem ersten Bild
+erscheinen soll. Der Inhalt bleibt im Dokument hinter dem Story-Block, nur die
+Darstellung wird verschoben.
+
+1. `view.js` nimmt die Geschwister nach der Story bis zur nächsten Story
+   (`followingContent()`) und gibt ihnen die Klasse `jgor-st-pulled`.
+2. Bei jedem Scroll-Frame (`requestAnimationFrame`, passiver Listener) und bei
+   Größenänderung erhält jedes dieser Elemente
+   `--jgor-st-pull = Unterkante Bühne (oder angehefteter Nachspann) − Unterkante Story`,
+   höchstens 0. Vor der Story ist das die volle Scrollstrecke, nach dem
+   Lösen der Bühne 0. Umgesetzt als `transform: translate3d()`.
+3. Die Schrittspalte wird per `clip-path: inset()` auf die Bühne beschnitten
+   (`--jgor-st-clip-top`, `--jgor-st-clip-bottom`). Sonst liefen die
+   Schritttexte über den hochgezogenen Inhalt und fingen dessen Klicks ab.
+4. Nur innerhalb des Elternelements: Liegt die Story in einer Gruppe, wird nur
+   der Inhalt dieser Gruppe hochgezogen. Ohne Skript folgt der Inhalt normal.
+
+### Abstand unter der Story
+
+Jede Story ohne Nachspann hat `margin-bottom: clamp(1.5rem, 4vh, 2.5rem)`, weil
+das letzte Medium mit harter Kante endet. Ein am Block gesetzter Außenabstand
+hat Vorrang (Inline-Style). Beim Hochziehen gilt der Abstand ebenfalls.
 
 Die Textbreite hängt an einer Container-Query auf der Schrittspalte, nicht an
 einer Media-Query: Die Spalte ist je nach Theme-Layout und Bühnenbegrenzung
@@ -219,3 +247,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | 1.1 | 20.09.2026 | Hinweis auf fehlendes GeneratePress ergänzt (Plugin 2.1.0) |
 | 1.2 | 20.09.2026 | Begrenzte Bühne übernimmt das Seitenverhältnis des Mediums (Plugin 2.1.1) |
 | 1.3 | 21.09.2026 | Nachspann-Block `after`, klebt unter der begrenzten Bühne (Plugin 2.2.0) |
+| 1.4 | 21.09.2026 | Folgenden Inhalt hochziehen, Abstand unter der Story (Plugin 2.3.0) |

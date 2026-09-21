@@ -10,6 +10,9 @@
  * An afterword block follows the steps. Its markup was taken out of $content
  * by jgor_st_collect_after(); the script pins it below a limited stage.
  *
+ * With "pullContent" the script also pulls the content after the block up
+ * below a limited stage. That content stays where it is in the document.
+ *
  * @package Scrollstage
  *
  * @var array<string, mixed> $attributes Block attributes.
@@ -29,6 +32,7 @@ $jgor_st_text_width    = isset( $attributes['textWidth'] ) ? min( 100, max( 20, 
 $jgor_st_overlay       = isset( $attributes['overlayOpacity'] ) ? min( 90, absint( $attributes['overlayOpacity'] ) ) : 35;
 $jgor_st_media_fit     = isset( $attributes['mediaFit'] ) && 'contain' === $attributes['mediaFit'] ? 'contain' : 'cover';
 $jgor_st_limit_stage   = ! empty( $attributes['limitStage'] ) && 'contain' === $jgor_st_media_fit;
+$jgor_st_pull_content  = ! empty( $attributes['pullContent'] ) && $jgor_st_limit_stage;
 
 // Media of the child steps, in document order; empty steps keep their slot.
 $jgor_st_stage = '';
@@ -80,6 +84,10 @@ $jgor_st_classes = array(
 
 if ( $jgor_st_limit_stage && $jgor_st_ratio > 0 ) {
 	$jgor_st_classes[] = 'is-stage-limited';
+
+	if ( $jgor_st_pull_content ) {
+		$jgor_st_classes[] = 'has-pull-content';
+	}
 }
 
 if ( '' !== trim( $jgor_st_after ) ) {

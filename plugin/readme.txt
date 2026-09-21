@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ The story is built from two blocks, plus an optional third:
 * Position of the text boxes: left, centre or right, horizontally and vertically
 * Width of the text boxes in percent of the available column
 * How a medium fills the screen: crop to fill, or show the whole medium
+* With a stage limited to the medium: pull the content after the story up below the stage, so it shows from the first step on
 * Dimming of the media so that text stays readable
 * Offset from the top, for sites with a fixed menu
 * Height of a step, which decides how long its medium stays in place
@@ -66,7 +67,7 @@ Its text scrolls across the medium of the previous step. That is useful for a cl
 
 = Why is there empty space below the stage? =
 
-With "Limit the stage to the medium" the stage is lower than the screen, and content after the story only follows the last step. Put that content into a "Scrollstage Afterword" block inside the story: it then sits right below the stage while the steps play and scrolls on together with it.
+With "Limit the stage to the medium" the stage is lower than the screen, and content after the story only follows the last step. Switch on "Pull up the following content" in the story block: the content after it then sits right below the stage while the steps play and scrolls on once the story ends. If the content belongs to the story itself, put it into a "Scrollstage Afterword" block inside the story instead.
 
 = Does the text stay readable on a bright image? =
 
@@ -79,6 +80,10 @@ The story dims its media; you can set how much. Each step can also carry its own
 3. A single step with its medium and its text.
 
 == Changelog ==
+
+= 2.3.0 =
+* New: "Pull up the following content" shows the content after a story with a limited stage right below the stage from the first step on. The content keeps its place in the document.
+* New: a default gap between the story and the content after it. A margin set on the block overrides it.
 
 = 2.2.0 =
 * New block "Scrollstage Afterword": content that follows the last step. With "Limit the stage to the medium" it sits right below the stage from the first step on, so the space under the stage no longer stays empty.
