@@ -44,13 +44,6 @@
 		</properties>
 	</rule>
 
-	<!-- The GeneratePress page template fires the hooks of that theme on
-	     purpose, so its Elements keep working inside the template. Those hook
-	     names belong to the theme and cannot carry the plugin prefix. -->
-	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound">
-		<exclude-pattern>*/plugin/templates/*</exclude-pattern>
-	</rule>
-
 	<!-- Text domain check: plugin slug -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>

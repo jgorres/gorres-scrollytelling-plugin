@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.3.2
+Stable tag: 2.4.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,10 +39,6 @@ The story is built from two blocks, plus an optional third:
 * **Respects reduced motion.** No cross-fade and no playing video when the visitor asked for less motion.
 * **Screen readers get one medium at a time.** All media of a story live in the document at once; only the visible one is exposed.
 * **Sharp images.** The plugin calculates the sizes attribute from the aspect ratio of the image, because a screen-high medium needs a wider file than the screen itself.
-
-= GeneratePress =
-
-The plugin ships an optional page template, "Scrollstage: full width", which drops the sidebars while header, footer and the usual content width stay untouched. It builds on the hooks of GeneratePress and only appears when that theme is active. The blocks themselves work with any theme.
 
 == Installation ==
 
@@ -82,5 +78,5 @@ The story dims its media; you can set how much. Each step can also carry its own
 
 == Changelog ==
 
-= 2.3.2 =
+= 2.4.0 =
 * First public release.

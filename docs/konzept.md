@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.7 · Stand: 29.09.2026 · Plugin-Version: 2.3.2
+Version: 1.8 · Stand: 29.09.2026 · Plugin-Version: 2.4.0
 
 ## 1. Zweck
 
@@ -22,21 +22,19 @@ Projektdoku ist deutsch.
 │   ├── readme.txt             für das WordPress-Verzeichnis
 │   ├── uninstall.php          derzeit ohne Daten zu löschen
 │   ├── includes/
-│   │   ├── blocks.php         Kategorie, Registrierung, Bühnen-Markup
-│   │   └── templates.php      Seitenvorlage für GeneratePress
+│   │   └── blocks.php         Kategorie, Registrierung, Bühnen-Markup
 │   ├── src/                   Quellen für wp-scripts
 │   │   ├── story/             block.json, index/edit/save, render.php,
 │   │   │                      style.scss, editor.scss, view.js
 │   │   ├── step/              ebenso, ohne view.js
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
-│   ├── templates/fullwidth.php
 │   ├── languages/scrollstage.pot
 │   └── .distignore            Ausschlüsse für ZIP und SVN-Export
 ├── assets/                    WP.org-Assets: Screenshots, Icon, Banner (nicht im Paket)
 ├── build.sh                   Release-ZIP erzeugen
 ├── docs/                      diese Doku, banner.svg, Quellvideo der Aufnahme
-├── stubs/generatepress.php    für PHPStan
+├── stubs/                     zusätzliche Stubs für PHPStan (derzeit leer)
 ├── composer.json, phpcs.xml.dist, phpstan.neon.dist, phpstan-bootstrap.php
 └── package.json
 ```
@@ -163,23 +161,12 @@ Die Textbreite hängt an einer Container-Query auf der Schrittspalte, nicht an
 einer Media-Query: Die Spalte ist je nach Theme-Layout und Bühnenbegrenzung
 viel schmaler als das Fenster.
 
-## 5. Seitenvorlage (GeneratePress)
+## 5. Themes
 
-`Scrollstage: full width` erscheint nur, wenn GeneratePress läuft
-(`GENERATE_VERSION`). Sie folgt dem Aufbau von dessen `page.php`, setzt das
-Sidebar-Layout per `generate_sidebar_layout` auf `no-sidebar` und umschließt
-den Inhalt mit `.entry-content`. Daran hängt die alignfull-Regel des Themes:
-Ein Block auf „Volle Breite" bricht randlos aus, gewöhnlicher Text behält
-Breite und Abstände des Themes.
-
-Bewusst nicht enthalten: ein Umschalten des Inhalts-Containers auf volle
-Breite. Das hatte zur Folge, dass auch Fließtext neben der Story am Rand
-klebte.
-
-Fehlt GeneratePress, fehlt nur die Vorlage. Die Blöcke selbst arbeiten mit
-jedem Theme, volle Breite liefert dann das Theme über `alignfull`. Ein
-Admin-Hinweis auf das fehlende Theme (2.1.0 bis 2.3.1) wurde in 2.3.2 wieder
-entfernt, weil er ohne Nutzen bei jedem Aufruf erschien.
+Das Plugin enthält keinen Theme-Code. Volle Breite liefert das Theme über
+`alignfull`, die Blöcke setzen nur ihre eigenen Klassen und Variablen. Eine
+Seitenvorlage für GeneratePress (2.0.0 bis 2.3.2) wurde in 2.4.0 entfernt,
+weil sie nur ein Theme betraf und Plugin Check die Theme-Hooks bemängelte.
 
 ## 6. Barrierefreiheit
 
@@ -231,10 +218,8 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
    `plugin/` ohne die Einträge aus `plugin/.distignore` (`src/`, `.po`,
    `.mo`, `.json`, `.l10n.php`) und schreibt
    `~/dev/jgorres-im-WP-Repository/scrollstage-<version>.zip`.
-5. Plugin Check laufen lassen, dann einreichen. Drei Warnungen bleiben und
-   sind beabsichtigt: Die Seitenvorlage löst die `generate_*`-Hooks des
-   Themes aus, damit GeneratePress-Elements darin arbeiten. Fehler meldet
-   der Check keine.
+5. Plugin Check laufen lassen, dann einreichen. Erwartung: keine Fehler,
+   keine Warnungen.
 6. Nach Freischaltung SVN: `trunk` plus `tags/<version>`, Assets nach
    `assets/`.
 
@@ -247,7 +232,7 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | --- | --- | --- |
 | Name | Scrollstage | „Scrollytelling" ist im Verzeichnis vergeben und zu generisch |
 | Sprache der Oberfläche | Englisch | translate.wordpress.org übersetzt von en_US |
-| Fremde Themes | nur Blöcke, Vorlage bleibt GeneratePress | kein Code für Fälle, die niemand nutzt |
+| Themes | nur Blöcke, kein Theme-Code | volle Breite kommt aus dem Theme, kein Sonderfall für ein einzelnes Theme |
 | Animationsbibliothek | keine | IntersectionObserver genügt, rund 1 KB statt 70 KB |
 | Editor-Vorschau | vereinfacht, ohne klebende Bühne | der Editor hat einen eigenen Scroll-Container |
 | Nachspann ohne Bühnenbegrenzung | erlaubt, folgt der Story wie normaler Inhalt | beim Umschalten der Begrenzung geht nichts verloren |
@@ -265,3 +250,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | 1.5 | 21.09.2026 | Hochziehen per Sticky statt Scroll-Transform, kein Flattern mehr (Plugin 2.3.1) |
 | 1.6 | 29.09.2026 | Admin-Hinweis auf fehlendes GeneratePress entfernt (Plugin 2.3.2) |
 | 1.7 | 29.09.2026 | build.sh, .distignore, Assets und animierte Screenshots beschrieben |
+| 1.8 | 29.09.2026 | Seitenvorlage für GeneratePress entfernt (Plugin 2.4.0) |
