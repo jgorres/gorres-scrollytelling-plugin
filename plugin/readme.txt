@@ -75,7 +75,7 @@ The story dims its media; you can set how much. Each step can also carry its own
 
 == Screenshots ==
 
-1. A story in the front end: the medium fills the screen while the text box scrolls across it.
+1. A story in the front end: the media stay in place and change while the text boxes scroll across them (animated).
 2. A stage limited to the medium, with the content after the story pulled up below it.
 3. The story block in the editor with its settings.
 4. A single step in the editor with its medium and its text.
