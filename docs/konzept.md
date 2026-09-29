@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.6 · Stand: 29.09.2026 · Plugin-Version: 2.3.2
+Version: 1.7 · Stand: 29.09.2026 · Plugin-Version: 2.3.2
 
 ## 1. Zweck
 
@@ -31,8 +31,11 @@ Projektdoku ist deutsch.
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
 │   ├── templates/fullwidth.php
-│   └── languages/scrollstage.pot
-├── docs/                      diese Doku
+│   ├── languages/scrollstage.pot
+│   └── .distignore            Ausschlüsse für ZIP und SVN-Export
+├── assets/                    WP.org-Assets: Screenshots, Icon, Banner (nicht im Paket)
+├── build.sh                   Release-ZIP erzeugen
+├── docs/                      diese Doku, banner.svg, Quellvideo der Aufnahme
 ├── stubs/generatepress.php    für PHPStan
 ├── composer.json, phpcs.xml.dist, phpstan.neon.dist, phpstan-bootstrap.php
 └── package.json
@@ -220,8 +223,14 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 1. `npm run build`, danach alle Prüfwerkzeuge grün.
 2. `.pot` neu erzeugen, Version in Header, Konstante, `readme.txt`
    (`Stable tag`), `package.json` und allen drei `block.json` gleichziehen.
-3. Drei Screenshots als `assets/screenshot-1..3.png` außerhalb des Plugins.
-4. Paket ohne `node_modules`, `src`, Konfigurationsdateien schnüren.
+3. Vier Screenshots als `assets/screenshot-1..4.png` außerhalb des Plugins,
+   Motiv 1 als animiertes PNG aus `docs/scrollstage-hero.mp4`; Icon und
+   Banner ebenfalls animiert, aus `assets/icon.svg` und `docs/banner.svg`
+   im Browser gerendert (kleine Größen aus den großen skalieren).
+4. `./build.sh`: prüft die Versionsnummern, baut die Blöcke, exportiert
+   `plugin/` ohne die Einträge aus `plugin/.distignore` (`src/`, `.po`,
+   `.mo`, `.json`, `.l10n.php`) und schreibt
+   `~/dev/jgorres-im-WP-Repository/scrollstage-<version>.zip`.
 5. Plugin Check laufen lassen, dann einreichen. Drei Warnungen bleiben und
    sind beabsichtigt: Die Seitenvorlage löst die `generate_*`-Hooks des
    Themes aus, damit GeneratePress-Elements darin arbeiten. Fehler meldet
@@ -255,3 +264,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | 1.4 | 21.09.2026 | Folgenden Inhalt hochziehen, Abstand unter der Story (Plugin 2.3.0) |
 | 1.5 | 21.09.2026 | Hochziehen per Sticky statt Scroll-Transform, kein Flattern mehr (Plugin 2.3.1) |
 | 1.6 | 29.09.2026 | Admin-Hinweis auf fehlendes GeneratePress entfernt (Plugin 2.3.2) |
+| 1.7 | 29.09.2026 | build.sh, .distignore, Assets und animierte Screenshots beschrieben |
