@@ -47,7 +47,7 @@
     </linearGradient>
     <clipPath id="stage"><rect x="32" y="40" width="192" height="176" rx="18"/></clipPath>
   </defs>
-  <rect width="1544" height="500" fill="url(#bg)"/>
+  <rect width="1544" height="500" rx="24" fill="url(#bg)"/>
   <!-- The stage of the icon, scaled up; keyframes and classes are shared. -->
   <g transform="translate(140 70) scale(2.05) translate(-32 -40)">
     <g clip-path="url(#stage)">
