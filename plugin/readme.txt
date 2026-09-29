@@ -8,7 +8,7 @@ Stable tag: 2.3.2
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Full-screen media that stay in place while text boxes scroll across them, built from two blocks in the editor.
+Full-screen media that stay in place while text boxes scroll across them, built from blocks in the editor.
 
 == Description ==
 
@@ -22,7 +22,7 @@ The story is built from two blocks, plus an optional third:
 
 = What you can set =
 
-* Position of the text boxes: left, centre or right, horizontally and vertically
+* Position of the text boxes: left, center or right, horizontally and vertically
 * Width of the text boxes in percent of the available column
 * How a medium fills the screen: crop to fill, or show the whole medium
 * With a stage limited to the medium: pull the content after the story up below the stage, so it shows from the first step on
@@ -71,37 +71,16 @@ With "Limit the stage to the medium" the stage is lower than the screen, and con
 
 = Does the text stay readable on a bright image? =
 
-The story dims its media; you can set how much. Each step can also carry its own background and text colour through the usual block settings.
+The story dims its media; you can set how much. Each step can also carry its own background and text color through the usual block settings.
 
 == Screenshots ==
 
-1. A story in the front end: the medium fills the screen, the text box scrolls across it.
-2. The story block in the editor with its settings.
-3. A single step with its medium and its text.
+1. A story in the front end: the medium fills the screen while the text box scrolls across it.
+2. A stage limited to the medium, with the content after the story pulled up below it.
+3. The story block in the editor with its settings.
+4. A single step in the editor with its medium and its text.
 
 == Changelog ==
 
 = 2.3.2 =
-* Removed: the admin notice about a missing GeneratePress. The blocks work with any theme, so the note was not needed.
-
-= 2.3.1 =
-* Fixed: content pulled up below the stage jittered while scrolling in some browsers. The browser now holds it in place itself.
-
-= 2.3.0 =
-* New: "Pull up the following content" shows the content after a story with a limited stage right below the stage from the first step on. The content keeps its place in the document.
-* New: a default gap between the story and the content after it. A margin set on the block overrides it.
-
-= 2.2.0 =
-* New block "Scrollstage Afterword": content that follows the last step. With "Limit the stage to the medium" it sits right below the stage from the first step on, so the space under the stage no longer stays empty.
-
-= 2.1.1 =
-* Fixed: with "Limit the stage to the medium" the stage now takes the shape of the medium instead of only its maximum width. Inside a narrow column it stayed screen-high, which left dimmed margins above and below the medium.
-
-= 2.1.0 =
-* The plugin now points out on the plugins and themes screens when GeneratePress is missing, because the page template needs it.
-
-= 2.0.1 =
-* Tested with WordPress 7.1.
-
-= 2.0.0 =
 * First public release.
