@@ -22,8 +22,9 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Plugin constants.
  *
- * JGOR_ST_VERSION is also used as the asset version for cache busting and must
- * be kept in sync with the "Version" header above on every release.
+ * JGOR_ST_VERSION must be kept in sync with the "Version" header above on
+ * every release. The block assets take their cache-busting version from the
+ * "version" field of each block.json, which has to be raised as well.
  */
 define( 'JGOR_ST_VERSION', '2.3.2' );
 define( 'JGOR_ST_MIN_PHP', '8.1' );
