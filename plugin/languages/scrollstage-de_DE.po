@@ -1,0 +1,337 @@
+# Copyright (C) 2026 Jörn Gorres
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Scrollstage 2.3.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"POT-Creation-Date: 2026-09-29T13:34:06+00:00\n"
+"PO-Revision-Date: 2026-09-29 16:00+0200\n"
+"Last-Translator: Jörn Gorres <joern@gorres.com>\n"
+"Language-Team: Deutsch <joern@gorres.com>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: scrollstage\n"
+
+#. Plugin Name of the plugin
+#: scrollstage.php includes/blocks.php:24
+msgid "Scrollstage"
+msgstr "Scrollstage"
+
+#. Plugin URI of the plugin
+#: scrollstage.php
+msgid "https://joern.gorres.com/scrollstage"
+msgstr "https://joern.gorres.com/scrollstage"
+
+#. Description of the plugin
+#: scrollstage.php
+msgid ""
+"Full-screen media that stay in place while text boxes scroll across them."
+msgstr ""
+"Bildschirmfüllende Medien, die an Ort und Stelle bleiben, während Textkästen "
+"darüber scrollen."
+
+#. Author of the plugin
+#: scrollstage.php
+msgid "Jörn Gorres"
+msgstr "Jörn Gorres"
+
+#. Author URI of the plugin
+#: scrollstage.php
+msgid "https://joern.gorres.com"
+msgstr "https://joern.gorres.com"
+
+#: includes/templates.php:50
+msgid "Scrollstage: full width"
+msgstr "Scrollstage: volle Breite"
+
+#. translators: %s: required PHP version
+#: scrollstage.php:72
+#, php-format
+msgid "This plugin requires PHP %s or newer."
+msgstr "Dieses Plugin benötigt PHP %s oder neuer."
+
+#: scrollstage.php:76
+msgid "Plugin activation stopped"
+msgstr "Plugin-Aktivierung abgebrochen"
+
+#: src/after/edit.js:33
+msgid "Afterword"
+msgstr "Nachspann"
+
+#: src/after/edit.js:35
+msgid ""
+"The afterword always follows the last step. When the story limits the stage "
+"to the medium, it appears right below the stage from the first step on and "
+"only scrolls away once the story ends. Front end only."
+msgstr ""
+"Der Nachspann folgt immer auf den letzten Schritt. Wenn die Story die Bühne "
+"auf das Medium begrenzt, erscheint er ab dem ersten Schritt direkt unter der "
+"Bühne und scrollt erst weg, wenn die Story endet. Nur im Frontend."
+
+#: src/step/edit.js:97
+msgid "Replace medium"
+msgstr "Medium ersetzen"
+
+#: src/step/edit.js:103
+msgid "Medium"
+msgstr "Medium"
+
+#: src/step/edit.js:106
+msgid ""
+"No medium is set for this step. While scrolling, the medium of the previous "
+"step stays in place."
+msgstr ""
+"Für diesen Schritt ist kein Medium festgelegt. Beim Scrollen bleibt das "
+"Medium des vorherigen Schritts stehen."
+
+#: src/step/edit.js:115
+msgid ""
+"This image has no alternative text. People using a screen reader will not "
+"learn what it shows."
+msgstr ""
+"Dieses Bild hat keinen Alternativtext. Menschen, die einen Screenreader "
+"nutzen, erfahren nicht, was es zeigt."
+
+#: src/step/edit.js:125
+msgid "Alternative text"
+msgstr "Alternativtext"
+
+#: src/step/edit.js:126
+msgid "Leave empty to use the alternative text from the media library."
+msgstr "Leer lassen, um den Alternativtext aus der Mediathek zu verwenden."
+
+#: src/step/edit.js:140
+msgid "Focal point"
+msgstr "Fokuspunkt"
+
+#: src/step/edit.js:141
+msgid "Sets which point stays visible when the medium is cropped."
+msgstr ""
+"Legt fest, welcher Punkt sichtbar bleibt, wenn das Medium zugeschnitten wird."
+
+#: src/step/edit.js:160
+msgid "Remove medium"
+msgstr "Medium entfernen"
+
+#: src/step/edit.js:181
+msgid "Medium of this step"
+msgstr "Medium dieses Schritts"
+
+#: src/step/edit.js:182
+msgid "Choose an image or video for this text to scroll across."
+msgstr "Wähle ein Bild oder Video, über das dieser Text scrollen soll."
+
+#: src/story/edit.js:62
+msgid "Text boxes"
+msgstr "Textkästen"
+
+#: src/story/edit.js:65
+msgid "Horizontal position"
+msgstr "Horizontale Position"
+
+#: src/story/edit.js:69
+msgid "Left"
+msgstr "Links"
+
+#: src/story/edit.js:73 src/story/edit.js:113
+msgid "Middle"
+msgstr "Mitte"
+
+#: src/story/edit.js:77
+msgid "Right"
+msgstr "Rechts"
+
+#: src/story/edit.js:87
+msgid "Text box width in percent"
+msgstr "Breite des Textkastens in Prozent"
+
+#: src/story/edit.js:91
+msgid "On narrow screens the boxes always use the full width."
+msgstr "Auf schmalen Bildschirmen nutzen die Kästen immer die volle Breite."
+
+#: src/story/edit.js:105
+msgid "Vertical position"
+msgstr "Vertikale Position"
+
+#: src/story/edit.js:109
+msgid "Top"
+msgstr "Oben"
+
+#: src/story/edit.js:117
+msgid "Bottom"
+msgstr "Unten"
+
+#: src/story/edit.js:126
+msgid "Media"
+msgstr "Medien"
+
+#: src/story/edit.js:129
+msgid "Media fit"
+msgstr "Anpassung der Medien"
+
+#: src/story/edit.js:130
+msgid ""
+"“Fill the frame” crops the medium to the size of the screen, “Show the whole "
+"medium” leaves margins free."
+msgstr ""
+"„Ausschnitt füllen“ schneidet das Medium auf die Bildschirmgröße zu, „Ganzes "
+"Medium zeigen“ lässt Ränder frei."
+
+#: src/story/edit.js:137
+msgid "Fill the frame"
+msgstr "Ausschnitt füllen"
+
+#: src/story/edit.js:141
+msgid "Show the whole medium"
+msgstr "Ganzes Medium zeigen"
+
+#: src/story/edit.js:155
+msgid "Limit the stage to the medium"
+msgstr "Bühne auf das Medium begrenzen"
+
+#: src/story/edit.js:159
+msgid ""
+"Otherwise the media use the full width and the text can end up beside the "
+"medium. The width follows the narrowest medium of the story. Front end only."
+msgstr ""
+"Andernfalls nutzen die Medien die volle Breite, und der Text kann neben dem "
+"Medium landen. Die Breite richtet sich nach dem schmalsten Medium der Story. "
+"Nur im Frontend."
+
+#: src/story/edit.js:172
+msgid "Pull up the following content"
+msgstr "Folgenden Inhalt hochziehen"
+
+#: src/story/edit.js:176
+msgid ""
+"The content after the story appears right below the stage from the first "
+"step on and only scrolls on once the story ends. Front end only."
+msgstr ""
+"Der Inhalt nach der Story erscheint ab dem ersten Schritt direkt unter der "
+"Bühne und scrollt erst weiter, wenn die Story endet. Nur im Frontend."
+
+#: src/story/edit.js:188
+msgid "Dimming in percent"
+msgstr "Abdunkelung in Prozent"
+
+#: src/story/edit.js:189
+msgid "Sits on top of the media so that text stays readable."
+msgstr "Liegt über den Medien, damit der Text lesbar bleibt."
+
+#: src/story/edit.js:203
+msgid "Offset from the top (px)"
+msgstr "Abstand von oben (px)"
+
+#: src/story/edit.js:207
+msgid "Room for a fixed menu above the media."
+msgstr "Platz für ein fixiertes Menü über den Medien."
+
+#: src/story/edit.js:221
+msgid "Step height in percent of the screen height"
+msgstr "Schritthöhe in Prozent der Bildschirmhöhe"
+
+#: src/story/edit.js:225
+msgid "Decides how long a medium stays in place."
+msgstr "Bestimmt, wie lange ein Medium stehen bleibt."
+
+#: src/story/edit.js:239
+msgid "Motion"
+msgstr "Bewegung"
+
+#: src/story/edit.js:244
+msgid "Transition"
+msgstr "Übergang"
+
+#: src/story/edit.js:245
+msgid ""
+"With “None” the media switch instantly. Systems asking for reduced motion "
+"never cross-fade."
+msgstr ""
+"Bei „Keiner“ wechseln die Medien sofort. Systeme, die reduzierte Bewegung "
+"wünschen, blenden nie über."
+
+#: src/story/edit.js:252
+msgid "Cross-fade"
+msgstr "Überblenden"
+
+#: src/story/edit.js:256
+msgid "None"
+msgstr "Keiner"
+
+#: src/after/block.json
+msgctxt "block title"
+msgid "Scrollstage Afterword"
+msgstr "Scrollstage-Nachspann"
+
+#: src/after/block.json
+msgctxt "block description"
+msgid ""
+"Content that follows the last step. With a stage limited to the medium it "
+"sits right below the stage from the first step on."
+msgstr ""
+"Inhalt, der auf den letzten Schritt folgt. Bei einer auf das Medium "
+"begrenzten Bühne sitzt er ab dem ersten Schritt direkt unter der Bühne."
+
+#: src/after/block.json src/step/block.json src/story/block.json
+msgctxt "block keyword"
+msgid "scrollytelling"
+msgstr "scrollytelling"
+
+#: src/after/block.json
+msgctxt "block keyword"
+msgid "after"
+msgstr "nachspann"
+
+#: src/after/block.json
+msgctxt "block keyword"
+msgid "outro"
+msgstr "outro"
+
+#: src/after/block.json src/step/block.json src/story/block.json
+msgctxt "block keyword"
+msgid "story"
+msgstr "story"
+
+#: src/step/block.json
+msgctxt "block title"
+msgid "Scrollstage Step"
+msgstr "Scrollstage-Schritt"
+
+#: src/step/block.json
+msgctxt "block description"
+msgid ""
+"One step of the story: text that scrolls across the medium belonging to it."
+msgstr "Ein Schritt der Story: Text, der über das zugehörige Medium scrollt."
+
+#: src/step/block.json
+msgctxt "block keyword"
+msgid "step"
+msgstr "schritt"
+
+#: src/story/block.json
+msgctxt "block title"
+msgid "Scrollstage Story"
+msgstr "Scrollstage-Story"
+
+#: src/story/block.json
+msgctxt "block description"
+msgid ""
+"A full-screen medium that stays in place while the text steps scroll across "
+"it."
+msgstr ""
+"Ein bildschirmfüllendes Medium, das an Ort und Stelle bleibt, während die "
+"Textschritte darüber scrollen."
+
+#: src/story/block.json
+msgctxt "block keyword"
+msgid "scroll"
+msgstr "scroll"
+
+#: src/story/block.json
+msgctxt "block keyword"
+msgid "sticky"
+msgstr "sticky"
