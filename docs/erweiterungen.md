@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.6 · Stand: 30.09.2026 · Plugin-Version: 2.7.0
+Version: 1.7 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
 
 ## 1. Ausgangspunkt
 
@@ -190,7 +190,7 @@ Scrollstage aktiv:
 | Site | Scrollstage | Zweck |
 | --- | --- | --- |
 | `https://scrollstage-basis.local` | 2.4.0 aus `scrollstage-2.4.0.zip`, feste Kopie | Vergleichsstand |
-| `https://scrollstage-pro.local` | Symlink auf `~/dev/scrollstage/plugin` | Entwicklungsstand |
+| `https://scrollstage-pro.local` | Symlink auf `~/dev/jgorres-im-WP-Repository/scrollstage/plugin` | Entwicklungsstand |
 
 Testseiten auf beiden: `/scrollstage-hero/`, `/scrollstage-standard-width/`
 (begrenzte Bühne, Hochziehen) und `/scrollytelling-test/`. Jede hat fünf
@@ -233,3 +233,4 @@ den Entwicklungsstand.
 | 1.4 | 30.09.2026 | Nachtrag zu Schritt 2 (Plugin 2.6.1): `zoom` sichtbar gemacht, `fade` verlängert, Fallback in Firefox nachgemessen |
 | 1.5 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2); Prototyp für die Reihe |
 | 1.6 | 30.09.2026 | Schritt 3 erledigt (Plugin 2.7.0): Block „Scrollstage Row", Abweichungen vom Prototyp, Testseite auf Pro |
+| 1.7 | 30.09.2026 | Pfad des Projekts nach dem Umzug nach `~/dev/jgorres-im-WP-Repository/scrollstage` |

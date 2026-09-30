@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.18 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
+Version: 1.19 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
 
 ## 1. Zweck
 
@@ -15,8 +15,12 @@ Projektdoku ist deutsch.
 
 ## 2. Verzeichnisse
 
+Das Projekt liegt unter `~/dev/jgorres-im-WP-Repository/`, wie alles, was ein
+Plugin im WordPress-Verzeichnis ist oder werden soll. Im selben Ordner liegen
+die Release-ZIPs und die Übersetzungsdateien für GlotPress.
+
 ```
-~/dev/scrollstage/
+~/dev/jgorres-im-WP-Repository/scrollstage/
 ├── plugin/                    ausgeliefertes Plugin
 │   ├── scrollstage.php        Header, Konstanten, Textdomain, Modul-Loader
 │   ├── readme.txt             für das WordPress-Verzeichnis
@@ -528,3 +532,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.16 | 30.09.2026 | readme: Beschreibung mit Erklärung von Scrollytelling, Blöcke in beliebiger Zahl, Donate link (Plugin 2.7.1); am Plugin selbst nichts geändert |
 | 1.17 | 30.09.2026 | `includes/admin.php`: Spendenlink (Ko-fi) in der Zeile des Plugins in der Plugin-Liste über `plugin_row_meta` (Plugin 2.7.2) |
 | 1.18 | 30.09.2026 | `.distignore` liegt in der Wurzel des Repos statt in `plugin/`: Plugin Check meldete die versteckte Datei auf den Testsites, die den Ordner per Symlink laden. Paket unverändert |
+| 1.19 | 30.09.2026 | Projekt von `~/dev/scrollstage` nach `~/dev/jgorres-im-WP-Repository/scrollstage` umgezogen; Symlinks der Testsites nachgezogen |
