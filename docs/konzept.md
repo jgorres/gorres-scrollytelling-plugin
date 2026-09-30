@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.8 · Stand: 29.09.2026 · Plugin-Version: 2.4.0
+Version: 1.9 · Stand: 30.09.2026 · Plugin-Version: 2.4.0
 
 ## 1. Zweck
 
@@ -226,7 +226,15 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 Übersetzungen laufen über translate.wordpress.org; im Paket liegt nur die
 `.pot`.
 
-## 10. Entschiedene Fragen
+## 10. Basisplugin
+
+Stand 2.4.0 (Commit b652234, Git-Tag `basisplugin-2.4.0`) ist das
+**Basisplugin**: drei Blöcke, senkrechtes Scrollen, Überblenden, Nachspann,
+Hochziehen. Es funktioniert und dient bei allen Erweiterungen als
+Startpunkt, auf den sich per `git checkout basisplugin-2.4.0` zurückgehen
+lässt.
+
+## 11. Entschiedene Fragen
 
 | Frage | Entscheidung | Grund |
 | --- | --- | --- |
@@ -251,3 +259,4 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 | 1.6 | 29.09.2026 | Admin-Hinweis auf fehlendes GeneratePress entfernt (Plugin 2.3.2) |
 | 1.7 | 29.09.2026 | build.sh, .distignore, Assets und animierte Screenshots beschrieben |
 | 1.8 | 29.09.2026 | Seitenvorlage für GeneratePress entfernt (Plugin 2.4.0) |
+| 1.9 | 30.09.2026 | Abschnitt Basisplugin (Tag basisplugin-2.4.0) |
