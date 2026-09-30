@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.3 · Stand: 30.09.2026 · Plugin-Version: 2.6.0
+Version: 1.4 · Stand: 30.09.2026 · Plugin-Version: 2.6.1
 
 ## 1. Ausgangspunkt
 
@@ -94,8 +94,14 @@ Chromium gemessen: halb hereingescrollt Deckkraft 0,5 und halber Versatz,
 mittig voll sichtbar, halb hinausgescrollt wieder 0,5. Fallback in Chromium
 mit abgeschalteter Erkennung geprüft (Klassen, Endzustände), reduzierte
 Bewegung auf beiden Wegen ohne Effekt, Auswahl im Editor an Story und Schritt.
-In Firefox selbst nicht geprüft. Vergleich Basis gegen Pro für die drei
-gemeinsamen Seiten gleich.
+Vergleich Basis gegen Pro für die drei gemeinsamen Seiten gleich.
+
+Nachtrag 2.6.1: `zoom` war kaum wahrnehmbar. In einem echten Firefox 146
+nachgemessen, lag der Maßstab bei halber Deckkraft schon bei 0,96. Jetzt
+beginnt der Effekt bei 0,7, und der Kasten ist nach dem halben Weg voll
+deckend. `fade` war ebenfalls zu schwach und läuft jetzt länger
+(Fallback 1500 ms, mit Scroll-Timeline bis `cover 40%`). Der Fallback ist
+damit auch in Firefox selbst geprüft (`fade`, `slide`, `zoom`).
 
 ### Schritt 3: Scrollstage-Reihe (2.7.0)
 
@@ -155,3 +161,4 @@ den Entwicklungsstand.
 | 1.1 | 30.09.2026 | Entscheidung für ein Plugin, Schritt 0 erledigt (Plugin 2.4.1), Testsites Basis und Pro |
 | 1.2 | 30.09.2026 | Schritt 1 erledigt (Plugin 2.5.0): Schriftformatierung, Textkasten als echter Kasten, Testseite auf Pro |
 | 1.3 | 30.09.2026 | Schritt 2 erledigt (Plugin 2.6.0): Texteffekte, Browserstand der Scroll-Timelines, Testseite auf Pro |
+| 1.4 | 30.09.2026 | Nachtrag zu Schritt 2 (Plugin 2.6.1): `zoom` sichtbar gemacht, `fade` verlängert, Fallback in Firefox nachgemessen |

@@ -61,14 +61,20 @@
 	}
 }
 
+/* Zoom: the box is opaque for half of the way. Faded over the whole way, it
+   would be close to its full size by the time it can be seen at all. */
 @keyframes jgor-st-text-zoom-in {
 
-	from {
+	0% {
 		opacity: 0;
-		transform: scale(0.92);
+		transform: scale(0.7);
 	}
 
-	to {
+	50% {
+		opacity: 1;
+	}
+
+	100% {
 		opacity: 1;
 		transform: none;
 	}
@@ -76,14 +82,18 @@
 
 @keyframes jgor-st-text-zoom-out {
 
-	from {
+	0% {
 		opacity: 1;
 		transform: none;
 	}
 
-	to {
+	50% {
+		opacity: 1;
+	}
+
+	100% {
 		opacity: 0;
-		transform: scale(0.92);
+		transform: scale(0.7);
 	}
 }
 
@@ -102,8 +112,12 @@
 			animation-range: entry 0% entry 100%, exit 0% exit 100%;
 		}
 
+		/* Fade: a box that is opaque as soon as it is inside the screen reads
+		   as no effect at all. It keeps fading until it has come up a good
+		   part of the way and starts to fade out equally early. */
 		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-fade > .jgor-st-step__content {
 			animation-name: jgor-st-text-fade-in, jgor-st-text-fade-out;
+			animation-range: entry 0% cover 40%, cover 60% exit 100%;
 		}
 
 		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-slide > .jgor-st-step__content {
@@ -125,6 +139,12 @@
 		opacity: 0;
 	}
 
+	/* Fade: slower and with a gentle start, so it is still running while the
+	   box scrolls into view. */
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-fade > .jgor-st-step__content {
+		transition: opacity 1500ms ease-in-out;
+	}
+
 	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-slide:not(.is-visible) > .jgor-st-step__content {
 		transform: translateY(3rem);
 	}
@@ -134,7 +154,14 @@
 		transform: translateY(-3rem);
 	}
 
+	/* Zoom: the box fades in half the time it takes to grow, so the change in
+	   size shows. On the way out the fade waits for the first half instead. */
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-zoom > .jgor-st-step__content {
+		transition: opacity 400ms ease, transform 800ms ease-in-out;
+	}
+
 	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-zoom:not(.is-visible) > .jgor-st-step__content {
-		transform: scale(0.92);
+		transform: scale(0.7);
+		transition-delay: 400ms, 0s;
 	}
 }

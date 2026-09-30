@@ -1,6 +1,6 @@
 {
 	"name": "scrollstage",
-	"version": "2.6.0",
+	"version": "2.6.1",
 	"description": "Full-screen media that stay in place while text boxes scroll across them",
 	"author": "Jörn Gorres",
 	"license": "GPL-2.0-or-later",

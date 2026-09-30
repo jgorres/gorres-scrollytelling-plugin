@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,10 @@ The story dims its media; you can set how much. Each step can also give its text
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.6.1 =
+* Fixed: the zoom effect was hardly visible. The text box now starts smaller and is fully opaque after half of the way, so the change in size shows.
+* Changed: the fade effect runs longer, so it is still visible while the text box scrolls into view.
 
 = 2.6.0 =
 * New: text effects. The text boxes can fade, slide or zoom in when they enter the screen and leave the same way. Set the effect for the whole story or per step.

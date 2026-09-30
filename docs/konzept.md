@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.12 · Stand: 30.09.2026 · Plugin-Version: 2.6.0
+Version: 1.13 · Stand: 30.09.2026 · Plugin-Version: 2.6.1
 
 ## 1. Zweck
 
@@ -204,8 +204,11 @@ auf demselben Weg.
    geht als Einzug in die Timeline ein.
 3. Alle anderen Browser bekommen den Effekt über `view/text.js`: Ein
    `IntersectionObserver` beobachtet die Textkästen in einem Band, das oben
-   und unten 15 % des Fensters auslässt, und setzt am Schritt `is-visible`
-   sowie `is-past` (Kasten ist oben hinaus). Die Story bekommt
+   und unten 15 % des Fensters auslässt, und setzt am Schritt `is-visible`.
+   Ein zweiter beobachtet den Bereich oberhalb des Bandes und setzt `is-past`
+   (Kasten ist oben hinaus); das Band allein genügt dafür nicht, weil ein
+   Sprung, etwa zu einem Anker, einen Kasten von oben nach unten trägt, ohne
+   dass er das Band berührt. Die Story bekommt
    `is-text-enhanced`, erst nach dem ersten Bericht des Observers, damit ein
    beim Laden sichtbarer Kasten nicht flackert. Der Effekt läuft dann einmal
    als Übergang von 600 ms, nicht an den Scrollweg gekoppelt. Im
@@ -214,11 +217,20 @@ auf demselben Weg.
    sich also aus.
 5. Ohne Skript in einem Browser ohne Scroll-Timelines und bei
    `prefers-reduced-motion` gibt es keinen Effekt, der Text ist einfach da.
+6. `zoom` beginnt bei Maßstab 0,7 und ist nach der Hälfte des Weges voll
+   deckend (Weg 2: Keyframe bei 50 %, Weg 3: Deckkraft 400 ms, Maßstab
+   800 ms; beim Verschwinden wartet die Deckkraft die erste Hälfte ab). Über
+   den ganzen Weg eingeblendet wäre der Kasten fast schon in voller Größe,
+   bevor man ihn sieht; so war es in 2.6.0 mit Startwert 0,92.
+7. `fade` läuft länger als die anderen Effekte, weil ein Kasten, der schon
+   beim Hereinkommen deckend ist, wie gar kein Effekt wirkt. Weg 2: Einblenden
+   von `entry 0%` bis `cover 40%`, Ausblenden von `cover 60%` bis
+   `exit 100%`. Weg 3: 1500 ms mit `ease-in-out` statt 600 ms mit `ease`.
 
 Stand 30.09.2026: Firefox hat Scroll-Timelines nur als Vorschau, im Release
 156 und in ESR 140 läuft also Weg 3. Geprüft ist Weg 3 in Chromium mit
-abgeschalteter Erkennung, nicht in Firefox selbst. Der Editor zeigt nur die
-Auswahl, keine Vorschau des Effekts.
+abgeschalteter Erkennung und in einem echten Firefox 146. Der Editor zeigt
+nur die Auswahl, keine Vorschau des Effekts.
 
 ### Nachspann unter der begrenzten Bühne
 
@@ -388,3 +400,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.10 | 30.09.2026 | Quellen der Story in Module geteilt (`view/`, `style/`), Klassen von `story` mit `is-effect-fade`, Verweis auf erweiterungen.md (Plugin 2.4.1) |
 | 1.11 | 30.09.2026 | Block-Einstellungen von `step`: Typografie am Schritt, Hintergrund, Rahmen, Schatten und Innenabstand am Textkasten (Plugin 2.5.0) |
 | 1.12 | 30.09.2026 | Effekte der Textkästen: `textEffect` an Story und Schritt, Scroll-Timelines mit Rückfall auf `view/text.js` (Plugin 2.6.0) |
+| 1.13 | 30.09.2026 | `zoom` sichtbar gemacht: Start bei 0,7, Deckkraft nach dem halben Weg; `fade` verlängert; Fallback in Firefox 146 nachgemessen (Plugin 2.6.1) |

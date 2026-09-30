@@ -3,8 +3,8 @@
  *
  * Where the browser supports scroll timelines, the stylesheet of the step
  * block ties the effect of a text box to the scroll position and this module
- * does nothing. Everywhere else it watches the text boxes with an
- * IntersectionObserver and marks their steps, so the stylesheet can run the
+ * does nothing. Everywhere else it watches the text boxes with two
+ * IntersectionObservers and marks their steps, so the stylesheet can run the
  * effect once as a plain transition. Nothing is moved from a scroll handler.
  */
 
@@ -13,6 +13,9 @@ const EFFECT_SELECTOR =
 
 // Share of the viewport height a box has to be inside before it counts.
 const EDGE = 0.15;
+
+// Reach of the area above the screen in pixels; more than any page is tall.
+const FAR = 1000000;
 
 /**
  * Tells whether the browser can run the effects in CSS alone.
@@ -49,23 +52,34 @@ export function setupText( story ) {
 		return;
 	}
 
-	const observer = new window.IntersectionObserver(
+	/*
+	 * A box that reaches above the visible band left at the top and returns
+	 * from there. The band alone cannot tell: a jump, to an anchor for one,
+	 * carries a box from above the band to below it without ever touching it,
+	 * and an observer only reports changes. So the area from the upper edge
+	 * of the band upwards gets an observer of its own.
+	 */
+	const above = new window.IntersectionObserver(
 		( entries ) => {
 			entries.forEach( ( entry ) => {
-				const step = entry.target.parentElement;
-
-				// Upper edge of the band a box has to reach into.
-				const edge = entry.rootBounds
-					? entry.rootBounds.top
-					: window.innerHeight * EDGE;
-
-				step.classList.toggle( 'is-visible', entry.isIntersecting );
-
-				// A box above the band left at the top and returns from there.
-				step.classList.toggle(
+				entry.target.parentElement.classList.toggle(
 					'is-past',
-					! entry.isIntersecting &&
-						entry.boundingClientRect.bottom <= edge
+					entry.isIntersecting
+				);
+			} );
+		},
+		{
+			rootMargin: `${ FAR }px 0px -${ ( 1 - EDGE ) * 100 }% 0px`,
+			threshold: 0,
+		}
+	);
+
+	const band = new window.IntersectionObserver(
+		( entries ) => {
+			entries.forEach( ( entry ) => {
+				entry.target.parentElement.classList.toggle(
+					'is-visible',
+					entry.isIntersecting
 				);
 			} );
 
@@ -82,5 +96,8 @@ export function setupText( story ) {
 		}
 	);
 
-	boxes.forEach( ( box ) => observer.observe( box ) );
+	boxes.forEach( ( box ) => {
+		above.observe( box );
+		band.observe( box );
+	} );
 }
