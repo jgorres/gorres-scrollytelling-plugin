@@ -1,10 +1,11 @@
 === Scrollstage ===
 Contributors: jgorres
+Donate link: https://ko-fi.com/joerngorres/
 Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.7.0
+Stable tag: 2.7.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,12 +13,16 @@ Full-screen media that stay in place while text boxes scroll across them, built 
 
 == Description ==
 
-Scrollstage turns a page into a scroll-driven story. One medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.
+Scrollstage turns a web page into a story driven by scrolling: scrollytelling.
 
-The story is built from two blocks, plus two optional ones:
+Scrollytelling (from "scrolling" and "storytelling") is a way of telling stories on the web in which scrolling itself moves the story forward. Instead of merely moving the page down, every scroll step triggers a change: graphics build up, maps zoom, images change, charts animate to match the text.
+
+With Scrollstage, one medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.
+
+A story is put together from four kinds of blocks, and it can hold as many of them as it needs:
 
 * **Scrollstage Story** — the frame. It holds the layout of the text boxes, the dimming of the media and the length of a step.
-* **Scrollstage Step** — one step of the story. It carries its own image or video plus any blocks you want as text.
+* **Scrollstage Step** — one step of the story. It carries its own image or video plus any blocks you want as text. A story takes any number of steps.
 * **Scrollstage Row** — optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.
 * **Scrollstage Afterword** — optional content that follows the last step. Below a stage that is limited to the medium it shows up right under the stage from the first step on, instead of leaving that space empty.
 
@@ -87,6 +92,9 @@ The story dims its media; you can set how much. Each step can also give its text
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.7.1 =
+* Readme: description reworked, donate link added. No change in behavior.
 
 = 2.7.0 =
 * New: block "Scrollstage Row". Put steps into a row inside a story and they pass sideways while the visitor keeps scrolling down; steps before and after the row scroll vertically as before.

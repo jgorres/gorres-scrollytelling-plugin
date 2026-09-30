@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.15 · Stand: 30.09.2026 · Plugin-Version: 2.7.0
+Version: 1.16 · Stand: 30.09.2026 · Plugin-Version: 2.7.1
 
 ## 1. Zweck
 
@@ -524,3 +524,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.13 | 30.09.2026 | `zoom` sichtbar gemacht: Start bei 0,7, Deckkraft nach dem halben Weg; `fade` verlängert; Fallback in Firefox 146 nachgemessen (Plugin 2.6.1) |
 | 1.14 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2) |
 | 1.15 | 30.09.2026 | Block `row`: Reihe von Schritten, die waagerecht abläuft; `view/row.js`, `view/support.js`, Medienwechsel über Mittellinie (Plugin 2.7.0) |
+| 1.16 | 30.09.2026 | readme: Beschreibung mit Erklärung von Scrollytelling, Blöcke in beliebiger Zahl, Donate link (Plugin 2.7.1); am Plugin selbst nichts geändert |
