@@ -1,9 +1,9 @@
 /**
  * Text effects of the step block.
  *
- * A text box can fade, slide or zoom in when it enters the screen and leave
- * the same way at the top. render.php marks the step with
- * "has-text-effect is-text-effect-<name>".
+ * A text box can fade, slide, zoom, rotate or build up from a raster of dots
+ * when it enters the screen and leave the same way at the top. render.php
+ * marks the step with "has-text-effect is-text-effect-<name>".
  *
  * Browsers with scroll timelines tie the effect to the scroll position, in
  * CSS alone. For all others the view script of the story sets
@@ -12,6 +12,17 @@
  * script, and for visitors who asked for reduced motion, the text is simply
  * there.
  */
+
+/* Ghost of a text box: the view script of the story keeps it at the place the
+   box has in the layout and watches it instead of the box, which the effects
+   scale, turn and shift. It takes no room and shows nothing. */
+.jgor-st-step__ghost {
+	position: absolute;
+	left: 0;
+	width: 1px;
+	visibility: hidden;
+	pointer-events: none;
+}
 
 @keyframes jgor-st-text-fade-in {
 
@@ -97,7 +108,88 @@
 	}
 }
 
+/* Rotate: the box spins in like a propeller, two full turns around its centre
+   while it grows to its size, and spins on in the same direction when it
+   leaves. Both ends name the same functions, so the turns are not reduced to
+   the shortest way. The box is opaque early, otherwise the spin would be over
+   before it can be seen. */
+@keyframes jgor-st-text-rotate-in {
+
+	0% {
+		opacity: 0;
+		transform: rotate(-720deg) scale(0.2);
+	}
+
+	35% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotate(0deg) scale(1);
+	}
+}
+
+@keyframes jgor-st-text-rotate-out {
+
+	0% {
+		opacity: 1;
+		transform: rotate(0deg) scale(1);
+	}
+
+	65% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		transform: rotate(720deg) scale(0.2);
+	}
+}
+
+/* Dissolve: the box is seen through a raster of dots that grow until they
+   merge into a closed surface, and shrink again when it leaves. The radius of
+   the dots is a registered custom property, only then can it be animated. Its
+   initial value covers the whole cell, so a box without the effect, or in a
+   browser that does not know the rule, is simply complete. */
+@property --jgor-st-dots {
+	syntax: "<length>";
+	inherits: false;
+	initial-value: 4px;
+}
+
+@keyframes jgor-st-text-dissolve-in {
+
+	from {
+		--jgor-st-dots: 0px;
+	}
+
+	to {
+		--jgor-st-dots: 4px;
+	}
+}
+
+@keyframes jgor-st-text-dissolve-out {
+
+	from {
+		--jgor-st-dots: 4px;
+	}
+
+	to {
+		--jgor-st-dots: 0px;
+	}
+}
+
 @media (prefers-reduced-motion: no-preference) {
+
+	/* Dissolve: one dot per cell of 4px, soft by one pixel at its edge. A
+	   radius of zero leaves nothing, one of 4px reaches past the corners of
+	   the cell. Without clipping the raster also covers a shadow of the box. */
+	.jgor-st-step.is-text-effect-dissolve > .jgor-st-step__content {
+		mask-image: radial-gradient(circle, #000 calc(var(--jgor-st-dots) - 1px), transparent var(--jgor-st-dots));
+		mask-size: 4px 4px;
+		mask-clip: no-clip;
+	}
 
 	/* Scroll timelines: one animation while the box enters the screen, one
 	   while it leaves at the top. The second one must not fill backwards,
@@ -126,6 +218,17 @@
 
 		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-zoom > .jgor-st-step__content {
 			animation-name: jgor-st-text-zoom-in, jgor-st-text-zoom-out;
+		}
+
+		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-rotate > .jgor-st-step__content {
+			animation-name: jgor-st-text-rotate-in, jgor-st-text-rotate-out;
+		}
+
+		/* Dissolve: the same long way as fade, so the raster has time to
+		   be seen. */
+		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-dissolve > .jgor-st-step__content {
+			animation-name: jgor-st-text-dissolve-in, jgor-st-text-dissolve-out;
+			animation-range: entry 0% cover 40%, cover 60% exit 100%;
 		}
 	}
 
@@ -163,5 +266,36 @@
 	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-zoom:not(.is-visible) > .jgor-st-step__content {
 		transform: scale(0.7);
 		transition-delay: 400ms, 0s;
+	}
+
+	/* Rotate: the propeller runs down while the box arrives and picks up speed
+	   again while it leaves; the fade is short and sits at the far end. */
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-rotate > .jgor-st-step__content {
+		transform: rotate(0deg) scale(1);
+		transition: opacity 300ms ease, transform 1200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+	}
+
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-rotate:not(.is-visible) > .jgor-st-step__content {
+		transform: rotate(-720deg) scale(0.2);
+		transition: opacity 300ms ease 700ms, transform 1000ms ease-in;
+	}
+
+	/* A box that left at the top keeps turning in that direction. */
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-rotate.is-past:not(.is-visible) > .jgor-st-step__content {
+		transform: rotate(720deg) scale(0.2);
+	}
+
+	/* Dissolve: the dots do the work, slowly and at an even pace, because
+	   they are only seen while they are neither too small nor merged. The
+	   short fade only serves browsers that cannot animate the radius; it sits
+	   at the near end when the box arrives and at the far end when it leaves. */
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-dissolve > .jgor-st-step__content {
+		transition: opacity 200ms ease, --jgor-st-dots 2000ms linear;
+	}
+
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-dissolve:not(.is-visible) > .jgor-st-step__content {
+		--jgor-st-dots: 0px;
+
+		transition-delay: 1800ms, 0s;
 	}
 }

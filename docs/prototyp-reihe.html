@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scrollstage – Prototyp Reihe</title>
+<!--
+	Prototype for the planned block "Scrollstage Row" (extension step 3).
+
+	Throw-away file to judge the behaviour before the block is built, which is
+	why styles and script are inline here; nothing of this ships with the
+	plugin. It uses the media of the test site and therefore only works when
+	served from there: https://scrollstage-pro.local/prototyp-reihe.html
+
+	Modes of the row:
+	- continuous: browsers with scroll timelines, in CSS alone
+	- stepped:    all other browsers, the script sets the index of the current
+	              step and the track glides there with a transition
+	- stacked:    reduced motion, or a text that does not fit the screen
+
+	Force a mode with ?modus=stufen or ?modus=stapel.
+-->
+<style>
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		font-family: system-ui, sans-serif;
+		line-height: 1.5;
+		color: #111;
+		background: #fff;
+	}
+
+	.text {
+		max-width: 44rem;
+		margin: 0 auto;
+		padding: 3rem 1.5rem;
+	}
+
+	.hud {
+		position: fixed;
+		right: 1rem;
+		bottom: 1rem;
+		z-index: 10;
+		padding: 0.5rem 0.75rem;
+		border-radius: 4px;
+		font-size: 0.875rem;
+		color: #fff;
+		background: rgba(0, 0, 0, 0.75);
+	}
+
+	/* Story: stage and steps share one grid cell, as in the plugin. */
+	.story {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.stage,
+	.steps {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.stage {
+		position: sticky;
+		top: 0;
+		align-self: start;
+		overflow: hidden;
+		height: 100svh;
+	}
+
+	.stage::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: #000;
+		opacity: 0.45;
+	}
+
+	.stage__item {
+		position: absolute;
+		inset: 0;
+		margin: 0;
+		opacity: 0;
+		transition: opacity 600ms ease;
+	}
+
+	.stage__item.is-active {
+		opacity: 1;
+	}
+
+	.stage__item img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.steps {
+		position: relative;
+		z-index: 1;
+	}
+
+	.step {
+		display: flex;
+		align-items: center;
+		min-height: 100svh;
+		padding: clamp(1.5rem, 6vh, 4rem) clamp(1rem, 4vw, 3rem);
+		color: #fff;
+	}
+
+	.step__content {
+		width: min(100%, 28rem);
+	}
+
+	.step h2 {
+		margin: 0 0 0.75rem;
+		font-size: 2rem;
+		font-weight: 400;
+		line-height: 1.2;
+	}
+
+	.step p {
+		margin: 0;
+		font-size: 1.125rem;
+	}
+
+	.step small {
+		display: block;
+		margin-bottom: 0.5rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		opacity: 0.8;
+	}
+
+	/*
+	 * Row. Without any of the rules below its steps simply follow each other
+	 * like ordinary steps.
+	 *
+	 * Laid out horizontally, the row is as tall as its steps together, so
+	 * every step gets its share of the scrolling distance. The viewport sticks
+	 * to the screen for that distance and the track moves sideways inside it.
+	 */
+	@media (prefers-reduced-motion: no-preference) {
+
+		/* Continuous: the track follows the scroll position, in CSS alone. */
+		@supports (animation-timeline: view()) {
+
+			.row:not(.is-stacked):not(.is-stepped) {
+				height: calc(var(--count) * 100svh);
+				view-timeline: --reihe block;
+			}
+
+			.row:not(.is-stacked):not(.is-stepped) > .row__viewport {
+				position: sticky;
+				top: 0;
+				overflow: clip;
+				height: 100svh;
+			}
+
+			.row:not(.is-stacked):not(.is-stepped) .row__track {
+				display: flex;
+				height: 100%;
+				animation: reihe-gleiten linear both;
+				animation-timeline: --reihe;
+				animation-range: contain 0% contain 100%;
+			}
+
+			.row:not(.is-stacked):not(.is-stepped) .step {
+				flex: 0 0 100%;
+				min-height: 0;
+			}
+		}
+
+		/* Stepped: the script sets the index, the track glides there. */
+		.row.is-stepped {
+			position: relative;
+			height: calc(var(--count) * 100svh);
+		}
+
+		.row.is-stepped > .row__viewport {
+			position: sticky;
+			top: 0;
+			overflow: clip;
+			height: 100svh;
+		}
+
+		.row.is-stepped .row__track {
+			display: flex;
+			height: 100%;
+			transform: translateX(calc(var(--index, 0) * -100%));
+			transition: transform 600ms ease-in-out;
+		}
+
+		.row.is-stepped .step {
+			flex: 0 0 100%;
+			min-height: 0;
+		}
+	}
+
+	@keyframes reihe-gleiten {
+
+		from {
+			transform: translateX(0);
+		}
+
+		to {
+			transform: translateX(calc((var(--count) - 1) * -100%));
+		}
+	}
+
+	/* One sentinel per step marks its share of the scrolling distance. */
+	.row__sentinel {
+		position: absolute;
+		left: 0;
+		width: 1px;
+		height: 100svh;
+		pointer-events: none;
+	}
+</style>
+</head>
+<body>
+
+<div class="text">
+	<h1>Prototyp: Scrollstage-Reihe</h1>
+	<p>Zwei Schritte laufen senkrecht, dann folgt eine Reihe mit drei Schritten, die waagerecht durchzieht, danach wieder ein senkrechter Schritt. Unten rechts steht, in welchem Modus die Reihe gerade läuft.</p>
+	<p>Mit <code>?modus=stufen</code> lässt sich das stufenweise Gleiten auch in Chrome erzwingen, mit <code>?modus=stapel</code> die Darstellung untereinander.</p>
+</div>
+
+<div class="story">
+	<div class="stage">
+		<figure class="stage__item is-active"><img src="/wp-content/uploads/2026/09/bild-10.jpg" alt="Dichter Nadelwald an einer Steilküste, dahinter türkisblaues Meer und eine Bergkette am Horizont"></figure>
+		<figure class="stage__item"><img src="/wp-content/uploads/2026/09/bild-28.jpg" alt="Frühlingsgrüner Laubwald an einem Felshang, über den ein Bach ins Tal läuft" loading="lazy"></figure>
+		<figure class="stage__item"><img src="/wp-content/uploads/2026/09/bild-29.jpg" alt="Verschneite Hochgebirgslandschaft mit bewaldetem Tal unter blauem Himmel" loading="lazy"></figure>
+		<figure class="stage__item"><img src="/wp-content/uploads/2026/09/bild-20.jpg" alt="Schreibtisch von oben mit Laptop, Fachbüchern, aufgeschlagenem Buch, Smartphone und Buntstiften" loading="lazy"></figure>
+		<figure class="stage__item"><img src="/wp-content/uploads/2026/09/bild-10.jpg" alt="Dichter Nadelwald an einer Steilküste, dahinter türkisblaues Meer und eine Bergkette am Horizont" loading="lazy"></figure>
+		<figure class="stage__item"><img src="/wp-content/uploads/2026/09/bild-28.jpg" alt="Frühlingsgrüner Laubwald an einem Felshang, über den ein Bach ins Tal läuft" loading="lazy"></figure>
+	</div>
+
+	<div class="steps">
+		<section class="step">
+			<div class="step__content">
+				<small>Senkrecht 1</small>
+				<h2>Wie bisher</h2>
+				<p>Dieser Schritt scrollt senkrecht über das Medium, so wie alle Schritte im Basisplugin.</p>
+			</div>
+		</section>
+
+		<section class="step">
+			<div class="step__content">
+				<small>Senkrecht 2</small>
+				<h2>Gleich kommt die Reihe</h2>
+				<p>Nach diesem Schritt bleibt der Ausschnitt stehen, und die nächsten drei Schritte ziehen von rechts nach links durch.</p>
+			</div>
+		</section>
+
+		<div class="row" style="--count:3">
+			<div class="row__viewport">
+				<div class="row__track">
+					<section class="step">
+						<div class="step__content">
+							<small>Reihe 1 von 3</small>
+							<h2>Erster Schritt der Reihe</h2>
+							<p>Der Ausschnitt steht. Weiterscrollen bewegt die Reihe seitwärts.</p>
+						</div>
+					</section>
+
+					<section class="step">
+						<div class="step__content">
+							<small>Reihe 2 von 3</small>
+							<h2>Zweiter Schritt der Reihe</h2>
+							<p>Das Medium dahinter wechselt, sobald dieser Schritt die Bildschirmmitte quert.</p>
+						</div>
+					</section>
+
+					<section class="step">
+						<div class="step__content">
+							<small>Reihe 3 von 3</small>
+							<h2>Dritter Schritt der Reihe</h2>
+							<p>Nach diesem Schritt löst sich der Ausschnitt, und es geht senkrecht weiter.</p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+
+		<section class="step">
+			<div class="step__content">
+				<small>Senkrecht 3</small>
+				<h2>Wieder senkrecht</h2>
+				<p>Dieser Schritt folgt der Reihe und scrollt wie gewohnt.</p>
+			</div>
+		</section>
+	</div>
+</div>
+
+<div class="text">
+	<p>Ende des Prototyps.</p>
+</div>
+
+<div class="hud" id="hud" role="status">Modus: untereinander (kein Script)</div>
+
+<script>
+( function () {
+	'use strict';
+
+	var story = document.querySelector( '.story' );
+	var items = Array.prototype.slice.call( story.querySelectorAll( '.stage__item' ) );
+	var steps = Array.prototype.slice.call( story.querySelectorAll( '.step' ) );
+	var rows = Array.prototype.slice.call( story.querySelectorAll( '.row' ) );
+	var hud = document.getElementById( 'hud' );
+
+	var wish = new URLSearchParams( window.location.search ).get( 'modus' );
+	var reduced = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+	var timelines = !! window.CSS && window.CSS.supports( 'animation-timeline: view()' );
+	var active = 0;
+
+	/**
+	 * Shows the medium of a step.
+	 *
+	 * @param {number} index Index of the step.
+	 */
+	function show( index ) {
+		if ( index < 0 || index === active ) {
+			return;
+		}
+
+		active = index;
+		items.forEach( function ( item, position ) {
+			item.classList.toggle( 'is-active', position === index );
+		} );
+	}
+
+	/*
+	 * Media change: a small box in the middle of the screen decides which step
+	 * is the current one. Vertical steps cross it from below, the steps of a
+	 * row from the right; the observer takes transforms into account.
+	 */
+	var media = new IntersectionObserver(
+		function ( entries ) {
+			entries.forEach( function ( entry ) {
+				if ( entry.isIntersecting ) {
+					show( steps.indexOf( entry.target ) );
+				}
+			} );
+		},
+		{ rootMargin: '-45% -45% -45% -45%', threshold: 0 }
+	);
+
+	steps.forEach( function ( step ) {
+		media.observe( step );
+	} );
+
+	/**
+	 * Tells whether every text of a row fits the screen.
+	 *
+	 * @param {Element} row The row.
+	 * @return {boolean} False when a text box is taller than the screen allows.
+	 */
+	function fits( row ) {
+		return Array.prototype.every.call(
+			row.querySelectorAll( '.step__content' ),
+			function ( box ) {
+				return box.offsetHeight <= window.innerHeight * 0.85;
+			}
+		);
+	}
+
+	/**
+	 * Stepped mode: one sentinel per step, the one in the middle of the screen
+	 * sets the index. Nothing is moved from a scroll handler.
+	 *
+	 * @param {Element} row   The row.
+	 * @param {number}  count Number of steps in the row.
+	 */
+	function stepped( row, count ) {
+		var sentinels = [];
+		var index;
+
+		for ( index = 0; index < count; index++ ) {
+			var sentinel = document.createElement( 'div' );
+
+			sentinel.className = 'row__sentinel';
+			sentinel.style.top = 'calc(' + index + ' * 100svh)';
+			row.appendChild( sentinel );
+			sentinels.push( sentinel );
+		}
+
+		var observer = new IntersectionObserver(
+			function ( entries ) {
+				entries.forEach( function ( entry ) {
+					if ( entry.isIntersecting ) {
+						row.style.setProperty( '--index', String( sentinels.indexOf( entry.target ) ) );
+					}
+				} );
+			},
+			{ rootMargin: '-50% 0px -50% 0px', threshold: 0 }
+		);
+
+		sentinels.forEach( function ( sentinel ) {
+			observer.observe( sentinel );
+		} );
+
+		row.classList.add( 'is-stepped' );
+	}
+
+	var modes = [];
+
+	rows.forEach( function ( row ) {
+		var count = row.querySelectorAll( '.step' ).length;
+
+		row.style.setProperty( '--count', String( count ) );
+
+		if ( reduced ) {
+			row.classList.add( 'is-stacked' );
+			modes.push( 'untereinander (reduzierte Bewegung)' );
+		} else if ( 'stapel' === wish ) {
+			row.classList.add( 'is-stacked' );
+			modes.push( 'untereinander (erzwungen)' );
+		} else if ( ! fits( row ) ) {
+			row.classList.add( 'is-stacked' );
+			modes.push( 'untereinander (Text passt nicht auf den Bildschirm)' );
+		} else if ( timelines && 'stufen' !== wish ) {
+			modes.push( 'stufenlos (Scroll-Timeline)' );
+		} else {
+			stepped( row, count );
+			modes.push( timelines ? 'stufenweise (erzwungen)' : 'stufenweise (Browser ohne Scroll-Timeline)' );
+		}
+	} );
+
+	hud.textContent = 'Modus: ' + modes.join( ', ' );
+}() );
+</script>
+</body>
+</html>

@@ -287,6 +287,14 @@ export default function Edit( { attributes, setAttributes } ) {
 								label: __( 'Zoom in', 'scrollstage' ),
 								value: 'zoom',
 							},
+							{
+								label: __( 'Rotate in', 'scrollstage' ),
+								value: 'rotate',
+							},
+							{
+								label: __( 'Dissolve', 'scrollstage' ),
+								value: 'dissolve',
+							},
 						] }
 						onChange={ ( value ) =>
 							setAttributes( { textEffect: value } )

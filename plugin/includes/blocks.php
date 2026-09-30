@@ -200,7 +200,7 @@ function jgor_st_story_classes( $state ) {
  * @return string[] Effect names.
  */
 function jgor_st_text_effects() {
-	return array( 'fade', 'slide', 'zoom' );
+	return array( 'fade', 'slide', 'zoom', 'rotate', 'dissolve' );
 }
 
 /**

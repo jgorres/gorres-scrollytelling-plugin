@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.13 · Stand: 30.09.2026 · Plugin-Version: 2.6.1
+Version: 1.14 · Stand: 30.09.2026 · Plugin-Version: 2.6.2
 
 ## 1. Zweck
 
@@ -92,7 +92,7 @@ wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
 | `stickyOffset` | 0–200 | 0 | Abstand von oben in Pixeln |
 | `minStepHeight` | 40–200 | 100 | Höhe eines Schritts in Prozent der Bildschirmhöhe |
 | `transition` | fade, none | fade | Überblenden oder harter Wechsel |
-| `textEffect` | none, fade, slide, zoom | none | Effekt, mit dem die Textkästen erscheinen und verschwinden |
+| `textEffect` | none, fade, slide, zoom, rotate, dissolve | none | Effekt, mit dem die Textkästen erscheinen und verschwinden |
 
 ### Klassen von `story`
 
@@ -188,8 +188,9 @@ hat Vorrang.
 ### Effekte der Textkästen (`textEffect`)
 
 Ein Textkasten kann beim Erscheinen einblenden (`fade`), sich von unten
-hereinschieben (`slide`) oder leicht vergrößern (`zoom`) und verschwindet oben
-auf demselben Weg.
+hereinschieben (`slide`), sich vergrößern (`zoom`), sich hereindrehen
+(`rotate`) oder sich aus einem Punktraster zusammensetzen (`dissolve`) und
+verschwindet oben auf demselben Weg.
 
 1. Die Story reicht ihr `textEffect` als Block-Kontext
    (`scrollstage/textEffect`) an die Schritte weiter.
@@ -203,8 +204,15 @@ auf demselben Weg.
    ihr erstes Keyframe die erste. Der Abstand von oben (`--jgor-st-offset`)
    geht als Einzug in die Timeline ein.
 3. Alle anderen Browser bekommen den Effekt über `view/text.js`: Ein
-   `IntersectionObserver` beobachtet die Textkästen in einem Band, das oben
-   und unten 15 % des Fensters auslässt, und setzt am Schritt `is-visible`.
+   `IntersectionObserver` beobachtet den Platz der Textkästen in einem Band,
+   das oben und unten 15 % des Fensters auslässt, und setzt am Schritt
+   `is-visible`. Beobachtet wird nicht der Kasten selbst, sondern ein leeres
+   Element an seinem Platz im Layout (`.jgor-st-step__ghost`, per
+   `ResizeObserver` nachgeführt): Der Observer sieht einen Kasten so, wie er
+   gezeichnet wird, und ein Kasten, der verborgen schrumpft oder sich dreht,
+   verließe und beträte das Band durch seine eigene Bewegung. Blieb das
+   Scrollen an der Bandkante stehen, flackerte der Propeller deshalb oder
+   erschien gar nicht.
    Ein zweiter beobachtet den Bereich oberhalb des Bandes und setzt `is-past`
    (Kasten ist oben hinaus); das Band allein genügt dafür nicht, weil ein
    Sprung, etwa zu einem Anker, einen Kasten von oben nach unten trägt, ohne
@@ -226,6 +234,23 @@ auf demselben Weg.
    beim Hereinkommen deckend ist, wie gar kein Effekt wirkt. Weg 2: Einblenden
    von `entry 0%` bis `cover 40%`, Ausblenden von `cover 60%` bis
    `exit 100%`. Weg 3: 1500 ms mit `ease-in-out` statt 600 ms mit `ease`.
+8. `rotate` (seit 2.6.2) dreht den Kasten wie einen Propeller herein: zwei
+   volle Umdrehungen um die Mitte, dabei wächst er von Maßstab 0,2 auf volle
+   Größe; beim Verschwinden dreht er in derselben Richtung weiter und
+   schrumpft. Start und Ziel nennen dieselben Funktionen (`rotate()` und
+   `scale()`), sonst würde der Browser die Umdrehungen auf den kürzesten Weg
+   kürzen. Weg 3: 1200 ms auslaufend beim Erscheinen, 1000 ms anlaufend beim
+   Verschwinden, Deckkraft je 300 ms am äußeren Ende.
+9. `dissolve` (seit 2.6.2) zeigt den Kasten durch ein Punktraster: eine Maske
+   aus gekachelten Kreisen (Zelle 4 px), deren Radius von 0 auf 4 px wächst,
+   bis die Punkte zur Fläche verschmelzen; beim Verschwinden schrumpfen sie.
+   Der Radius ist die registrierte Variable `--jgor-st-dots` (`@property`,
+   Firefox ab 128), nur so lässt er sich animieren. Ihr Startwert deckt die
+   ganze Zelle, ohne Effekt oder ohne `@property` ist der Kasten also einfach
+   vollständig. Weg 2 läuft über denselben langen Bereich wie `fade`, Weg 3
+   über 2000 ms mit gleichmäßigem Tempo; eine kurze Ein- und Ausblendung von
+   200 ms fängt Browser ab, die den Radius nicht animieren können. Eine erste
+   Fassung mit Unschärfe war vom Einblenden kaum zu unterscheiden.
 
 Stand 30.09.2026: Firefox hat Scroll-Timelines nur als Vorschau, im Release
 156 und in ESR 140 läuft also Weg 3. Geprüft ist Weg 3 in Chromium mit
@@ -378,7 +403,7 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | Name | Scrollstage | „Scrollytelling" ist im Verzeichnis vergeben und zu generisch |
 | Sprache der Oberfläche | Englisch | translate.wordpress.org übersetzt von en_US |
 | Themes | nur Blöcke, kein Theme-Code | volle Breite kommt aus dem Theme, kein Sonderfall für ein einzelnes Theme |
-| Animationsbibliothek | keine | IntersectionObserver genügt, gut 3 KB (komprimiert 1,3 KB) statt 70 KB |
+| Animationsbibliothek | keine | IntersectionObserver genügt, knapp 4 KB (komprimiert 1,4 KB) statt 70 KB |
 | Editor-Vorschau | vereinfacht, ohne klebende Bühne | der Editor hat einen eigenen Scroll-Container |
 | Nachspann ohne Bühnenbegrenzung | erlaubt, folgt der Story wie normaler Inhalt | beim Umschalten der Begrenzung geht nichts verloren |
 | Nur ein Nachspann je Story | nicht erzwungen, mehrere werden nacheinander ausgegeben | die Sperre bräuchte `@wordpress/data` als zusätzliche Abhängigkeit |
@@ -401,3 +426,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.11 | 30.09.2026 | Block-Einstellungen von `step`: Typografie am Schritt, Hintergrund, Rahmen, Schatten und Innenabstand am Textkasten (Plugin 2.5.0) |
 | 1.12 | 30.09.2026 | Effekte der Textkästen: `textEffect` an Story und Schritt, Scroll-Timelines mit Rückfall auf `view/text.js` (Plugin 2.6.0) |
 | 1.13 | 30.09.2026 | `zoom` sichtbar gemacht: Start bei 0,7, Deckkraft nach dem halben Weg; `fade` verlängert; Fallback in Firefox 146 nachgemessen (Plugin 2.6.1) |
+| 1.14 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2) |

@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.4 · Stand: 30.09.2026 · Plugin-Version: 2.6.1
+Version: 1.5 · Stand: 30.09.2026 · Plugin-Version: 2.6.2
 
 ## 1. Ausgangspunkt
 
@@ -103,6 +103,17 @@ deckend. `fade` war ebenfalls zu schwach und läuft jetzt länger
 (Fallback 1500 ms, mit Scroll-Timeline bis `cover 40%`). Der Fallback ist
 damit auch in Firefox selbst geprüft (`fade`, `slide`, `zoom`).
 
+Nachtrag 2.6.2: zwei weitere Effekte auf Wunsch. `rotate` dreht den Kasten
+wie einen Propeller herein (zwei Umdrehungen, dabei von Maßstab 0,2 auf volle
+Größe, beim Verschwinden in derselben Richtung weiter), `dissolve` setzt ihn
+aus einem Punktraster zusammen und löst ihn wieder darin auf (eine erste
+Fassung mit Unschärfe war vom Einblenden kaum zu unterscheiden). Die
+Testseite hat dafür drei weitere Schritte (jetzt acht). Beide in Firefox 146
+und in Chromium nachgemessen. Dabei fiel auf, dass der Propeller flackerte
+oder ausblieb, wenn das Scrollen an der Kante des sichtbaren Bandes anhielt:
+Der Observer sah den gedrehten und verkleinerten Kasten. Er beobachtet jetzt
+ein leeres Element am Platz des Kastens.
+
 ### Schritt 3: Scrollstage-Reihe (2.7.0)
 
 Neuer Container-Block, nur innerhalb einer Story erlaubt. Er nimmt Schritte
@@ -112,6 +123,22 @@ auf und spielt sie waagerecht ab:
 * Der Observer misst innerhalb der Reihe waagerecht.
 * Schritte vor und nach der Reihe laufen weiter senkrecht. Damit ist auch der
   Wechsel zwischen senkrechtem und waagerechtem Ablauf in einer Story möglich.
+
+Prototyp vom 30.09.2026: `docs/prototyp-reihe.html`, eine einzelne Datei ohne
+Plugin, aufrufbar unter `https://scrollstage-pro.local/prototyp-reihe.html`
+(Symlink im DocRoot der Pro-Site). Er zeigt die drei vorgesehenen Abläufe der
+Reihe:
+
+| Modus | Wann | Verhalten |
+| --- | --- | --- |
+| stufenlos | Browser mit Scroll-Timelines | Spur folgt dem Scrollweg, nur CSS (benannte View-Timeline, Bereich `contain`) |
+| stufenweise | alle anderen, auch Firefox | Sentinels und `IntersectionObserver` setzen den Index, die Spur gleitet in 600 ms dorthin |
+| untereinander | reduzierte Bewegung, oder ein Text passt nicht auf den Bildschirm | Schritte wie gewöhnliche Schritte |
+
+`?modus=stufen` und `?modus=stapel` erzwingen den zweiten und dritten Modus.
+Der Medienwechsel nutzt für alle Schritte ein kleines Feld in der
+Bildschirmmitte (`rootMargin: -45%` an allen vier Seiten). Gemessen in
+Chromium (alle drei Modi) und in Firefox 146 (stufenweise).
 
 ## 3. Testsites
 
@@ -162,3 +189,4 @@ den Entwicklungsstand.
 | 1.2 | 30.09.2026 | Schritt 1 erledigt (Plugin 2.5.0): Schriftformatierung, Textkasten als echter Kasten, Testseite auf Pro |
 | 1.3 | 30.09.2026 | Schritt 2 erledigt (Plugin 2.6.0): Texteffekte, Browserstand der Scroll-Timelines, Testseite auf Pro |
 | 1.4 | 30.09.2026 | Nachtrag zu Schritt 2 (Plugin 2.6.1): `zoom` sichtbar gemacht, `fade` verlängert, Fallback in Firefox nachgemessen |
+| 1.5 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2); Prototyp für die Reihe |
