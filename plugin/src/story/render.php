@@ -3,9 +3,10 @@
  * Front end markup of the story block.
  *
  * Collects the media of every step, in the story itself and in its rows, and
- * renders them as one sticky stage that fills the viewport. The text steps are placed on top of it and scroll
- * across. Without JavaScript the first medium stays visible, which keeps the
- * block readable as a plain image with text.
+ * renders them as one sticky stage that fills the viewport. The text steps
+ * are placed on top of it and scroll across. Without JavaScript the first
+ * medium stays visible, which keeps the block readable as a plain image with
+ * text.
  *
  * An afterword block follows the steps. Its markup was taken out of $content
  * by jgor_st_collect_after(); the script pins it below a limited stage.

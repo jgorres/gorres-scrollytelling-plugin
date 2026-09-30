@@ -1,12 +1,109 @@
 /**
  * Front end styles of the row block.
  *
- * Without further rules the steps of a row follow each other like the steps
- * of the story itself.
+ * Without the rules further down the steps of a row follow each other like
+ * the steps of the story itself. That is what visitors who asked for reduced
+ * motion get, and every browser without scroll timelines.
+ *
+ * Laid out sideways, the row is taller than the screen: its viewport sticks
+ * to the top, like the stage of the story behind it, and the track with the
+ * steps moves through it while the visitor scrolls on. Every step after the
+ * first takes as much scrolling as a step of the story is tall.
  */
 
 /* The row is a flex item of the column of steps; it must not grow wider than
-   the column when its track does. */
+   the column when its track does. The track moves to the left, in a language
+   written from right to left to the right. */
 .jgor-st-row {
+	--jgor-st-row-direction: -1;
+	--jgor-st-row-distance: calc((var(--jgor-st-row-count, 1) - 1) * var(--jgor-st-step-min, 100svh));
+
 	min-width: 0;
+}
+
+.jgor-st-row:dir(rtl) {
+	--jgor-st-row-direction: 1;
+}
+
+/* Marker of a step: the view script of the story puts a line down the middle
+   of every step of a row and watches it instead of the step. The viewport
+   clips the line unless more than half of the step is inside it, so the
+   medium changes with the step that holds the middle. It shows nothing. */
+.jgor-st-row__track > .jgor-st-step {
+	position: relative;
+}
+
+.jgor-st-row__marker {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	width: 1px;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+@keyframes jgor-st-row-slide {
+
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(calc((var(--jgor-st-row-count, 1) - 1) * 100% * var(--jgor-st-row-direction, -1)));
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+	@supports (animation-timeline: view()) {
+
+		/* The timeline of the row counts from the line the viewport sticks
+		   to, which lies below a fixed menu. */
+		.jgor-st-row {
+			view-timeline: --jgor-st-row block;
+			view-timeline-inset: var(--jgor-st-offset) 0;
+		}
+
+		/* Room below the viewport: the distance the row is scrolled through
+		   while the viewport stays in place. */
+		.jgor-st-row::after {
+			content: "";
+			display: block;
+			height: var(--jgor-st-row-distance);
+		}
+
+		/* Same place and size as the stage of the story. The grid hands the
+		   height on to the track, whatever it comes from. */
+		.jgor-st-row__viewport {
+			position: sticky;
+			top: var(--jgor-st-offset);
+			display: grid;
+			grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+			overflow: clip;
+			height: calc(100svh - var(--jgor-st-offset));
+		}
+
+		/* A stage limited to the medium is not as tall as the screen. */
+		.jgor-st-story.is-stage-limited .jgor-st-row__viewport {
+			aspect-ratio: var(--jgor-st-stage-ratio, 1);
+			height: auto;
+			max-height: calc(100svh - var(--jgor-st-offset));
+		}
+
+		/* The track starts to move when the viewport begins to stick and
+		   arrives at the last step when the room below is used up. */
+		.jgor-st-row__track {
+			display: flex;
+			animation: jgor-st-row-slide linear both;
+			animation-timeline: --jgor-st-row;
+			animation-range: exit-crossing 0% exit-crossing var(--jgor-st-row-distance);
+		}
+
+		/* Every step is as wide and as tall as the viewport. */
+		.jgor-st-row__track > .jgor-st-step {
+			flex: 0 0 100%;
+			min-height: 0;
+		}
+	}
 }
