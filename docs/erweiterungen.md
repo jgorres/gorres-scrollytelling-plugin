@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.5 · Stand: 30.09.2026 · Plugin-Version: 2.6.2
+Version: 1.6 · Stand: 30.09.2026 · Plugin-Version: 2.7.0
 
 ## 1. Ausgangspunkt
 
@@ -29,7 +29,7 @@ Hooks oder Ereignisse als öffentliche Schnittstelle.
 | 0 | Modularisierung ohne Verhaltensänderung | 2.4.1 | 1 Tag | erledigt |
 | 1 | Schriftformatierung und Textkasten über Block-Supports | 2.5.0 | ½ Tag | erledigt |
 | 2 | Effekte für den Textkasten | 2.6.0 | 1–2 Tage | erledigt |
-| 3 | Container-Block „Scrollstage-Reihe" | 2.7.0 | 3–5 Tage | offen |
+| 3 | Container-Block „Scrollstage Row" (Reihe) | 2.7.0 | 3–5 Tage | erledigt |
 
 Der Aufwand ist geschätzt.
 
@@ -116,13 +116,20 @@ ein leeres Element am Platz des Kastens.
 
 ### Schritt 3: Scrollstage-Reihe (2.7.0)
 
-Neuer Container-Block, nur innerhalb einer Story erlaubt. Er nimmt Schritte
-auf und spielt sie waagerecht ab:
+Neuer Container-Block `scrollstage/row` („Scrollstage Row"), nur innerhalb
+einer Story erlaubt. Er nimmt Schritte auf und spielt sie waagerecht ab;
+Schritte vor und nach der Reihe laufen weiter senkrecht. Damit ist auch der
+Wechsel zwischen senkrechtem und waagerechtem Ablauf in einer Story möglich.
+Die Mechanik steht in `konzept.md`, Abschnitte 3 und 4.
 
-* Die Reihe wird per Scroll-Animation seitlich verschoben.
-* Der Observer misst innerhalb der Reihe waagerecht.
-* Schritte vor und nach der Reihe laufen weiter senkrecht. Damit ist auch der
-  Wechsel zwischen senkrechtem und waagerechtem Ablauf in einer Story möglich.
+Umgesetzt in vier Teilschritten, je ein Commit:
+
+| Teilschritt | Inhalt |
+| --- | --- |
+| 3a | Block, Einfügeregeln, Medien der Reihen-Schritte auf der Bühne; die Reihe läuft noch senkrecht |
+| 3b | waagerechter Ablauf mit Scroll-Timeline, Medienwechsel über eine Mittellinie |
+| 3c | stufenweiser Ablauf ohne Scroll-Timelines, untereinander bei zu hohem Text, Fokus und Anker |
+| 3d | Version 2.7.0, readme, `.pot`, Doku |
 
 Prototyp vom 30.09.2026: `docs/prototyp-reihe.html`, eine einzelne Datei ohne
 Plugin, aufrufbar unter `https://scrollstage-pro.local/prototyp-reihe.html`
@@ -138,7 +145,41 @@ Reihe:
 `?modus=stufen` und `?modus=stapel` erzwingen den zweiten und dritten Modus.
 Der Medienwechsel nutzt für alle Schritte ein kleines Feld in der
 Bildschirmmitte (`rootMargin: -45%` an allen vier Seiten). Gemessen in
-Chromium (alle drei Modi) und in Firefox 146 (stufenweise).
+Chromium (alle drei Modi) und in Firefox 146 (stufenweise). Der Prototyp ist
+am 30.09.2026 abgenommen, das stufenweise Gleiten in Firefox damit auch.
+
+Der Block weicht in diesen Punkten vom Prototyp ab:
+
+* Der Scrollweg je Schritt folgt `minStepHeight` der Story statt fest einer
+  Bildschirmhöhe; beim Standardwert 100 ist das dasselbe.
+* Der Bereich der Animation ist `exit-crossing` statt `contain`, damit der
+  Abstand von oben und die begrenzte Bühne stimmen.
+* Der Medienwechsel läuft über eine Mittellinie je Schritt statt über ein
+  Feld in der Fenstermitte, das bei einer Story neben einer Seitenleiste
+  versagt.
+* Im stufenweisen Ablauf wird der Index gezählt (Sentinels oberhalb der
+  Bildschirmoberkante) statt aus dem Sentinel in der Bildschirmmitte gelesen;
+  das stimmt auch nach Sprüngen.
+* Das waagerechte Layout setzt das Script (`is-sideways`), auch in Browsern
+  mit Scroll-Timelines: Ohne Script wäre ein zu hoher Text abgeschnitten.
+* „Der Text passt" misst den Textkasten samt Abständen gegen die Bühne statt
+  gegen 85 % der Fensterhöhe.
+* Neu: Tastaturfokus und Anker holen einen Schritt in den Ausschnitt;
+  Schreibrichtung von rechts nach links.
+* Schritte in einer Reihe haben keinen Texteffekt.
+
+Nachweis: Testseite `/scrollstage-row/` auf Pro (Seite 109: zwei Schritte,
+eine Reihe mit drei Schritten, ein Schritt; Story mit `slide`). Chromium 154
+stufenlos und Firefox 146 stufenweise gemessen: Lage der Spur, Index,
+Medienfolge 1 bis 6 auf- und abwärts und nach Sprüngen, zu hoher Text,
+reduzierte Bewegung, Tab und Anker. Abstand von oben, Schritthöhe 60,
+begrenzte Bühne (nur Chromium), Schreibrichtung und 390 px Breite sind nur
+zur Laufzeit im Browser umgestellt, nicht als gespeicherte Seiten. Der Editor
+ist in 3a geprüft (Einfügeregeln, Hinweistext, alle Blöcke gültig). Vergleich
+Basis gegen Pro für die drei gemeinsamen Seiten nach jedem Teilschritt gleich.
+
+Nicht geprüft: Safari, WordPress 6.7, eine Story in einem Schritt, eine Reihe
+zusammen mit Nachspann oder hochgezogenem Inhalt.
 
 ## 3. Testsites
 
@@ -154,8 +195,9 @@ Scrollstage aktiv:
 Testseiten auf beiden: `/scrollstage-hero/`, `/scrollstage-standard-width/`
 (begrenzte Bühne, Hochziehen) und `/scrollytelling-test/`. Jede hat fünf
 Schritte, einer davon mit Video. Nur auf Pro liegen zusätzlich
-`/scrollstage-typography/` für Schriftformatierung und Textkasten und
-`/scrollstage-text-effects/` für die Texteffekte.
+`/scrollstage-typography/` für Schriftformatierung und Textkasten,
+`/scrollstage-text-effects/` für die Texteffekte und `/scrollstage-row/` für
+die Reihe.
 
 Vergleichslauf: je Seite 14 Scrollpositionen im Abstand von 400 px bei
 1280×800. Screenshots mit reduzierter Bewegung, damit das Video steht; die
@@ -190,3 +232,4 @@ den Entwicklungsstand.
 | 1.3 | 30.09.2026 | Schritt 2 erledigt (Plugin 2.6.0): Texteffekte, Browserstand der Scroll-Timelines, Testseite auf Pro |
 | 1.4 | 30.09.2026 | Nachtrag zu Schritt 2 (Plugin 2.6.1): `zoom` sichtbar gemacht, `fade` verlängert, Fallback in Firefox nachgemessen |
 | 1.5 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2); Prototyp für die Reihe |
+| 1.6 | 30.09.2026 | Schritt 3 erledigt (Plugin 2.7.0): Block „Scrollstage Row", Abweichungen vom Prototyp, Testseite auf Pro |

@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "scrollstage/story",
-	"version": "2.6.2",
+	"version": "2.7.0",
 	"title": "Scrollstage Story",
 	"category": "scrollstage",
 	"icon": "images-alt2",

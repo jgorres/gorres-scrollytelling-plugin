@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.14 · Stand: 30.09.2026 · Plugin-Version: 2.6.2
+Version: 1.15 · Stand: 30.09.2026 · Plugin-Version: 2.7.0
 
 ## 1. Zweck
 
@@ -23,17 +23,20 @@ Projektdoku ist deutsch.
 │   ├── uninstall.php          derzeit ohne Daten zu löschen
 │   ├── includes/
 │   │   └── blocks.php         Kategorie, Registrierung, Klassen der Story,
+│   │                          Schritte sammeln, Kontext der Reihe,
 │   │                          Textkasten des Schritts, Bühnen-Markup
 │   ├── src/                   Quellen für wp-scripts
 │   │   ├── story/             block.json, index/edit/save, render.php,
 │   │   │   │                  style.scss, editor.scss, view.js
-│   │   │   ├── view/          Module des Frontend-Scripts: selectors, media,
-│   │   │   │                  text, after, pull
+│   │   │   ├── view/          Module des Frontend-Scripts: selectors, support,
+│   │   │   │                  media, text, row, after, pull
 │   │   │   └── style/         SCSS-Teildateien: layout, stage, stage-limited,
 │   │   │                      steps, after, effects
 │   │   ├── step/              ebenso, ohne view.js; dazu text-box.js
 │   │   │   │                  (Textkasten im Editor)
 │   │   │   └── style/         SCSS-Teildatei: text-effects
+│   │   ├── row/               Reihe, ohne view.js (ihr Script ist
+│   │   │                      story/view/row.js)
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
 │   ├── languages/scrollstage.pot
@@ -47,8 +50,8 @@ Projektdoku ist deutsch.
 ```
 
 Namensregeln: Slug und Text-Domain `scrollstage`, Blöcke `scrollstage/story`,
-`scrollstage/step` und `scrollstage/after`, Funktionen `jgor_st_`, Konstanten `JGOR_ST_`,
-CSS-Klassen `jgor-st-`.
+`scrollstage/step`, `scrollstage/row` und `scrollstage/after`, Funktionen
+`jgor_st_`, Konstanten `JGOR_ST_`, CSS-Klassen `jgor-st-`.
 
 Seit 2.4.1 sind die Quellen der Story in Module geteilt. `view.js` und
 `style.scss` bleiben die Einstiegspunkte, damit `block.json` und die Dateien
@@ -57,8 +60,10 @@ im Build gleich heißen:
 | Datei | Inhalt |
 | --- | --- |
 | `view/selectors.js` | gemeinsame Selektoren |
+| `view/support.js` | Erkennung von Scroll-Timelines |
 | `view/media.js` | Medienwechsel per `IntersectionObserver` |
 | `view/text.js` | Texteffekte für Browser ohne Scroll-Timelines |
+| `view/row.js` | Ablauf der Reihen: nebeneinander, stufenweise, Fokus und Anker |
 | `view/after.js` | Nachspann unter der begrenzten Bühne anheften |
 | `view/pull.js` | folgenden Inhalt hochziehen |
 | `style/_layout.scss` | Variablen, Grid, Abstand unter der Story |
@@ -73,10 +78,11 @@ Regeln im kompilierten CSS.
 
 ## 3. Aufbau der Blöcke
 
-`story` ist der Rahmen, `step` das einzelne Kapitel, `after` der optionale
-Nachspann hinter dem letzten Schritt. Alle rendern
-serverseitig (`render.php`), gespeichert werden nur die Kindblöcke. Dadurch
-wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
+`story` ist der Rahmen, `step` das einzelne Kapitel, `row` eine optionale
+Reihe von Schritten, die waagerecht abläuft, `after` der optionale Nachspann
+hinter dem letzten Schritt. Alle rendern serverseitig (`render.php`),
+gespeichert werden nur die Kindblöcke. Dadurch wirken Änderungen am Markup
+sofort, ohne Beiträge neu zu speichern.
 
 ### Attribute von `story`
 
@@ -160,6 +166,30 @@ Das Editor-Stylesheet der Blöcke hängt an der `version` aus `block.json`.
 Ohne Versionssprung liefert der Browser nach einer CSS-Änderung das alte
 Stylesheet aus dem Cache; im Frontend stehen die Styles inline.
 
+### Reihe `row`
+
+Seit 2.7.0. Ohne eigene Attribute; nimmt nur Schritte auf und ist nur als Kind
+von `story` erlaubt, `step` hat dafür `story` und `row` als Elternblöcke. Der
+Editor zeigt die Schritte der Reihe untereinander in einem gestrichelten
+Rahmen mit Hinweistext; das waagerechte Gleiten gibt es nur im Frontend.
+
+`row/render.php` gibt `.jgor-st-row > .jgor-st-row__viewport >
+.jgor-st-row__track` aus und die Zahl der Schritte als `--jgor-st-row-count`.
+Die Medien der Schritte stehen wie alle anderen auf der Bühne der Story:
+`jgor_st_collect_steps()` sammelt die Schritte der Story und ihrer Reihen als
+flache Liste in Dokumentreihenfolge.
+
+Schritte in einer Reihe bekommen keinen Texteffekt, denn die Effekte gehören
+zu einem Kasten, der von unten kommt und oben geht. Der Filter
+`render_block_context` (`jgor_st_row_context()`) setzt dafür den Kontext
+`scrollstage/inRow`, weil ein Schritt beim Rendern seinen Elternblock nicht
+sieht.
+
+| Klasse an `.jgor-st-row` | Bedeutung | gesetzt von |
+| --- | --- | --- |
+| `is-sideways` | Schritte liegen nebeneinander, der Ausschnitt klebt | Script |
+| `is-stepped` | zusätzlich: Browser ohne Scroll-Timelines, die Spur gleitet stufenweise | Script |
+
 ### Nachspann `after`
 
 Ohne eigene Attribute; nimmt beliebige Blöcke auf, dazu Farben, Innenabstand
@@ -171,17 +201,20 @@ hat Vorrang.
 
 ## 4. Wie der Effekt entsteht
 
-1. `story/render.php` liest die Medien der Kind-Schritte aus
-   `$block->parsed_block['innerBlocks']` und baut daraus eine Bühne. Jeder
-   Schritt bekommt genau ein Bühnenelement, auch ein Schritt ohne Medium
-   (Klasse `is-empty`).
+1. `story/render.php` liest die Medien der Schritte aus
+   `$block->parsed_block['innerBlocks']`, auch die der Schritte in Reihen
+   (`jgor_st_collect_steps()`), und baut daraus eine Bühne. Jeder Schritt
+   bekommt genau ein Bühnenelement, auch ein Schritt ohne Medium (Klasse
+   `is-empty`).
 2. Bühne und Schrittspalte liegen in derselben Grid-Zelle. Die Bühne ist
    `position: sticky` und bildschirmhoch, die Schritte liegen mit `z-index`
    darüber.
 3. `view.js` beobachtet die Schritte mit einem `IntersectionObserver`
    (`rootMargin: -45% 0px -45%`, also ein schmales Band in der Mitte) und
    schaltet das zugehörige Bühnenelement aktiv. Schritte ohne Medium laufen
-   rückwärts bis zum letzten vorhandenen.
+   rückwärts bis zum letzten vorhandenen. Gezählt werden nur die Schritte der
+   eigenen Story und ihrer Reihen (`STEP_SELECTOR` mit `:scope >`), nicht die
+   einer Story, die in einem Schritt liegt.
 4. Ohne JavaScript bleibt das erste Medium sichtbar
    (`:not(.is-enhanced) .jgor-st-stage__item:first-child`).
 
@@ -257,6 +290,64 @@ Stand 30.09.2026: Firefox hat Scroll-Timelines nur als Vorschau, im Release
 abgeschalteter Erkennung und in einem echten Firefox 146. Der Editor zeigt
 nur die Auswahl, keine Vorschau des Effekts.
 
+### Reihe: waagerechter Ablauf
+
+Eine Reihe läuft auf einem von drei Wegen ab. `view/row.js` entscheidet je
+Reihe und setzt die Klassen, `row/style.scss` enthält die Regeln.
+
+| Modus | Wann | Verhalten |
+| --- | --- | --- |
+| stufenlos | Browser mit Scroll-Timelines | Spur folgt dem Scrollweg, Bewegung nur in CSS |
+| stufenweise | alle anderen, derzeit Firefox | Script meldet den Index, die Spur gleitet in 600 ms dorthin |
+| untereinander | reduzierte Bewegung, ein Text passt nicht in den Ausschnitt, oder ohne Script | Schritte wie gewöhnliche Schritte |
+
+1. Mit `is-sideways` klebt `.jgor-st-row__viewport` an derselben Stelle und in
+   derselben Größe wie die Bühne (`top: --jgor-st-offset`, bei begrenzter
+   Bühne deren Seitenverhältnis) und schneidet mit `overflow: clip` ab. Die
+   Spur ist ein Flex-Container, jeder Schritt so breit und hoch wie der
+   Ausschnitt.
+2. Unter dem Ausschnitt hält `::after` den Scrollweg frei: (Anzahl − 1) ×
+   `--jgor-st-step-min`. Jeder weitere Schritt braucht also so viel Scrollweg,
+   wie ein Schritt der Story hoch ist. Beim Standardwert 100 ist die Reihe
+   genauso hoch wie untereinander, ein Wechsel des Modus verschiebt dann
+   nichts.
+3. Stufenlos: Die Reihe trägt eine benannte View-Timeline
+   (`view-timeline: --jgor-st-row block`, Einzug `--jgor-st-offset`), die Spur
+   läuft darauf von `exit-crossing 0%` (der Ausschnitt beginnt zu kleben) bis
+   `exit-crossing <Scrollweg>`. Der Bereich `contain` aus dem Prototyp stimmt
+   nur, wenn der Ausschnitt bildschirmhoch ist.
+4. Stufenweise: Je Schritt ab dem zweiten liegt ein Sentinel
+   (`.jgor-st-row__sentinel`) dort, wo die Bildschirmoberkante steht, wenn der
+   halbe Weg zu diesem Schritt gescrollt ist. Ein `IntersectionObserver` über
+   dem Bereich oberhalb der Oberkante zählt die Sentinels, die dort angekommen
+   sind; die Zahl ist der Index (`--jgor-st-row-index`). Zählen stimmt auch
+   nach Sprüngen, die mehrere Sentinels auf einmal über die Kante tragen.
+   Bewegt wird nur per CSS-Übergang, nichts im Scroll-Handler.
+5. Untereinander bleibt eine Reihe, wenn ein Textkasten samt Innen- und
+   Außenabstand seines Schritts höher als die Bühne ist (der Ausschnitt
+   schnitte ihn sonst ab), bei `prefers-reduced-motion` und solange das Script
+   nicht gelaufen ist. Gemessen wird gegen die Bühne, das Ergebnis hängt also
+   nicht vom aktuellen Modus ab; ein `ResizeObserver` prüft nach
+   Größenänderungen neu.
+6. Medienwechsel: Für Schritte einer Reihe beobachtet `view/media.js` nicht
+   den Schritt, sondern eine Mittellinie darin (`.jgor-st-row__marker`). Der
+   Ausschnitt schneidet sie ab, solange weniger als die Hälfte des Schritts
+   darin liegt; so zählt immer nur ein Schritt der Reihe. Das Feld in der
+   Fenstermitte aus dem Prototyp versagt, wenn die Story nicht mittig im
+   Fenster steht. Untereinander ist die Linie so hoch wie der Schritt und
+   vertritt ihn.
+7. Tastaturfokus (`:focus-visible`) und Anker (`hashchange`, `load`) auf einen
+   Schritt außerhalb des Ausschnitts: Das Script scrollt zur Position dieses
+   Schritts. Der Browser kann das nicht selbst, weil die Lage des Schritts vom
+   Scrollweg abhängt. Ein Mausklick verschiebt nichts. Ein zweiter Klick auf
+   denselben Anker-Link landet am Anfang der Reihe, weil der Browser dafür
+   kein Ereignis meldet.
+8. Schreibrichtung von rechts nach links: `:dir(rtl)` kehrt die Richtung der
+   Spur um (`--jgor-st-row-direction`).
+
+Geprüft in Chromium 154 (stufenlos) und in einem echten Firefox 146
+(stufenweise), nicht in Safari.
+
 ### Nachspann unter der begrenzten Bühne
 
 Bei begrenzter Bühne ist die Bühne niedriger als der Bildschirm. Ohne
@@ -331,8 +422,10 @@ weil sie nur ein Theme betraf und Plugin Check die Theme-Hooks bemängelte.
 
 * Nur das sichtbare Bühnenelement steht im Accessibility-Baum; die übrigen
   tragen `aria-hidden`, serverseitig gesetzt und vom Skript mitgeführt.
-* `prefers-reduced-motion` schaltet die Überblendung und die Texteffekte ab
-  und lässt Videos stehen.
+* `prefers-reduced-motion` schaltet die Überblendung und die Texteffekte ab,
+  lässt Videos stehen und spielt Reihen untereinander ab.
+* In einer Reihe holt der Tastaturfokus den Schritt, in dem er landet, in den
+  Ausschnitt.
 * Der Editor weist darauf hin, wenn einem Bild der Alternativtext fehlt.
 * Voreingestellt ist heller Text auf abgedunkeltem Medium; eine am Block
   gewählte Textfarbe hat Vorrang. Ein Textkasten mit eigenem Hintergrund
@@ -369,7 +462,7 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 
 1. `npm run build`, danach alle Prüfwerkzeuge grün.
 2. `.pot` neu erzeugen, Version in Header, Konstante, `readme.txt`
-   (`Stable tag`), `package.json` und allen drei `block.json` gleichziehen.
+   (`Stable tag`), `package.json` und allen vier `block.json` gleichziehen.
 3. Vier Screenshots als `assets/screenshot-1..4.png` außerhalb des Plugins,
    Motiv 1 als animiertes PNG aus `docs/scrollstage-hero.mp4`; Icon und
    Banner ebenfalls animiert, aus `assets/icon.svg` und `docs/banner.svg`
@@ -403,10 +496,13 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | Name | Scrollstage | „Scrollytelling" ist im Verzeichnis vergeben und zu generisch |
 | Sprache der Oberfläche | Englisch | translate.wordpress.org übersetzt von en_US |
 | Themes | nur Blöcke, kein Theme-Code | volle Breite kommt aus dem Theme, kein Sonderfall für ein einzelnes Theme |
-| Animationsbibliothek | keine | IntersectionObserver genügt, knapp 4 KB (komprimiert 1,4 KB) statt 70 KB |
+| Animationsbibliothek | keine | IntersectionObserver genügt, knapp 7 KB (komprimiert 2,2 KB) statt 70 KB |
 | Editor-Vorschau | vereinfacht, ohne klebende Bühne | der Editor hat einen eigenen Scroll-Container |
 | Nachspann ohne Bühnenbegrenzung | erlaubt, folgt der Story wie normaler Inhalt | beim Umschalten der Begrenzung geht nichts verloren |
 | Nur ein Nachspann je Story | nicht erzwungen, mehrere werden nacheinander ausgegeben | die Sperre bräuchte `@wordpress/data` als zusätzliche Abhängigkeit |
+| Reihe ohne Script | untereinander, auch in Browsern mit Scroll-Timelines | nur das Script erkennt einen Text, der nicht in den Ausschnitt passt und abgeschnitten würde |
+| Reihe in Firefox | stufenweises Gleiten | Scroll-Timelines fehlen dort, und `transform` im Scroll-Handler flattert; am Prototyp abgenommen |
+| Texteffekte in einer Reihe | keine | die Effekte setzen einen Kasten voraus, der von unten kommt und oben geht |
 
 ## Änderungen
 
@@ -427,3 +523,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.12 | 30.09.2026 | Effekte der Textkästen: `textEffect` an Story und Schritt, Scroll-Timelines mit Rückfall auf `view/text.js` (Plugin 2.6.0) |
 | 1.13 | 30.09.2026 | `zoom` sichtbar gemacht: Start bei 0,7, Deckkraft nach dem halben Weg; `fade` verlängert; Fallback in Firefox 146 nachgemessen (Plugin 2.6.1) |
 | 1.14 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2) |
+| 1.15 | 30.09.2026 | Block `row`: Reihe von Schritten, die waagerecht abläuft; `view/row.js`, `view/support.js`, Medienwechsel über Mittellinie (Plugin 2.7.0) |
