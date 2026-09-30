@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.9 · Stand: 30.09.2026 · Plugin-Version: 2.4.0
+Version: 1.10 · Stand: 30.09.2026 · Plugin-Version: 2.4.1
 
 ## 1. Zweck
 
@@ -22,10 +22,15 @@ Projektdoku ist deutsch.
 │   ├── readme.txt             für das WordPress-Verzeichnis
 │   ├── uninstall.php          derzeit ohne Daten zu löschen
 │   ├── includes/
-│   │   └── blocks.php         Kategorie, Registrierung, Bühnen-Markup
+│   │   └── blocks.php         Kategorie, Registrierung, Klassen der Story,
+│   │                          Bühnen-Markup
 │   ├── src/                   Quellen für wp-scripts
 │   │   ├── story/             block.json, index/edit/save, render.php,
-│   │   │                      style.scss, editor.scss, view.js
+│   │   │   │                  style.scss, editor.scss, view.js
+│   │   │   ├── view/          Module des Frontend-Scripts: selectors, media,
+│   │   │   │                  after, pull
+│   │   │   └── style/         SCSS-Teildateien: layout, stage, stage-limited,
+│   │   │                      steps, after, effects
 │   │   ├── step/              ebenso, ohne view.js
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
@@ -42,6 +47,26 @@ Projektdoku ist deutsch.
 Namensregeln: Slug und Text-Domain `scrollstage`, Blöcke `scrollstage/story`,
 `scrollstage/step` und `scrollstage/after`, Funktionen `jgor_st_`, Konstanten `JGOR_ST_`,
 CSS-Klassen `jgor-st-`.
+
+Seit 2.4.1 sind die Quellen der Story in Module geteilt. `view.js` und
+`style.scss` bleiben die Einstiegspunkte, damit `block.json` und die Dateien
+im Build gleich heißen:
+
+| Datei | Inhalt |
+| --- | --- |
+| `view/selectors.js` | gemeinsame Selektoren |
+| `view/media.js` | Medienwechsel per `IntersectionObserver` |
+| `view/after.js` | Nachspann unter der begrenzten Bühne anheften |
+| `view/pull.js` | folgenden Inhalt hochziehen |
+| `style/_layout.scss` | Variablen, Grid, Abstand unter der Story |
+| `style/_stage.scss` | klebende Bühne, Abdunkelung, Medien |
+| `style/_stage-limited.scss` | auf das Medium begrenzte Bühne |
+| `style/_steps.scss` | Schrittspalte |
+| `style/_after.scss` | Nachspann, Anheften, hochgezogener Inhalt |
+| `style/_effects.scss` | Effekte und `prefers-reduced-motion` |
+
+Die Reihenfolge der `@use`-Zeilen in `style.scss` ist die Reihenfolge der
+Regeln im kompilierten CSS.
 
 ## 3. Aufbau der Blöcke
 
@@ -64,6 +89,27 @@ wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
 | `stickyOffset` | 0–200 | 0 | Abstand von oben in Pixeln |
 | `minStepHeight` | 40–200 | 100 | Höhe eines Schritts in Prozent der Bildschirmhöhe |
 | `transition` | fade, none | fade | Überblenden oder harter Wechsel |
+
+### Klassen von `story`
+
+`jgor_st_story_classes()` in `includes/blocks.php` baut alle Klassen des
+Rahmens an einer Stelle; `story/render.php` übergibt nur den geprüften
+Zustand.
+
+| Klasse | Bedeutung | gesetzt von |
+| --- | --- | --- |
+| `is-text-left`, `-center`, `-right` | `textPosition` | PHP |
+| `is-align-start`, `-center`, `-end` | `stepAlign` | PHP |
+| `is-fit-cover`, `-contain` | `mediaFit` | PHP |
+| `is-effect-<name>` | aktiver Effekt, derzeit nur `is-effect-fade` (`transition` = fade) | PHP |
+| `is-stage-limited` | begrenzte Bühne mit bekanntem Seitenverhältnis | PHP |
+| `has-pull-content` | Inhalt nach der Story hochziehen | PHP |
+| `has-after` | Nachspann oder hochgezogener Inhalt vorhanden | PHP, Script |
+| `is-enhanced` | Script steuert den Medienwechsel | Script |
+| `is-after-pinned` | Nachspann klebt unter der Bühne | Script |
+
+Bis 2.4.0 hieß `is-effect-fade` noch `has-fade`; beim harten Wechsel gab es
+zusätzlich die ungenutzte Klasse `no-fade`.
 
 ### Attribute von `step`
 
@@ -234,6 +280,8 @@ Hochziehen. Es funktioniert und dient bei allen Erweiterungen als
 Startpunkt, auf den sich per `git checkout basisplugin-2.4.0` zurückgehen
 lässt.
 
+Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
+
 ## 11. Entschiedene Fragen
 
 | Frage | Entscheidung | Grund |
@@ -260,3 +308,4 @@ lässt.
 | 1.7 | 29.09.2026 | build.sh, .distignore, Assets und animierte Screenshots beschrieben |
 | 1.8 | 29.09.2026 | Seitenvorlage für GeneratePress entfernt (Plugin 2.4.0) |
 | 1.9 | 30.09.2026 | Abschnitt Basisplugin (Tag basisplugin-2.4.0) |
+| 1.10 | 30.09.2026 | Quellen der Story in Module geteilt (`view/`, `style/`), Klassen von `story` mit `is-effect-fade`, Verweis auf erweiterungen.md (Plugin 2.4.1) |

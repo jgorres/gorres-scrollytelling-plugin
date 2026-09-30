@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.4.0
+Stable tag: 2.4.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,10 @@ The story dims its media; you can set how much. Each step can also carry its own
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.4.1 =
+* Internal: front end script and styles of the story block are split into modules. No change in behavior.
+* Changed: the class that switches on the cross-fade is now `is-effect-fade` (was `has-fade`); the unused class `no-fade` is gone.
 
 = 2.4.0 =
 * First public release.
