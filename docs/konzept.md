@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.16 · Stand: 30.09.2026 · Plugin-Version: 2.7.1
+Version: 1.17 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
 
 ## 1. Zweck
 
@@ -22,9 +22,10 @@ Projektdoku ist deutsch.
 │   ├── readme.txt             für das WordPress-Verzeichnis
 │   ├── uninstall.php          derzeit ohne Daten zu löschen
 │   ├── includes/
-│   │   └── blocks.php         Kategorie, Registrierung, Klassen der Story,
-│   │                          Schritte sammeln, Kontext der Reihe,
-│   │                          Textkasten des Schritts, Bühnen-Markup
+│   │   ├── blocks.php         Kategorie, Registrierung, Klassen der Story,
+│   │   │                      Schritte sammeln, Kontext der Reihe,
+│   │   │                      Textkasten des Schritts, Bühnen-Markup
+│   │   └── admin.php          Spendenlink in der Plugin-Liste
 │   ├── src/                   Quellen für wp-scripts
 │   │   ├── story/             block.json, index/edit/save, render.php,
 │   │   │   │                  style.scss, editor.scss, view.js
@@ -525,3 +526,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.14 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2) |
 | 1.15 | 30.09.2026 | Block `row`: Reihe von Schritten, die waagerecht abläuft; `view/row.js`, `view/support.js`, Medienwechsel über Mittellinie (Plugin 2.7.0) |
 | 1.16 | 30.09.2026 | readme: Beschreibung mit Erklärung von Scrollytelling, Blöcke in beliebiger Zahl, Donate link (Plugin 2.7.1); am Plugin selbst nichts geändert |
+| 1.17 | 30.09.2026 | `includes/admin.php`: Spendenlink (Ko-fi) in der Zeile des Plugins in der Plugin-Liste über `plugin_row_meta` (Plugin 2.7.2) |
