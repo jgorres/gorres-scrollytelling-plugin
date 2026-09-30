@@ -74,25 +74,17 @@ if ( $block->inner_blocks instanceof WP_Block_List ) {
 	}
 }
 
-$jgor_st_classes = array(
-	'jgor-st-story',
-	'is-text-' . $jgor_st_text_position,
-	'is-align-' . $jgor_st_step_align,
-	'is-fit-' . $jgor_st_media_fit,
-	'fade' === $jgor_st_transition ? 'has-fade' : 'no-fade',
+$jgor_st_classes = jgor_st_story_classes(
+	array(
+		'text_position' => $jgor_st_text_position,
+		'step_align'    => $jgor_st_step_align,
+		'media_fit'     => $jgor_st_media_fit,
+		'effects'       => 'fade' === $jgor_st_transition ? array( 'fade' ) : array(),
+		'stage_limited' => $jgor_st_limit_stage && $jgor_st_ratio > 0,
+		'pull_content'  => $jgor_st_pull_content,
+		'has_after'     => '' !== trim( $jgor_st_after ),
+	)
 );
-
-if ( $jgor_st_limit_stage && $jgor_st_ratio > 0 ) {
-	$jgor_st_classes[] = 'is-stage-limited';
-
-	if ( $jgor_st_pull_content ) {
-		$jgor_st_classes[] = 'has-pull-content';
-	}
-}
-
-if ( '' !== trim( $jgor_st_after ) ) {
-	$jgor_st_classes[] = 'has-after';
-}
 
 $jgor_st_wrapper = get_block_wrapper_attributes(
 	array(

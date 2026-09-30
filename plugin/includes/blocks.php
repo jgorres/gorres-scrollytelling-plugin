@@ -127,6 +127,71 @@ function jgor_st_keep_after_assets( $enqueue, $block_name ) {
 add_filter( 'enqueue_empty_block_content_assets', 'jgor_st_keep_after_assets', 10, 2 );
 
 /**
+ * Builds the class names of the story wrapper.
+ *
+ * The single place where the state of a story turns into classes, so styles
+ * and script can rely on one naming scheme: "is-text-", "is-align-" and
+ * "is-fit-" for the layout, "is-effect-<name>" for every active effect.
+ *
+ * The caller validates the values against the block attributes; they are
+ * sanitised here once more, because they end up in a class attribute.
+ *
+ * @param array<string, mixed> $state {
+ *     State of the story. Missing keys leave their class out.
+ *
+ *     @type string   $text_position Horizontal position of the text boxes.
+ *     @type string   $step_align    Vertical position of the text boxes.
+ *     @type string   $media_fit     How the medium fills the stage.
+ *     @type string[] $effects       Names of the active effects.
+ *     @type bool     $stage_limited Whether the stage is limited to the medium.
+ *     @type bool     $pull_content  Whether the following content is pulled up.
+ *     @type bool     $has_after     Whether the story has an afterword.
+ * }
+ * @return string[] Class names, starting with the block class.
+ */
+function jgor_st_story_classes( $state ) {
+	$classes  = array( 'jgor-st-story' );
+	$variants = array(
+		'text_position' => 'is-text-',
+		'step_align'    => 'is-align-',
+		'media_fit'     => 'is-fit-',
+	);
+
+	foreach ( $variants as $key => $prefix ) {
+		$value = isset( $state[ $key ] ) && is_string( $state[ $key ] ) ? sanitize_html_class( $state[ $key ] ) : '';
+
+		if ( '' !== $value ) {
+			$classes[] = $prefix . $value;
+		}
+	}
+
+	if ( isset( $state['effects'] ) && is_array( $state['effects'] ) ) {
+		foreach ( $state['effects'] as $effect ) {
+			$effect = is_string( $effect ) ? sanitize_html_class( $effect ) : '';
+
+			if ( '' !== $effect ) {
+				$classes[] = 'is-effect-' . $effect;
+			}
+		}
+	}
+
+	if ( ! empty( $state['stage_limited'] ) ) {
+		$classes[] = 'is-stage-limited';
+
+		// Pulling up only works below a limited stage.
+		if ( ! empty( $state['pull_content'] ) ) {
+			$classes[] = 'has-pull-content';
+		}
+	}
+
+	if ( ! empty( $state['has_after'] ) ) {
+		$classes[] = 'has-after';
+	}
+
+	return $classes;
+}
+
+/**
  * Builds one item of the sticky media stage.
  *
  * Reads the media attributes of a single step block and returns the markup for
