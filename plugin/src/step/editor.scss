@@ -16,7 +16,9 @@
 	background: #f0f0f1;
 }
 
-.jgor-st-step--editor.has-media {
+/* Same defaults as on the front end: light text on the medium, unless a text
+   colour is chosen or the text box has its own background. */
+.jgor-st-step--editor.has-media:not(.has-text-color) > .jgor-st-step__text:not(.has-background) {
 	color: #fff;
 }
 
@@ -56,6 +58,11 @@
 	z-index: 1;
 	box-sizing: border-box;
 	width: min(100%, var(--jgor-st-text-width, 45%));
+}
+
+/* Same default as on the front end; a padding set on the block overrides it. */
+.jgor-st-step__text.has-background {
+	padding: clamp(1rem, 3vw, 2rem);
 }
 
 /* Horizontal position of the text box. */

@@ -3,6 +3,8 @@
  *
  * A step is one screen of scrolling: its height decides how long the medium
  * behind it stays on the stage, its box holds the text that scrolls across.
+ * Typography, text colour and margin of the block apply to the step, its
+ * background, border, shadow and padding to the text box.
  */
 
 /* border-box keeps the padding inside the configured step height, so one step
@@ -15,8 +17,9 @@
 }
 
 /* Light text is the sensible default on top of a darkened medium; choosing a
-   text colour for the block overrides it. */
-.jgor-st-step:not(.has-text-color) {
+   text colour for the block overrides it. A text box with its own background
+   keeps the text colour of the theme, which is made for such a surface. */
+.jgor-st-step:not(.has-text-color) > .jgor-st-step__content:not(.has-background) {
 	color: #fff;
 }
 
@@ -52,6 +55,13 @@
 .jgor-st-step__content {
 	box-sizing: border-box;
 	width: 100%;
+}
+
+/* Background, border, shadow and padding of the block sit on the text box.
+   A box with a background needs some air around its text; a padding set on
+   the block overrides this one through its inline style. */
+.jgor-st-step__content.has-background {
+	padding: clamp(1rem, 3vw, 2rem);
 }
 
 @container jgor-st-steps (min-width: 600px) {

@@ -192,6 +192,101 @@ function jgor_st_story_classes( $state ) {
 }
 
 /**
+ * Builds class and style of the text box of a step.
+ *
+ * Background, border, shadow and padding of a step belong to its text box,
+ * not to the step itself, which is as wide as the story and as tall as the
+ * screen. block.json therefore keeps WordPress from putting them on the block
+ * wrapper, and this function turns the same attributes into class and style
+ * for the inner element, the way the block supports of core do it.
+ *
+ * The style engine sanitises every declaration; the class names are sanitised
+ * here once more, because they end up in a class attribute.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @return array{class: string, style: string} Class names and inline style,
+ *                                             both possibly empty.
+ */
+function jgor_st_step_box_attributes( $attributes ) {
+	$style  = isset( $attributes['style'] ) && is_array( $attributes['style'] ) ? $attributes['style'] : array();
+	$border = isset( $style['border'] ) && is_array( $style['border'] ) ? $style['border'] : array();
+
+	// A colour from the palette is stored as a slug, a custom one in the style.
+	$background = null;
+
+	if ( isset( $attributes['backgroundColor'] ) && is_string( $attributes['backgroundColor'] ) && '' !== $attributes['backgroundColor'] ) {
+		$background = 'var:preset|color|' . $attributes['backgroundColor'];
+	} elseif ( isset( $style['color']['background'] ) ) {
+		$background = $style['color']['background'];
+	}
+
+	$border_styles = array();
+
+	// Radius and width were stored without a unit in early versions of the editor.
+	foreach ( array( 'radius', 'width' ) as $property ) {
+		if ( isset( $border[ $property ] ) ) {
+			$border_styles[ $property ] = is_numeric( $border[ $property ] ) ? $border[ $property ] . 'px' : $border[ $property ];
+		}
+	}
+
+	if ( isset( $border['style'] ) ) {
+		$border_styles['style'] = $border['style'];
+	}
+
+	if ( isset( $attributes['borderColor'] ) && is_string( $attributes['borderColor'] ) && '' !== $attributes['borderColor'] ) {
+		$border_styles['color'] = 'var:preset|color|' . $attributes['borderColor'];
+	} elseif ( isset( $border['color'] ) ) {
+		$border_styles['color'] = $border['color'];
+	}
+
+	// Borders that differ per side.
+	foreach ( array( 'top', 'right', 'bottom', 'left' ) as $side ) {
+		if ( isset( $border[ $side ] ) && is_array( $border[ $side ] ) ) {
+			$border_styles[ $side ] = array(
+				'width' => $border[ $side ]['width'] ?? null,
+				'color' => $border[ $side ]['color'] ?? null,
+				'style' => $border[ $side ]['style'] ?? null,
+			);
+		}
+	}
+
+	// One call per block support, with the options core uses for each of them.
+	$parts = array(
+		wp_style_engine_get_styles(
+			array( 'color' => array( 'background' => $background ) ),
+			array( 'convert_vars_to_classnames' => true )
+		),
+		wp_style_engine_get_styles( array( 'border' => $border_styles ) ),
+		wp_style_engine_get_styles( array( 'spacing' => array( 'padding' => $style['spacing']['padding'] ?? null ) ) ),
+		wp_style_engine_get_styles( array( 'shadow' => $style['shadow'] ?? null ) ),
+	);
+
+	$classes = array();
+	$css     = '';
+
+	foreach ( $parts as $part ) {
+		if ( ! empty( $part['classnames'] ) ) {
+			foreach ( explode( ' ', $part['classnames'] ) as $class ) {
+				$class = sanitize_html_class( $class );
+
+				if ( '' !== $class ) {
+					$classes[] = $class;
+				}
+			}
+		}
+
+		if ( ! empty( $part['css'] ) ) {
+			$css .= $part['css'];
+		}
+	}
+
+	return array(
+		'class' => implode( ' ', array_unique( $classes ) ),
+		'style' => $css,
+	);
+}
+
+/**
  * Builds one item of the sticky media stage.
  *
  * Reads the media attributes of a single step block and returns the markup for

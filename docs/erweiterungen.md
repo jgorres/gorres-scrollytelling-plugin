@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.1 · Stand: 30.09.2026 · Plugin-Version: 2.4.1
+Version: 1.2 · Stand: 30.09.2026 · Plugin-Version: 2.5.0
 
 ## 1. Ausgangspunkt
 
@@ -27,7 +27,7 @@ Hooks oder Ereignisse als öffentliche Schnittstelle.
 | Schritt | Inhalt | Plugin-Version | Aufwand | Stand |
 | --- | --- | --- | --- | --- |
 | 0 | Modularisierung ohne Verhaltensänderung | 2.4.1 | 1 Tag | erledigt |
-| 1 | Schriftformatierung über Block-Supports | 2.5.0 | ½ Tag | offen |
+| 1 | Schriftformatierung und Textkasten über Block-Supports | 2.5.0 | ½ Tag | erledigt |
 | 2 | Effekte für den Textkasten | 2.6.0 | 1–2 Tage | offen |
 | 3 | Container-Block „Scrollstage-Reihe" | 2.7.0 | 3–5 Tage | offen |
 
@@ -54,10 +54,24 @@ bis auf den umbenannten Klassennamen. Nicht im Browser geprüft sind der harte
 Wechsel (`transition` = none) und eine Story mit Nachspann-Block, weil keine
 Testseite sie nutzt.
 
-### Schritt 1: Schriftformatierung (2.5.0)
+### Schritt 1: Schriftformatierung und Textkasten (2.5.0)
 
-Nur Block-Supports in `src/step/block.json`: `typography`, `spacing`,
-`border`, `shadow`. Keine eigenen Bedienelemente, keine eigenen Attribute.
+Block-Supports in `src/step/block.json`, keine eigenen Bedienelemente, keine
+eigenen Attribute.
+
+* Typografie am Schritt: Schrift, Schnitt, Zeichenabstand, Schreibweise,
+  Dekoration und Textausrichtung, zusätzlich zu Größe und Zeilenhöhe.
+* Schatten als neue Einstellung.
+* Entschieden am 30.09.2026: Der Textkasten ist ein echter Kasten.
+  Hintergrund, Rahmen, Eckenradius, Schatten und Innenabstand wirken auf den
+  Textkasten statt auf den ganzen Schritt. Dafür kamen
+  `jgor_st_step_box_attributes()` in `includes/blocks.php` und
+  `src/step/text-box.js` dazu; Einzelheiten in `konzept.md`, Abschnitt 3.
+
+Nachweis: Testseite `/scrollstage-typography/` auf Pro (Seite 96, sechs
+Schritte: drei zur Schrift, drei zum Kasten), Werte im Frontend und im Editor
+gemessen; Vergleich Basis gegen Pro für die drei gemeinsamen Seiten gleich.
+Geprüft nur unter WordPress 7.1.2, nicht unter der Mindestversion 6.7.
 
 ### Schritt 2: Effekte für den Textkasten (2.6.0)
 
@@ -93,7 +107,8 @@ Scrollstage aktiv:
 
 Testseiten auf beiden: `/scrollstage-hero/`, `/scrollstage-standard-width/`
 (begrenzte Bühne, Hochziehen) und `/scrollytelling-test/`. Jede hat fünf
-Schritte, einer davon mit Video.
+Schritte, einer davon mit Video. Nur auf Pro liegt zusätzlich
+`/scrollstage-typography/` für Schriftformatierung und Textkasten.
 
 Vergleichslauf: je Seite 14 Scrollpositionen im Abstand von 400 px bei
 1280×800. Screenshots mit reduzierter Bewegung, damit das Video steht; die
@@ -124,3 +139,4 @@ den Entwicklungsstand.
 | --- | --- | --- |
 | 1.0 | 30.09.2026 | Erste Fassung: Plan für vier Erweiterungen in den Schritten 0 bis 3 |
 | 1.1 | 30.09.2026 | Entscheidung für ein Plugin, Schritt 0 erledigt (Plugin 2.4.1), Testsites Basis und Pro |
+| 1.2 | 30.09.2026 | Schritt 1 erledigt (Plugin 2.5.0): Schriftformatierung, Textkasten als echter Kasten, Testseite auf Pro |

@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.4.1
+Stable tag: 2.5.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,8 @@ The story is built from two blocks, plus an optional third:
 
 * Position of the text boxes: left, center or right, horizontally and vertically
 * Width of the text boxes in percent of the available column
+* Look of a text box per step: background, border, rounded corners, shadow and padding
+* Typography per step: font family, size, weight and style, line height, letter spacing, letter case, decoration and text alignment
 * How a medium fills the screen: crop to fill, or show the whole medium
 * With a stage limited to the medium: pull the content after the story up below the stage, so it shows from the first step on
 * Dimming of the media so that text stays readable
@@ -67,7 +69,7 @@ With "Limit the stage to the medium" the stage is lower than the screen, and con
 
 = Does the text stay readable on a bright image? =
 
-The story dims its media; you can set how much. Each step can also carry its own background and text color through the usual block settings.
+The story dims its media; you can set how much. Each step can also give its text box a background, a border and a shadow and set its own text color through the usual block settings.
 
 == Screenshots ==
 
@@ -77,6 +79,11 @@ The story dims its media; you can set how much. Each step can also carry its own
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.5.0 =
+* New: typography settings for a step: font family, weight and style, letter spacing, letter case, decoration and text alignment.
+* New: shadow for the text box of a step.
+* Changed: background, border and padding of a step now apply to its text box instead of the whole step. A box with a background gets a default padding and, unless a text color is set, the text color of the theme.
 
 = 2.4.1 =
 * Internal: front end script and styles of the story block are split into modules. No change in behavior.

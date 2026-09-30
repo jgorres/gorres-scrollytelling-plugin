@@ -3,7 +3,8 @@
  *
  * Every step keeps one medium and its own text. The medium is only previewed
  * here; on the front end the parent story block moves it into its sticky
- * stage.
+ * stage. Background, border, shadow and padding of the block go to the text
+ * box, see text-box.js.
  */
 
 import { __ } from '@wordpress/i18n';
@@ -22,6 +23,8 @@ import {
 	PanelBody,
 	TextareaControl,
 } from '@wordpress/components';
+
+import { useTextBoxProps } from './text-box';
 
 const ALLOWED_MEDIA = [ 'image', 'video' ];
 
@@ -60,8 +63,9 @@ export default function Edit( { attributes, setAttributes } ) {
 			: undefined,
 	} );
 
+	// Background, border, shadow and padding belong to the text box.
 	const innerBlocksProps = useInnerBlocksProps(
-		{ className: 'jgor-st-step__text' },
+		useTextBoxProps( attributes ),
 		{ template: TEMPLATE }
 	);
 

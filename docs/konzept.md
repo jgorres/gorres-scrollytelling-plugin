@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.10 · Stand: 30.09.2026 · Plugin-Version: 2.4.1
+Version: 1.11 · Stand: 30.09.2026 · Plugin-Version: 2.5.0
 
 ## 1. Zweck
 
@@ -23,7 +23,7 @@ Projektdoku ist deutsch.
 │   ├── uninstall.php          derzeit ohne Daten zu löschen
 │   ├── includes/
 │   │   └── blocks.php         Kategorie, Registrierung, Klassen der Story,
-│   │                          Bühnen-Markup
+│   │                          Textkasten des Schritts, Bühnen-Markup
 │   ├── src/                   Quellen für wp-scripts
 │   │   ├── story/             block.json, index/edit/save, render.php,
 │   │   │   │                  style.scss, editor.scss, view.js
@@ -31,7 +31,8 @@ Projektdoku ist deutsch.
 │   │   │   │                  after, pull
 │   │   │   └── style/         SCSS-Teildateien: layout, stage, stage-limited,
 │   │   │                      steps, after, effects
-│   │   ├── step/              ebenso, ohne view.js
+│   │   ├── step/              ebenso, ohne view.js; dazu text-box.js
+│   │   │                      (Textkasten im Editor)
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
 │   ├── languages/scrollstage.pot
@@ -118,6 +119,42 @@ zusätzlich die ungenutzte Klasse `no-fade`.
 | `mediaId`, `mediaUrl`, `mediaType` | gewähltes Medium aus der Mediathek |
 | `mediaAlt` | Alternativtext; leer übernimmt den Text der Mediathek |
 | `focalPoint` | Punkt, der beim Zuschneiden sichtbar bleibt |
+
+### Block-Einstellungen von `step`
+
+Der Schritt ist so breit wie die Story und so hoch wie der Bildschirm, der
+Textkasten darin (`.jgor-st-step__content`) nur so groß wie sein Text. Seit
+2.5.0 sind die Einstellungen des Blocks deshalb aufgeteilt:
+
+| Einstellung | wirkt auf |
+| --- | --- |
+| Typografie: Schrift, Größe, Schnitt, Zeilenhöhe, Zeichenabstand, Schreibweise, Dekoration, Ausrichtung | Schritt, vererbt sich auf den Text |
+| Textfarbe, Außenabstand | Schritt |
+| Hintergrund, Rahmen, Eckenradius, Schatten, Innenabstand | Textkasten |
+
+1. `block.json` nimmt Hintergrund, Rahmen, Schatten und Innenabstand per
+   `__experimentalSkipSerialization` vom Block-Wrapper.
+2. Im Frontend baut `jgor_st_step_box_attributes()` (`includes/blocks.php`)
+   aus denselben Attributen Klassen und Inline-Style für den Textkasten, mit
+   der Style Engine und je Einstellung so, wie es die Block-Supports des Core
+   tun.
+3. Im Editor macht `step/text-box.js` dasselbe mit den Helfern, die auch der
+   Button-Block des Core benutzt. Sie sind als experimentell markiert; fehlt
+   einer, entfällt nur dieser Teil der Vorschau.
+4. Ein Kasten mit Hintergrund bekommt `padding: clamp(1rem, 3vw, 2rem)`; ein
+   am Block gesetzter Innenabstand hat Vorrang.
+5. Weiße Schrift gilt nur, wenn keine Textfarbe gewählt ist und der Kasten
+   keinen Hintergrund hat. Mit Hintergrund ohne Textfarbe gilt die Textfarbe
+   des Themes.
+
+Die Typografie-Schlüssel heißen in `block.json` noch `__experimental…`, weil
+WordPress 7.1 sie in seinen eigenen Blöcken so führt. Setzt ein Theme Werte
+direkt an Überschriften (Twenty Twenty-Five: Schriftstärke, Zeichenabstand),
+haben diese Vorrang vor den Werten des Schritts.
+
+Das Editor-Stylesheet der Blöcke hängt an der `version` aus `block.json`.
+Ohne Versionssprung liefert der Browser nach einer CSS-Änderung das alte
+Stylesheet aus dem Cache; im Frontend stehen die Styles inline.
 
 ### Nachspann `after`
 
@@ -222,7 +259,8 @@ weil sie nur ein Theme betraf und Plugin Check die Theme-Hooks bemängelte.
   stehen.
 * Der Editor weist darauf hin, wenn einem Bild der Alternativtext fehlt.
 * Voreingestellt ist heller Text auf abgedunkeltem Medium; eine am Block
-  gewählte Textfarbe hat Vorrang.
+  gewählte Textfarbe hat Vorrang. Ein Textkasten mit eigenem Hintergrund
+  nimmt die Textfarbe des Themes.
 
 ## 7. Medien vorbereiten
 
@@ -309,3 +347,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.8 | 29.09.2026 | Seitenvorlage für GeneratePress entfernt (Plugin 2.4.0) |
 | 1.9 | 30.09.2026 | Abschnitt Basisplugin (Tag basisplugin-2.4.0) |
 | 1.10 | 30.09.2026 | Quellen der Story in Module geteilt (`view/`, `style/`), Klassen von `story` mit `is-effect-fade`, Verweis auf erweiterungen.md (Plugin 2.4.1) |
+| 1.11 | 30.09.2026 | Block-Einstellungen von `step`: Typografie am Schritt, Hintergrund, Rahmen, Schatten und Innenabstand am Textkasten (Plugin 2.5.0) |
