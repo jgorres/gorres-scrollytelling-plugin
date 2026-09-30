@@ -1,0 +1,57 @@
+/**
+ * Stage of the story block.
+ *
+ * The stage sticks to the top of the viewport and holds one item per step;
+ * only the active item is visible.
+ */
+
+.jgor-st-story__stage {
+	position: sticky;
+	top: var(--jgor-st-offset);
+	align-self: start;
+	overflow: hidden;
+	height: calc(100svh - var(--jgor-st-offset));
+}
+
+/* Darkens the medium so that text stays readable on top of it. */
+.jgor-st-story__stage::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: #000;
+	opacity: var(--jgor-st-overlay);
+	pointer-events: none;
+}
+
+.jgor-st-stage__item {
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	opacity: 0;
+}
+
+/* Before the script takes over, only the first medium is visible. */
+.jgor-st-story:not(.is-enhanced) .jgor-st-stage__item:first-child,
+.jgor-st-stage__item.is-active {
+	opacity: 1;
+}
+
+/* Positioned instead of sized: a percentage height would lose against the
+   "height: auto" that theme or custom CSS puts on images. With all four insets
+   at zero the medium fills the stage in any case. */
+.jgor-st-stage__media {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	object-fit: cover;
+	object-position: var(--jgor-st-focal-x, 50%) var(--jgor-st-focal-y, 50%);
+}
+
+/* Shows the whole medium instead of a filling crop; the free space around it
+   takes the background colour of the block. */
+.jgor-st-story.is-fit-contain .jgor-st-stage__media {
+	object-fit: contain;
+}

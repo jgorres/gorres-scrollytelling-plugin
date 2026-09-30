@@ -1,0 +1,30 @@
+/**
+ * Layout of the story block.
+ *
+ * Defaults of the custom properties, the grid and the cell that stage and
+ * steps share.
+ */
+
+.jgor-st-story {
+	--jgor-st-offset: 0px;
+	--jgor-st-step-min: 100svh;
+	--jgor-st-text-width: 45%;
+	--jgor-st-overlay: 0.35;
+
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+/* The last medium ends with a hard edge, so the content after the story gets
+   some room. An afterword brings its own gap; a margin set on the block
+   overrides this one through its inline style. */
+.jgor-st-story:not(.has-after) {
+	margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+/* Both children live in the same cell, so the steps lie on top of the stage. */
+.jgor-st-story__stage,
+.jgor-st-story__steps {
+	grid-column: 1;
+	grid-row: 1;
+}
