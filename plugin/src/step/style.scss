@@ -5,7 +5,12 @@
  * behind it stays on the stage, its box holds the text that scrolls across.
  * Typography, text colour and margin of the block apply to the step, its
  * background, border, shadow and padding to the text box.
+ *
+ * The effects the text box appears and disappears with live in the partial
+ * below style/.
  */
+
+@use "style/text-effects";
 
 /* border-box keeps the padding inside the configured step height, so one step
    really is as tall as the editor asked for. */

@@ -4,7 +4,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.5.0
+Stable tag: 2.6.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,7 @@ The story is built from two blocks, plus an optional third:
 * Width of the text boxes in percent of the available column
 * Look of a text box per step: background, border, rounded corners, shadow and padding
 * Typography per step: font family, size, weight and style, line height, letter spacing, letter case, decoration and text alignment
+* How the text boxes appear and disappear: fade, slide or zoom, for the whole story or per step
 * How a medium fills the screen: crop to fill, or show the whole medium
 * With a stage limited to the medium: pull the content after the story up below the stage, so it shows from the first step on
 * Dimming of the media so that text stays readable
@@ -36,9 +37,9 @@ The story is built from two blocks, plus an optional third:
 
 = Built to behave =
 
-* **No JavaScript library.** The front end script is about one kilobyte and uses the browser's own IntersectionObserver.
+* **No JavaScript library.** The front end script is about three kilobytes, a little over one when compressed, and uses the browser's own IntersectionObserver.
 * **Readable without JavaScript.** The first medium stays visible and the text follows underneath, so the page never breaks.
-* **Respects reduced motion.** No cross-fade and no playing video when the visitor asked for less motion.
+* **Respects reduced motion.** No cross-fade, no text effect and no playing video when the visitor asked for less motion.
 * **Screen readers get one medium at a time.** All media of a story live in the document at once; only the visible one is exposed.
 * **Sharp images.** The plugin calculates the sizes attribute from the aspect ratio of the image, because a screen-high medium needs a wider file than the screen itself.
 
@@ -79,6 +80,10 @@ The story dims its media; you can set how much. Each step can also give its text
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.6.0 =
+* New: text effects. The text boxes can fade, slide or zoom in when they enter the screen and leave the same way. Set the effect for the whole story or per step.
+* Browsers with scroll timelines tie the effect to the scroll position; all others run it once as a transition. Visitors who prefer reduced motion see no effect.
 
 = 2.5.0 =
 * New: typography settings for a step: font family, weight and style, letter spacing, letter case, decoration and text alignment.

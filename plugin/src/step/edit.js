@@ -21,6 +21,7 @@ import {
 	FocalPointPicker,
 	Notice,
 	PanelBody,
+	SelectControl,
 	TextareaControl,
 } from '@wordpress/components';
 
@@ -42,7 +43,8 @@ const EMPTY_MEDIA = {
 };
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { mediaId, mediaUrl, mediaAlt, mediaType, focalPoint } = attributes;
+	const { mediaId, mediaUrl, mediaAlt, mediaType, focalPoint, textEffect } =
+		attributes;
 	const hasMedia = '' !== mediaUrl;
 
 	/*
@@ -164,6 +166,45 @@ export default function Edit( { attributes, setAttributes } ) {
 							{ __( 'Remove medium', 'scrollstage' ) }
 						</Button>
 					) }
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Motion', 'scrollstage' ) }
+					initialOpen={ false }
+				>
+					<SelectControl
+						__nextHasNoMarginBottom
+						label={ __( 'Text effect', 'scrollstage' ) }
+						help={ __(
+							'How the text box of this step appears and disappears while scrolling. Front end only.',
+							'scrollstage'
+						) }
+						value={ textEffect }
+						options={ [
+							{
+								label: __( 'Same as story', 'scrollstage' ),
+								value: '',
+							},
+							{
+								label: __( 'None', 'scrollstage' ),
+								value: 'none',
+							},
+							{
+								label: __( 'Fade in', 'scrollstage' ),
+								value: 'fade',
+							},
+							{
+								label: __( 'Slide up', 'scrollstage' ),
+								value: 'slide',
+							},
+							{
+								label: __( 'Zoom in', 'scrollstage' ),
+								value: 'zoom',
+							},
+						] }
+						onChange={ ( value ) =>
+							setAttributes( { textEffect: value } )
+						}
+					/>
 				</PanelBody>
 			</InspectorControls>
 

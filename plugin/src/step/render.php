@@ -10,6 +10,9 @@
  * shadow and padding go to the text box inside it, see
  * jgor_st_step_box_attributes().
  *
+ * The effect the text box appears and disappears with comes from the step
+ * itself or, handed down as block context, from the story.
+ *
  * @package Scrollstage
  *
  * @var array<string, mixed> $attributes Block attributes.
@@ -24,7 +27,19 @@ defined( 'ABSPATH' ) || exit;
  * scrolling distance, and the script relies on every step having a counterpart
  * on the stage.
  */
-$jgor_st_wrapper = get_block_wrapper_attributes( array( 'class' => 'jgor-st-step' ) );
+$jgor_st_classes = 'jgor-st-step';
+
+// Effect of the text box: the step's own choice, otherwise the one of the story.
+$jgor_st_effect = jgor_st_resolve_text_effect(
+	$attributes['textEffect'] ?? '',
+	$block->context['scrollstage/textEffect'] ?? ''
+);
+
+if ( '' !== $jgor_st_effect ) {
+	$jgor_st_classes .= ' has-text-effect is-text-effect-' . sanitize_html_class( $jgor_st_effect );
+}
+
+$jgor_st_wrapper = get_block_wrapper_attributes( array( 'class' => $jgor_st_classes ) );
 $jgor_st_box     = jgor_st_step_box_attributes( $attributes );
 
 // Attributes of the text box, escaped here and echoed as they are.

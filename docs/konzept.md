@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.11 · Stand: 30.09.2026 · Plugin-Version: 2.5.0
+Version: 1.12 · Stand: 30.09.2026 · Plugin-Version: 2.6.0
 
 ## 1. Zweck
 
@@ -28,11 +28,12 @@ Projektdoku ist deutsch.
 │   │   ├── story/             block.json, index/edit/save, render.php,
 │   │   │   │                  style.scss, editor.scss, view.js
 │   │   │   ├── view/          Module des Frontend-Scripts: selectors, media,
-│   │   │   │                  after, pull
+│   │   │   │                  text, after, pull
 │   │   │   └── style/         SCSS-Teildateien: layout, stage, stage-limited,
 │   │   │                      steps, after, effects
 │   │   ├── step/              ebenso, ohne view.js; dazu text-box.js
-│   │   │                      (Textkasten im Editor)
+│   │   │   │                  (Textkasten im Editor)
+│   │   │   └── style/         SCSS-Teildatei: text-effects
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
 │   ├── languages/scrollstage.pot
@@ -57,6 +58,7 @@ im Build gleich heißen:
 | --- | --- |
 | `view/selectors.js` | gemeinsame Selektoren |
 | `view/media.js` | Medienwechsel per `IntersectionObserver` |
+| `view/text.js` | Texteffekte für Browser ohne Scroll-Timelines |
 | `view/after.js` | Nachspann unter der begrenzten Bühne anheften |
 | `view/pull.js` | folgenden Inhalt hochziehen |
 | `style/_layout.scss` | Variablen, Grid, Abstand unter der Story |
@@ -90,6 +92,7 @@ wirken Änderungen am Markup sofort, ohne Beiträge neu zu speichern.
 | `stickyOffset` | 0–200 | 0 | Abstand von oben in Pixeln |
 | `minStepHeight` | 40–200 | 100 | Höhe eines Schritts in Prozent der Bildschirmhöhe |
 | `transition` | fade, none | fade | Überblenden oder harter Wechsel |
+| `textEffect` | none, fade, slide, zoom | none | Effekt, mit dem die Textkästen erscheinen und verschwinden |
 
 ### Klassen von `story`
 
@@ -119,6 +122,7 @@ zusätzlich die ungenutzte Klasse `no-fade`.
 | `mediaId`, `mediaUrl`, `mediaType` | gewähltes Medium aus der Mediathek |
 | `mediaAlt` | Alternativtext; leer übernimmt den Text der Mediathek |
 | `focalPoint` | Punkt, der beim Zuschneiden sichtbar bleibt |
+| `textEffect` | eigener Effekt des Textkastens; leer übernimmt den der Story, `none` schaltet ihn ab |
 
 ### Block-Einstellungen von `step`
 
@@ -180,6 +184,41 @@ hat Vorrang.
    rückwärts bis zum letzten vorhandenen.
 4. Ohne JavaScript bleibt das erste Medium sichtbar
    (`:not(.is-enhanced) .jgor-st-stage__item:first-child`).
+
+### Effekte der Textkästen (`textEffect`)
+
+Ein Textkasten kann beim Erscheinen einblenden (`fade`), sich von unten
+hereinschieben (`slide`) oder leicht vergrößern (`zoom`) und verschwindet oben
+auf demselben Weg.
+
+1. Die Story reicht ihr `textEffect` als Block-Kontext
+   (`scrollstage/textEffect`) an die Schritte weiter.
+   `jgor_st_resolve_text_effect()` wählt den eigenen Wert des Schritts, sonst
+   den der Story; `step/render.php` setzt daraus
+   `has-text-effect is-text-effect-<name>` am Schritt.
+2. Browser mit Scroll-Timelines (Chrome ab 115, Safari ab 26) koppeln den
+   Effekt rein in CSS an den Scrollweg (`step/style/_text-effects.scss`): zwei
+   Animationen auf `animation-timeline: view()`, eine über den Bereich
+   `entry`, eine über `exit`. Die zweite füllt nur vorwärts, sonst überdeckte
+   ihr erstes Keyframe die erste. Der Abstand von oben (`--jgor-st-offset`)
+   geht als Einzug in die Timeline ein.
+3. Alle anderen Browser bekommen den Effekt über `view/text.js`: Ein
+   `IntersectionObserver` beobachtet die Textkästen in einem Band, das oben
+   und unten 15 % des Fensters auslässt, und setzt am Schritt `is-visible`
+   sowie `is-past` (Kasten ist oben hinaus). Die Story bekommt
+   `is-text-enhanced`, erst nach dem ersten Bericht des Observers, damit ein
+   beim Laden sichtbarer Kasten nicht flackert. Der Effekt läuft dann einmal
+   als Übergang von 600 ms, nicht an den Scrollweg gekoppelt. Im
+   Scroll-Handler wird nichts bewegt.
+4. `is-text-enhanced` schaltet die CSS-Animationen ab, beide Wege schließen
+   sich also aus.
+5. Ohne Skript in einem Browser ohne Scroll-Timelines und bei
+   `prefers-reduced-motion` gibt es keinen Effekt, der Text ist einfach da.
+
+Stand 30.09.2026: Firefox hat Scroll-Timelines nur als Vorschau, im Release
+156 und in ESR 140 läuft also Weg 3. Geprüft ist Weg 3 in Chromium mit
+abgeschalteter Erkennung, nicht in Firefox selbst. Der Editor zeigt nur die
+Auswahl, keine Vorschau des Effekts.
 
 ### Nachspann unter der begrenzten Bühne
 
@@ -255,8 +294,8 @@ weil sie nur ein Theme betraf und Plugin Check die Theme-Hooks bemängelte.
 
 * Nur das sichtbare Bühnenelement steht im Accessibility-Baum; die übrigen
   tragen `aria-hidden`, serverseitig gesetzt und vom Skript mitgeführt.
-* `prefers-reduced-motion` schaltet die Überblendung ab und lässt Videos
-  stehen.
+* `prefers-reduced-motion` schaltet die Überblendung und die Texteffekte ab
+  und lässt Videos stehen.
 * Der Editor weist darauf hin, wenn einem Bild der Alternativtext fehlt.
 * Voreingestellt ist heller Text auf abgedunkeltem Medium; eine am Block
   gewählte Textfarbe hat Vorrang. Ein Textkasten mit eigenem Hintergrund
@@ -327,7 +366,7 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | Name | Scrollstage | „Scrollytelling" ist im Verzeichnis vergeben und zu generisch |
 | Sprache der Oberfläche | Englisch | translate.wordpress.org übersetzt von en_US |
 | Themes | nur Blöcke, kein Theme-Code | volle Breite kommt aus dem Theme, kein Sonderfall für ein einzelnes Theme |
-| Animationsbibliothek | keine | IntersectionObserver genügt, rund 1 KB statt 70 KB |
+| Animationsbibliothek | keine | IntersectionObserver genügt, gut 3 KB (komprimiert 1,3 KB) statt 70 KB |
 | Editor-Vorschau | vereinfacht, ohne klebende Bühne | der Editor hat einen eigenen Scroll-Container |
 | Nachspann ohne Bühnenbegrenzung | erlaubt, folgt der Story wie normaler Inhalt | beim Umschalten der Begrenzung geht nichts verloren |
 | Nur ein Nachspann je Story | nicht erzwungen, mehrere werden nacheinander ausgegeben | die Sperre bräuchte `@wordpress/data` als zusätzliche Abhängigkeit |
@@ -348,3 +387,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.9 | 30.09.2026 | Abschnitt Basisplugin (Tag basisplugin-2.4.0) |
 | 1.10 | 30.09.2026 | Quellen der Story in Module geteilt (`view/`, `style/`), Klassen von `story` mit `is-effect-fade`, Verweis auf erweiterungen.md (Plugin 2.4.1) |
 | 1.11 | 30.09.2026 | Block-Einstellungen von `step`: Typografie am Schritt, Hintergrund, Rahmen, Schatten und Innenabstand am Textkasten (Plugin 2.5.0) |
+| 1.12 | 30.09.2026 | Effekte der Textkästen: `textEffect` an Story und Schritt, Scroll-Timelines mit Rückfall auf `view/text.js` (Plugin 2.6.0) |

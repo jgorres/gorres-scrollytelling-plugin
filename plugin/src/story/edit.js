@@ -33,6 +33,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		pullContent,
 		stepAlign,
 		transition,
+		textEffect,
 		stickyOffset,
 		minStepHeight,
 	} = attributes;
@@ -259,6 +260,36 @@ export default function Edit( { attributes, setAttributes } ) {
 						] }
 						onChange={ ( value ) =>
 							setAttributes( { transition: value } )
+						}
+					/>
+					<SelectControl
+						__nextHasNoMarginBottom
+						label={ __( 'Text effect', 'scrollstage' ) }
+						help={ __(
+							'How the text boxes appear and disappear while scrolling. A step can set its own effect. Front end only; systems asking for reduced motion show no effect.',
+							'scrollstage'
+						) }
+						value={ textEffect }
+						options={ [
+							{
+								label: __( 'None', 'scrollstage' ),
+								value: 'none',
+							},
+							{
+								label: __( 'Fade in', 'scrollstage' ),
+								value: 'fade',
+							},
+							{
+								label: __( 'Slide up', 'scrollstage' ),
+								value: 'slide',
+							},
+							{
+								label: __( 'Zoom in', 'scrollstage' ),
+								value: 'zoom',
+							},
+						] }
+						onChange={ ( value ) =>
+							setAttributes( { textEffect: value } )
 						}
 					/>
 				</PanelBody>

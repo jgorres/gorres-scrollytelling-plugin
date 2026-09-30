@@ -192,6 +192,35 @@ function jgor_st_story_classes( $state ) {
 }
 
 /**
+ * Returns the effects a text box can appear and disappear with.
+ *
+ * The names end up in the class "is-text-effect-<name>" of a step; the
+ * stylesheet of the step block holds one set of rules per name.
+ *
+ * @return string[] Effect names.
+ */
+function jgor_st_text_effects() {
+	return array( 'fade', 'slide', 'zoom' );
+}
+
+/**
+ * Resolves the text effect of a step.
+ *
+ * A step follows the story unless it sets a value of its own. Everything that
+ * is not a known effect, "none" included, means no effect.
+ *
+ * @param mixed $own       Value of the step; an empty string follows the story.
+ * @param mixed $inherited Value of the story, handed down as block context.
+ * @return string Effect name, or an empty string for no effect.
+ */
+function jgor_st_resolve_text_effect( $own, $inherited ) {
+	$effects = jgor_st_text_effects();
+	$value   = is_string( $own ) && '' !== $own ? $own : $inherited;
+
+	return is_string( $value ) && in_array( $value, $effects, true ) ? $value : '';
+}
+
+/**
  * Builds class and style of the text box of a step.
  *
  * Background, border, shadow and padding of a step belong to its text box,

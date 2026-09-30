@@ -1,0 +1,140 @@
+/**
+ * Text effects of the step block.
+ *
+ * A text box can fade, slide or zoom in when it enters the screen and leave
+ * the same way at the top. render.php marks the step with
+ * "has-text-effect is-text-effect-<name>".
+ *
+ * Browsers with scroll timelines tie the effect to the scroll position, in
+ * CSS alone. For all others the view script of the story sets
+ * "is-text-enhanced" on the story and toggles "is-visible" and "is-past" on
+ * the steps; the effect then runs once as a plain transition. Without the
+ * script, and for visitors who asked for reduced motion, the text is simply
+ * there.
+ */
+
+@keyframes jgor-st-text-fade-in {
+
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes jgor-st-text-fade-out {
+
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes jgor-st-text-slide-in {
+
+	from {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes jgor-st-text-slide-out {
+
+	from {
+		opacity: 1;
+		transform: none;
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(-3rem);
+	}
+}
+
+@keyframes jgor-st-text-zoom-in {
+
+	from {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes jgor-st-text-zoom-out {
+
+	from {
+		opacity: 1;
+		transform: none;
+	}
+
+	to {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+	/* Scroll timelines: one animation while the box enters the screen, one
+	   while it leaves at the top. The second one must not fill backwards,
+	   otherwise its first keyframe would hide the first animation. The inset
+	   keeps the room of a fixed menu out of the visible range. */
+	@supports (animation-timeline: view()) {
+
+		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.has-text-effect > .jgor-st-step__content {
+			animation-timing-function: linear;
+			animation-fill-mode: both, forwards;
+			animation-timeline: view(block var(--jgor-st-offset, 0) 0);
+			animation-range: entry 0% entry 100%, exit 0% exit 100%;
+		}
+
+		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-fade > .jgor-st-step__content {
+			animation-name: jgor-st-text-fade-in, jgor-st-text-fade-out;
+		}
+
+		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-slide > .jgor-st-step__content {
+			animation-name: jgor-st-text-slide-in, jgor-st-text-slide-out;
+		}
+
+		.jgor-st-story:not(.is-text-enhanced) .jgor-st-step.is-text-effect-zoom > .jgor-st-step__content {
+			animation-name: jgor-st-text-zoom-in, jgor-st-text-zoom-out;
+		}
+	}
+
+	/* Without scroll timelines: the script marks the steps, the box moves
+	   between its hidden and its visible state with a transition. */
+	.jgor-st-story.is-text-enhanced .jgor-st-step.has-text-effect > .jgor-st-step__content {
+		transition: opacity 600ms ease, transform 600ms ease;
+	}
+
+	.jgor-st-story.is-text-enhanced .jgor-st-step.has-text-effect:not(.is-visible) > .jgor-st-step__content {
+		opacity: 0;
+	}
+
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-slide:not(.is-visible) > .jgor-st-step__content {
+		transform: translateY(3rem);
+	}
+
+	/* A box that left at the top keeps moving in that direction. */
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-slide.is-past:not(.is-visible) > .jgor-st-step__content {
+		transform: translateY(-3rem);
+	}
+
+	.jgor-st-story.is-text-enhanced .jgor-st-step.is-text-effect-zoom:not(.is-visible) > .jgor-st-step__content {
+		transform: scale(0.92);
+	}
+}

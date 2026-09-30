@@ -2,8 +2,8 @@
  * Front end behaviour of the story block.
  *
  * Entry point of the view script. The behaviour itself lives in the modules
- * below view/: the media change, the pinned afterword and the pulled up
- * content.
+ * below view/: the media change, the text effects for browsers without scroll
+ * timelines, the pinned afterword and the pulled up content.
  *
  * Until this script runs, CSS shows the first medium, so the block stays
  * readable when JavaScript is unavailable. Afterword and following content
@@ -12,6 +12,7 @@
 
 import { STORY_SELECTOR } from './view/selectors';
 import { setupMedia } from './view/media';
+import { setupText } from './view/text';
 import { setupAfter } from './view/after';
 import { setupPull } from './view/pull';
 
@@ -25,6 +26,7 @@ function init() {
 
 	if ( 'IntersectionObserver' in window ) {
 		stories.forEach( setupMedia );
+		stories.forEach( setupText );
 	}
 
 	// Pulling up only makes sense when the afterword area can be pinned, and

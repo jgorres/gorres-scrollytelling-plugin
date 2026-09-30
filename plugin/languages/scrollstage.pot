@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Scrollstage 2.5.0\n"
+"Project-Id-Version: Scrollstage 2.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-30T09:14:57+00:00\n"
+"POT-Creation-Date: 2026-09-30T09:28:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: scrollstage\n"
@@ -58,169 +58,204 @@ msgstr ""
 msgid "The afterword always follows the last step. When the story limits the stage to the medium, it appears right below the stage from the first step on and only scrolls away once the story ends. Front end only."
 msgstr ""
 
-#: src/step/edit.js:101
+#: src/step/edit.js:103
 msgid "Replace medium"
 msgstr ""
 
-#: src/step/edit.js:107
+#: src/step/edit.js:109
 msgid "Medium"
 msgstr ""
 
-#: src/step/edit.js:110
+#: src/step/edit.js:112
 msgid "No medium is set for this step. While scrolling, the medium of the previous step stays in place."
 msgstr ""
 
-#: src/step/edit.js:119
+#: src/step/edit.js:121
 msgid "This image has no alternative text. People using a screen reader will not learn what it shows."
 msgstr ""
 
-#: src/step/edit.js:129
+#: src/step/edit.js:131
 msgid "Alternative text"
 msgstr ""
 
-#: src/step/edit.js:130
+#: src/step/edit.js:132
 msgid "Leave empty to use the alternative text from the media library."
 msgstr ""
 
-#: src/step/edit.js:144
+#: src/step/edit.js:146
 msgid "Focal point"
 msgstr ""
 
-#: src/step/edit.js:145
+#: src/step/edit.js:147
 msgid "Sets which point stays visible when the medium is cropped."
 msgstr ""
 
-#: src/step/edit.js:164
+#: src/step/edit.js:166
 msgid "Remove medium"
 msgstr ""
 
-#: src/step/edit.js:185
-msgid "Medium of this step"
-msgstr ""
-
-#: src/step/edit.js:186
-msgid "Choose an image or video for this text to scroll across."
-msgstr ""
-
-#: src/story/edit.js:62
-msgid "Text boxes"
-msgstr ""
-
-#: src/story/edit.js:65
-msgid "Horizontal position"
-msgstr ""
-
-#: src/story/edit.js:69
-msgid "Left"
-msgstr ""
-
-#: src/story/edit.js:73
-#: src/story/edit.js:113
-msgid "Middle"
-msgstr ""
-
-#: src/story/edit.js:77
-msgid "Right"
-msgstr ""
-
-#: src/story/edit.js:87
-msgid "Text box width in percent"
-msgstr ""
-
-#: src/story/edit.js:91
-msgid "On narrow screens the boxes always use the full width."
-msgstr ""
-
-#: src/story/edit.js:105
-msgid "Vertical position"
-msgstr ""
-
-#: src/story/edit.js:109
-msgid "Top"
-msgstr ""
-
-#: src/story/edit.js:117
-msgid "Bottom"
-msgstr ""
-
-#: src/story/edit.js:126
-msgid "Media"
-msgstr ""
-
-#: src/story/edit.js:129
-msgid "Media fit"
-msgstr ""
-
-#: src/story/edit.js:130
-msgid "“Fill the frame” crops the medium to the size of the screen, “Show the whole medium” leaves margins free."
-msgstr ""
-
-#: src/story/edit.js:137
-msgid "Fill the frame"
-msgstr ""
-
-#: src/story/edit.js:141
-msgid "Show the whole medium"
-msgstr ""
-
-#: src/story/edit.js:155
-msgid "Limit the stage to the medium"
-msgstr ""
-
-#: src/story/edit.js:159
-msgid "Otherwise the media use the full width and the text can end up beside the medium. The width follows the narrowest medium of the story. Front end only."
-msgstr ""
-
-#: src/story/edit.js:172
-msgid "Pull up the following content"
-msgstr ""
-
-#: src/story/edit.js:176
-msgid "The content after the story appears right below the stage from the first step on and only scrolls on once the story ends. Front end only."
-msgstr ""
-
-#: src/story/edit.js:188
-msgid "Dimming in percent"
-msgstr ""
-
-#: src/story/edit.js:189
-msgid "Sits on top of the media so that text stays readable."
-msgstr ""
-
-#: src/story/edit.js:203
-msgid "Offset from the top (px)"
-msgstr ""
-
-#: src/story/edit.js:207
-msgid "Room for a fixed menu above the media."
-msgstr ""
-
-#: src/story/edit.js:221
-msgid "Step height in percent of the screen height"
-msgstr ""
-
-#: src/story/edit.js:225
-msgid "Decides how long a medium stays in place."
-msgstr ""
-
-#: src/story/edit.js:239
+#: src/step/edit.js:171
+#: src/story/edit.js:240
 msgid "Motion"
 msgstr ""
 
-#: src/story/edit.js:244
-msgid "Transition"
+#: src/step/edit.js:176
+#: src/story/edit.js:267
+msgid "Text effect"
+msgstr ""
+
+#: src/step/edit.js:177
+msgid "How the text box of this step appears and disappears while scrolling. Front end only."
+msgstr ""
+
+#: src/step/edit.js:184
+msgid "Same as story"
+msgstr ""
+
+#: src/step/edit.js:188
+#: src/story/edit.js:257
+#: src/story/edit.js:275
+msgid "None"
+msgstr ""
+
+#: src/step/edit.js:192
+#: src/story/edit.js:279
+msgid "Fade in"
+msgstr ""
+
+#: src/step/edit.js:196
+#: src/story/edit.js:283
+msgid "Slide up"
+msgstr ""
+
+#: src/step/edit.js:200
+#: src/story/edit.js:287
+msgid "Zoom in"
+msgstr ""
+
+#: src/step/edit.js:226
+msgid "Medium of this step"
+msgstr ""
+
+#: src/step/edit.js:227
+msgid "Choose an image or video for this text to scroll across."
+msgstr ""
+
+#: src/story/edit.js:63
+msgid "Text boxes"
+msgstr ""
+
+#: src/story/edit.js:66
+msgid "Horizontal position"
+msgstr ""
+
+#: src/story/edit.js:70
+msgid "Left"
+msgstr ""
+
+#: src/story/edit.js:74
+#: src/story/edit.js:114
+msgid "Middle"
+msgstr ""
+
+#: src/story/edit.js:78
+msgid "Right"
+msgstr ""
+
+#: src/story/edit.js:88
+msgid "Text box width in percent"
+msgstr ""
+
+#: src/story/edit.js:92
+msgid "On narrow screens the boxes always use the full width."
+msgstr ""
+
+#: src/story/edit.js:106
+msgid "Vertical position"
+msgstr ""
+
+#: src/story/edit.js:110
+msgid "Top"
+msgstr ""
+
+#: src/story/edit.js:118
+msgid "Bottom"
+msgstr ""
+
+#: src/story/edit.js:127
+msgid "Media"
+msgstr ""
+
+#: src/story/edit.js:130
+msgid "Media fit"
+msgstr ""
+
+#: src/story/edit.js:131
+msgid "“Fill the frame” crops the medium to the size of the screen, “Show the whole medium” leaves margins free."
+msgstr ""
+
+#: src/story/edit.js:138
+msgid "Fill the frame"
+msgstr ""
+
+#: src/story/edit.js:142
+msgid "Show the whole medium"
+msgstr ""
+
+#: src/story/edit.js:156
+msgid "Limit the stage to the medium"
+msgstr ""
+
+#: src/story/edit.js:160
+msgid "Otherwise the media use the full width and the text can end up beside the medium. The width follows the narrowest medium of the story. Front end only."
+msgstr ""
+
+#: src/story/edit.js:173
+msgid "Pull up the following content"
+msgstr ""
+
+#: src/story/edit.js:177
+msgid "The content after the story appears right below the stage from the first step on and only scrolls on once the story ends. Front end only."
+msgstr ""
+
+#: src/story/edit.js:189
+msgid "Dimming in percent"
+msgstr ""
+
+#: src/story/edit.js:190
+msgid "Sits on top of the media so that text stays readable."
+msgstr ""
+
+#: src/story/edit.js:204
+msgid "Offset from the top (px)"
+msgstr ""
+
+#: src/story/edit.js:208
+msgid "Room for a fixed menu above the media."
+msgstr ""
+
+#: src/story/edit.js:222
+msgid "Step height in percent of the screen height"
+msgstr ""
+
+#: src/story/edit.js:226
+msgid "Decides how long a medium stays in place."
 msgstr ""
 
 #: src/story/edit.js:245
+msgid "Transition"
+msgstr ""
+
+#: src/story/edit.js:246
 msgid "With “None” the media switch instantly. Systems asking for reduced motion never cross-fade."
 msgstr ""
 
-#: src/story/edit.js:252
+#: src/story/edit.js:253
 msgid "Cross-fade"
 msgstr ""
 
-#: src/story/edit.js:256
-msgid "None"
+#: src/story/edit.js:268
+msgid "How the text boxes appear and disappear while scrolling. A step can set its own effect. Front end only; systems asking for reduced motion show no effect."
 msgstr ""
 
 #: src/after/block.json

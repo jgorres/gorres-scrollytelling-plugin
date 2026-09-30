@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.2 · Stand: 30.09.2026 · Plugin-Version: 2.5.0
+Version: 1.3 · Stand: 30.09.2026 · Plugin-Version: 2.6.0
 
 ## 1. Ausgangspunkt
 
@@ -28,7 +28,7 @@ Hooks oder Ereignisse als öffentliche Schnittstelle.
 | --- | --- | --- | --- | --- |
 | 0 | Modularisierung ohne Verhaltensänderung | 2.4.1 | 1 Tag | erledigt |
 | 1 | Schriftformatierung und Textkasten über Block-Supports | 2.5.0 | ½ Tag | erledigt |
-| 2 | Effekte für den Textkasten | 2.6.0 | 1–2 Tage | offen |
+| 2 | Effekte für den Textkasten | 2.6.0 | 1–2 Tage | erledigt |
 | 3 | Container-Block „Scrollstage-Reihe" | 2.7.0 | 3–5 Tage | offen |
 
 Der Aufwand ist geschätzt.
@@ -75,14 +75,27 @@ Geprüft nur unter WordPress 7.1.2, nicht unter der Mindestversion 6.7.
 
 ### Schritt 2: Effekte für den Textkasten (2.6.0)
 
-* Attribut `textEffect` an der Story, je Schritt überschreibbar.
-* Umsetzung mit CSS `animation-timeline: view()`.
-* Fallback für Browser ohne Scroll-Timelines: `IntersectionObserver` setzt
-  `is-visible`, der Effekt läuft als gewöhnlicher Übergang.
+* Attribut `textEffect` an der Story (`none`, `fade`, `slide`, `zoom`), je
+  Schritt überschreibbar; der Wert der Story kommt als Block-Kontext an.
+* Umsetzung mit CSS `animation-timeline: view()` in
+  `src/step/style/_text-effects.scss`.
+* Fallback für Browser ohne Scroll-Timelines: `src/story/view/text.js` setzt
+  per `IntersectionObserver` `is-visible`, der Effekt läuft als gewöhnlicher
+  Übergang.
 * Bei `prefers-reduced-motion` sind die Effekte aus.
 
-Vor Beginn den Browserstand der Scroll-Timelines prüfen (Firefox lief bisher
-nur mit Flag, siehe `konzept.md`, Abschnitt 4).
+Browserstand am 30.09.2026 laut MDN: Chrome ab 115 und Safari ab 26 haben
+Scroll-Timelines, Firefox nur als Vorschau. Im Firefox-Release 156 und in
+ESR 140 läuft der Fallback.
+
+Nachweis: Testseite `/scrollstage-text-effects/` auf Pro (Seite 104, fünf
+Schritte: wie Story, `fade`, `zoom`, `none`, wie Story mit Kasten). In
+Chromium gemessen: halb hereingescrollt Deckkraft 0,5 und halber Versatz,
+mittig voll sichtbar, halb hinausgescrollt wieder 0,5. Fallback in Chromium
+mit abgeschalteter Erkennung geprüft (Klassen, Endzustände), reduzierte
+Bewegung auf beiden Wegen ohne Effekt, Auswahl im Editor an Story und Schritt.
+In Firefox selbst nicht geprüft. Vergleich Basis gegen Pro für die drei
+gemeinsamen Seiten gleich.
 
 ### Schritt 3: Scrollstage-Reihe (2.7.0)
 
@@ -107,8 +120,9 @@ Scrollstage aktiv:
 
 Testseiten auf beiden: `/scrollstage-hero/`, `/scrollstage-standard-width/`
 (begrenzte Bühne, Hochziehen) und `/scrollytelling-test/`. Jede hat fünf
-Schritte, einer davon mit Video. Nur auf Pro liegt zusätzlich
-`/scrollstage-typography/` für Schriftformatierung und Textkasten.
+Schritte, einer davon mit Video. Nur auf Pro liegen zusätzlich
+`/scrollstage-typography/` für Schriftformatierung und Textkasten und
+`/scrollstage-text-effects/` für die Texteffekte.
 
 Vergleichslauf: je Seite 14 Scrollpositionen im Abstand von 400 px bei
 1280×800. Screenshots mit reduzierter Bewegung, damit das Video steht; die
@@ -140,3 +154,4 @@ den Entwicklungsstand.
 | 1.0 | 30.09.2026 | Erste Fassung: Plan für vier Erweiterungen in den Schritten 0 bis 3 |
 | 1.1 | 30.09.2026 | Entscheidung für ein Plugin, Schritt 0 erledigt (Plugin 2.4.1), Testsites Basis und Pro |
 | 1.2 | 30.09.2026 | Schritt 1 erledigt (Plugin 2.5.0): Schriftformatierung, Textkasten als echter Kasten, Testseite auf Pro |
+| 1.3 | 30.09.2026 | Schritt 2 erledigt (Plugin 2.6.0): Texteffekte, Browserstand der Scroll-Timelines, Testseite auf Pro |
