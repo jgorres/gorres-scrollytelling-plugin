@@ -35,6 +35,15 @@ $jgor_st_effect = jgor_st_resolve_text_effect(
 	$block->context['scrollstage/textEffect'] ?? ''
 );
 
+/*
+ * The effects belong to a box that enters and leaves the screen from below
+ * and at the top. Inside a row the boxes pass sideways, there is nothing for
+ * the effects to hold on to.
+ */
+if ( ! empty( $block->context['scrollstage/inRow'] ) ) {
+	$jgor_st_effect = '';
+}
+
 if ( '' !== $jgor_st_effect ) {
 	$jgor_st_classes .= ' has-text-effect is-text-effect-' . sanitize_html_class( $jgor_st_effect );
 }

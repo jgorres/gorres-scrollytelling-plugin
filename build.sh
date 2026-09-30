@@ -57,7 +57,7 @@ check_version "readme.txt Stable tag" \
 check_version "package.json" \
 	"$(sed -n 's/^[[:space:]]*"version":[[:space:]]*"\([0-9.]*\)".*/\1/p' "${REPO_DIR}/package.json")"
 
-for block in story step after; do
+for block in story step row after; do
 	check_version "src/${block}/block.json" \
 		"$(sed -n 's/^[[:space:]]*"version":[[:space:]]*"\([0-9.]*\)".*/\1/p' "${PLUGIN_DIR}/src/${block}/block.json")"
 done
@@ -75,14 +75,14 @@ fi
 
 ( cd "${REPO_DIR}" && npm run build --silent )
 
-for block in story step after; do
+for block in story step row after; do
 	if [[ ! -f "${PLUGIN_DIR}/build/${block}/block.json" ]]; then
 		echo "Fehler: build/${block}/block.json fehlt nach dem Build." >&2
 		exit 1
 	fi
 done
 
-echo "  ok  build/story, build/step, build/after"
+echo "  ok  build/story, build/step, build/row, build/after"
 
 # --------------------------------------------------
 # 3. Export without the files from .distignore.

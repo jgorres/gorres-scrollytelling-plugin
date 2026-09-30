@@ -1,0 +1,12 @@
+/**
+ * Front end styles of the row block.
+ *
+ * Without further rules the steps of a row follow each other like the steps
+ * of the story itself.
+ */
+
+/* The row is a flex item of the column of steps; it must not grow wider than
+   the column when its track does. */
+.jgor-st-row {
+	min-width: 0;
+}

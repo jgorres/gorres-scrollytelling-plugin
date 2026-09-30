@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "scrollstage/row",
+	"version": "2.6.2",
+	"title": "Scrollstage Row",
+	"category": "scrollstage",
+	"icon": "slides",
+	"description": "A row of steps inside a story. Its steps pass sideways while the visitor keeps scrolling down.",
+	"keywords": [ "scrollytelling", "row", "horizontal", "story" ],
+	"textdomain": "scrollstage",
+	"parent": [ "scrollstage/story" ],
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"reusable": false
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

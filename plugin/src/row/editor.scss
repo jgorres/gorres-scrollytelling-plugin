@@ -1,0 +1,26 @@
+/**
+ * Editor styles of the row block.
+ *
+ * A frame and a note set the steps of a row apart from the other steps of the
+ * story.
+ */
+
+.jgor-st-row--editor {
+	box-sizing: border-box;
+	padding: 1rem;
+	border: 1px dashed #3858e9;
+	border-radius: 4px;
+}
+
+.jgor-st-row__note {
+	margin: 0 0 1rem;
+	font-size: 0.8125rem;
+	color: #3858e9;
+}
+
+/* Same distance between the steps as in the story. */
+.jgor-st-row__steps {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}

@@ -9,7 +9,7 @@
 	"description": "One step of the story: text that scrolls across the medium belonging to it.",
 	"keywords": [ "scrollytelling", "step", "story" ],
 	"textdomain": "scrollstage",
-	"parent": [ "scrollstage/story" ],
+	"parent": [ "scrollstage/story", "scrollstage/row" ],
 	"supports": {
 		"anchor": true,
 		"html": false,
@@ -74,7 +74,7 @@
 			"default": ""
 		}
 	},
-	"usesContext": [ "scrollstage/textEffect" ],
+	"usesContext": [ "scrollstage/textEffect", "scrollstage/inRow" ],
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

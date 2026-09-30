@@ -19,7 +19,11 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'scrollstage/step', 'scrollstage/after' ];
+const ALLOWED_BLOCKS = [
+	'scrollstage/step',
+	'scrollstage/row',
+	'scrollstage/after',
+];
 
 const TEMPLATE = [ [ 'scrollstage/step' ], [ 'scrollstage/step' ] ];
 

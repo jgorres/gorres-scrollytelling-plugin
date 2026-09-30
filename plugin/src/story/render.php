@@ -2,8 +2,8 @@
 /**
  * Front end markup of the story block.
  *
- * Collects the media of every child step and renders them as one sticky stage
- * that fills the viewport. The text steps are placed on top of it and scroll
+ * Collects the media of every step, in the story itself and in its rows, and
+ * renders them as one sticky stage that fills the viewport. The text steps are placed on top of it and scroll
  * across. Without JavaScript the first medium stays visible, which keeps the
  * block readable as a plain image with text.
  *
@@ -40,12 +40,8 @@ $jgor_st_index = 0;
 $jgor_st_ratio = 0.0;
 
 if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_block['innerBlocks'] ) ) {
-	foreach ( $block->parsed_block['innerBlocks'] as $jgor_st_child ) {
-		if ( ! isset( $jgor_st_child['blockName'] ) || 'scrollstage/step' !== $jgor_st_child['blockName'] ) {
-			continue;
-		}
-
-		$jgor_st_attrs  = isset( $jgor_st_child['attrs'] ) && is_array( $jgor_st_child['attrs'] ) ? $jgor_st_child['attrs'] : array();
+	// Steps of the story itself and steps inside its rows, as one flat list.
+	foreach ( jgor_st_collect_steps( $block->parsed_block['innerBlocks'] ) as $jgor_st_attrs ) {
 		$jgor_st_stage .= jgor_st_render_stage_item( $jgor_st_attrs, $jgor_st_index, $jgor_st_media_fit );
 		++$jgor_st_index;
 

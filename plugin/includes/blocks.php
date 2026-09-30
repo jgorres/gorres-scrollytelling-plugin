@@ -39,7 +39,7 @@ add_filter( 'block_categories_all', 'jgor_st_block_categories' );
  * @return void
  */
 function jgor_st_register_blocks() {
-	$blocks = array( 'story', 'step', 'after' );
+	$blocks = array( 'story', 'step', 'row', 'after' );
 
 	foreach ( $blocks as $block ) {
 		$path = JGOR_ST_PATH . 'build/' . $block;
@@ -125,6 +125,56 @@ function jgor_st_keep_after_assets( $enqueue, $block_name ) {
 	return 'scrollstage/after' === $block_name ? true : (bool) $enqueue;
 }
 add_filter( 'enqueue_empty_block_content_assets', 'jgor_st_keep_after_assets', 10, 2 );
+
+/**
+ * Collects the attributes of all steps of a story in document order.
+ *
+ * A step sits either in the story itself or inside a row. The stage of the
+ * story needs one item per step, whatever its parent, and in the order in
+ * which the visitor meets the steps.
+ *
+ * @param array<int, array<string, mixed>> $inner_blocks Parsed inner blocks of
+ *                                                       a story or a row.
+ * @return array<int, array<string, mixed>> Attributes of every step.
+ */
+function jgor_st_collect_steps( $inner_blocks ) {
+	$steps = array();
+
+	foreach ( $inner_blocks as $child ) {
+		$name = isset( $child['blockName'] ) ? $child['blockName'] : '';
+
+		if ( 'scrollstage/step' === $name ) {
+			$steps[] = isset( $child['attrs'] ) && is_array( $child['attrs'] ) ? $child['attrs'] : array();
+		} elseif ( 'scrollstage/row' === $name && isset( $child['innerBlocks'] ) && is_array( $child['innerBlocks'] ) ) {
+			$steps = array_merge( $steps, jgor_st_collect_steps( $child['innerBlocks'] ) );
+		}
+	}
+
+	return $steps;
+}
+
+/**
+ * Tells the steps of a row that they sit in one.
+ *
+ * A step has no way to look at its parent while it renders. The context it
+ * receives can be extended, though, and "scrollstage/inRow" is listed in the
+ * usesContext of the step block.
+ *
+ * @param array<string, mixed> $context      Context of the block to render.
+ * @param array<string, mixed> $parsed_block Parsed block, unused.
+ * @param WP_Block|null        $parent_block Parent of the block, if any.
+ * @return array<string, mixed> Context, marked for blocks inside a row.
+ */
+function jgor_st_row_context( $context, $parsed_block = array(), $parent_block = null ) {
+	unset( $parsed_block );
+
+	if ( $parent_block instanceof WP_Block && 'scrollstage/row' === $parent_block->name ) {
+		$context['scrollstage/inRow'] = true;
+	}
+
+	return $context;
+}
+add_filter( 'render_block_context', 'jgor_st_row_context', 10, 3 );
 
 /**
  * Builds the class names of the story wrapper.
