@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.17 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
+Version: 1.18 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
 
 ## 1. Zweck
 
@@ -40,10 +40,10 @@ Projektdoku ist deutsch.
 │   │   │                      story/view/row.js)
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
-│   ├── languages/scrollstage.pot
-│   └── .distignore            Ausschlüsse für ZIP und SVN-Export
+│   └── languages/scrollstage.pot
 ├── assets/                    WP.org-Assets: Screenshots, Icon, Banner (nicht im Paket)
 ├── build.sh                   Release-ZIP erzeugen
+├── .distignore                Ausschlüsse aus plugin/ für ZIP und SVN-Export
 ├── docs/                      diese Doku, banner.svg, Quellvideo der Aufnahme
 ├── stubs/                     zusätzliche Stubs für PHPStan (derzeit leer)
 ├── composer.json, phpcs.xml.dist, phpstan.neon.dist, phpstan-bootstrap.php
@@ -469,7 +469,7 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
    Banner ebenfalls animiert, aus `assets/icon.svg` und `docs/banner.svg`
    im Browser gerendert (kleine Größen aus den großen skalieren).
 4. `./build.sh`: prüft die Versionsnummern, baut die Blöcke, exportiert
-   `plugin/` ohne die Einträge aus `plugin/.distignore` (`src/`, `.po`,
+   `plugin/` ohne die Einträge aus `.distignore` (`src/`, `.po`,
    `.mo`, `.json`, `.l10n.php`) und schreibt
    `~/dev/jgorres-im-WP-Repository/scrollstage-<version>.zip`.
 5. Plugin Check laufen lassen, dann einreichen. Erwartung: keine Fehler,
@@ -527,3 +527,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.15 | 30.09.2026 | Block `row`: Reihe von Schritten, die waagerecht abläuft; `view/row.js`, `view/support.js`, Medienwechsel über Mittellinie (Plugin 2.7.0) |
 | 1.16 | 30.09.2026 | readme: Beschreibung mit Erklärung von Scrollytelling, Blöcke in beliebiger Zahl, Donate link (Plugin 2.7.1); am Plugin selbst nichts geändert |
 | 1.17 | 30.09.2026 | `includes/admin.php`: Spendenlink (Ko-fi) in der Zeile des Plugins in der Plugin-Liste über `plugin_row_meta` (Plugin 2.7.2) |
+| 1.18 | 30.09.2026 | `.distignore` liegt in der Wurzel des Repos statt in `plugin/`: Plugin Check meldete die versteckte Datei auf den Testsites, die den Ordner per Symlink laden. Paket unverändert |

@@ -1,4 +1,7 @@
-# Files and directories that stay out of the release ZIP and the SVN export.
+# Files and directories of plugin/ that stay out of the release ZIP and the
+# SVN export. The list lives next to build.sh, not inside plugin/: a hidden
+# file in the plugin folder makes Plugin Check warn on development sites,
+# which load that folder through a symlink.
 .distignore
 .DS_Store
 Thumbs.db

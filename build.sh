@@ -8,7 +8,7 @@ clear
 # Description: Builds the release ZIP of the Scrollstage plugin for the
 #              WordPress.org directory: checks the version numbers, compiles
 #              the blocks with wp-scripts, exports plugin/ without the files
-#              listed in plugin/.distignore and zips the result.
+#              listed in .distignore and zips the result.
 # ==================================================
 
 set -euo pipefail
@@ -90,7 +90,7 @@ echo "  ok  build/story, build/step, build/row, build/after"
 echo ""
 echo "Dateien zusammenstellen ..."
 
-rsync -a --exclude-from="${PLUGIN_DIR}/.distignore" "${PLUGIN_DIR}/" "${STAGE_DIR}/${SLUG}/"
+rsync -a --exclude-from="${REPO_DIR}/.distignore" "${PLUGIN_DIR}/" "${STAGE_DIR}/${SLUG}/"
 
 if find "${STAGE_DIR}/${SLUG}" \( -name '*.po' -o -name '*.mo' -o -name '*.l10n.php' \) -print -quit | grep -q .; then
 	echo "Fehler: Übersetzungsdateien im Paket gefunden." >&2
