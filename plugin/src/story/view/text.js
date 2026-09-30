@@ -16,6 +16,8 @@
  * in the layout, and the ghost is what the observers watch.
  */
 
+import { supportsScrollTimeline } from './support';
+
 const EFFECT_SELECTOR =
 	':scope > .jgor-st-story__steps > .jgor-st-step.has-text-effect';
 
@@ -24,19 +26,6 @@ const EDGE = 0.15;
 
 // Reach of the area above the screen in pixels; more than any page is tall.
 const FAR = 1000000;
-
-/**
- * Tells whether the browser can run the effects in CSS alone.
- *
- * @return {boolean} True when scroll timelines are supported.
- */
-function supportsScrollTimeline() {
-	return (
-		!! window.CSS &&
-		'function' === typeof window.CSS.supports &&
-		window.CSS.supports( 'animation-timeline: view()' )
-	);
-}
 
 /**
  * Creates the ghost of a text box.

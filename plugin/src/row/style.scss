@@ -3,12 +3,18 @@
  *
  * Without the rules further down the steps of a row follow each other like
  * the steps of the story itself. That is what visitors who asked for reduced
- * motion get, and every browser without scroll timelines.
+ * motion get, and everybody as long as the view script of the story has not
+ * marked the row with "is-sideways"; the script leaves a row alone whose text
+ * would not fit.
  *
  * Laid out sideways, the row is taller than the screen: its viewport sticks
  * to the top, like the stage of the story behind it, and the track with the
  * steps moves through it while the visitor scrolls on. Every step after the
  * first takes as much scrolling as a step of the story is tall.
+ *
+ * Browsers with scroll timelines tie the track to the scroll position. For
+ * all others the script adds "is-stepped" and reports the index of the
+ * current step; the track then glides from step to step with a transition.
  */
 
 /* The row is a flex item of the column of steps; it must not grow wider than
@@ -18,6 +24,7 @@
 	--jgor-st-row-direction: -1;
 	--jgor-st-row-distance: calc((var(--jgor-st-row-count, 1) - 1) * var(--jgor-st-step-min, 100svh));
 
+	position: relative;
 	min-width: 0;
 }
 
@@ -43,6 +50,19 @@
 	pointer-events: none;
 }
 
+/* Sentinel of a step, for the stepped movement: it lies where the upper edge
+   of the screen is when the row has been scrolled half way from the step
+   before to this one. The script counts the sentinels that got there. */
+.jgor-st-row__sentinel {
+	position: absolute;
+	top: calc((var(--jgor-st-row-sentinel, 1) - 0.5) * var(--jgor-st-step-min, 100svh) - var(--jgor-st-offset));
+	left: 0;
+	width: 1px;
+	height: 1px;
+	visibility: hidden;
+	pointer-events: none;
+}
+
 @keyframes jgor-st-row-slide {
 
 	from {
@@ -56,54 +76,64 @@
 
 @media (prefers-reduced-motion: no-preference) {
 
+	/* Room below the viewport: the distance the row is scrolled through
+	   while the viewport stays in place. */
+	.jgor-st-row.is-sideways::after {
+		content: "";
+		display: block;
+		height: var(--jgor-st-row-distance);
+	}
+
+	/* Same place and size as the stage of the story. The grid hands the
+	   height on to the track, whatever it comes from. */
+	.jgor-st-row.is-sideways > .jgor-st-row__viewport {
+		position: sticky;
+		top: var(--jgor-st-offset);
+		display: grid;
+		grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+		overflow: clip;
+		height: calc(100svh - var(--jgor-st-offset));
+	}
+
+	/* A stage limited to the medium is not as tall as the screen. */
+	.jgor-st-story.is-stage-limited .jgor-st-row.is-sideways > .jgor-st-row__viewport {
+		aspect-ratio: var(--jgor-st-stage-ratio, 1);
+		height: auto;
+		max-height: calc(100svh - var(--jgor-st-offset));
+	}
+
+	.jgor-st-row.is-sideways > .jgor-st-row__viewport > .jgor-st-row__track {
+		display: flex;
+	}
+
+	/* Every step is as wide and as tall as the viewport. */
+	.jgor-st-row.is-sideways > .jgor-st-row__viewport > .jgor-st-row__track > .jgor-st-step {
+		flex: 0 0 100%;
+		min-height: 0;
+	}
+
 	@supports (animation-timeline: view()) {
 
 		/* The timeline of the row counts from the line the viewport sticks
 		   to, which lies below a fixed menu. */
-		.jgor-st-row {
+		.jgor-st-row.is-sideways:not(.is-stepped) {
 			view-timeline: --jgor-st-row block;
 			view-timeline-inset: var(--jgor-st-offset) 0;
 		}
 
-		/* Room below the viewport: the distance the row is scrolled through
-		   while the viewport stays in place. */
-		.jgor-st-row::after {
-			content: "";
-			display: block;
-			height: var(--jgor-st-row-distance);
-		}
-
-		/* Same place and size as the stage of the story. The grid hands the
-		   height on to the track, whatever it comes from. */
-		.jgor-st-row__viewport {
-			position: sticky;
-			top: var(--jgor-st-offset);
-			display: grid;
-			grid-template: minmax(0, 1fr) / minmax(0, 1fr);
-			overflow: clip;
-			height: calc(100svh - var(--jgor-st-offset));
-		}
-
-		/* A stage limited to the medium is not as tall as the screen. */
-		.jgor-st-story.is-stage-limited .jgor-st-row__viewport {
-			aspect-ratio: var(--jgor-st-stage-ratio, 1);
-			height: auto;
-			max-height: calc(100svh - var(--jgor-st-offset));
-		}
-
 		/* The track starts to move when the viewport begins to stick and
 		   arrives at the last step when the room below is used up. */
-		.jgor-st-row__track {
-			display: flex;
+		.jgor-st-row.is-sideways:not(.is-stepped) > .jgor-st-row__viewport > .jgor-st-row__track {
 			animation: jgor-st-row-slide linear both;
 			animation-timeline: --jgor-st-row;
 			animation-range: exit-crossing 0% exit-crossing var(--jgor-st-row-distance);
 		}
+	}
 
-		/* Every step is as wide and as tall as the viewport. */
-		.jgor-st-row__track > .jgor-st-step {
-			flex: 0 0 100%;
-			min-height: 0;
-		}
+	/* Stepped: the track rests on the step the script reports and glides to
+	   the next one. */
+	.jgor-st-row.is-stepped > .jgor-st-row__viewport > .jgor-st-row__track {
+		transform: translateX(calc(var(--jgor-st-row-index, 0) * 100% * var(--jgor-st-row-direction, -1)));
+		transition: transform 600ms ease-in-out;
 	}
 }

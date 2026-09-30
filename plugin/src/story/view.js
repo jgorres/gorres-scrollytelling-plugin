@@ -3,16 +3,17 @@
  *
  * Entry point of the view script. The behaviour itself lives in the modules
  * below view/: the media change, the text effects for browsers without scroll
- * timelines, the pinned afterword and the pulled up content.
+ * timelines, the rows, the pinned afterword and the pulled up content.
  *
  * Until this script runs, CSS shows the first medium, so the block stays
  * readable when JavaScript is unavailable. Afterword and following content
- * then simply follow the steps.
+ * then simply follow the steps, and so do the steps of a row.
  */
 
 import { STORY_SELECTOR } from './view/selectors';
 import { setupMedia } from './view/media';
 import { setupText } from './view/text';
+import { setupRows } from './view/row';
 import { setupAfter } from './view/after';
 import { setupPull } from './view/pull';
 
@@ -27,6 +28,12 @@ function init() {
 	if ( 'IntersectionObserver' in window ) {
 		stories.forEach( setupMedia );
 		stories.forEach( setupText );
+	}
+
+	// Rows come before everything that measures the story: how a row plays
+	// decides how tall it is.
+	if ( 'IntersectionObserver' in window && 'ResizeObserver' in window ) {
+		stories.forEach( setupRows );
 	}
 
 	// Pulling up only makes sense when the afterword area can be pinned, and
