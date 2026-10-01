@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.11 · Stand: 01.10.2026 · Plugin-Version: 2.8.1
+Version: 1.12 · Stand: 01.10.2026 · Plugin-Version: 2.8.1
 
 ## 1. Ausgangspunkt
 
@@ -235,6 +235,33 @@ alle Blöcke gültig, keine Script-Fehler. Geändert haben sich nur die
 Editor-Stylesheets von Story und Reihe; Frontend-Stylesheets und -Scripte
 des Builds sind byte-gleich mit 2.8.0.
 
+### Prüfung unter WordPress 6.7 (Mindestversion)
+
+Am 01.10.2026 mit Plugin 2.8.1 nachgeholt, auf der Wegwerf-Site
+`https://scrollstage-wp67.local`: WordPress 6.7 (de_DE, automatische
+Core-Updates abgeschaltet), PHP 8.4, Twenty Twenty-Five 1.0, Scrollstage aus
+`scrollstage-2.8.1.zip` installiert, die sieben Testseiten der Pro-Site mit
+neu importierten Medien.
+
+* Frontend, alle sieben Seiten in Chromium 154, Firefox 146 und Edge 154:
+  Klassen und Variablen von Story, Schritten und Textkästen, Medienfolge
+  auf- und abwärts, Video nur in seinem Schritt, Reihe (stufenlos, in
+  Firefox stufenweise), begrenzte Bühne mit Hochziehen, eigene Schritthöhe.
+  Gegen die Pro-Site (WordPress 7.1.2) in Chromium verglichen: gleich bis
+  auf ein Semikolon am Ende der Inline-Styles, das WordPress 6.7 anders
+  setzt, und Maße, die vom Theme abhängen. Keine Fehler in der Konsole.
+* Editor, fünf Seiten in denselben drei Browsern: alle Blöcke gültig,
+  Vorschau der Typografie und des Textkastens (Hintergrund, Rahmen,
+  Eckenradius, Schatten, Innenabstand) wie unter 7.1.2, die experimentellen
+  Helfer aus `step/text-box.js` sind also vorhanden. Bereiche „Text boxes",
+  „Media", „Motion", „Medium" und „Height" da, Schalter und Regler der
+  Schritthöhe arbeiten. Mit GeneratePress als Vorschau sind die Schritte
+  gleich breit. Nur die Namen der Core-Bereiche im Reiter „Stile" heißen
+  anders als unter 7.1.2.
+* Kein Eintrag in `wp-content/debug.log` (`WP_DEBUG_LOG` an).
+
+Offen bleibt Safari.
+
 ## 3. Testsites
 
 Zwei lokale Sites mit demselben Inhalt (Datenbank-Kopie von
@@ -309,3 +336,4 @@ den Entwicklungsstand.
 | 1.9 | 01.10.2026 | Reihe und Texteffekte in Edge 154 nachgeprüft |
 | 1.10 | 01.10.2026 | Begrenzte Bühne, Hochziehen und Editor in Edge 154 nachgeprüft |
 | 1.11 | 01.10.2026 | Nachtrag 2.8.1: Breite der Schritte im Editor klassischer Themes |
+| 1.12 | 01.10.2026 | Prüfung unter WordPress 6.7 auf `scrollstage-wp67.local` |
