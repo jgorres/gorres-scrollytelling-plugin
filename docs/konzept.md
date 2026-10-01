@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.19 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
+Version: 1.20 · Stand: 01.10.2026 · Plugin-Version: 2.8.0
 
 ## 1. Zweck
 
@@ -134,6 +134,25 @@ zusätzlich die ungenutzte Klasse `no-fade`.
 | `mediaAlt` | Alternativtext; leer übernimmt den Text der Mediathek |
 | `focalPoint` | Punkt, der beim Zuschneiden sichtbar bleibt |
 | `textEffect` | eigener Effekt des Textkastens; leer übernimmt den der Story, `none` schaltet ihn ab |
+| `minHeight` | eigene Höhe des Schritts in Prozent der Bildschirmhöhe (20 bis 200); 0 übernimmt `minStepHeight` der Story |
+
+#### Eigene Schritthöhe (`minHeight`)
+
+Seit 2.8.0. Die Story setzt die Schritthöhe als `--jgor-st-step-min` an ihrem
+Wrapper. Ein Schritt mit eigener Höhe setzt dieselbe Variable an seinem
+eigenen Wrapper (`step/render.php`, geprüft von `jgor_st_step_min_height()`
+in `includes/blocks.php`); Stylesheet und Scripte bleiben unverändert.
+
+Zweck: mehrere Textkästen vor demselben Medium. Der erste Schritt trägt das
+Medium, die folgenden haben keines und eine geringere Höhe. Das Medium bleibt
+stehen (Abschnitt 4), die Kästen folgen dicht aufeinander, und jeder behält
+seinen eigenen Kastenstil und Texteffekt. Ein Kasten, der höher ist als der
+Wert, dehnt den Schritt (`min-height`).
+
+In einer Reihe zählt der Wert nicht (Kontext `scrollstage/inRow`): Der
+Scrollweg der Reihe ist Anzahl der Schritte mal Schritthöhe der Story. Der
+Editor zeigt die Höhe nicht, dort sind alle Schritte gleich hoch; die
+Einstellung liegt im Bereich „Height" des Schritts.
 
 ### Block-Einstellungen von `step`
 
@@ -533,3 +552,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.17 | 30.09.2026 | `includes/admin.php`: Spendenlink (Ko-fi) in der Zeile des Plugins in der Plugin-Liste über `plugin_row_meta` (Plugin 2.7.2) |
 | 1.18 | 30.09.2026 | `.distignore` liegt in der Wurzel des Repos statt in `plugin/`: Plugin Check meldete die versteckte Datei auf den Testsites, die den Ordner per Symlink laden. Paket unverändert |
 | 1.19 | 30.09.2026 | Projekt von `~/dev/scrollstage` nach `~/dev/jgorres-im-WP-Repository/scrollstage` umgezogen; Symlinks der Testsites nachgezogen |
+| 1.20 | 01.10.2026 | Attribut `minHeight` am Schritt: eigene Schritthöhe, damit mehrere Textkästen nacheinander vor demselben Medium durchlaufen (Plugin 2.8.0) |

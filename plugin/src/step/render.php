@@ -11,7 +11,8 @@
  * jgor_st_step_box_attributes().
  *
  * The effect the text box appears and disappears with comes from the step
- * itself or, handed down as block context, from the story.
+ * itself or, handed down as block context, from the story. The same goes for
+ * the height of the step, which the story sets as a custom property.
  *
  * @package Scrollstage
  *
@@ -48,7 +49,23 @@ if ( '' !== $jgor_st_effect ) {
 	$jgor_st_classes .= ' has-text-effect is-text-effect-' . sanitize_html_class( $jgor_st_effect );
 }
 
-$jgor_st_wrapper = get_block_wrapper_attributes( array( 'class' => $jgor_st_classes ) );
+$jgor_st_wrapper_args = array( 'class' => $jgor_st_classes );
+
+/*
+ * A height of its own overrides the step height of the story for this step
+ * alone; the stylesheet reads the same variable in both cases. The value is
+ * an integer within fixed bounds, see jgor_st_step_min_height().
+ */
+$jgor_st_min_height = jgor_st_step_min_height(
+	$attributes['minHeight'] ?? 0,
+	! empty( $block->context['scrollstage/inRow'] )
+);
+
+if ( $jgor_st_min_height > 0 ) {
+	$jgor_st_wrapper_args['style'] = sprintf( '--jgor-st-step-min:%dsvh;', $jgor_st_min_height );
+}
+
+$jgor_st_wrapper = get_block_wrapper_attributes( $jgor_st_wrapper_args );
 $jgor_st_box     = jgor_st_step_box_attributes( $attributes );
 
 // Attributes of the text box, escaped here and echoed as they are.

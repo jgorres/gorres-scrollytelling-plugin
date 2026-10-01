@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.7.2
+Stable tag: 2.8.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,7 +38,7 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 * With a stage limited to the medium: pull the content after the story up below the stage, so it shows from the first step on
 * Dimming of the media so that text stays readable
 * Offset from the top, for sites with a fixed menu
-* Height of a step, which decides how long its medium stays in place
+* Height of a step, which decides how long its medium stays in place, for the whole story or per step
 * Cross-fade or instant change between media
 * Focal point per medium, so the right part survives the crop
 
@@ -72,6 +72,10 @@ Yes, images and videos from the media library. A video runs muted and only while
 
 Its text scrolls across the medium of the previous step. That is useful for a closing note on the last image.
 
+= Can several text boxes scroll across the same medium? =
+
+Yes. Give the first step the medium and add further steps without one: their text boxes scroll across the medium of the first step, one after the other. To bring the boxes closer together, open "Height" in the settings of such a step, switch off "Use the step height of the story" and choose a lower height. Each of these steps keeps its own look and its own text effect. Inside a row the height of a single step has no effect.
+
 = Why is there empty space below the stage? =
 
 With "Limit the stage to the medium" the stage is lower than the screen, and content after the story only follows the last step. Switch on "Pull up the following content" in the story block: the content after it then sits right below the stage while the steps play and scrolls on once the story ends. If the content belongs to the story itself, put it into a "Scrollstage Afterword" block inside the story instead.
@@ -92,6 +96,9 @@ The story dims its media; you can set how much. Each step can also give its text
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.8.0 =
+* New: a step can have a height of its own instead of the step height of the story. Lower steps without a medium let several text boxes scroll across the same medium one after the other.
 
 = 2.7.2 =
 * New: donation link in the row of the plugin in the plugin list.

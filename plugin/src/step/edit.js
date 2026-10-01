@@ -4,7 +4,7 @@
  * Every step keeps one medium and its own text. The medium is only previewed
  * here; on the front end the parent story block moves it into its sticky
  * stage. Background, border, shadow and padding of the block go to the text
- * box, see text-box.js.
+ * box, see text-box.js. The height of a step only shows on the front end.
  */
 
 import { __ } from '@wordpress/i18n';
@@ -21,8 +21,10 @@ import {
 	FocalPointPicker,
 	Notice,
 	PanelBody,
+	RangeControl,
 	SelectControl,
 	TextareaControl,
+	ToggleControl,
 } from '@wordpress/components';
 
 import { useTextBoxProps } from './text-box';
@@ -42,10 +44,23 @@ const EMPTY_MEDIA = {
 	focalPoint: undefined,
 };
 
+// Height a step starts with once it stops following the story, in percent.
+const OWN_HEIGHT = 50;
+
 export default function Edit( { attributes, setAttributes } ) {
-	const { mediaId, mediaUrl, mediaAlt, mediaType, focalPoint, textEffect } =
-		attributes;
+	const {
+		mediaId,
+		mediaUrl,
+		mediaAlt,
+		mediaType,
+		focalPoint,
+		textEffect,
+		minHeight,
+	} = attributes;
 	const hasMedia = '' !== mediaUrl;
+
+	// Zero means that the step is as tall as the story says.
+	const hasOwnHeight = minHeight > 0;
 
 	/*
 	 * Picking a medium copies the alternative text of the media library into
@@ -165,6 +180,50 @@ export default function Edit( { attributes, setAttributes } ) {
 						>
 							{ __( 'Remove medium', 'scrollstage' ) }
 						</Button>
+					) }
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Height', 'scrollstage' ) }
+					initialOpen={ false }
+				>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label={ __(
+							'Use the step height of the story',
+							'scrollstage'
+						) }
+						help={ __(
+							'Switch off to give this step a height of its own. Lower steps without a medium let several text boxes scroll across the same medium one after the other. Front end only; has no effect inside a row.',
+							'scrollstage'
+						) }
+						checked={ ! hasOwnHeight }
+						onChange={ ( value ) =>
+							setAttributes( {
+								minHeight: value ? 0 : OWN_HEIGHT,
+							} )
+						}
+					/>
+					{ hasOwnHeight && (
+						<RangeControl
+							__nextHasNoMarginBottom
+							label={ __(
+								'Step height in percent of the screen height',
+								'scrollstage'
+							) }
+							help={ __(
+								'A text box taller than this makes the step as tall as it needs.',
+								'scrollstage'
+							) }
+							value={ minHeight }
+							min={ 20 }
+							max={ 200 }
+							step={ 10 }
+							onChange={ ( value ) =>
+								setAttributes( {
+									minHeight: value ?? OWN_HEIGHT,
+								} )
+							}
+						/>
 					) }
 				</PanelBody>
 				<PanelBody

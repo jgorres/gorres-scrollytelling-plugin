@@ -271,6 +271,31 @@ function jgor_st_resolve_text_effect( $own, $inherited ) {
 }
 
 /**
+ * Returns the height a step asks for itself.
+ *
+ * A step is as tall as the story says unless it sets a height of its own, in
+ * percent of the screen height. Lower steps bring their text boxes closer
+ * together: followed by steps without a medium, several boxes scroll across
+ * the same medium one after the other.
+ *
+ * Inside a row the value does not count, because the distance a row is
+ * scrolled through is the number of its steps times the step height of the
+ * story.
+ *
+ * @param mixed $value  Attribute "minHeight" of the step block.
+ * @param bool  $in_row Whether the step sits inside a row.
+ * @return int Height in percent of the screen height, between 20 and 200, or
+ *             0 when the step follows the story.
+ */
+function jgor_st_step_min_height( $value, $in_row = false ) {
+	if ( $in_row || ! is_numeric( $value ) || (int) $value <= 0 ) {
+		return 0;
+	}
+
+	return min( 200, max( 20, (int) $value ) );
+}
+
+/**
  * Builds class and style of the text box of a step.
  *
  * Background, border, shadow and padding of a step belong to its text box,

@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.7 · Stand: 30.09.2026 · Plugin-Version: 2.7.2
+Version: 1.8 · Stand: 01.10.2026 · Plugin-Version: 2.8.0
 
 ## 1. Ausgangspunkt
 
@@ -30,6 +30,7 @@ Hooks oder Ereignisse als öffentliche Schnittstelle.
 | 1 | Schriftformatierung und Textkasten über Block-Supports | 2.5.0 | ½ Tag | erledigt |
 | 2 | Effekte für den Textkasten | 2.6.0 | 1–2 Tage | erledigt |
 | 3 | Container-Block „Scrollstage Row" (Reihe) | 2.7.0 | 3–5 Tage | erledigt |
+| 4 | Eigene Schritthöhe je Schritt (mehrere Textkästen vor einem Medium) | 2.8.0 | ½ Tag | erledigt |
 
 Der Aufwand ist geschätzt.
 
@@ -181,6 +182,44 @@ Basis gegen Pro für die drei gemeinsamen Seiten nach jedem Teilschritt gleich.
 Nicht geprüft: Safari, WordPress 6.7, eine Story in einem Schritt, eine Reihe
 zusammen mit Nachspann oder hochgezogenem Inhalt.
 
+### Schritt 4: Eigene Schritthöhe (2.8.0)
+
+Wunsch vom 01.10.2026: innerhalb eines Schritts mehrere Textkästen
+nacheinander durchscrollen, bevor das nächste Medium kommt.
+
+Ein Schritt ohne Medium lässt das Medium des vorigen Schritts stehen und ist
+damit bereits ein weiterer Textkasten vor demselben Medium, mit eigenem
+Kastenstil und eigenem Texteffekt. Es fehlte nur, dass er enger auf den
+vorigen folgen kann. Dafür hat der Schritt das Attribut `minHeight` (20 bis
+200 Prozent der Bildschirmhöhe, 0 = Wert der Story) mit Schalter und Regler
+im Bereich „Height". Mechanik in `konzept.md`, Abschnitt 3.
+
+Entschieden am 01.10.2026 gegen einen eigenen Block „Textkasten" im Schritt:
+Kastenstil, Effekte und Geister-Elemente hätten vom Schritt auf den neuen
+Block umziehen müssen, samt Migration bestehender Inhalte, bei gleichem
+Ergebnis im Frontend.
+
+In einer Reihe wirkt der Wert nicht.
+
+Nachweis: Testseite `/scrollstage/scrollstage-step-height/` auf Pro (Seite
+136, sechs Schritte: Medium, zwei ohne Medium mit 40 %, Medium, einer ohne
+Medium mit 20 %, Medium mit 150 %; Story mit `slide`). Bei 1280×800 gemessen:
+Schritthöhen 800, 320, 320, 800, 235 (Text höher als 20 %) und 1200 px;
+Medienfolge 1, 4, 6 auf- und abwärts, die Kästen 2 und 3 laufen vor Medium 1
+durch. Chromium 154 und Edge 154 mit Scroll-Timelines (Deckkraft der Kästen
+folgt dem Scrollweg), Firefox 146 mit dem Fallback der Texteffekte
+(`is-visible`, `is-past` je Kasten). Editor: alle Blöcke gültig,
+Schalter und Regler setzen 0, 50 und den gewählten Wert. Per `do_blocks()`:
+in einer Reihe kein eigener Wert, 5 wird 20, 999 wird 200, Text wird 0.
+
+Statt des Bildvergleichs Basis gegen Pro (Pro lief mit GeneratePress, Basis
+mit Twenty Twenty-Five): Ausgabe der Seiten 86, 33, 12, 96, 104 und 109 und
+alle Stylesheets und Frontend-Scripte des Builds mit 2.7.2 und 2.8.0
+verglichen, byte-gleich.
+
+Nicht geprüft: Safari, WordPress 6.7, eigene Höhe zusammen mit begrenzter
+Bühne oder Nachspann.
+
 ## 3. Testsites
 
 Zwei lokale Sites mit demselben Inhalt (Datenbank-Kopie von
@@ -196,8 +235,8 @@ Testseiten auf beiden: `/scrollstage-hero/`, `/scrollstage-standard-width/`
 (begrenzte Bühne, Hochziehen) und `/scrollytelling-test/`. Jede hat fünf
 Schritte, einer davon mit Video. Nur auf Pro liegen zusätzlich
 `/scrollstage-typography/` für Schriftformatierung und Textkasten,
-`/scrollstage-text-effects/` für die Texteffekte und `/scrollstage-row/` für
-die Reihe.
+`/scrollstage-text-effects/` für die Texteffekte, `/scrollstage-row/` für
+die Reihe und `/scrollstage-step-height/` für die eigene Schritthöhe.
 
 Vergleichslauf: je Seite 14 Scrollpositionen im Abstand von 400 px bei
 1280×800. Screenshots mit reduzierter Bewegung, damit das Video steht; die
@@ -218,6 +257,9 @@ den Entwicklungsstand.
 * Jede Stufe ist ein eigener Versionsstand: Konzept nachziehen, Prüflauf
   (`composer check`, `npm run lint:js`, `npm run lint:css`), Vergleich Basis
   gegen Pro, Commit.
+* Jede Änderung am Frontend wird in drei Browsern geprüft: Chromium, Firefox
+  und Edge (seit 01.10.2026; Edge läuft lokal als Flatpak
+  `com.microsoft.Edge`).
 * Für neue Funktionen bekommt `scrollstage-pro.local` eigene Testseiten; die
   drei gemeinsamen Seiten bleiben auf beiden Sites gleich.
 * Die Testseiten auf `plugintest.local` bleiben, wie sie sind.
@@ -234,3 +276,4 @@ den Entwicklungsstand.
 | 1.5 | 30.09.2026 | Effekte `rotate` und `dissolve` (Plugin 2.6.2); Prototyp für die Reihe |
 | 1.6 | 30.09.2026 | Schritt 3 erledigt (Plugin 2.7.0): Block „Scrollstage Row", Abweichungen vom Prototyp, Testseite auf Pro |
 | 1.7 | 30.09.2026 | Pfad des Projekts nach dem Umzug nach `~/dev/jgorres-im-WP-Repository/scrollstage` |
+| 1.8 | 01.10.2026 | Schritt 4 (Plugin 2.8.0): eigene Schritthöhe je Schritt, Entscheidung gegen einen Kasten-Block; Edge als dritter Prüfbrowser |
