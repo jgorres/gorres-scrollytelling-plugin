@@ -86,7 +86,7 @@
             "parent": 0,
             "menu_order": 1,
             "mime_type": "",
-            "content": "<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"left\",\"textWidth\":40,\"overlayOpacity\":40,\"textEffect\":\"fade\"} -->\n<!-- wp:scrollstage/step {\"mediaId\":65,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-mountain-sunrise.jpg\",\"mediaAlt\":\"Snow-capped mountain peak bathed in golden sunrise light against a deep blue sky.\"} -->\n<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">A medium fills the screen</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>It stays in place while this text box scrolls across it. Keep scrolling.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":66,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-turquoise-lake.jpg\",\"mediaAlt\":\"Turquoise lake surrounded by rocky, snow-capped mountains in Langtang, with a sandy shoreline under a clear blue sky.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">The next step changes the medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>As soon as a step reaches the middle of the screen, its image or video takes over the stage.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":67,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-foggy-forest-lakes.jpg\",\"mediaAlt\":\"Two small lakes surrounded by a foggy forest with a few hiking paths in view.\",\"backgroundColor\":\"base\",\"textEffect\":\"slide\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Every step has its own look</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>This text box has a background and slides in, the others fade. Position, width and dimming come from the story.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":68,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-starry-night.jpg\",\"mediaAlt\":\"A mountain under a clear, starry night sky, with numerous stars visible above the dark silhouette of the rocky peak.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Now build your own</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>You are logged in: open this page in the editor and change the story, or read on below.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->\n\n<!-- wp:paragraph -->\n<p>Scrollstage turns a web page into a story driven by scrolling: scrollytelling. One medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This site is the help for the plugin, and it is a playground at the same time: Scrollstage is installed, you are logged in as administrator, and nothing you try here can break anything. Open the editor, build a story and see how it behaves.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Start here</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/installation/\">Installation</a>: requirements, installing the plugin and your first story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/\">Blocks</a>: the four blocks a story is built from.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/\">Settings</a>: media, text boxes, text effects and step height.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/faq/\">FAQ</a>: answers to frequent questions.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">What is scrollytelling?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Scrollytelling (from “scrolling” and “storytelling”) is a way of telling stories on the web in which scrolling itself moves the story forward. Instead of merely moving the page down, every scroll step triggers a change: graphics build up, maps zoom, images change, charts animate to match the text.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Built to behave</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>No JavaScript library.</strong> The front end script is about seven kilobytes, a little over two when compressed.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Readable without JavaScript.</strong> The first medium stays visible and the text follows underneath.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Respects reduced motion.</strong> No cross-fade, no text effect, no sideways movement and no playing video when the visitor asked for less motion.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Works with the keyboard</strong> and exposes one medium at a time to screen readers.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
+            "content": "<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"left\",\"textWidth\":40,\"overlayOpacity\":0,\"textEffect\":\"fade\"} -->\n<!-- wp:scrollstage/step {\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/banner-2560x1707-animated.png\",\"mediaAlt\":\"Scrollstage\"} /-->\n\n<!-- wp:scrollstage/step {\"mediaId\":65,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-mountain-sunrise.jpg\",\"mediaAlt\":\"Snow-capped mountain peak bathed in golden sunrise light against a deep blue sky.\"} -->\n<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">A medium fills the screen</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>It stays in place while this text box scrolls across it. Keep scrolling.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":66,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-turquoise-lake.jpg\",\"mediaAlt\":\"Turquoise lake surrounded by rocky, snow-capped mountains in Langtang, with a sandy shoreline under a clear blue sky.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">The next step changes the medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>As soon as a step reaches the middle of the screen, its image or video takes over the stage.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":67,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-foggy-forest-lakes.jpg\",\"mediaAlt\":\"Two small lakes surrounded by a foggy forest with a few hiking paths in view.\",\"backgroundColor\":\"base\",\"textEffect\":\"slide\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Every step has its own look</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>This text box has a background and slides in, the others fade. Position, width and dimming come from the story.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":68,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-starry-night.jpg\",\"mediaAlt\":\"A mountain under a clear, starry night sky, with numerous stars visible above the dark silhouette of the rocky peak.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Now build your own</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>You are logged in: open this page in the editor and change the story, or read on below.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->\n\n<!-- wp:group {\"metadata\":{\"name\":\"Menu\"},\"align\":\"full\",\"backgroundColor\":\"base\",\"style\":{\"position\":{\"type\":\"sticky\",\"top\":\"0px\"},\"spacing\":{\"padding\":{\"top\":\"var:preset|spacing|30\",\"bottom\":\"var:preset|spacing|30\"}}},\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group alignfull has-base-background-color has-background\" style=\"padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)\"><!-- wp:group {\"align\":\"wide\",\"layout\":{\"type\":\"flex\",\"flexWrap\":\"nowrap\",\"justifyContent\":\"left\"}} -->\n<div class=\"wp-block-group alignwide\"><!-- wp:navigation {\"overlayBackgroundColor\":\"base\",\"overlayTextColor\":\"contrast\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"left\",\"flexWrap\":\"wrap\"}} /--></div>\n<!-- /wp:group --></div>\n<!-- /wp:group -->\n\n<!-- wp:paragraph -->\n<p>Scrollstage turns a web page into a story driven by scrolling: scrollytelling. One medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This site is the help for the plugin, and it is a playground at the same time: Scrollstage is installed, you are logged in as administrator, and nothing you try here can break anything. Open the editor, build a story and see how it behaves.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Start here</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/installation/\">Installation</a>: requirements, installing the plugin and your first story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/\">Blocks</a>: the four blocks a story is built from.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/\">Settings</a>: media, text boxes, text effects and step height.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/faq/\">FAQ</a>: answers to frequent questions.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">What is scrollytelling?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Scrollytelling (from “scrolling” and “storytelling”) is a way of telling stories on the web in which scrolling itself moves the story forward. Instead of merely moving the page down, every scroll step triggers a change: graphics build up, maps zoom, images change, charts animate to match the text.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Built to behave</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>No JavaScript library.</strong> The front end script is about seven kilobytes, a little over two when compressed.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Readable without JavaScript.</strong> The first medium stays visible and the text follows underneath.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Respects reduced motion.</strong> No cross-fade, no text effect, no sideways movement and no playing video when the visitor asked for less motion.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Works with the keyboard</strong> and exposes one medium at a time to screen readers.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
@@ -95,7 +95,7 @@
             },
             "meta": {
                 "_wp_page_template": [
-                    "page-no-title"
+                    "home-menu-below"
                 ]
             },
             "terms": []
@@ -109,7 +109,7 @@
             "parent": 0,
             "menu_order": 1,
             "mime_type": "",
-            "content": "<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"left\",\"textWidth\":40,\"overlayOpacity\":40,\"textEffect\":\"fade\"} -->\n<!-- wp:scrollstage/step {\"mediaId\":65,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-mountain-sunrise.jpg\",\"mediaAlt\":\"Snow-capped mountain peak bathed in golden sunrise light against a deep blue sky.\"} -->\n<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">Ein Medium füllt den Bildschirm</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Es bleibt stehen, während dieser Textkasten darüber hinwegscrollt. Scroll weiter.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":66,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-turquoise-lake.jpg\",\"mediaAlt\":\"Turquoise lake surrounded by rocky, snow-capped mountains in Langtang, with a sandy shoreline under a clear blue sky.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Der nächste Schritt wechselt das Medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Sobald ein Schritt die Bildschirmmitte erreicht, übernimmt sein Bild oder Video die Bühne.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":67,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-foggy-forest-lakes.jpg\",\"mediaAlt\":\"Two small lakes surrounded by a foggy forest with a few hiking paths in view.\",\"backgroundColor\":\"base\",\"textEffect\":\"slide\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Jeder Schritt sieht anders aus</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Dieser Textkasten hat einen Hintergrund und gleitet herein, die anderen blenden ein. Position, Breite und Abdunklung kommen aus der Story.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":68,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-starry-night.jpg\",\"mediaAlt\":\"A mountain under a clear, starry night sky, with numerous stars visible above the dark silhouette of the rocky peak.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Jetzt bist du dran</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Du bist angemeldet: Öffne diese Seite im Editor und ändere die Story, oder lies unten weiter.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->\n\n<!-- wp:paragraph -->\n<p>Scrollstage macht aus einer Webseite eine Geschichte, die das Scrollen vorantreibt: Scrollytelling. Ein Medium füllt den Bildschirm und bleibt stehen, während der Text des aktuellen Schritts darüber hinwegscrollt. Sobald der nächste Schritt die Bildschirmmitte erreicht, wechselt das Medium dahinter.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Diese Site ist die Hilfe zum Plugin und zugleich ein Spielplatz: Scrollstage ist installiert, du bist als Administrator angemeldet, und nichts, was du hier ausprobierst, kann etwas kaputt machen. Öffne den Editor, baue eine Story und sieh dir an, wie sie sich verhält.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Hier geht es los</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/installieren/\">Installation</a>: Voraussetzungen, Plugin installieren und die erste Story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/\">Blöcke</a>: die vier Blöcke, aus denen eine Story besteht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/\">Einstellungen</a>: Medien, Textkästen, Texteffekte und Schritthöhe.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/haeufige-fragen/\">Häufige Fragen</a>: Antworten auf oft gestellte Fragen.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Was ist Scrollytelling?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Scrollytelling (aus „Scrolling“ und „Storytelling“) ist eine Art, im Web Geschichten zu erzählen, bei der das Scrollen selbst die Geschichte voranbringt. Statt die Seite nur nach unten zu bewegen, löst jeder Scrollschritt eine Veränderung aus: Grafiken bauen sich auf, Karten zoomen, Bilder wechseln, Diagramme bewegen sich passend zum Text.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Sauber gebaut</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Keine JavaScript-Bibliothek.</strong> Das Script im Frontend ist rund sieben Kilobyte groß, komprimiert gut zwei.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Lesbar ohne JavaScript.</strong> Das erste Medium bleibt sichtbar, der Text folgt darunter.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Achtet auf reduzierte Bewegung.</strong> Keine Überblendung, kein Texteffekt, keine Seitwärtsbewegung und kein laufendes Video, wenn der Besucher weniger Bewegung wünscht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Mit der Tastatur bedienbar</strong>, und Screenreader bekommen immer nur ein Medium.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
+            "content": "<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"left\",\"textWidth\":40,\"overlayOpacity\":0,\"textEffect\":\"fade\"} -->\n<!-- wp:scrollstage/step {\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/banner-2560x1707-animated.png\",\"mediaAlt\":\"Scrollstage\"} /-->\n\n<!-- wp:scrollstage/step {\"mediaId\":65,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-mountain-sunrise.jpg\",\"mediaAlt\":\"Snow-capped mountain peak bathed in golden sunrise light against a deep blue sky.\"} -->\n<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">Ein Medium füllt den Bildschirm</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Es bleibt stehen, während dieser Textkasten darüber hinwegscrollt. Scroll weiter.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":66,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-turquoise-lake.jpg\",\"mediaAlt\":\"Turquoise lake surrounded by rocky, snow-capped mountains in Langtang, with a sandy shoreline under a clear blue sky.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Der nächste Schritt wechselt das Medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Sobald ein Schritt die Bildschirmmitte erreicht, übernimmt sein Bild oder Video die Bühne.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":67,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-foggy-forest-lakes.jpg\",\"mediaAlt\":\"Two small lakes surrounded by a foggy forest with a few hiking paths in view.\",\"backgroundColor\":\"base\",\"textEffect\":\"slide\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Jeder Schritt sieht anders aus</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Dieser Textkasten hat einen Hintergrund und gleitet herein, die anderen blenden ein. Position, Breite und Abdunklung kommen aus der Story.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":68,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-starry-night.jpg\",\"mediaAlt\":\"A mountain under a clear, starry night sky, with numerous stars visible above the dark silhouette of the rocky peak.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Jetzt bist du dran</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Du bist angemeldet: Öffne diese Seite im Editor und ändere die Story, oder lies unten weiter.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->\n\n<!-- wp:group {\"metadata\":{\"name\":\"Menu\"},\"align\":\"full\",\"backgroundColor\":\"base\",\"style\":{\"position\":{\"type\":\"sticky\",\"top\":\"0px\"},\"spacing\":{\"padding\":{\"top\":\"var:preset|spacing|30\",\"bottom\":\"var:preset|spacing|30\"}}},\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group alignfull has-base-background-color has-background\" style=\"padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)\"><!-- wp:group {\"align\":\"wide\",\"layout\":{\"type\":\"flex\",\"flexWrap\":\"nowrap\",\"justifyContent\":\"left\"}} -->\n<div class=\"wp-block-group alignwide\"><!-- wp:navigation {\"overlayBackgroundColor\":\"base\",\"overlayTextColor\":\"contrast\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"left\",\"flexWrap\":\"wrap\"}} /--></div>\n<!-- /wp:group --></div>\n<!-- /wp:group -->\n\n<!-- wp:paragraph -->\n<p>Scrollstage macht aus einer Webseite eine Geschichte, die das Scrollen vorantreibt: Scrollytelling. Ein Medium füllt den Bildschirm und bleibt stehen, während der Text des aktuellen Schritts darüber hinwegscrollt. Sobald der nächste Schritt die Bildschirmmitte erreicht, wechselt das Medium dahinter.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Diese Site ist die Hilfe zum Plugin und zugleich ein Spielplatz: Scrollstage ist installiert, du bist als Administrator angemeldet, und nichts, was du hier ausprobierst, kann etwas kaputt machen. Öffne den Editor, baue eine Story und sieh dir an, wie sie sich verhält.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Hier geht es los</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/installieren/\">Installation</a>: Voraussetzungen, Plugin installieren und die erste Story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/\">Blöcke</a>: die vier Blöcke, aus denen eine Story besteht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/\">Einstellungen</a>: Medien, Textkästen, Texteffekte und Schritthöhe.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/haeufige-fragen/\">Häufige Fragen</a>: Antworten auf oft gestellte Fragen.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Was ist Scrollytelling?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Scrollytelling (aus „Scrolling“ und „Storytelling“) ist eine Art, im Web Geschichten zu erzählen, bei der das Scrollen selbst die Geschichte voranbringt. Statt die Seite nur nach unten zu bewegen, löst jeder Scrollschritt eine Veränderung aus: Grafiken bauen sich auf, Karten zoomen, Bilder wechseln, Diagramme bewegen sich passend zum Text.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Sauber gebaut</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Keine JavaScript-Bibliothek.</strong> Das Script im Frontend ist rund sieben Kilobyte groß, komprimiert gut zwei.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Lesbar ohne JavaScript.</strong> Das erste Medium bleibt sichtbar, der Text folgt darunter.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Achtet auf reduzierte Bewegung.</strong> Keine Überblendung, kein Texteffekt, keine Seitwärtsbewegung und kein laufendes Video, wenn der Besucher weniger Bewegung wünscht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Mit der Tastatur bedienbar</strong>, und Screenreader bekommen immer nur ein Medium.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
@@ -118,7 +118,7 @@
             },
             "meta": {
                 "_wp_page_template": [
-                    "page-no-title"
+                    "home-menu-below"
                 ]
             },
             "terms": []
@@ -1102,6 +1102,113 @@
                 ]
             },
             "terms": []
+        },
+        {
+            "id": 81,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "banner-2560x1707-animated",
+            "slug": "banner-2560x1707-animated",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/banner-2560x1707-animated.png"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2560,
+                        "height": 1707,
+                        "file": "2026/10/banner-2560x1707-animated.png",
+                        "filesize": 3679906,
+                        "sizes": {
+                            "medium": {
+                                "file": "banner-2560x1707-animated-300x200.png",
+                                "width": 300,
+                                "height": 200,
+                                "mime-type": "image/png",
+                                "filesize": 20747
+                            },
+                            "large": {
+                                "file": "banner-2560x1707-animated-1024x683.png",
+                                "width": 1024,
+                                "height": 683,
+                                "mime-type": "image/png",
+                                "filesize": 208534
+                            },
+                            "thumbnail": {
+                                "file": "banner-2560x1707-animated-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 10916
+                            },
+                            "medium_large": {
+                                "file": "banner-2560x1707-animated-768x512.png",
+                                "width": 768,
+                                "height": 512,
+                                "mime-type": "image/png",
+                                "filesize": 111583
+                            },
+                            "1536x1536": {
+                                "file": "banner-2560x1707-animated-1536x1024.png",
+                                "width": 1536,
+                                "height": 1024,
+                                "mime-type": "image/png",
+                                "filesize": 687894
+                            },
+                            "2048x2048": {
+                                "file": "banner-2560x1707-animated-2048x1366.png",
+                                "width": 2048,
+                                "height": 1366,
+                                "mime-type": "image/png",
+                                "filesize": 1414660
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 84,
+            "type": "wp_template",
+            "status": "publish",
+            "title": "Home (menu below the story)",
+            "slug": "home-menu-below",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "",
+            "content": "<!-- wp:group {\"tagName\":\"main\",\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\"}}}} -->\n<main class=\"wp-block-group\" style=\"margin-top:0\">\n\t<!-- wp:post-content {\"lock\":{\"move\":false,\"remove\":true},\"layout\":{\"type\":\"constrained\"}} /-->\n</main>\n<!-- /wp:group -->\n\n<!-- wp:template-part {\"slug\":\"footer\",\"theme\":\"twentytwentyfive\"} /-->",
+            "excerpt": "Page without title and header. The menu sits in the page content, below the story.",
+            "language": "",
+            "translations": [],
+            "meta": [],
+            "terms": {
+                "wp_theme": [
+                    "twentytwentyfive"
+                ]
+            }
         }
     ]
 }

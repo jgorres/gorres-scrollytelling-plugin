@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.25 · Stand: 01.10.2026 · Plugin-Version: 2.8.4
+Version: 1.26 · Stand: 01.10.2026 · Plugin-Version: 2.8.4
 
 ## 1. Zweck
 
@@ -570,7 +570,7 @@ Besonderheiten der Site:
 | Navigation | Seitenliste plus Block `polylang/navigation-language-switcher`. Die freie Polylang-Version übersetzt `wp_navigation` nicht; die Seitenliste filtert selbst je Sprache. Die Reihenfolge kommt aus dem Seitenbaum (Simple Page Ordering) |
 | Kopf | angepasster Template-Teil `header`: Website-Logo (Banner aus der Mediathek, 560 px) statt Site-Titel, Navigation in eigener Zeile darunter. Der Logo-Link folgt der Sprache |
 | Fuß | angepasster Template-Teil `footer`: ohne Logo, ohne die Platzhalter Blog, Events, Shop und Themes, mit dem Text „4050 / 2 = Twenty Twenty-Five" |
-| Startseite | Vorlage `page-no-title`; beginnt mit einer Beispiel-Story aus vier Schritten, die Überschrift des ersten Schritts ist die `h1` |
+| Startseite | eigene Vorlage `home-menu-below` (wie `page-no-title`, ohne Kopf), nur den beiden Startseiten zugewiesen; beginnt mit einer Beispiel-Story aus fünf Schritten ohne Abdunklung. Erster Schritt ist das animierte Banner (APNG) ohne Text, eingebunden nur über `mediaUrl` (`mediaId` 0): mit `mediaId` gäbe das Plugin ein `srcset` aus, und die verkleinerten Fassungen sind Standbilder. Die Überschrift des zweiten Schritts ist die `h1`. Direkt hinter der Story steht das Menü als Gruppe im Seiteninhalt (ohne Logo, Position „sticky", Hintergrund `base`): es bleibt am oberen Rand hängen, sobald es ihn erreicht, und verschwindet wieder, wenn man in die Story zurückscrollt |
 | FAQ | Accordion-Block des Core (`core/accordion`), sieben Einträge |
 | Medien | Beispiel-Story mit dem Testvideo am Ende der Seite |
 
@@ -700,3 +700,4 @@ aber mit Node 20.
 | 1.23 | 01.10.2026 | „Tested up to" aus dem Plugin-Header entfernt: Die automatische Prüfung bei der Einreichung (WordPress.org) lehnt die Zeile dort ab (`plugin_header_tested_up_to_not_allowed`), sie steht nur noch in `readme.txt`; der lokale Plugin Check 2.1.0 meldet das nicht (Plugin 2.8.3) |
 | 1.24 | 01.10.2026 | Abschnitt 12: Onlinehilfe im WordPress Playground (Vorlagen-Site `scrollstage.local`, Bundle `playground/`); am Plugin selbst nichts geändert |
 | 1.25 | 01.10.2026 | Video startet erst, wenn die Bühne im Viewport ist, und hält an, sobald die Story den Bildschirm verlässt: zweiter IntersectionObserver auf der Bühne in `view/media.js`; vorher lief das Video des ersten Schritts ab dem Laden der Seite und das letzte aktive Video nach der Story weiter (Plugin 2.8.4) |
+| 1.26 | 01.10.2026 | Abschnitt 12, Startseiten der Onlinehilfe: animiertes Banner als erster Schritt, Vorlage `home-menu-below` ohne Kopf, Menü sticky unter der Story, Abdunklung aus; Bundle neu exportiert (Plugin 2.8.4); am Plugin selbst nichts geändert |
