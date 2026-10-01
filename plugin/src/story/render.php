@@ -40,6 +40,10 @@ $jgor_st_stage = '';
 $jgor_st_index = 0;
 $jgor_st_ratio = 0.0;
 
+// Shape of a limited stage on portrait screens, and whether any step asks for one.
+$jgor_st_portrait_ratio = 0.0;
+$jgor_st_has_portrait   = false;
+
 if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_block['innerBlocks'] ) ) {
 	// Steps of the story itself and steps inside its rows, as one flat list.
 	foreach ( jgor_st_collect_steps( $block->parsed_block['innerBlocks'] ) as $jgor_st_attrs ) {
@@ -56,6 +60,21 @@ if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_bl
 			if ( $jgor_st_step_ratio > 0 && ( 0.0 === $jgor_st_ratio || $jgor_st_step_ratio < $jgor_st_ratio ) ) {
 				$jgor_st_ratio = $jgor_st_step_ratio;
 			}
+
+			/*
+			 * On portrait screens a step shows its image for those, if it has
+			 * one, and its usual medium otherwise.
+			 */
+			$jgor_st_step_portrait = jgor_st_portrait_ratio( $jgor_st_attrs );
+
+			if ( $jgor_st_step_portrait > 0 ) {
+				$jgor_st_has_portrait = true;
+				$jgor_st_step_ratio   = $jgor_st_step_portrait;
+			}
+
+			if ( $jgor_st_step_ratio > 0 && ( 0.0 === $jgor_st_portrait_ratio || $jgor_st_step_ratio < $jgor_st_portrait_ratio ) ) {
+				$jgor_st_portrait_ratio = $jgor_st_step_ratio;
+			}
 		}
 	}
 }
@@ -71,15 +90,19 @@ if ( $block->inner_blocks instanceof WP_Block_List ) {
 	}
 }
 
+// Without an image for portrait screens the stage keeps one shape everywhere.
+$jgor_st_has_portrait = $jgor_st_has_portrait && $jgor_st_ratio > 0 && $jgor_st_portrait_ratio > 0;
+
 $jgor_st_classes = jgor_st_story_classes(
 	array(
-		'text_position' => $jgor_st_text_position,
-		'step_align'    => $jgor_st_step_align,
-		'media_fit'     => $jgor_st_media_fit,
-		'effects'       => 'fade' === $jgor_st_transition ? array( 'fade' ) : array(),
-		'stage_limited' => $jgor_st_limit_stage && $jgor_st_ratio > 0,
-		'pull_content'  => $jgor_st_pull_content,
-		'has_after'     => '' !== trim( $jgor_st_after ),
+		'text_position'  => $jgor_st_text_position,
+		'step_align'     => $jgor_st_step_align,
+		'media_fit'      => $jgor_st_media_fit,
+		'effects'        => 'fade' === $jgor_st_transition ? array( 'fade' ) : array(),
+		'stage_limited'  => $jgor_st_limit_stage && $jgor_st_ratio > 0,
+		'portrait_ratio' => $jgor_st_has_portrait,
+		'pull_content'   => $jgor_st_pull_content,
+		'has_after'      => '' !== trim( $jgor_st_after ),
 	)
 );
 
@@ -87,12 +110,13 @@ $jgor_st_wrapper = get_block_wrapper_attributes(
 	array(
 		'class' => implode( ' ', $jgor_st_classes ),
 		'style' => sprintf(
-			'--jgor-st-offset:%1$dpx;--jgor-st-step-min:%2$dsvh;--jgor-st-text-width:%3$d%%;--jgor-st-overlay:%4$s;%5$s',
+			'--jgor-st-offset:%1$dpx;--jgor-st-step-min:%2$dsvh;--jgor-st-text-width:%3$d%%;--jgor-st-overlay:%4$s;%5$s%6$s',
 			$jgor_st_offset,
 			$jgor_st_step_height,
 			$jgor_st_text_width,
 			round( $jgor_st_overlay / 100, 2 ),
-			$jgor_st_ratio > 0 ? sprintf( '--jgor-st-stage-ratio:%s;', $jgor_st_ratio ) : ''
+			$jgor_st_ratio > 0 ? sprintf( '--jgor-st-stage-ratio:%s;', $jgor_st_ratio ) : '',
+			$jgor_st_has_portrait ? sprintf( '--jgor-st-stage-ratio-portrait:%s;', $jgor_st_portrait_ratio ) : ''
 		),
 	)
 );

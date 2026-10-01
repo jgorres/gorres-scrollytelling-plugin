@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.8.4
+Stable tag: 2.9.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,6 +42,7 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 * Several text boxes in front of one medium: steps without a medium of their own, as close together as you like through their own height
 * Cross-fade or instant change between media
 * Focal point per medium, so the right part survives the crop
+* A second image per step for portrait screens, so a landscape image does not lose its sides on a phone held upright
 
 = Built to behave =
 
@@ -64,6 +65,10 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 = Which image sizes should I use? =
 
 For "fill the frame" the aspect ratio does not matter, but the resolution does: a screen-high medium needs roughly screen height times aspect ratio in width, so about 2560 pixels for a 16:9 image. For "show the whole medium" it is worth giving every medium of a story the same aspect ratio, otherwise the free margins change from step to step.
+
+= My image loses its sides on a phone. What can I do? =
+
+A landscape image that fills a screen held upright only shows its middle part. Set the focal point of the step to keep the important part in view, or give the step a second image for portrait screens: open "Portrait screens" in the settings of the step and choose an image in portrait format. It replaces the image of the step whenever the screen is taller than wide, has its own focal point and shares the alternative text. Only images can be replaced this way, not videos.
 
 = Can I use videos? =
 
@@ -96,7 +101,22 @@ The story dims its media; you can set how much. Each step can also give its text
 3. The story block in the editor with its settings.
 4. A single step in the editor with its medium and its text.
 
+== Source code ==
+
+The files in `build/` are compiled and minified. Their human-readable sources ship with the plugin in the folder `src/`, one subfolder per block: `src/story/`, `src/step/`, `src/row/` and `src/after/`.
+
+The build tool is [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts) (webpack). To regenerate `build/` from `src/`, run these commands in the plugin folder, with Node.js and npm installed:
+
+1. `npm install --save-dev @wordpress/scripts@35`
+2. `npx wp-scripts build --webpack-src-dir=src --output-path=build`
+
+The plugin uses no third-party libraries.
+
 == Changelog ==
+
+= 2.9.0 =
+* New: a step can carry a second image for portrait screens. It replaces the image of the step whenever the screen is taller than wide, so a landscape image does not lose its sides on a phone held upright.
+* New: the package contains the sources of the compiled block files in `src/`; the readme describes how to build them.
 
 = 2.8.4 =
 * Fixed: the video of the first step started as soon as the page had loaded, even when the story was further down the page, and a video kept running after the story had left the screen. A video now only runs while its story is on screen.

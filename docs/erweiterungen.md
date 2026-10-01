@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.12 · Stand: 01.10.2026 · Plugin-Version: 2.8.4
+Version: 1.13 · Stand: 01.10.2026 · Plugin-Version: 2.9.0
 
 ## 1. Ausgangspunkt
 
@@ -235,6 +235,30 @@ alle Blöcke gültig, keine Script-Fehler. Geändert haben sich nur die
 Editor-Stylesheets von Story und Reihe; Frontend-Stylesheets und -Scripte
 des Builds sind byte-gleich mit 2.8.0.
 
+### Schritt 5: Bild für Hochformat (2.9.0)
+
+Anlass vom 01.10.2026: Das animierte Banner (3:2) als erster Schritt der
+Onlinehilfe verliert auf einem hochkant gehaltenen Handy links und rechts den
+Text, weil die Bühne das Medium füllend einpasst.
+
+Ein Schritt kann ein zweites Bild für Bildschirme im Hochformat tragen
+(`portraitId`, `portraitUrl`, `portraitFocalPoint`), Bereich „Portrait
+screens" in den Einstellungen des Schritts. Mechanik in `konzept.md`,
+Abschnitt 3.
+
+Erwogen und verworfen: das Banner mittig neu anordnen (auf dem Desktop bliebe
+eine schmale Spalte), die ganze Story auf „Ganzes Medium zeigen" stellen
+(Ränder an allen Fotos) und eine Einpassung je Schritt (das Banner bliebe auf
+dem Handy ein schmaler Streifen).
+
+Grenzen: nur Bilder, kein zweites Video. Ein animiertes PNG oder GIF aus der
+Mediathek steht in den verkleinerten Größen von WordPress still; soll die
+Animation überall laufen, muss der Schritt nur die Adresse der Originaldatei
+tragen (`mediaId` bzw. `portraitId` 0).
+
+Nachweis: `npm run lint:js`, `npm run lint:css` und `composer check` sauber.
+Prüfung im Browser und im Editor steht aus.
+
 ### Prüfung unter WordPress 6.7 (Mindestversion)
 
 Am 01.10.2026 mit Plugin 2.8.1 nachgeholt, auf der Wegwerf-Site
@@ -337,3 +361,4 @@ den Entwicklungsstand.
 | 1.10 | 01.10.2026 | Begrenzte Bühne, Hochziehen und Editor in Edge 154 nachgeprüft |
 | 1.11 | 01.10.2026 | Nachtrag 2.8.1: Breite der Schritte im Editor klassischer Themes |
 | 1.12 | 01.10.2026 | Prüfung unter WordPress 6.7 auf `scrollstage-wp67.local` |
+| 1.13 | 01.10.2026 | Schritt 5: Bild für Hochformat (2.9.0), Prüfung im Browser offen |

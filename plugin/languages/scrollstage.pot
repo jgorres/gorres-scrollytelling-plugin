@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Scrollstage 2.8.4\n"
+"Project-Id-Version: Scrollstage 2.9.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-01T05:44:00+00:00\n"
+"POT-Creation-Date: 2026-10-01T12:53:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: scrollstage\n"
@@ -66,117 +66,141 @@ msgstr ""
 msgid "Row: these steps pass sideways on the front end."
 msgstr ""
 
-#: src/step/edit.js:118
+#: src/step/edit.js:161
 msgid "Replace medium"
 msgstr ""
 
-#: src/step/edit.js:124
+#: src/step/edit.js:167
 msgid "Medium"
 msgstr ""
 
-#: src/step/edit.js:127
+#: src/step/edit.js:170
 msgid "No medium is set for this step. While scrolling, the medium of the previous step stays in place."
 msgstr ""
 
-#: src/step/edit.js:136
+#: src/step/edit.js:179
 msgid "This image has no alternative text. People using a screen reader will not learn what it shows."
 msgstr ""
 
-#: src/step/edit.js:146
+#: src/step/edit.js:189
 msgid "Alternative text"
 msgstr ""
 
-#: src/step/edit.js:147
+#: src/step/edit.js:190
 msgid "Leave empty to use the alternative text from the media library."
 msgstr ""
 
-#: src/step/edit.js:161
+#: src/step/edit.js:204
 msgid "Focal point"
 msgstr ""
 
-#: src/step/edit.js:162
+#: src/step/edit.js:205
 msgid "Sets which point stays visible when the medium is cropped."
 msgstr ""
 
-#: src/step/edit.js:181
+#: src/step/edit.js:224
 msgid "Remove medium"
 msgstr ""
 
-#: src/step/edit.js:186
+#: src/step/edit.js:230
+msgid "Portrait screens"
+msgstr ""
+
+#: src/step/edit.js:234
+msgid "Optional second image for screens that are taller than wide, such as a phone held upright. It replaces the image of this step there and shares its alternative text. Front end only."
+msgstr ""
+
+#: src/step/edit.js:243
+msgid "Focal point on portrait screens"
+msgstr ""
+
+#: src/step/edit.js:272
+msgid "Replace image"
+msgstr ""
+
+#: src/step/edit.js:276
+msgid "Choose image"
+msgstr ""
+
+#: src/step/edit.js:294
+msgid "Remove image"
+msgstr ""
+
+#: src/step/edit.js:301
 msgid "Height"
 msgstr ""
 
-#: src/step/edit.js:191
+#: src/step/edit.js:306
 msgid "Use the step height of the story"
 msgstr ""
 
-#: src/step/edit.js:195
+#: src/step/edit.js:310
 msgid "Switch off to give this step a height of its own. Lower steps without a medium let several text boxes scroll across the same medium one after the other. Front end only; has no effect inside a row."
 msgstr ""
 
-#: src/step/edit.js:209
+#: src/step/edit.js:324
 #: src/story/edit.js:226
 msgid "Step height in percent of the screen height"
 msgstr ""
 
-#: src/step/edit.js:213
+#: src/step/edit.js:328
 msgid "A text box taller than this makes the step as tall as it needs."
 msgstr ""
 
-#: src/step/edit.js:230
+#: src/step/edit.js:345
 #: src/story/edit.js:244
 msgid "Motion"
 msgstr ""
 
-#: src/step/edit.js:235
+#: src/step/edit.js:350
 #: src/story/edit.js:271
 msgid "Text effect"
 msgstr ""
 
-#: src/step/edit.js:236
+#: src/step/edit.js:351
 msgid "How the text box of this step appears and disappears while scrolling. Front end only."
 msgstr ""
 
-#: src/step/edit.js:243
+#: src/step/edit.js:358
 msgid "Same as story"
 msgstr ""
 
-#: src/step/edit.js:247
+#: src/step/edit.js:362
 #: src/story/edit.js:261
 #: src/story/edit.js:279
 msgid "None"
 msgstr ""
 
-#: src/step/edit.js:251
+#: src/step/edit.js:366
 #: src/story/edit.js:283
 msgid "Fade in"
 msgstr ""
 
-#: src/step/edit.js:255
+#: src/step/edit.js:370
 #: src/story/edit.js:287
 msgid "Slide up"
 msgstr ""
 
-#: src/step/edit.js:259
+#: src/step/edit.js:374
 #: src/story/edit.js:291
 msgid "Zoom in"
 msgstr ""
 
-#: src/step/edit.js:263
+#: src/step/edit.js:378
 #: src/story/edit.js:295
 msgid "Rotate in"
 msgstr ""
 
-#: src/step/edit.js:267
+#: src/step/edit.js:382
 #: src/story/edit.js:299
 msgid "Dissolve"
 msgstr ""
 
-#: src/step/edit.js:293
+#: src/step/edit.js:408
 msgid "Medium of this step"
 msgstr ""
 
-#: src/step/edit.js:294
+#: src/step/edit.js:409
 msgid "Choose an image or video for this text to scroll across."
 msgstr ""
 

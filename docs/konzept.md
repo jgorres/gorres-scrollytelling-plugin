@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.26 · Stand: 01.10.2026 · Plugin-Version: 2.8.4
+Version: 1.27 · Stand: 01.10.2026 · Plugin-Version: 2.9.0
 
 ## 1. Zweck
 
@@ -135,8 +135,45 @@ zusätzlich die ungenutzte Klasse `no-fade`.
 | `mediaId`, `mediaUrl`, `mediaType` | gewähltes Medium aus der Mediathek |
 | `mediaAlt` | Alternativtext; leer übernimmt den Text der Mediathek |
 | `focalPoint` | Punkt, der beim Zuschneiden sichtbar bleibt |
+| `portraitId`, `portraitUrl` | zweites Bild für Bildschirme im Hochformat; nur zusammen mit einem Bild als Medium |
+| `portraitFocalPoint` | Fokuspunkt des Hochformat-Bilds |
 | `textEffect` | eigener Effekt des Textkastens; leer übernimmt den der Story, `none` schaltet ihn ab |
 | `minHeight` | eigene Höhe des Schritts in Prozent der Bildschirmhöhe (20 bis 200); 0 übernimmt `minStepHeight` der Story |
+
+#### Bild für Hochformat (`portraitId`, `portraitUrl`)
+
+Seit 2.9.0. Ein Querformat, das einen hochkant gehaltenen Bildschirm füllt,
+zeigt nur seinen mittleren Teil (bei 3:2 auf einem Handy etwa ein Drittel der
+Breite). Ein Schritt kann deshalb ein zweites Bild tragen.
+`jgor_st_render_stage_item()` gibt beide in einem `picture`-Element aus:
+
+```html
+<picture class="jgor-st-stage__picture">
+	<source media="(orientation: portrait)" srcset="…" sizes="…" />
+	<img class="jgor-st-stage__media" … />
+</picture>
+```
+
+Der Browser lädt nur das passende Bild und wechselt beim Drehen des Geräts
+von selbst; das Script ist nicht beteiligt. Kriterium ist die Ausrichtung des
+Fensters, nicht seine Breite: Ein Tablet im Hochformat bekommt das
+Hochformat-Bild, ein Handy im Querformat das Querformat.
+
+- `picture` hat `display: contents`, damit das Bild weiter die Bühne füllt.
+- Die Figur trägt `has-portrait`; der eigene Fokuspunkt kommt als
+  `--jgor-st-portrait-focal-x/-y` und gilt per Media Query nur im Hochformat.
+- `srcset` und `sizes` der Quelle stammen aus der Mediathek
+  (`jgor_st_portrait_source()`); fehlt der Anhang, wird `portraitUrl`
+  unverändert ausgegeben. Der Alternativtext ist der des Schritts.
+- Nur Bilder: Ein Video als Medium bekommt keine Quelle, der Editor bietet den
+  Bereich „Portrait screens" dann nicht an und leert die Attribute.
+- Begrenzte Bühne: `story/render.php` berechnet für das Hochformat ein eigenes
+  Verhältnis (je Schritt das Hochformat-Bild, sonst das Medium) und gibt es
+  als `--jgor-st-stage-ratio-portrait` mit der Klasse `has-portrait-ratio`
+  aus. Das Stylesheet ersetzt damit im Hochformat `--jgor-st-stage-ratio` an
+  Bühne und Schritten.
+- Der Editor zeigt im Schritt weiter das Medium; das Hochformat-Bild ist im
+  Fokuspunkt-Wähler des Bereichs zu sehen.
 
 #### Eigene Schritthöhe (`minHeight`)
 
@@ -471,6 +508,7 @@ weil sie nur ein Theme betraf und Plugin Check die Theme-Hooks bemängelte.
 | --- | --- | --- |
 | Ausschnitt füllen | beliebig, Fokuspunkt je Schritt setzen | Bildschirmhöhe × Seitenverhältnis, praktisch etwa 2560 px Breite |
 | Ganzes Medium zeigen | für alle Schritte gleich wählen | Breite der Bühne genügt |
+| Bild für Hochformat (je Schritt, optional) | hochkant, etwa 9:16 bis 9:20 | Bildschirmhöhe, praktisch etwa 1440 × 2560 px |
 
 Das `sizes`-Attribut wird aus dem Seitenverhältnis berechnet
 (`max(100vw, <ratio>vh)`), weil ein bildschirmhohes Querformat eine breitere
@@ -701,3 +739,4 @@ aber mit Node 20.
 | 1.24 | 01.10.2026 | Abschnitt 12: Onlinehilfe im WordPress Playground (Vorlagen-Site `scrollstage.local`, Bundle `playground/`); am Plugin selbst nichts geändert |
 | 1.25 | 01.10.2026 | Video startet erst, wenn die Bühne im Viewport ist, und hält an, sobald die Story den Bildschirm verlässt: zweiter IntersectionObserver auf der Bühne in `view/media.js`; vorher lief das Video des ersten Schritts ab dem Laden der Seite und das letzte aktive Video nach der Story weiter (Plugin 2.8.4) |
 | 1.26 | 01.10.2026 | Abschnitt 12, Startseiten der Onlinehilfe: animiertes Banner als erster Schritt, Vorlage `home-menu-below` ohne Kopf, Menü sticky unter der Story, Abdunklung aus; Bundle neu exportiert (Plugin 2.8.4); am Plugin selbst nichts geändert |
+| 1.27 | 01.10.2026 | Bild für Hochformat je Schritt (`portraitId`, `portraitUrl`, `portraitFocalPoint`): Ausgabe als `picture` mit `source media="(orientation: portrait)"`, eigener Fokuspunkt, eigenes Verhältnis der begrenzten Bühne (Plugin 2.9.0) |

@@ -194,6 +194,8 @@ add_filter( 'render_block_context', 'jgor_st_row_context', 10, 3 );
  *     @type string   $media_fit     How the medium fills the stage.
  *     @type string[] $effects       Names of the active effects.
  *     @type bool     $stage_limited Whether the stage is limited to the medium.
+ *     @type bool     $portrait_ratio Whether the limited stage has a shape of
+ *                                    its own on portrait screens.
  *     @type bool     $pull_content  Whether the following content is pulled up.
  *     @type bool     $has_after     Whether the story has an afterword.
  * }
@@ -231,6 +233,11 @@ function jgor_st_story_classes( $state ) {
 		// Pulling up only works below a limited stage.
 		if ( ! empty( $state['pull_content'] ) ) {
 			$classes[] = 'has-pull-content';
+		}
+
+		// Media for portrait screens can give the stage another shape there.
+		if ( ! empty( $state['portrait_ratio'] ) ) {
+			$classes[] = 'has-portrait-ratio';
 		}
 	}
 
@@ -402,6 +409,9 @@ function jgor_st_step_box_attributes( $attributes ) {
  * would read every alternative text in a row before reaching the first text.
  * The script moves the marker along with the visible medium.
  *
+ * An image can come with a second one for portrait screens. Both share one
+ * picture element, so the browser only loads the one that fits the screen.
+ *
  * @param array<string, mixed> $attributes Attributes of the step block.
  * @param int                  $index      Zero based position of the step.
  * @param string               $fit        How the medium fills the stage:
@@ -430,7 +440,21 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 		$classes .= ' is-empty';
 	}
 
-	$inner = '';
+	$inner  = '';
+	$source = jgor_st_portrait_source( $attributes, $fit );
+
+	if ( '' !== $source ) {
+		$classes .= ' has-portrait';
+
+		// The image for portrait screens has a focal point of its own.
+		if ( isset( $attributes['portraitFocalPoint']['x'], $attributes['portraitFocalPoint']['y'] ) ) {
+			$styles .= sprintf(
+				'--jgor-st-portrait-focal-x:%1$s%%;--jgor-st-portrait-focal-y:%2$s%%;',
+				round( (float) $attributes['portraitFocalPoint']['x'] * 100, 2 ),
+				round( (float) $attributes['portraitFocalPoint']['y'] * 100, 2 )
+			);
+		}
+	}
 
 	if ( 'video' === $media_type && '' !== $media_url ) {
 		$inner = sprintf(
@@ -459,6 +483,10 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 		);
 	}
 
+	if ( '' !== $source && '' !== $inner ) {
+		$inner = '<picture class="jgor-st-stage__picture">' . $source . $inner . '</picture>';
+	}
+
 	return sprintf(
 		'<figure class="%1$s" style="%2$s" data-jgor-st-step="%3$d"%4$s>%5$s</figure>',
 		esc_attr( $classes ),
@@ -466,6 +494,87 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 		$index,
 		0 === $index ? '' : ' aria-hidden="true"',
 		$inner
+	);
+}
+
+/**
+ * Tells whether a step carries an image for portrait screens.
+ *
+ * Only an image can have one: the browser picks between the two through a
+ * picture element, which a video cannot be part of.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @return bool True when the step has an image and a second one for portrait
+ *              screens.
+ */
+function jgor_st_has_portrait_medium( $attributes ) {
+	$media_id     = isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0;
+	$media_url    = isset( $attributes['mediaUrl'] ) ? (string) $attributes['mediaUrl'] : '';
+	$portrait_id  = isset( $attributes['portraitId'] ) ? absint( $attributes['portraitId'] ) : 0;
+	$portrait_url = isset( $attributes['portraitUrl'] ) ? (string) $attributes['portraitUrl'] : '';
+
+	if ( isset( $attributes['mediaType'] ) && 'video' === $attributes['mediaType'] ) {
+		return false;
+	}
+
+	if ( '' === $media_url && 0 === $media_id ) {
+		return false;
+	}
+
+	return $portrait_id > 0 || '' !== $portrait_url;
+}
+
+/**
+ * Builds the source element for the image of a step on portrait screens.
+ *
+ * A landscape image that fills a phone held upright loses most of its width.
+ * A step can therefore name a second image, which replaces the first one as
+ * long as the screen is taller than wide.
+ *
+ * An image from the media library comes with all its sizes; without the
+ * attachment, the stored address is used as it is.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @param string               $fit        How the medium fills the stage:
+ *                                         "cover" or "contain".
+ * @return string Markup of the source element, or an empty string when the
+ *                step has no image for portrait screens.
+ */
+function jgor_st_portrait_source( $attributes, $fit = 'cover' ) {
+	if ( ! jgor_st_has_portrait_medium( $attributes ) ) {
+		return '';
+	}
+
+	$portrait_id  = isset( $attributes['portraitId'] ) ? absint( $attributes['portraitId'] ) : 0;
+	$portrait_url = isset( $attributes['portraitUrl'] ) ? (string) $attributes['portraitUrl'] : '';
+	$srcset       = '';
+	$sizes        = '';
+
+	if ( $portrait_id > 0 && wp_attachment_is_image( $portrait_id ) ) {
+		$candidates = wp_get_attachment_image_srcset( $portrait_id, 'full' );
+
+		if ( is_string( $candidates ) && '' !== $candidates ) {
+			$srcset = $candidates;
+			$sizes  = jgor_st_stage_sizes( $portrait_id, $fit );
+		} else {
+			// Small images have no further sizes and therefore no candidates.
+			$full   = wp_get_attachment_image_url( $portrait_id, 'full' );
+			$srcset = is_string( $full ) ? esc_url( $full ) : '';
+		}
+	}
+
+	if ( '' === $srcset && '' !== $portrait_url ) {
+		$srcset = esc_url( $portrait_url );
+	}
+
+	if ( '' === $srcset ) {
+		return '';
+	}
+
+	return sprintf(
+		'<source media="(orientation: portrait)" srcset="%1$s"%2$s />',
+		esc_attr( $srcset ),
+		'' !== $sizes ? sprintf( ' sizes="%s"', esc_attr( $sizes ) ) : ''
 	);
 }
 
@@ -498,6 +607,28 @@ function jgor_st_stage_sizes( $media_id, $fit ) {
 }
 
 /**
+ * Returns the aspect ratio of an attachment.
+ *
+ * @param int $attachment_id Attachment ID.
+ * @return float Width divided by height, or 0 when unknown.
+ */
+function jgor_st_attachment_ratio( $attachment_id ) {
+	$attachment_id = absint( $attachment_id );
+
+	if ( $attachment_id < 1 ) {
+		return 0.0;
+	}
+
+	$meta = wp_get_attachment_metadata( $attachment_id );
+
+	if ( ! isset( $meta['width'], $meta['height'] ) || $meta['height'] < 1 ) {
+		return 0.0;
+	}
+
+	return round( $meta['width'] / $meta['height'], 4 );
+}
+
+/**
  * Returns the aspect ratio of the medium of a step.
  *
  * Only images from the media library carry the necessary metadata. Everything
@@ -507,17 +638,20 @@ function jgor_st_stage_sizes( $media_id, $fit ) {
  * @return float Width divided by height, or 0 when unknown.
  */
 function jgor_st_media_ratio( $attributes ) {
-	$media_id = isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0;
+	return jgor_st_attachment_ratio( isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0 );
+}
 
-	if ( $media_id < 1 ) {
+/**
+ * Returns the aspect ratio of the image of a step for portrait screens.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @return float Width divided by height, or 0 when the step has no such image
+ *               or its ratio is unknown.
+ */
+function jgor_st_portrait_ratio( $attributes ) {
+	if ( ! jgor_st_has_portrait_medium( $attributes ) ) {
 		return 0.0;
 	}
 
-	$meta = wp_get_attachment_metadata( $media_id );
-
-	if ( ! isset( $meta['width'], $meta['height'] ) || $meta['height'] < 1 ) {
-		return 0.0;
-	}
-
-	return round( $meta['width'] / $meta['height'], 4 );
+	return jgor_st_attachment_ratio( isset( $attributes['portraitId'] ) ? absint( $attributes['portraitId'] ) : 0 );
 }

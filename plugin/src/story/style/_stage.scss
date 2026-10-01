@@ -55,3 +55,17 @@
 .jgor-st-story.is-fit-contain .jgor-st-stage__media {
 	object-fit: contain;
 }
+
+/* An image with a second one for portrait screens sits in a picture element,
+   which must not become a box of its own between item and medium. */
+.jgor-st-stage__picture {
+	display: contents;
+}
+
+/* The image for portrait screens brings its own focal point. */
+@media (orientation: portrait) {
+
+	.jgor-st-stage__item.has-portrait .jgor-st-stage__media {
+		object-position: var(--jgor-st-portrait-focal-x, 50%) var(--jgor-st-portrait-focal-y, 50%);
+	}
+}

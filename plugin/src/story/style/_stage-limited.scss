@@ -23,3 +23,14 @@
 	height: auto;
 	max-height: calc(100svh - var(--jgor-st-offset));
 }
+
+/* Images for portrait screens can be narrower than the usual media. The ratio
+   is replaced on stage and steps, below the wrapper that carries the usual
+   one, so everything inside them, rows included, follows. */
+@media (orientation: portrait) {
+
+	.jgor-st-story.is-stage-limited.has-portrait-ratio > .jgor-st-story__stage,
+	.jgor-st-story.is-stage-limited.has-portrait-ratio > .jgor-st-story__steps {
+		--jgor-st-stage-ratio: var(--jgor-st-stage-ratio-portrait);
+	}
+}
