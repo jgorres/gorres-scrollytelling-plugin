@@ -133,20 +133,31 @@ add_filter( 'enqueue_empty_block_content_assets', 'jgor_st_keep_after_assets', 1
  * story needs one item per step, whatever its parent, and in the order in
  * which the visitor meets the steps.
  *
+ * A medium only scrolls along with a step of the story itself. For the steps
+ * of a row the attribute is dropped here, so the stage keeps their media.
+ *
  * @param array<int, array<string, mixed>> $inner_blocks Parsed inner blocks of
  *                                                       a story or a row.
+ * @param bool                             $in_row       Whether the blocks are
+ *                                                       the children of a row.
  * @return array<int, array<string, mixed>> Attributes of every step.
  */
-function jgor_st_collect_steps( $inner_blocks ) {
+function jgor_st_collect_steps( $inner_blocks, $in_row = false ) {
 	$steps = array();
 
 	foreach ( $inner_blocks as $child ) {
 		$name = isset( $child['blockName'] ) ? $child['blockName'] : '';
 
 		if ( 'scrollstage/step' === $name ) {
-			$steps[] = isset( $child['attrs'] ) && is_array( $child['attrs'] ) ? $child['attrs'] : array();
+			$attrs = isset( $child['attrs'] ) && is_array( $child['attrs'] ) ? $child['attrs'] : array();
+
+			if ( $in_row ) {
+				unset( $attrs['mediaScroll'] );
+			}
+
+			$steps[] = $attrs;
 		} elseif ( 'scrollstage/row' === $name && isset( $child['innerBlocks'] ) && is_array( $child['innerBlocks'] ) ) {
-			$steps = array_merge( $steps, jgor_st_collect_steps( $child['innerBlocks'] ) );
+			$steps = array_merge( $steps, jgor_st_collect_steps( $child['innerBlocks'], true ) );
 		}
 	}
 
@@ -175,6 +186,41 @@ function jgor_st_row_context( $context, $parsed_block = array(), $parent_block =
 	return $context;
 }
 add_filter( 'render_block_context', 'jgor_st_row_context', 10, 3 );
+
+/**
+ * Tells the first step of a story that it opens the story.
+ *
+ * A medium that scrolls along with its step is rendered by the step, which
+ * does not know its place. The one that opens a story is most likely on
+ * screen when the page loads and must not be loaded lazily.
+ *
+ * Blocks are compared by value: a later step with exactly the same content as
+ * the first one is marked as well, which only costs its lazy loading.
+ *
+ * @param array<string, mixed> $context      Context of the block to render.
+ * @param array<string, mixed> $parsed_block Parsed block.
+ * @param WP_Block|null        $parent_block Parent of the block, if any.
+ * @return array<string, mixed> Context, marked for the first step of a story.
+ */
+function jgor_st_first_step_context( $context, $parsed_block = array(), $parent_block = null ) {
+	if ( ! $parent_block instanceof WP_Block || 'scrollstage/story' !== $parent_block->name ) {
+		return $context;
+	}
+
+	if ( ! isset( $parsed_block['blockName'] ) || 'scrollstage/step' !== $parsed_block['blockName'] ) {
+		return $context;
+	}
+
+	$siblings = isset( $parent_block->parsed_block['innerBlocks'] ) && is_array( $parent_block->parsed_block['innerBlocks'] ) ? $parent_block->parsed_block['innerBlocks'] : array();
+	$first    = reset( $siblings );
+
+	if ( is_array( $first ) && $first === $parsed_block ) {
+		$context['scrollstage/firstStep'] = true;
+	}
+
+	return $context;
+}
+add_filter( 'render_block_context', 'jgor_st_first_step_context', 10, 3 );
 
 /**
  * Builds the class names of the story wrapper.
@@ -422,34 +468,77 @@ function jgor_st_step_box_attributes( $attributes ) {
 }
 
 /**
- * Builds one item of the sticky media stage.
+ * Tells whether the medium of a step scrolls along with the step.
  *
- * Reads the media attributes of a single step block and returns the markup for
- * the stage. Steps without media produce an empty item on purpose: the script
- * keeps the previous image visible for them.
+ * Such a medium is not part of the stage. It lies in the step itself, as tall
+ * as the screen, and leaves at the top like the text does, while the stage
+ * behind it already shows what comes next. Only an image can do that: the
+ * script that starts and stops videos only looks at the stage.
  *
- * Every item except the first is hidden from assistive technology: all media
- * of the story live in the document at once, and without that a screen reader
- * would read every alternative text in a row before reaching the first text.
- * The script moves the marker along with the visible medium.
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @return bool True when the step has an image that scrolls along.
+ */
+function jgor_st_has_scrolling_medium( $attributes ) {
+	if ( empty( $attributes['mediaScroll'] ) ) {
+		return false;
+	}
+
+	if ( isset( $attributes['mediaType'] ) && 'video' === $attributes['mediaType'] ) {
+		return false;
+	}
+
+	$media_id  = isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0;
+	$media_url = isset( $attributes['mediaUrl'] ) ? (string) $attributes['mediaUrl'] : '';
+
+	return $media_id > 0 || '' !== $media_url;
+}
+
+/**
+ * Tells whether a step puts a medium on the stage.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @return bool False for a step without a medium and for one whose medium
+ *              scrolls along with it.
+ */
+function jgor_st_has_stage_medium( $attributes ) {
+	$media_id  = isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0;
+	$media_url = isset( $attributes['mediaUrl'] ) ? (string) $attributes['mediaUrl'] : '';
+
+	if ( '' === $media_url && 0 === $media_id ) {
+		return false;
+	}
+
+	return ! jgor_st_has_scrolling_medium( $attributes );
+}
+
+/**
+ * Builds the markup of the medium of a step.
+ *
+ * The same medium can end up in two places: on the stage of the story or, when
+ * it scrolls along, in the step. Both need the element itself, a marker for an
+ * image that has a second one for portrait screens, and the focal points as
+ * custom properties for the element around it.
  *
  * An image can come with a second one for portrait screens. Both share one
  * picture element, so the browser only loads the one that fits the screen.
  *
  * @param array<string, mixed> $attributes Attributes of the step block.
- * @param int                  $index      Zero based position of the step.
- * @param string               $fit        How the medium fills the stage:
+ * @param string               $fit        How the medium fills its frame:
  *                                         "cover" or "contain".
- * @return string Markup of one stage item.
+ * @param bool                 $eager      Whether the medium is on screen when
+ *                                         the page loads.
+ * @return array{markup: string, class: string, style: string} Markup of the
+ *         medium, class for the element around it and its inline style; all
+ *         of them empty for a step without a medium.
  */
-function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
+function jgor_st_medium_parts( $attributes, $fit = 'cover', $eager = false ) {
 	$media_id   = isset( $attributes['mediaId'] ) ? absint( $attributes['mediaId'] ) : 0;
 	$media_url  = isset( $attributes['mediaUrl'] ) ? (string) $attributes['mediaUrl'] : '';
 	$media_alt  = isset( $attributes['mediaAlt'] ) ? (string) $attributes['mediaAlt'] : '';
 	$media_type = isset( $attributes['mediaType'] ) && 'video' === $attributes['mediaType'] ? 'video' : 'image';
 
-	$classes = 'jgor-st-stage__item';
-	$styles  = '';
+	$class  = '';
+	$styles = '';
 
 	// Focal point is stored as floats between 0 and 1 and becomes object-position.
 	if ( isset( $attributes['focalPoint']['x'], $attributes['focalPoint']['y'] ) ) {
@@ -460,15 +549,11 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 		);
 	}
 
-	if ( '' === $media_url && 0 === $media_id ) {
-		$classes .= ' is-empty';
-	}
-
 	$inner  = '';
 	$source = jgor_st_portrait_source( $attributes, $fit );
 
 	if ( '' !== $source ) {
-		$classes .= ' has-portrait';
+		$class = 'has-portrait';
 
 		// The image for portrait screens has a focal point of its own.
 		if ( isset( $attributes['portraitFocalPoint']['x'], $attributes['portraitFocalPoint']['y'] ) ) {
@@ -488,7 +573,7 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 	} elseif ( $media_id > 0 ) {
 		$image_attr = array(
 			'class'   => 'jgor-st-stage__media',
-			'loading' => 0 === $index ? 'eager' : 'lazy',
+			'loading' => $eager ? 'eager' : 'lazy',
 			'sizes'   => jgor_st_stage_sizes( $media_id, $fit ),
 		);
 
@@ -503,7 +588,7 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 			'<img class="jgor-st-stage__media" src="%1$s" alt="%2$s" loading="%3$s" decoding="async" />',
 			esc_url( $media_url ),
 			esc_attr( $media_alt ),
-			0 === $index ? 'eager' : 'lazy'
+			$eager ? 'eager' : 'lazy'
 		);
 	}
 
@@ -511,13 +596,72 @@ function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover' ) {
 		$inner = '<picture class="jgor-st-stage__picture">' . $source . $inner . '</picture>';
 	}
 
+	if ( '' === $inner ) {
+		return array(
+			'markup' => '',
+			'class'  => '',
+			'style'  => '',
+		);
+	}
+
+	return array(
+		'markup' => $inner,
+		'class'  => $class,
+		'style'  => $styles,
+	);
+}
+
+/**
+ * Builds one item of the sticky media stage.
+ *
+ * Reads the media attributes of a single step block and returns the markup for
+ * the stage. Steps without a medium on the stage produce an empty item on
+ * purpose: the script keeps the previous image visible for them, and at the
+ * start of a story the one that follows.
+ *
+ * Every item except the visible one is hidden from assistive technology: all
+ * media of the story live in the document at once, and without that a screen
+ * reader would read every alternative text in a row before reaching the first
+ * text. The script moves the marker along with the visible medium.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @param int                  $index      Zero based position of the step.
+ * @param string               $fit        How the medium fills the stage:
+ *                                         "cover" or "contain".
+ * @param bool|null            $visible    Whether this item shows before the
+ *                                         script runs; null means the first.
+ * @return string Markup of one stage item.
+ */
+function jgor_st_render_stage_item( $attributes, $index, $fit = 'cover', $visible = null ) {
+	$visible = null === $visible ? 0 === $index : (bool) $visible;
+	$classes = 'jgor-st-stage__item';
+	$parts   = array(
+		'markup' => '',
+		'class'  => '',
+		'style'  => '',
+	);
+
+	if ( jgor_st_has_stage_medium( $attributes ) ) {
+		$parts = jgor_st_medium_parts( $attributes, $fit, $visible );
+	}
+
+	if ( '' === $parts['markup'] ) {
+		$classes .= ' is-empty';
+	} elseif ( '' !== $parts['class'] ) {
+		$classes .= ' ' . $parts['class'];
+	}
+
+	if ( $visible ) {
+		$classes .= ' is-initial';
+	}
+
 	return sprintf(
 		'<figure class="%1$s" style="%2$s" data-jgor-st-step="%3$d"%4$s>%5$s</figure>',
 		esc_attr( $classes ),
-		esc_attr( $styles ),
+		esc_attr( $parts['style'] ),
 		$index,
-		0 === $index ? '' : ' aria-hidden="true"',
-		$inner
+		$visible ? '' : ' aria-hidden="true"',
+		$parts['markup']
 	);
 }
 

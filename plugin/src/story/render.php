@@ -46,8 +46,23 @@ $jgor_st_has_portrait   = false;
 
 if ( isset( $block->parsed_block['innerBlocks'] ) && is_array( $block->parsed_block['innerBlocks'] ) ) {
 	// Steps of the story itself and steps inside its rows, as one flat list.
-	foreach ( jgor_st_collect_steps( $block->parsed_block['innerBlocks'] ) as $jgor_st_attrs ) {
-		$jgor_st_stage .= jgor_st_render_stage_item( $jgor_st_attrs, $jgor_st_index, $jgor_st_media_fit );
+	$jgor_st_steps = jgor_st_collect_steps( $block->parsed_block['innerBlocks'] );
+
+	/*
+	 * The medium that shows before the script runs: the first one on the
+	 * stage. Steps before it have none or let theirs scroll along.
+	 */
+	$jgor_st_initial = 0;
+
+	foreach ( $jgor_st_steps as $jgor_st_position => $jgor_st_attrs ) {
+		if ( jgor_st_has_stage_medium( $jgor_st_attrs ) ) {
+			$jgor_st_initial = $jgor_st_position;
+			break;
+		}
+	}
+
+	foreach ( $jgor_st_steps as $jgor_st_attrs ) {
+		$jgor_st_stage .= jgor_st_render_stage_item( $jgor_st_attrs, $jgor_st_index, $jgor_st_media_fit, $jgor_st_index === $jgor_st_initial );
 		++$jgor_st_index;
 
 		/*

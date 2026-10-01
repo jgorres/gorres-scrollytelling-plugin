@@ -3,7 +3,8 @@
  *
  * Watches the text steps with an IntersectionObserver and shows the medium
  * that belongs to the step currently crossing the middle of the viewport.
- * Steps without a medium keep the previous one visible.
+ * Steps without a medium on the stage keep the previous one visible; at the
+ * start of a story, where there is none, they show the one that follows.
  *
  * The steps of a row pass sideways, two of them share the screen while one
  * replaces the other. For them the observer watches a marker, a line down
@@ -47,6 +48,22 @@ function activateItem( items, index, activeIndex ) {
 
 	while ( target >= 0 && items[ target ].classList.contains( 'is-empty' ) ) {
 		target -= 1;
+	}
+
+	// Nothing before it: the stage shows what comes next instead of nothing.
+	if ( target < 0 ) {
+		target = Math.min( index, items.length - 1 ) + 1;
+
+		while (
+			target < items.length &&
+			items[ target ].classList.contains( 'is-empty' )
+		) {
+			target += 1;
+		}
+
+		if ( target >= items.length ) {
+			target = -1;
+		}
 	}
 
 	if ( target === activeIndex ) {

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Scrollstage 2.10.0\n"
+"Project-Id-Version: Scrollstage 2.11.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-01T18:22:36+00:00\n"
+"POT-Creation-Date: 2026-10-01T20:24:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: scrollstage\n"
@@ -18,11 +18,6 @@ msgstr ""
 #: scrollstage.php
 #: includes/blocks.php:24
 msgid "Scrollstage"
-msgstr ""
-
-#. Plugin URI of the plugin
-#: scrollstage.php
-msgid "https://joern.gorres.com/scrollstage"
 msgstr ""
 
 #. Description of the plugin
@@ -45,12 +40,12 @@ msgid "Buy the plugin author a Mercedes-Benz 😉"
 msgstr ""
 
 #. translators: %s: required PHP version
-#: scrollstage.php:72
+#: scrollstage.php:71
 #, php-format
 msgid "This plugin requires PHP %s or newer."
 msgstr ""
 
-#: scrollstage.php:76
+#: scrollstage.php:75
 msgid "Plugin activation stopped"
 msgstr ""
 
@@ -66,188 +61,198 @@ msgstr ""
 msgid "Row: these steps pass sideways on the front end."
 msgstr ""
 
-#: src/step/edit.js:173
+#: src/step/edit.js:183
 msgid "Replace medium"
 msgstr ""
 
-#: src/step/edit.js:179
+#: src/step/edit.js:189
 msgid "Medium"
 msgstr ""
 
-#: src/step/edit.js:182
+#: src/step/edit.js:192
 msgid "No medium is set for this step. While scrolling, the medium of the previous step stays in place."
 msgstr ""
 
-#: src/step/edit.js:191
+#: src/step/edit.js:201
 msgid "This image has no alternative text. People using a screen reader will not learn what it shows."
 msgstr ""
 
-#: src/step/edit.js:201
+#: src/step/edit.js:211
 msgid "Alternative text"
 msgstr ""
 
-#: src/step/edit.js:202
+#: src/step/edit.js:212
 msgid "Leave empty to use the alternative text from the media library."
 msgstr ""
 
-#: src/step/edit.js:216
+#: src/step/edit.js:226
 msgid "Focal point"
 msgstr ""
 
-#: src/step/edit.js:217
+#: src/step/edit.js:227
 msgid "Sets which point stays visible when the medium is cropped."
 msgstr ""
 
-#: src/step/edit.js:236
-msgid "Remove medium"
-msgstr ""
-
 #: src/step/edit.js:242
-msgid "Portrait screens"
+msgid "Let the image scroll along"
 msgstr ""
 
 #: src/step/edit.js:246
+msgid "The image does not stay in place. It fills the screen at the start of this step and scrolls away with it, while the medium of the next step already shows behind it. An image taller than the screen keeps its height and makes the step as tall as itself, unless the step has a height of its own, which the image then fills. Front end only; has no effect inside a row."
+msgstr ""
+
+#: src/step/edit.js:264
+msgid "Remove medium"
+msgstr ""
+
+#: src/step/edit.js:270
+msgid "Portrait screens"
+msgstr ""
+
+#: src/step/edit.js:274
 msgid "Optional second image for screens that are taller than wide, such as a phone held upright. It replaces the image of this step there and shares its alternative text. Front end only."
 msgstr ""
 
-#: src/step/edit.js:255
+#: src/step/edit.js:283
 msgid "Focal point on portrait screens"
 msgstr ""
 
-#: src/step/edit.js:284
+#: src/step/edit.js:312
 msgid "Replace image"
 msgstr ""
 
-#: src/step/edit.js:288
+#: src/step/edit.js:316
 msgid "Choose image"
 msgstr ""
 
-#: src/step/edit.js:306
+#: src/step/edit.js:334
 msgid "Remove image"
 msgstr ""
 
-#: src/step/edit.js:313
+#: src/step/edit.js:341
 msgid "Position"
 msgstr ""
 
-#: src/step/edit.js:318
+#: src/step/edit.js:346
 msgid "Horizontal position of the text box"
 msgstr ""
 
-#: src/step/edit.js:325
-#: src/step/edit.js:354
-#: src/step/edit.js:448
+#: src/step/edit.js:353
+#: src/step/edit.js:382
+#: src/step/edit.js:476
 msgid "Same as story"
 msgstr ""
 
-#: src/step/edit.js:329
+#: src/step/edit.js:357
 #: src/story/edit.js:74
 msgid "Left"
 msgstr ""
 
-#: src/step/edit.js:333
-#: src/step/edit.js:362
-msgid "Center"
+#: src/step/edit.js:361
+#: src/step/edit.js:390
+#: src/story/edit.js:78
+#: src/story/edit.js:118
+msgid "Middle"
 msgstr ""
 
-#: src/step/edit.js:337
+#: src/step/edit.js:365
 #: src/story/edit.js:82
 msgid "Right"
 msgstr ""
 
-#: src/step/edit.js:347
+#: src/step/edit.js:375
 msgid "Vertical position of the text box"
 msgstr ""
 
-#: src/step/edit.js:358
+#: src/step/edit.js:386
 #: src/story/edit.js:114
 msgid "Top"
 msgstr ""
 
-#: src/step/edit.js:366
+#: src/step/edit.js:394
 #: src/story/edit.js:122
 msgid "Bottom"
 msgstr ""
 
-#: src/step/edit.js:376
+#: src/step/edit.js:404
 msgid "Keep the text box in place"
 msgstr ""
 
-#: src/step/edit.js:380
+#: src/step/edit.js:408
 msgid "The text box stays where it is on the screen while the visitor scrolls through this step, and leaves at the top when the step ends. It needs a step taller than the screen: set a height above 100 percent under \"Height\". The text box then goes without a text effect. Front end only; has no effect inside a row."
 msgstr ""
 
-#: src/step/edit.js:391
+#: src/step/edit.js:419
 msgid "Height"
 msgstr ""
 
-#: src/step/edit.js:396
+#: src/step/edit.js:424
 msgid "Use the step height of the story"
 msgstr ""
 
-#: src/step/edit.js:400
+#: src/step/edit.js:428
 msgid "Switch off to give this step a height of its own. Lower steps without a medium let several text boxes scroll across the same medium one after the other. Front end only; has no effect inside a row."
 msgstr ""
 
-#: src/step/edit.js:414
+#: src/step/edit.js:442
 #: src/story/edit.js:226
 msgid "Step height in percent of the screen height"
 msgstr ""
 
-#: src/step/edit.js:418
+#: src/step/edit.js:446
 msgid "A text box taller than this makes the step as tall as it needs."
 msgstr ""
 
-#: src/step/edit.js:435
+#: src/step/edit.js:463
 #: src/story/edit.js:244
 msgid "Motion"
 msgstr ""
 
-#: src/step/edit.js:440
+#: src/step/edit.js:468
 #: src/story/edit.js:271
 msgid "Text effect"
 msgstr ""
 
-#: src/step/edit.js:441
+#: src/step/edit.js:469
 msgid "How the text box of this step appears and disappears while scrolling. Front end only."
 msgstr ""
 
-#: src/step/edit.js:452
+#: src/step/edit.js:480
 #: src/story/edit.js:261
 #: src/story/edit.js:279
 msgid "None"
 msgstr ""
 
-#: src/step/edit.js:456
+#: src/step/edit.js:484
 #: src/story/edit.js:283
 msgid "Fade in"
 msgstr ""
 
-#: src/step/edit.js:460
+#: src/step/edit.js:488
 #: src/story/edit.js:287
 msgid "Slide up"
 msgstr ""
 
-#: src/step/edit.js:464
+#: src/step/edit.js:492
 #: src/story/edit.js:291
 msgid "Zoom in"
 msgstr ""
 
-#: src/step/edit.js:468
+#: src/step/edit.js:496
 #: src/story/edit.js:295
 msgid "Rotate in"
 msgstr ""
 
-#: src/step/edit.js:472
+#: src/step/edit.js:500
 #: src/story/edit.js:299
 msgid "Dissolve"
 msgstr ""
 
-#: src/step/edit.js:498
+#: src/step/edit.js:526
 msgid "Medium of this step"
 msgstr ""
 
-#: src/step/edit.js:499
+#: src/step/edit.js:527
 msgid "Choose an image or video for this text to scroll across."
 msgstr ""
 
@@ -257,11 +262,6 @@ msgstr ""
 
 #: src/story/edit.js:70
 msgid "Horizontal position"
-msgstr ""
-
-#: src/story/edit.js:78
-#: src/story/edit.js:118
-msgid "Middle"
 msgstr ""
 
 #: src/story/edit.js:92

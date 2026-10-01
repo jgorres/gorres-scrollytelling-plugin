@@ -29,17 +29,21 @@
 	color: #fff;
 }
 
-/* Horizontal position of the text box. */
+/* Horizontal position of the text box. A step is a flex container; one whose
+   medium scrolls along is a grid, which reads justify-items instead. */
 .jgor-st-story.is-text-left .jgor-st-step {
 	justify-content: flex-start;
+	justify-items: flex-start;
 }
 
 .jgor-st-story.is-text-center .jgor-st-step {
 	justify-content: center;
+	justify-items: center;
 }
 
 .jgor-st-story.is-text-right .jgor-st-step {
 	justify-content: flex-end;
+	justify-items: flex-end;
 }
 
 /* Vertical position of the text box. */
@@ -59,14 +63,17 @@
    the story above, so these win by coming later. */
 .jgor-st-story .jgor-st-step.is-text-left {
 	justify-content: flex-start;
+	justify-items: flex-start;
 }
 
 .jgor-st-story .jgor-st-step.is-text-center {
 	justify-content: center;
+	justify-items: center;
 }
 
 .jgor-st-story .jgor-st-step.is-text-right {
 	justify-content: flex-end;
+	justify-items: flex-end;
 }
 
 .jgor-st-story .jgor-st-step.is-align-start {
@@ -96,6 +103,8 @@
 	top: var(--jgor-st-offset, 0px);
 	box-sizing: border-box;
 	display: flex;
+	align-self: start;
+	justify-self: stretch;
 	justify-content: inherit;
 	align-items: inherit;
 	min-height: calc(100svh - var(--jgor-st-offset, 0px));
@@ -128,5 +137,82 @@
 
 	.jgor-st-step__content {
 		width: min(100%, var(--jgor-st-text-width, 45%));
+	}
+}
+
+/* Medium that scrolls along: it lies in the flow of its step, as wide as the
+   step and as tall as its own shape asks for, but never lower than the screen.
+   A taller image makes the step as tall as itself and leaves at the top with
+   it. Text box and medium share one grid cell, so the box lies on top. */
+.jgor-st-step.has-cover {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	padding: 0;
+}
+
+.jgor-st-step.has-cover > .jgor-st-step__cover,
+.jgor-st-step.has-cover > .jgor-st-step__content,
+.jgor-st-step.has-cover > .jgor-st-step__pin {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.jgor-st-step__cover {
+	position: relative;
+	align-self: start;
+	justify-self: stretch;
+	overflow: hidden;
+}
+
+/* The image on the stage is positioned to fill it. Here it has to give its
+   element a height, so it goes back into the flow; cropping only happens when
+   the screen is taller than the image. */
+.jgor-st-step__cover .jgor-st-stage__media {
+	position: static;
+	width: 100%;
+	height: auto;
+	min-height: calc(100svh - var(--jgor-st-offset, 0px));
+}
+
+/* A stage limited to the medium is not as tall as the screen. */
+.jgor-st-story.is-stage-limited .jgor-st-step__cover .jgor-st-stage__media {
+	min-height: 0;
+}
+
+/* A step with a height of its own decides how tall the medium is: the image
+   fills the step, cropped around its focal point, like on the stage. */
+.jgor-st-step.has-cover.has-own-height > .jgor-st-step__cover {
+	align-self: stretch;
+}
+
+.jgor-st-step.has-cover.has-own-height > .jgor-st-step__cover .jgor-st-stage__media {
+	position: absolute;
+	height: 100%;
+	min-height: 0;
+}
+
+/* Same darkening as on the stage. */
+.jgor-st-step__cover::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: #000;
+	opacity: var(--jgor-st-overlay);
+	pointer-events: none;
+}
+
+/* The text box lies on top of the medium of its own step and keeps the room
+   to the edges that the padding of a step gives it otherwise. A pinned one
+   brings both along. */
+.jgor-st-step.has-cover > .jgor-st-step__content {
+	position: relative;
+	margin: clamp(1.5rem, 6vh, 4rem) clamp(1rem, 4vw, 3rem);
+}
+
+/* The image for portrait screens brings its own focal point. */
+@media (orientation: portrait) {
+
+	.jgor-st-step__cover.has-portrait .jgor-st-stage__media {
+		object-position: var(--jgor-st-portrait-focal-x, 50%) var(--jgor-st-portrait-focal-y, 50%);
 	}
 }

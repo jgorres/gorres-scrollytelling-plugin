@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.30 · Stand: 01.10.2026 · Plugin-Version: 2.10.0
+Version: 1.32 · Stand: 01.10.2026 · Plugin-Version: 2.11.0
 
 ## 1. Zweck
 
@@ -137,6 +137,7 @@ zusätzlich die ungenutzte Klasse `no-fade`.
 | `focalPoint` | Punkt, der beim Zuschneiden sichtbar bleibt |
 | `portraitId`, `portraitUrl` | zweites Bild für Bildschirme im Hochformat; nur zusammen mit einem Bild als Medium |
 | `portraitFocalPoint` | Fokuspunkt des Hochformat-Bilds |
+| `mediaScroll` | Bild liegt nicht auf der Bühne, sondern scrollt mit dem Schritt weg |
 | `textEffect` | eigener Effekt des Textkastens; leer übernimmt den der Story, `none` schaltet ihn ab |
 | `minHeight` | eigene Höhe des Schritts in Prozent der Bildschirmhöhe (20 bis 200); 0 übernimmt `minStepHeight` der Story |
 | `textPosition`, `stepAlign` | eigene Position des Textkastens, waagerecht und senkrecht; leer übernimmt die der Story |
@@ -176,6 +177,58 @@ Hochformat-Bild, ein Handy im Querformat das Querformat.
   Bühne und Schritten.
 - Der Editor zeigt im Schritt weiter das Medium; das Hochformat-Bild ist im
   Fokuspunkt-Wähler des Bereichs zu sehen.
+
+#### Medium scrollt mit (`mediaScroll`)
+
+Seit 2.11.0. Das Bild eines Schritts liegt dann nicht auf der Bühne, sondern
+im Schritt selbst:
+
+```html
+<div class="jgor-st-step has-cover">
+	<div class="jgor-st-step__cover"><img class="jgor-st-stage__media" … /></div>
+	<div class="jgor-st-step__content">…</div>
+</div>
+```
+
+`.jgor-st-step__cover` liegt im Fluss des Schritts und scrollt mit ihm nach
+oben hinaus. Das Bild darin ist so breit wie der Schritt und so hoch, wie sein
+Seitenverhältnis verlangt, mindestens aber so hoch wie der Bildschirm
+(`min-height`, dann beschneidet `object-fit`). Ein Bild, das bei voller Breite
+höher ist als der Bildschirm, macht den Schritt so hoch wie sich selbst. Hat
+der Schritt eine eigene Höhe (`minHeight`, Klasse `has-own-height`), füllt das
+Bild stattdessen genau diese Höhe und wird um den Fokuspunkt beschnitten.
+Fokuspunkt, Hochformat-Bild und Abdunklung gelten wie auf der Bühne; das
+Markup baut `jgor_st_medium_parts()` für beide Orte.
+
+Der Schritt ist dann ein Grid mit einer Zelle, in der Bild und Textkasten
+übereinander liegen. Die Regeln für die waagerechte Position setzen deshalb
+neben `justify-content` auch `justify-items`; den Innenabstand des Schritts
+trägt der Textkasten als Außenabstand.
+
+Auf der Bühne bleibt für den Schritt ein leeres Element (`is-empty`). Leere
+Elemente lassen das vorige Medium stehen; am Anfang einer Story, wo es keines
+gibt, zeigt die Bühne das nächste. `story/render.php` markiert dieses erste
+Bühnenmedium mit `is-initial` (sichtbar ohne Script, ohne `aria-hidden`,
+`loading="eager"`), `view/media.js` sucht entsprechend erst rückwärts, dann
+vorwärts. Das gilt seit 2.11.0 auch für Storys, die mit Schritten ohne Medium
+beginnen: Vorher blieb die Bühne dort leer.
+
+Wirkung am Anfang einer Story: Das Bild füllt den Bildschirm und hebt sich
+wie ein Vorhang, dahinter steht schon das Medium des nächsten Schritts.
+Zusammen mit `pinText` und einem Bild, das höher ist als der Bildschirm,
+bleibt der Textkasten vor dem Bild stehen, bis dessen unterer Rand ihn
+erreicht, und verlässt den Bildschirm mit ihm: Der Kasten liegt nie über dem
+folgenden Medium.
+
+- Nur Bilder: Das Script startet und stoppt Videos nur auf der Bühne.
+- In einer Reihe wirkt die Einstellung nicht; `jgor_st_collect_steps()`
+  streicht das Attribut für Schritte einer Reihe, damit die Bühne ihr Medium
+  behält.
+- Der Schritt erfährt die Einpassung der Story über den Kontext
+  `scrollstage/mediaFit` und über `scrollstage/firstStep`
+  (`jgor_st_first_step_context()`), ob er die Story eröffnet; nur dann wird
+  sein Bild nicht verzögert geladen.
+- Der Editor zeigt das Bild wie jedes andere im Schritt.
 
 #### Eigene Position und angehefteter Textkasten (`textPosition`, `stepAlign`, `pinText`)
 
@@ -786,3 +839,5 @@ aber mit Node 20.
 | 1.28 | 01.10.2026 | Abschnitt 12, Startseiten der Onlinehilfe: Hochformat-Banner im ersten Schritt; Bundle neu exportiert (Plugin 2.9.0, Release-ZIP jetzt mit `src/`); am Plugin selbst nichts geändert |
 | 1.29 | 01.10.2026 | Abschnitt 9: Das Release-ZIP enthält die Block-Quellen `src/` (Richtlinien von WordPress.org), `build.sh` prüft das; `.distignore` schließt `src/` nicht mehr aus |
 | 1.30 | 01.10.2026 | Eigene Position des Textkastens je Schritt (`textPosition`, `stepAlign`) und angehefteter Textkasten (`pinText`, Element `.jgor-st-step__pin`, nur CSS) (Plugin 2.10.0) |
+| 1.31 | 01.10.2026 | Medium scrollt mit dem Schritt (`mediaScroll`, Element `.jgor-st-step__cover`); die Bühne zeigt am Anfang einer Story das erste folgende Medium (`is-initial`) statt leer zu bleiben (Plugin 2.11.0) |
+| 1.32 | 01.10.2026 | Plugin-Header ohne `Plugin URI` (die Seite joern.gorres.com/scrollstage wird nicht mehr genannt); ein mitscrollendes Bild füllt eine eigene Schritthöhe (`has-own-height`); Beschriftung „Middle" im Schritt wie in der Story (Plugin 2.11.0) |

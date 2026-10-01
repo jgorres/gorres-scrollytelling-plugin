@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "scrollstage/step",
-	"version": "2.10.0",
+	"version": "2.11.0",
 	"title": "Scrollstage Step",
 	"category": "scrollstage",
 	"icon": "align-left",
@@ -80,6 +80,10 @@
 		"portraitFocalPoint": {
 			"type": "object"
 		},
+		"mediaScroll": {
+			"type": "boolean",
+			"default": false
+		},
 		"textEffect": {
 			"type": "string",
 			"default": ""
@@ -101,7 +105,12 @@
 			"default": false
 		}
 	},
-	"usesContext": [ "scrollstage/textEffect", "scrollstage/inRow" ],
+	"usesContext": [
+		"scrollstage/textEffect",
+		"scrollstage/inRow",
+		"scrollstage/mediaFit",
+		"scrollstage/firstStep"
+	],
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

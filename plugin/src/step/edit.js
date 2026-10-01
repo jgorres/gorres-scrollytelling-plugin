@@ -43,7 +43,16 @@ const TEMPLATE = [
 
 const PORTRAIT_MEDIA = [ 'image' ];
 
+// Everything only an image can have: a second one and scrolling along.
 const EMPTY_PORTRAIT = {
+	portraitId: 0,
+	portraitUrl: '',
+	portraitFocalPoint: undefined,
+	mediaScroll: false,
+};
+
+// Removing the second image leaves the rest of the step as it is.
+const REMOVED_PORTRAIT = {
 	portraitId: 0,
 	portraitUrl: '',
 	portraitFocalPoint: undefined,
@@ -72,6 +81,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		portraitId,
 		portraitUrl,
 		portraitFocalPoint,
+		mediaScroll,
 		textEffect,
 		minHeight,
 		textPosition,
@@ -149,7 +159,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	 */
 	const onSelectPortrait = ( media ) => {
 		if ( ! media || ! media.url ) {
-			setAttributes( EMPTY_PORTRAIT );
+			setAttributes( REMOVED_PORTRAIT );
 			return;
 		}
 
@@ -222,6 +232,24 @@ export default function Edit( { attributes, setAttributes } ) {
 							value={ focalPoint ?? { x: 0.5, y: 0.5 } }
 							onChange={ ( value ) =>
 								setAttributes( { focalPoint: value } )
+							}
+						/>
+					) }
+
+					{ canHavePortrait && (
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __(
+								'Let the image scroll along',
+								'scrollstage'
+							) }
+							help={ __(
+								'The image does not stay in place. It fills the screen at the start of this step and scrolls away with it, while the medium of the next step already shows behind it. An image taller than the screen keeps its height and makes the step as tall as itself, unless the step has a height of its own, which the image then fills. Front end only; has no effect inside a row.',
+								'scrollstage'
+							) }
+							checked={ mediaScroll }
+							onChange={ ( value ) =>
+								setAttributes( { mediaScroll: value } )
 							}
 						/>
 					) }
@@ -300,7 +328,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									isDestructive
 									variant="secondary"
 									onClick={ () =>
-										setAttributes( EMPTY_PORTRAIT )
+										setAttributes( REMOVED_PORTRAIT )
 									}
 								>
 									{ __( 'Remove image', 'scrollstage' ) }
@@ -330,7 +358,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								value: 'left',
 							},
 							{
-								label: __( 'Center', 'scrollstage' ),
+								label: __( 'Middle', 'scrollstage' ),
 								value: 'center',
 							},
 							{
@@ -359,7 +387,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								value: 'start',
 							},
 							{
-								label: __( 'Center', 'scrollstage' ),
+								label: __( 'Middle', 'scrollstage' ),
 								value: 'center',
 							},
 							{

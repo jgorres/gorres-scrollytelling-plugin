@@ -30,8 +30,9 @@
 	opacity: 0;
 }
 
-/* Before the script takes over, only the first medium is visible. */
-.jgor-st-story:not(.is-enhanced) .jgor-st-stage__item:first-child,
+/* Before the script takes over, only the first medium on the stage is
+   visible; render.php marks it. */
+.jgor-st-story:not(.is-enhanced) .jgor-st-stage__item.is-initial,
 .jgor-st-stage__item.is-active {
 	opacity: 1;
 }

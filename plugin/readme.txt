@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.10.0
+Stable tag: 2.11.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,7 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 * Several text boxes in front of one medium: steps without a medium of their own, as close together as you like through their own height
 * Cross-fade or instant change between media
 * Focal point per medium, so the right part survives the crop
+* An image that scrolls away with its step instead of staying in place, for an opening screen that lifts like a curtain
 * A second image per step for portrait screens, so a landscape image does not lose its sides on a phone held upright
 
 = Built to behave =
@@ -83,6 +84,10 @@ Its text scrolls across the medium of the previous step. That is useful for a cl
 
 Yes. Give the first step the medium and add further steps without one: their text boxes scroll across the medium of the first step, one after the other. To bring the boxes closer together, open "Height" in the settings of such a step, switch off "Use the step height of the story" and choose a lower height. Each of these steps keeps its own look and its own text effect. Inside a row the height of a single step has no effect.
 
+= Can a story open with a title image that scrolls away? =
+
+Yes. Give the first step the title image and switch on "Let the image scroll along" under "Medium". The image fills the screen when the page loads and scrolls away with the step, while the medium of the next step already shows behind it. An image that is taller than the screen at full width keeps its height, and the step becomes as tall as the image; give the step a height of its own under "Height" and the image fills exactly that. Combined with a text box that is kept in place, a hint or a headline stays on screen while the title image leaves. Only images can scroll along, not videos, and inside a row the setting has no effect.
+
 = Can a text box stay in place instead of scrolling by? =
 
 Yes. Open "Position" in the settings of the step and switch on "Keep the text box in place". The text box then stays where it is on the screen while the visitor scrolls through the step, and leaves at the top when the step ends. How long it stays depends on the height of the step: give the step a height above 100 percent under "Height", 150 percent keeps the box for half a screen of scrolling. In the same place a step can put its text box somewhere else than the rest of the story. A text box kept in place has no text effect, and inside a row the setting has no effect.
@@ -118,6 +123,11 @@ The build tool is [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/
 The plugin uses no third-party libraries.
 
 == Changelog ==
+
+= 2.11.0 =
+* New: the image of a step can scroll along with the step instead of staying in place on the stage.
+* Changed: a story that starts with steps without a medium on the stage shows the first medium that follows from the beginning, instead of an empty stage.
+* Changed: the plugin header no longer names a plugin URI.
 
 = 2.10.0 =
 * New: a step can place its text box differently from the rest of the story, horizontally and vertically.

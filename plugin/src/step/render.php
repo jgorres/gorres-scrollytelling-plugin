@@ -2,9 +2,10 @@
 /**
  * Front end markup of the step block.
  *
- * The step renders its text only. Its medium is part of the sticky stage that
- * the parent story block builds, which is why nothing media related shows up
- * here.
+ * The step renders its text. Its medium is part of the sticky stage that the
+ * parent story block builds, which is why nothing media related shows up
+ * here, with one exception: a medium that scrolls along with the step lies in
+ * the step, at least as tall as the screen, and leaves at the top with it.
  *
  * Typography, text colour and margin sit on the step. Background, border,
  * shadow and padding go to the text box inside it, see
@@ -64,6 +65,27 @@ if ( $jgor_st_pinned ) {
 	$jgor_st_classes .= ' is-pinned';
 }
 
+/*
+ * Medium that scrolls along: the step carries it itself, at its upper end. A
+ * row keeps the media of its steps on the stage, see jgor_st_collect_steps().
+ */
+$jgor_st_cover = '';
+
+if ( ! $jgor_st_in_row && jgor_st_has_scrolling_medium( $attributes ) ) {
+	$jgor_st_fit   = isset( $block->context['scrollstage/mediaFit'] ) && 'contain' === $block->context['scrollstage/mediaFit'] ? 'contain' : 'cover';
+	$jgor_st_parts = jgor_st_medium_parts( $attributes, $jgor_st_fit, ! empty( $block->context['scrollstage/firstStep'] ) );
+
+	if ( '' !== $jgor_st_parts['markup'] ) {
+		$jgor_st_classes .= ' has-cover';
+		$jgor_st_cover    = sprintf(
+			'<div class="%1$s" style="%2$s">%3$s</div>',
+			esc_attr( trim( 'jgor-st-step__cover ' . $jgor_st_parts['class'] ) ),
+			esc_attr( $jgor_st_parts['style'] ),
+			$jgor_st_parts['markup']
+		);
+	}
+}
+
 // Position of the text box, where the step does not follow the story.
 foreach ( jgor_st_step_position_classes( $attributes ) as $jgor_st_class ) {
 	$jgor_st_classes .= ' ' . sanitize_html_class( $jgor_st_class );
@@ -87,6 +109,9 @@ $jgor_st_min_height = jgor_st_step_min_height(
 
 if ( $jgor_st_min_height > 0 ) {
 	$jgor_st_wrapper_args['style'] = sprintf( '--jgor-st-step-min:%dsvh;', $jgor_st_min_height );
+
+	// A medium that scrolls along then fills the step instead of setting its height.
+	$jgor_st_wrapper_args['class'] .= ' has-own-height';
 }
 
 $jgor_st_wrapper = get_block_wrapper_attributes( $jgor_st_wrapper_args );
@@ -100,6 +125,7 @@ if ( '' !== $jgor_st_box['style'] ) {
 }
 ?>
 <div <?php echo $jgor_st_wrapper; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
+	<?php echo $jgor_st_cover; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above and in jgor_st_medium_parts(). ?>
 	<?php if ( $jgor_st_pinned ) : ?>
 		<div class="jgor-st-step__pin">
 	<?php endif; ?>

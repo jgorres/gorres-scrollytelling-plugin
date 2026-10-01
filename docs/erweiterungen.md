@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.14 · Stand: 01.10.2026 · Plugin-Version: 2.10.0
+Version: 1.15 · Stand: 01.10.2026 · Plugin-Version: 2.11.0
 
 ## 1. Ausgangspunkt
 
@@ -282,6 +282,26 @@ Bildschirm, zeigt seinen unteren Teil erst, wenn der Schritt endet.
 Nachweis: `npm run lint:js`, `npm run lint:css` und `composer check` sauber.
 Prüfung in den drei Browsern und im Editor steht aus.
 
+### Schritt 7: Medium scrollt mit (2.11.0)
+
+Anlass vom 01.10.2026: Auf der Startseite der Onlinehilfe soll das Banner wie
+gewöhnlicher Inhalt nach oben wegscrollen, während der Scroll-Hinweis stehen
+bleibt und dahinter das erste Foto zum Vorschein kommt. Mit 2.10.0 war es
+umgekehrt: Das Banner stand als Medium auf der Bühne, der Hinweis wanderte.
+
+Einstellung „Let the image scroll along" im Bereich „Medium" des Schritts
+(`mediaScroll`). Mechanik in `konzept.md`, Abschnitt 3.
+
+Erwogen und verworfen: das Banner als gewöhnlichen Bild-Block über die Story
+zu setzen. Das Foto dahinter fehlte dann, und der Hinweis ließe sich nur kurz
+festhalten.
+
+Nebenwirkung: Eine Story, die mit Schritten ohne Medium beginnt, zeigt jetzt
+von Anfang an das erste folgende Medium statt einer leeren Bühne.
+
+Nachweis: `npm run lint:js`, `npm run lint:css` und `composer check` sauber.
+Prüfung in den drei Browsern und im Editor steht aus.
+
 ### Prüfung unter WordPress 6.7 (Mindestversion)
 
 Am 01.10.2026 mit Plugin 2.8.1 nachgeholt, auf der Wegwerf-Site
@@ -386,3 +406,4 @@ den Entwicklungsstand.
 | 1.12 | 01.10.2026 | Prüfung unter WordPress 6.7 auf `scrollstage-wp67.local` |
 | 1.13 | 01.10.2026 | Schritt 5: Bild für Hochformat (2.9.0), Prüfung im Browser offen |
 | 1.14 | 01.10.2026 | Schritt 6: eigene Position und angehefteter Textkasten (2.10.0), Prüfung im Browser offen |
+| 1.15 | 01.10.2026 | Schritt 7: Medium scrollt mit (2.11.0), Prüfung im Browser offen |

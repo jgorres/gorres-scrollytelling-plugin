@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "scrollstage/story",
-	"version": "2.10.0",
+	"version": "2.11.0",
 	"title": "Scrollstage Story",
 	"category": "scrollstage",
 	"icon": "images-alt2",
@@ -74,7 +74,8 @@
 		}
 	},
 	"providesContext": {
-		"scrollstage/textEffect": "textEffect"
+		"scrollstage/textEffect": "textEffect",
+		"scrollstage/mediaFit": "mediaFit"
 	},
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./view.js",
