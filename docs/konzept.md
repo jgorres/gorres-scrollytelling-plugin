@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.28 · Stand: 01.10.2026 · Plugin-Version: 2.9.0
+Version: 1.29 · Stand: 01.10.2026 · Plugin-Version: 2.9.0
 
 ## 1. Zweck
 
@@ -30,7 +30,7 @@ die Release-ZIPs und die Übersetzungsdateien für GlotPress.
 │   │   │                      Schritte sammeln, Kontext der Reihe,
 │   │   │                      Textkasten des Schritts, Bühnen-Markup
 │   │   └── admin.php          Spendenlink in der Plugin-Liste
-│   ├── src/                   Quellen für wp-scripts
+│   ├── src/                   Quellen für wp-scripts, Teil des Pakets
 │   │   ├── story/             block.json, index/edit/save, render.php,
 │   │   │   │                  style.scss, editor.scss, view.js
 │   │   │   ├── view/          Module des Frontend-Scripts: selectors, support,
@@ -540,9 +540,12 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
    Banner ebenfalls animiert, aus `assets/icon.svg` und `docs/banner.svg`
    im Browser gerendert (kleine Größen aus den großen skalieren).
 4. `./build.sh`: prüft die Versionsnummern, baut die Blöcke, exportiert
-   `plugin/` ohne die Einträge aus `.distignore` (`src/`, `.po`,
-   `.mo`, `.json`, `.l10n.php`) und schreibt
-   `~/dev/jgorres-im-WP-Repository/scrollstage-<version>.zip`.
+   `plugin/` ohne die Einträge aus `.distignore` (`.po`, `.mo`, `.json`,
+   `.l10n.php`) und schreibt
+   `~/dev/jgorres-im-WP-Repository/scrollstage-<version>.zip`. Die
+   Block-Quellen `src/` gehören ins Paket: Die Richtlinien von WordPress.org
+   verlangen die lesbaren Quellen der kompilierten Dateien in `build/`.
+   `build.sh` bricht ab, wenn `src/<block>/block.json` im Paket fehlt.
 5. Plugin Check laufen lassen, dann einreichen. Erwartung: keine Fehler,
    keine Warnungen.
 6. Nach Freischaltung SVN: `trunk` plus `tags/<version>`, Assets nach
@@ -741,3 +744,4 @@ aber mit Node 20.
 | 1.26 | 01.10.2026 | Abschnitt 12, Startseiten der Onlinehilfe: animiertes Banner als erster Schritt, Vorlage `home-menu-below` ohne Kopf, Menü sticky unter der Story, Abdunklung aus; Bundle neu exportiert (Plugin 2.8.4); am Plugin selbst nichts geändert |
 | 1.27 | 01.10.2026 | Bild für Hochformat je Schritt (`portraitId`, `portraitUrl`, `portraitFocalPoint`): Ausgabe als `picture` mit `source media="(orientation: portrait)"`, eigener Fokuspunkt, eigenes Verhältnis der begrenzten Bühne (Plugin 2.9.0) |
 | 1.28 | 01.10.2026 | Abschnitt 12, Startseiten der Onlinehilfe: Hochformat-Banner im ersten Schritt; Bundle neu exportiert (Plugin 2.9.0, Release-ZIP jetzt mit `src/`); am Plugin selbst nichts geändert |
+| 1.29 | 01.10.2026 | Abschnitt 9: Das Release-ZIP enthält die Block-Quellen `src/` (Richtlinien von WordPress.org), `build.sh` prüft das; `.distignore` schließt `src/` nicht mehr aus |
