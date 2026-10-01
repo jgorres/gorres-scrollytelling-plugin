@@ -1,0 +1,546 @@
+{
+    "format": 1,
+    "languages": [
+        {
+            "name": "English",
+            "slug": "en",
+            "locale": "en_US",
+            "rtl": false,
+            "term_group": 0,
+            "flag": "us",
+            "default": true
+        },
+        {
+            "name": "Deutsch",
+            "slug": "de",
+            "locale": "de_DE",
+            "rtl": false,
+            "term_group": 1,
+            "flag": "de",
+            "default": false
+        }
+    ],
+    "polylang": {
+        "force_lang": 1,
+        "hide_default": true,
+        "rewrite": true,
+        "redirect_lang": true,
+        "browser": false,
+        "media_support": false
+    },
+    "options": {
+        "blogname": "Scrollstage Documentation",
+        "blogdescription": "",
+        "permalink_structure": "/%postname%/",
+        "show_on_front": "page",
+        "page_on_front": "5",
+        "page_for_posts": "0",
+        "wp_page_for_privacy_policy": "3"
+    },
+    "posts": [
+        {
+            "id": 3,
+            "type": "page",
+            "status": "draft",
+            "title": "Datenschutzerklärung",
+            "slug": "datenschutzerklaerung",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "",
+            "content": "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wer wir sind</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Die Adresse unserer Website ist: {{JGOR_ST_HELP_SITE_URL}}.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Kommentare</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Wenn Besucher Kommentare auf der Website hinterlassen, erfassen wir die im Kommentarformular angezeigten Daten sowie die IP-Adresse des Besuchers und die User-Agent-Zeichenfolge des Browsers, um Spam zu erkennen.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>Eine aus deiner E-Mail-Adresse erstellte anonymisierte Zeichenfolge (auch Hash genannt) kann dem Gravatar-Dienst übergeben werden, um zu prüfen, ob du diesen benutzt. Die Datenschutzerklärung des Gravatar-Dienstes findest du hier: https://automattic.com/privacy/. Nachdem dein Kommentar freigegeben wurde, ist dein Profilbild öffentlich im Kontext deines Kommentars sichtbar.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Medien</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Wenn du Bilder auf die Website hochlädst, solltest du vermeiden, Bilder mit eingebetteten Standortdaten (EXIF-GPS) hochzuladen. Besucher der Website können Bilder von der Website herunterladen und daraus beliebige Standortdaten extrahieren.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Cookies</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Wenn du einen Kommentar auf unserer Website schreibst, kannst du einwilligen, deinen Namen, deine E-Mail-Adresse und deine Website in Cookies zu speichern. Dies ist eine Komfortfunktion, damit du all diese Daten nicht erneut eingeben musst, wenn du einen weiteren Kommentar schreibst. Diese Cookies werden ein Jahr lang gespeichert.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>Wenn du unsere Anmeldeseite besuchst, werden wir ein temporäres Cookie setzen, um festzustellen, ob dein Browser Cookies akzeptiert. Dieses Cookie enthält keine personenbezogenen Daten und wird verworfen, wenn du deinen Browser schließt.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>Wenn du dich anmeldest, werden wir einige Cookies setzen, um deine Anmeldeinformationen und Anzeigeoptionen zu speichern. Anmelde-Cookies verfallen nach zwei Tagen und Cookies für die Anzeigeoptionen nach einem Jahr. Falls du bei der Anmeldung „Angemeldet bleiben“ auswählst, wird deine Anmeldung zwei Wochen lang aufrechterhalten. Mit der Abmeldung aus deinem Konto werden die Anmelde-Cookies gelöscht.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>Wenn du einen Artikel bearbeitest oder veröffentlichst, wird ein zusätzliches Cookie in deinem Browser gespeichert. Dieses Cookie enthält keine personenbezogenen Daten und verweist nur auf die Beitrags-ID des Artikels, den du gerade bearbeitet hast. Das Cookie verfällt nach einem Tag.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Eingebettete Inhalte von anderen Websites</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Beiträge auf dieser Website können eingebettete Inhalte enthalten (z. B. Videos, Bilder, Beiträge etc.). Eingebettete Inhalte von anderen Websites verhalten sich exakt so, als ob der Besucher die andere Website besucht hätte.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>Diese Websites können Daten über dich erheben, Cookies verwenden, zusätzliche Tracking-Dienste von Dritten einbetten und deine Interaktion mit diesem eingebetteten Inhalt aufzeichnen, inklusive deiner Interaktion mit dem eingebetteten Inhalt, falls du ein Konto hast und auf dieser Website angemeldet bist.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Mit wem wir deine Daten teilen</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Wenn du eine Zurücksetzung des Passworts beantragst, wird deine IP-Adresse in der E-Mail zur Zurücksetzung enthalten sein.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wie lange wir deine Daten speichern</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Wenn du einen Kommentar schreibst, wird dieser inklusive Metadaten zeitlich unbegrenzt gespeichert. Auf diese Art können wir Folgekommentare automatisch erkennen und freigeben, anstatt sie in einer Moderations-Warteschlange festzuhalten.</p>\n<!-- /wp:paragraph -->\n<!-- wp:paragraph -->\n<p>Für Benutzer, die sich auf unserer Website registrieren, speichern wir zusätzlich die personenbezogenen Daten, die sie in ihren Benutzerprofilen angeben. Alle Benutzer können jederzeit ihre persönlichen Informationen einsehen, bearbeiten oder löschen (der Benutzername kann nicht verändert werden). Administratoren der Website können diese Informationen ebenfalls einsehen und bearbeiten.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Welche Rechte du an deinen Daten hast</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Wenn du ein Konto auf dieser Website besitzt oder Kommentare geschrieben hast, kannst du eine Exportdatei deiner personenbezogenen Daten bei uns anfordern, inklusive aller Daten, die du uns mitgeteilt hast. Darüber hinaus kannst du die Löschung aller personenbezogenen Daten, die wir über dich gespeichert haben, anfordern. Dies umfasst nicht die Daten, die wir für administrative, rechtliche oder sicherheitsrelevante Zwecke aufbewahren müssen.</p>\n<!-- /wp:paragraph -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wohin deine Daten gesendet werden</h2>\n<!-- /wp:heading -->\n<!-- wp:paragraph -->\n<p><strong class=\"privacy-policy-tutorial\">Textvorschlag: </strong>Kommentare von Besuchern werden möglicherweise durch einen automatisierten Spam-Erkennungsdienst überprüft.</p>\n<!-- /wp:paragraph -->\n",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 3
+            },
+            "meta": {
+                "_wp_page_template": [
+                    "default"
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "type": "wp_navigation",
+            "status": "publish",
+            "title": "Navigation",
+            "slug": "navigation",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "",
+            "content": "<!-- wp:page-list /-->\n\n<!-- wp:polylang/navigation-language-switcher /-->",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": []
+        },
+        {
+            "id": 5,
+            "type": "page",
+            "status": "publish",
+            "title": "Scrollstage Help",
+            "slug": "scrollstage-help",
+            "parent": 0,
+            "menu_order": 1,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 6,
+                "en": 5
+            },
+            "meta": []
+        },
+        {
+            "id": 6,
+            "type": "page",
+            "status": "publish",
+            "title": "Scrollstage-Hilfe",
+            "slug": "scrollstage-hilfe",
+            "parent": 0,
+            "menu_order": 1,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 6,
+                "en": 5
+            },
+            "meta": []
+        },
+        {
+            "id": 7,
+            "type": "page",
+            "status": "publish",
+            "title": "Installation",
+            "slug": "installation",
+            "parent": 0,
+            "menu_order": 2,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 8,
+                "en": 7
+            },
+            "meta": []
+        },
+        {
+            "id": 8,
+            "type": "page",
+            "status": "publish",
+            "title": "Installation",
+            "slug": "installieren",
+            "parent": 0,
+            "menu_order": 2,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 8,
+                "en": 7
+            },
+            "meta": []
+        },
+        {
+            "id": 9,
+            "type": "page",
+            "status": "publish",
+            "title": "Blocks",
+            "slug": "blocks",
+            "parent": 0,
+            "menu_order": 3,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 10,
+                "en": 9
+            },
+            "meta": []
+        },
+        {
+            "id": 10,
+            "type": "page",
+            "status": "publish",
+            "title": "Blöcke",
+            "slug": "bloecke",
+            "parent": 0,
+            "menu_order": 3,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 10,
+                "en": 9
+            },
+            "meta": []
+        },
+        {
+            "id": 11,
+            "type": "page",
+            "status": "publish",
+            "title": "Story",
+            "slug": "story",
+            "parent": 9,
+            "menu_order": 4,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 12,
+                "en": 11
+            },
+            "meta": []
+        },
+        {
+            "id": 12,
+            "type": "page",
+            "status": "publish",
+            "title": "Story",
+            "slug": "story",
+            "parent": 10,
+            "menu_order": 4,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 12,
+                "en": 11
+            },
+            "meta": []
+        },
+        {
+            "id": 13,
+            "type": "page",
+            "status": "publish",
+            "title": "Step",
+            "slug": "step",
+            "parent": 9,
+            "menu_order": 5,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 14,
+                "en": 13
+            },
+            "meta": []
+        },
+        {
+            "id": 14,
+            "type": "page",
+            "status": "publish",
+            "title": "Schritt (Step)",
+            "slug": "step",
+            "parent": 10,
+            "menu_order": 5,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 14,
+                "en": 13
+            },
+            "meta": []
+        },
+        {
+            "id": 15,
+            "type": "page",
+            "status": "publish",
+            "title": "Row",
+            "slug": "row",
+            "parent": 9,
+            "menu_order": 6,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 16,
+                "en": 15
+            },
+            "meta": []
+        },
+        {
+            "id": 16,
+            "type": "page",
+            "status": "publish",
+            "title": "Reihe (Row)",
+            "slug": "row",
+            "parent": 10,
+            "menu_order": 6,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 16,
+                "en": 15
+            },
+            "meta": []
+        },
+        {
+            "id": 17,
+            "type": "page",
+            "status": "publish",
+            "title": "After",
+            "slug": "after",
+            "parent": 9,
+            "menu_order": 7,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 18,
+                "en": 17
+            },
+            "meta": []
+        },
+        {
+            "id": 18,
+            "type": "page",
+            "status": "publish",
+            "title": "Nachspann (After)",
+            "slug": "after",
+            "parent": 10,
+            "menu_order": 7,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 18,
+                "en": 17
+            },
+            "meta": []
+        },
+        {
+            "id": 19,
+            "type": "page",
+            "status": "publish",
+            "title": "Settings",
+            "slug": "settings",
+            "parent": 0,
+            "menu_order": 8,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 20,
+                "en": 19
+            },
+            "meta": []
+        },
+        {
+            "id": 20,
+            "type": "page",
+            "status": "publish",
+            "title": "Einstellungen",
+            "slug": "einstellungen",
+            "parent": 0,
+            "menu_order": 8,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 20,
+                "en": 19
+            },
+            "meta": []
+        },
+        {
+            "id": 21,
+            "type": "page",
+            "status": "publish",
+            "title": "Media",
+            "slug": "media",
+            "parent": 19,
+            "menu_order": 9,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 22,
+                "en": 21
+            },
+            "meta": []
+        },
+        {
+            "id": 22,
+            "type": "page",
+            "status": "publish",
+            "title": "Medien",
+            "slug": "medien",
+            "parent": 20,
+            "menu_order": 9,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 22,
+                "en": 21
+            },
+            "meta": []
+        },
+        {
+            "id": 23,
+            "type": "page",
+            "status": "publish",
+            "title": "Typography and text box",
+            "slug": "typography-and-text-box",
+            "parent": 19,
+            "menu_order": 10,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 24,
+                "en": 23
+            },
+            "meta": []
+        },
+        {
+            "id": 24,
+            "type": "page",
+            "status": "publish",
+            "title": "Schrift und Textkasten",
+            "slug": "schrift-und-textkasten",
+            "parent": 20,
+            "menu_order": 10,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 24,
+                "en": 23
+            },
+            "meta": []
+        },
+        {
+            "id": 25,
+            "type": "page",
+            "status": "publish",
+            "title": "Text effects",
+            "slug": "text-effects",
+            "parent": 19,
+            "menu_order": 11,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 26,
+                "en": 25
+            },
+            "meta": []
+        },
+        {
+            "id": 26,
+            "type": "page",
+            "status": "publish",
+            "title": "Texteffekte",
+            "slug": "texteffekte",
+            "parent": 20,
+            "menu_order": 11,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 26,
+                "en": 25
+            },
+            "meta": []
+        },
+        {
+            "id": 27,
+            "type": "page",
+            "status": "publish",
+            "title": "Step height",
+            "slug": "step-height",
+            "parent": 19,
+            "menu_order": 12,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 28,
+                "en": 27
+            },
+            "meta": []
+        },
+        {
+            "id": 28,
+            "type": "page",
+            "status": "publish",
+            "title": "Schritthöhe",
+            "slug": "schritthoehe",
+            "parent": 20,
+            "menu_order": 12,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 28,
+                "en": 27
+            },
+            "meta": []
+        },
+        {
+            "id": 29,
+            "type": "page",
+            "status": "publish",
+            "title": "FAQ",
+            "slug": "faq",
+            "parent": 0,
+            "menu_order": 13,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "en",
+            "translations": {
+                "de": 30,
+                "en": 29
+            },
+            "meta": []
+        },
+        {
+            "id": 30,
+            "type": "page",
+            "status": "publish",
+            "title": "Häufige Fragen",
+            "slug": "haeufige-fragen",
+            "parent": 0,
+            "menu_order": 13,
+            "mime_type": "",
+            "content": "",
+            "excerpt": "",
+            "language": "de",
+            "translations": {
+                "de": 30,
+                "en": 29
+            },
+            "meta": []
+        }
+    ]
+}

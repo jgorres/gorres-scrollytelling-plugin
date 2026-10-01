@@ -1,0 +1,128 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Scrollstage Help",
+		"author": "Jörn Gorres",
+		"description": "Online help for the Scrollstage plugin in English and German, with live examples of the blocks."
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.4",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"steps": [
+		{
+			"step": "login"
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "wordpress.org/themes",
+				"slug": "twentytwentyfive"
+			},
+			"options": {
+				"activate": true
+			},
+			"ifAlreadyInstalled": "skip"
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "wordpress.org/themes",
+				"slug": "generatepress"
+			},
+			"options": {
+				"activate": false
+			},
+			"ifAlreadyInstalled": "skip"
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "plugin-check"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "simple-page-ordering"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "polylang"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "bundled",
+				"path": "/scrollstage.zip"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "scrollstage"
+			}
+		},
+		{
+			"step": "unzip",
+			"zipFile": {
+				"resource": "bundled",
+				"path": "/uploads.zip"
+			},
+			"extractToPath": "/wordpress/wp-content/uploads"
+		},
+		{
+			"step": "mkdir",
+			"path": "/wordpress/wp-content/jgor-st-help"
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/wp-content/jgor-st-help/import.php",
+			"data": {
+				"resource": "bundled",
+				"path": "/import.php"
+			}
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/wp-content/jgor-st-help/content.json",
+			"data": {
+				"resource": "bundled",
+				"path": "/content.json"
+			}
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp eval-file /wordpress/wp-content/jgor-st-help/import.php /wordpress/wp-content/jgor-st-help/content.json confirm-wipe"
+		},
+		{
+			"step": "rm",
+			"path": "/wordpress/wp-content/jgor-st-help/import.php"
+		},
+		{
+			"step": "rm",
+			"path": "/wordpress/wp-content/jgor-st-help/content.json"
+		},
+		{
+			"step": "rmdir",
+			"path": "/wordpress/wp-content/jgor-st-help"
+		}
+	]
+}

@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.12 · Stand: 01.10.2026 · Plugin-Version: 2.8.1
+Version: 1.12 · Stand: 01.10.2026 · Plugin-Version: 2.8.2
 
 ## 1. Ausgangspunkt
 

@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.8.1
+Stable tag: 2.8.2
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ With Scrollstage, one medium fills the screen and stays in place while the text 
 A story is put together from four kinds of blocks, and it can hold as many of them as it needs:
 
 * **Scrollstage Story** — the frame. It holds the layout of the text boxes, the dimming of the media and the length of a step.
-* **Scrollstage Step** — one step of the story. It carries its own image or video plus any blocks you want as text. A story takes any number of steps.
+* **Scrollstage Step** — one step of the story. It carries its own image or video plus any blocks you want as text. A story takes any number of steps. A step without a medium keeps the medium of the step before, so several text boxes can scroll across the same image or video one after the other.
 * **Scrollstage Row** — optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.
 * **Scrollstage Afterword** — optional content that follows the last step. Below a stage that is limited to the medium it shows up right under the stage from the first step on, instead of leaving that space empty.
 
@@ -39,6 +39,7 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 * Dimming of the media so that text stays readable
 * Offset from the top, for sites with a fixed menu
 * Height of a step, which decides how long its medium stays in place, for the whole story or per step
+* Several text boxes in front of one medium: steps without a medium of their own, as close together as you like through their own height
 * Cross-fade or instant change between media
 * Focal point per medium, so the right part survives the crop
 
@@ -96,6 +97,9 @@ The story dims its media; you can set how much. Each step can also give its text
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.8.2 =
+* Readme: the description now mentions several text boxes in front of one medium. No change in behavior.
 
 = 2.8.1 =
 * Fixed: in the editor of classic themes, steps and rows inside a full-width story shrank to the width of their content. They fill the story again.

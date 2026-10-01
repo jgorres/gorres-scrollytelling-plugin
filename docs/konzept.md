@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.21 · Stand: 01.10.2026 · Plugin-Version: 2.8.1
+Version: 1.22 · Stand: 01.10.2026 · Plugin-Version: 2.8.2
 
 ## 1. Zweck
 
@@ -562,3 +562,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.19 | 30.09.2026 | Projekt von `~/dev/scrollstage` nach `~/dev/jgorres-im-WP-Repository/scrollstage` umgezogen; Symlinks der Testsites nachgezogen |
 | 1.20 | 01.10.2026 | Attribut `minHeight` am Schritt: eigene Schritthöhe, damit mehrere Textkästen nacheinander vor demselben Medium durchlaufen (Plugin 2.8.0) |
 | 1.21 | 01.10.2026 | Editor mit klassischem Theme: Schritte und Reihen füllen die Story wieder, statt auf ihren Inhalt zu schrumpfen (Plugin 2.8.1) |
+| 1.22 | 01.10.2026 | readme: Description nennt mehrere Textkästen vor einem Medium (Plugin 2.8.2); am Plugin selbst nichts geändert |
