@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.9.0
+Stable tag: 2.10.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,7 +28,8 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 
 = What you can set =
 
-* Position of the text boxes: left, center or right, horizontally and vertically
+* Position of the text boxes: left, center or right, horizontally and vertically, for the whole story or per step
+* A text box that stays in place on the screen for the length of its step, for a hint or a headline on top of a medium
 * Width of the text boxes in percent of the available column
 * Look of a text box per step: background, border, rounded corners, shadow and padding
 * Typography per step: font family, size, weight and style, line height, letter spacing, letter case, decoration and text alignment
@@ -82,6 +83,10 @@ Its text scrolls across the medium of the previous step. That is useful for a cl
 
 Yes. Give the first step the medium and add further steps without one: their text boxes scroll across the medium of the first step, one after the other. To bring the boxes closer together, open "Height" in the settings of such a step, switch off "Use the step height of the story" and choose a lower height. Each of these steps keeps its own look and its own text effect. Inside a row the height of a single step has no effect.
 
+= Can a text box stay in place instead of scrolling by? =
+
+Yes. Open "Position" in the settings of the step and switch on "Keep the text box in place". The text box then stays where it is on the screen while the visitor scrolls through the step, and leaves at the top when the step ends. How long it stays depends on the height of the step: give the step a height above 100 percent under "Height", 150 percent keeps the box for half a screen of scrolling. In the same place a step can put its text box somewhere else than the rest of the story. A text box kept in place has no text effect, and inside a row the setting has no effect.
+
 = Why is there empty space below the stage? =
 
 With "Limit the stage to the medium" the stage is lower than the screen, and content after the story only follows the last step. Switch on "Pull up the following content" in the story block: the content after it then sits right below the stage while the steps play and scrolls on once the story ends. If the content belongs to the story itself, put it into a "Scrollstage Afterword" block inside the story instead.
@@ -113,6 +118,10 @@ The build tool is [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/
 The plugin uses no third-party libraries.
 
 == Changelog ==
+
+= 2.10.0 =
+* New: a step can place its text box differently from the rest of the story, horizontally and vertically.
+* New: a step can keep its text box in place on the screen while the visitor scrolls through it.
 
 = 2.9.0 =
 * New: a step can carry a second image for portrait screens. It replaces the image of the step whenever the screen is taller than wide, so a landscape image does not lose its sides on a phone held upright.

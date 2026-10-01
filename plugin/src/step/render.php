@@ -12,7 +12,12 @@
  *
  * The effect the text box appears and disappears with comes from the step
  * itself or, handed down as block context, from the story. The same goes for
- * the height of the step, which the story sets as a custom property.
+ * the height of the step, which the story sets as a custom property, and for
+ * the position of the text box, which the story sets as classes.
+ *
+ * A pinned text box gets one more element around it. That element sticks to
+ * the top of the screen and is as tall as the screen, so the box keeps its
+ * place while the rest of the step scrolls by.
  *
  * @package Scrollstage
  *
@@ -41,8 +46,27 @@ $jgor_st_effect = jgor_st_resolve_text_effect(
  * and at the top. Inside a row the boxes pass sideways, there is nothing for
  * the effects to hold on to.
  */
-if ( ! empty( $block->context['scrollstage/inRow'] ) ) {
+$jgor_st_in_row = ! empty( $block->context['scrollstage/inRow'] );
+
+if ( $jgor_st_in_row ) {
 	$jgor_st_effect = '';
+}
+
+/*
+ * Pinned: the box does not travel across the screen, which is what the
+ * effects are made for, so it goes without one. A row keeps its steps in
+ * place itself.
+ */
+$jgor_st_pinned = ! empty( $attributes['pinText'] ) && ! $jgor_st_in_row;
+
+if ( $jgor_st_pinned ) {
+	$jgor_st_effect   = '';
+	$jgor_st_classes .= ' is-pinned';
+}
+
+// Position of the text box, where the step does not follow the story.
+foreach ( jgor_st_step_position_classes( $attributes ) as $jgor_st_class ) {
+	$jgor_st_classes .= ' ' . sanitize_html_class( $jgor_st_class );
 }
 
 if ( '' !== $jgor_st_effect ) {
@@ -58,7 +82,7 @@ $jgor_st_wrapper_args = array( 'class' => $jgor_st_classes );
  */
 $jgor_st_min_height = jgor_st_step_min_height(
 	$attributes['minHeight'] ?? 0,
-	! empty( $block->context['scrollstage/inRow'] )
+	$jgor_st_in_row
 );
 
 if ( $jgor_st_min_height > 0 ) {
@@ -76,7 +100,13 @@ if ( '' !== $jgor_st_box['style'] ) {
 }
 ?>
 <div <?php echo $jgor_st_wrapper; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by get_block_wrapper_attributes(). ?>>
+	<?php if ( $jgor_st_pinned ) : ?>
+		<div class="jgor-st-step__pin">
+	<?php endif; ?>
 	<div <?php echo $jgor_st_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped with esc_attr() above. ?>>
 		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Already rendered block content. ?>
 	</div>
+	<?php if ( $jgor_st_pinned ) : ?>
+		</div>
+	<?php endif; ?>
 </div>

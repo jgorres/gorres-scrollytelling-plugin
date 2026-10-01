@@ -5,7 +5,8 @@
  * here; on the front end the parent story block moves it into its sticky
  * stage. Background, border, shadow and padding of the block go to the text
  * box, see text-box.js. The height of a step only shows on the front end,
- * and so does the image a step can carry for portrait screens.
+ * and so do the image a step can carry for portrait screens and a text box
+ * that is kept in place.
  */
 
 import { __ } from '@wordpress/i18n';
@@ -73,6 +74,9 @@ export default function Edit( { attributes, setAttributes } ) {
 		portraitFocalPoint,
 		textEffect,
 		minHeight,
+		textPosition,
+		stepAlign,
+		pinText,
 	} = attributes;
 	const hasMedia = '' !== mediaUrl;
 
@@ -91,8 +95,16 @@ export default function Edit( { attributes, setAttributes } ) {
 	const missingAlt =
 		hasMedia && 'image' === mediaType && '' === mediaAlt.trim();
 
+	// A position of its own shows in the canvas, like the one of the story.
 	const blockProps = useBlockProps( {
-		className: `jgor-st-step--editor${ hasMedia ? ' has-media' : '' }`,
+		className: [
+			'jgor-st-step--editor',
+			hasMedia ? 'has-media' : '',
+			textPosition ? `is-text-${ textPosition }` : '',
+			stepAlign ? `is-align-${ stepAlign }` : '',
+		]
+			.filter( Boolean )
+			.join( ' ' ),
 		style: focalPoint
 			? {
 					'--jgor-st-focal-x': `${ focalPoint.x * 100 }%`,
@@ -297,6 +309,84 @@ export default function Edit( { attributes, setAttributes } ) {
 						</Flex>
 					</PanelBody>
 				) }
+				<PanelBody
+					title={ __( 'Position', 'scrollstage' ) }
+					initialOpen={ false }
+				>
+					<SelectControl
+						__nextHasNoMarginBottom
+						label={ __(
+							'Horizontal position of the text box',
+							'scrollstage'
+						) }
+						value={ textPosition }
+						options={ [
+							{
+								label: __( 'Same as story', 'scrollstage' ),
+								value: '',
+							},
+							{
+								label: __( 'Left', 'scrollstage' ),
+								value: 'left',
+							},
+							{
+								label: __( 'Center', 'scrollstage' ),
+								value: 'center',
+							},
+							{
+								label: __( 'Right', 'scrollstage' ),
+								value: 'right',
+							},
+						] }
+						onChange={ ( value ) =>
+							setAttributes( { textPosition: value } )
+						}
+					/>
+					<SelectControl
+						__nextHasNoMarginBottom
+						label={ __(
+							'Vertical position of the text box',
+							'scrollstage'
+						) }
+						value={ stepAlign }
+						options={ [
+							{
+								label: __( 'Same as story', 'scrollstage' ),
+								value: '',
+							},
+							{
+								label: __( 'Top', 'scrollstage' ),
+								value: 'start',
+							},
+							{
+								label: __( 'Center', 'scrollstage' ),
+								value: 'center',
+							},
+							{
+								label: __( 'Bottom', 'scrollstage' ),
+								value: 'end',
+							},
+						] }
+						onChange={ ( value ) =>
+							setAttributes( { stepAlign: value } )
+						}
+					/>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label={ __(
+							'Keep the text box in place',
+							'scrollstage'
+						) }
+						help={ __(
+							'The text box stays where it is on the screen while the visitor scrolls through this step, and leaves at the top when the step ends. It needs a step taller than the screen: set a height above 100 percent under "Height". The text box then goes without a text effect. Front end only; has no effect inside a row.',
+							'scrollstage'
+						) }
+						checked={ pinText }
+						onChange={ ( value ) =>
+							setAttributes( { pinText: value } )
+						}
+					/>
+				</PanelBody>
 				<PanelBody
 					title={ __( 'Height', 'scrollstage' ) }
 					initialOpen={ false }

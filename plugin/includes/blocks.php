@@ -278,6 +278,30 @@ function jgor_st_resolve_text_effect( $own, $inherited ) {
 }
 
 /**
+ * Returns the classes for the position a step gives its own text box.
+ *
+ * A step follows the story unless it names a position of its own, for each
+ * direction separately. The class names are the ones the story uses on its
+ * wrapper; on a step they only count for that step.
+ *
+ * @param array<string, mixed> $attributes Attributes of the step block.
+ * @return string[] Class names, none when the step follows the story.
+ */
+function jgor_st_step_position_classes( $attributes ) {
+	$classes = array();
+
+	if ( isset( $attributes['textPosition'] ) && in_array( $attributes['textPosition'], array( 'left', 'center', 'right' ), true ) ) {
+		$classes[] = 'is-text-' . $attributes['textPosition'];
+	}
+
+	if ( isset( $attributes['stepAlign'] ) && in_array( $attributes['stepAlign'], array( 'start', 'center', 'end' ), true ) ) {
+		$classes[] = 'is-align-' . $attributes['stepAlign'];
+	}
+
+	return $classes;
+}
+
+/**
  * Returns the height a step asks for itself.
  *
  * A step is as tall as the story says unless it sets a height of its own, in

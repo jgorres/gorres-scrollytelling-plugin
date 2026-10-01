@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Scrollstage 2.9.0\n"
+"Project-Id-Version: Scrollstage 2.10.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-01T12:53:41+00:00\n"
+"POT-Creation-Date: 2026-10-01T18:22:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: scrollstage\n"
@@ -66,141 +66,188 @@ msgstr ""
 msgid "Row: these steps pass sideways on the front end."
 msgstr ""
 
-#: src/step/edit.js:161
+#: src/step/edit.js:173
 msgid "Replace medium"
 msgstr ""
 
-#: src/step/edit.js:167
+#: src/step/edit.js:179
 msgid "Medium"
 msgstr ""
 
-#: src/step/edit.js:170
+#: src/step/edit.js:182
 msgid "No medium is set for this step. While scrolling, the medium of the previous step stays in place."
 msgstr ""
 
-#: src/step/edit.js:179
+#: src/step/edit.js:191
 msgid "This image has no alternative text. People using a screen reader will not learn what it shows."
 msgstr ""
 
-#: src/step/edit.js:189
+#: src/step/edit.js:201
 msgid "Alternative text"
 msgstr ""
 
-#: src/step/edit.js:190
+#: src/step/edit.js:202
 msgid "Leave empty to use the alternative text from the media library."
 msgstr ""
 
-#: src/step/edit.js:204
+#: src/step/edit.js:216
 msgid "Focal point"
 msgstr ""
 
-#: src/step/edit.js:205
+#: src/step/edit.js:217
 msgid "Sets which point stays visible when the medium is cropped."
 msgstr ""
 
-#: src/step/edit.js:224
+#: src/step/edit.js:236
 msgid "Remove medium"
 msgstr ""
 
-#: src/step/edit.js:230
+#: src/step/edit.js:242
 msgid "Portrait screens"
 msgstr ""
 
-#: src/step/edit.js:234
+#: src/step/edit.js:246
 msgid "Optional second image for screens that are taller than wide, such as a phone held upright. It replaces the image of this step there and shares its alternative text. Front end only."
 msgstr ""
 
-#: src/step/edit.js:243
+#: src/step/edit.js:255
 msgid "Focal point on portrait screens"
 msgstr ""
 
-#: src/step/edit.js:272
+#: src/step/edit.js:284
 msgid "Replace image"
 msgstr ""
 
-#: src/step/edit.js:276
+#: src/step/edit.js:288
 msgid "Choose image"
 msgstr ""
 
-#: src/step/edit.js:294
+#: src/step/edit.js:306
 msgid "Remove image"
 msgstr ""
 
-#: src/step/edit.js:301
+#: src/step/edit.js:313
+msgid "Position"
+msgstr ""
+
+#: src/step/edit.js:318
+msgid "Horizontal position of the text box"
+msgstr ""
+
+#: src/step/edit.js:325
+#: src/step/edit.js:354
+#: src/step/edit.js:448
+msgid "Same as story"
+msgstr ""
+
+#: src/step/edit.js:329
+#: src/story/edit.js:74
+msgid "Left"
+msgstr ""
+
+#: src/step/edit.js:333
+#: src/step/edit.js:362
+msgid "Center"
+msgstr ""
+
+#: src/step/edit.js:337
+#: src/story/edit.js:82
+msgid "Right"
+msgstr ""
+
+#: src/step/edit.js:347
+msgid "Vertical position of the text box"
+msgstr ""
+
+#: src/step/edit.js:358
+#: src/story/edit.js:114
+msgid "Top"
+msgstr ""
+
+#: src/step/edit.js:366
+#: src/story/edit.js:122
+msgid "Bottom"
+msgstr ""
+
+#: src/step/edit.js:376
+msgid "Keep the text box in place"
+msgstr ""
+
+#: src/step/edit.js:380
+msgid "The text box stays where it is on the screen while the visitor scrolls through this step, and leaves at the top when the step ends. It needs a step taller than the screen: set a height above 100 percent under \"Height\". The text box then goes without a text effect. Front end only; has no effect inside a row."
+msgstr ""
+
+#: src/step/edit.js:391
 msgid "Height"
 msgstr ""
 
-#: src/step/edit.js:306
+#: src/step/edit.js:396
 msgid "Use the step height of the story"
 msgstr ""
 
-#: src/step/edit.js:310
+#: src/step/edit.js:400
 msgid "Switch off to give this step a height of its own. Lower steps without a medium let several text boxes scroll across the same medium one after the other. Front end only; has no effect inside a row."
 msgstr ""
 
-#: src/step/edit.js:324
+#: src/step/edit.js:414
 #: src/story/edit.js:226
 msgid "Step height in percent of the screen height"
 msgstr ""
 
-#: src/step/edit.js:328
+#: src/step/edit.js:418
 msgid "A text box taller than this makes the step as tall as it needs."
 msgstr ""
 
-#: src/step/edit.js:345
+#: src/step/edit.js:435
 #: src/story/edit.js:244
 msgid "Motion"
 msgstr ""
 
-#: src/step/edit.js:350
+#: src/step/edit.js:440
 #: src/story/edit.js:271
 msgid "Text effect"
 msgstr ""
 
-#: src/step/edit.js:351
+#: src/step/edit.js:441
 msgid "How the text box of this step appears and disappears while scrolling. Front end only."
 msgstr ""
 
-#: src/step/edit.js:358
-msgid "Same as story"
-msgstr ""
-
-#: src/step/edit.js:362
+#: src/step/edit.js:452
 #: src/story/edit.js:261
 #: src/story/edit.js:279
 msgid "None"
 msgstr ""
 
-#: src/step/edit.js:366
+#: src/step/edit.js:456
 #: src/story/edit.js:283
 msgid "Fade in"
 msgstr ""
 
-#: src/step/edit.js:370
+#: src/step/edit.js:460
 #: src/story/edit.js:287
 msgid "Slide up"
 msgstr ""
 
-#: src/step/edit.js:374
+#: src/step/edit.js:464
 #: src/story/edit.js:291
 msgid "Zoom in"
 msgstr ""
 
-#: src/step/edit.js:378
+#: src/step/edit.js:468
 #: src/story/edit.js:295
 msgid "Rotate in"
 msgstr ""
 
-#: src/step/edit.js:382
+#: src/step/edit.js:472
 #: src/story/edit.js:299
 msgid "Dissolve"
 msgstr ""
 
-#: src/step/edit.js:408
+#: src/step/edit.js:498
 msgid "Medium of this step"
 msgstr ""
 
-#: src/step/edit.js:409
+#: src/step/edit.js:499
 msgid "Choose an image or video for this text to scroll across."
 msgstr ""
 
@@ -212,17 +259,9 @@ msgstr ""
 msgid "Horizontal position"
 msgstr ""
 
-#: src/story/edit.js:74
-msgid "Left"
-msgstr ""
-
 #: src/story/edit.js:78
 #: src/story/edit.js:118
 msgid "Middle"
-msgstr ""
-
-#: src/story/edit.js:82
-msgid "Right"
 msgstr ""
 
 #: src/story/edit.js:92
@@ -235,14 +274,6 @@ msgstr ""
 
 #: src/story/edit.js:110
 msgid "Vertical position"
-msgstr ""
-
-#: src/story/edit.js:114
-msgid "Top"
-msgstr ""
-
-#: src/story/edit.js:122
-msgid "Bottom"
 msgstr ""
 
 #: src/story/edit.js:131

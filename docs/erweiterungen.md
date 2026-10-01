@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.13 · Stand: 01.10.2026 · Plugin-Version: 2.9.0
+Version: 1.14 · Stand: 01.10.2026 · Plugin-Version: 2.10.0
 
 ## 1. Ausgangspunkt
 
@@ -259,6 +259,29 @@ tragen (`mediaId` bzw. `portraitId` 0).
 Nachweis: `npm run lint:js`, `npm run lint:css` und `composer check` sauber.
 Prüfung im Browser und im Editor steht aus.
 
+### Schritt 6: Eigene Position und angehefteter Textkasten (2.10.0)
+
+Anlass vom 01.10.2026: Der Scroll-Hinweis der Onlinehilfe („Scroll and follow
+the story!") soll als eigenes Bild über dem Banner stehen bleiben, mittig,
+während die übrigen Textkästen der Story links stehen und durchlaufen.
+
+Zwei Einstellungen im Bereich „Position" des Schritts: eigene Position des
+Textkastens (`textPosition`, `stepAlign`, Vorgabe „Same as story") und „Keep
+the text box in place" (`pinText`). Mechanik in `konzept.md`, Abschnitt 3.
+
+Erwogen und verworfen: den Hinweis mit Bordmitteln von WordPress als
+„sticky"-Gruppe über die ganze Story zu legen. Er stünde dann auch über allen
+Fotos, wäre den Textkästen im Weg und hinge an einem negativen Außenabstand in
+Höhe des Bilds.
+
+Grenzen: Die Strecke, die ein Kasten stehen bleibt, kommt allein aus der
+Schritthöhe; bei 100 % bleibt nichts stehen. Kein Texteffekt für angeheftete
+Kästen, keine Wirkung in einer Reihe. Ein Kasten, der höher ist als der
+Bildschirm, zeigt seinen unteren Teil erst, wenn der Schritt endet.
+
+Nachweis: `npm run lint:js`, `npm run lint:css` und `composer check` sauber.
+Prüfung in den drei Browsern und im Editor steht aus.
+
 ### Prüfung unter WordPress 6.7 (Mindestversion)
 
 Am 01.10.2026 mit Plugin 2.8.1 nachgeholt, auf der Wegwerf-Site
@@ -362,3 +385,4 @@ den Entwicklungsstand.
 | 1.11 | 01.10.2026 | Nachtrag 2.8.1: Breite der Schritte im Editor klassischer Themes |
 | 1.12 | 01.10.2026 | Prüfung unter WordPress 6.7 auf `scrollstage-wp67.local` |
 | 1.13 | 01.10.2026 | Schritt 5: Bild für Hochformat (2.9.0), Prüfung im Browser offen |
+| 1.14 | 01.10.2026 | Schritt 6: eigene Position und angehefteter Textkasten (2.10.0), Prüfung im Browser offen |

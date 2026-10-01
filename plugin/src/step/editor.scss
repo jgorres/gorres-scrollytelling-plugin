@@ -91,6 +91,32 @@
 	align-items: flex-end;
 }
 
+/* Position a step gives its own text box; same weight as the rules of the
+   story above, so these win by coming later. */
+.jgor-st-story--editor .jgor-st-step--editor.is-text-left {
+	justify-content: flex-start;
+}
+
+.jgor-st-story--editor .jgor-st-step--editor.is-text-center {
+	justify-content: center;
+}
+
+.jgor-st-story--editor .jgor-st-step--editor.is-text-right {
+	justify-content: flex-end;
+}
+
+.jgor-st-story--editor .jgor-st-step--editor.is-align-start {
+	align-items: flex-start;
+}
+
+.jgor-st-story--editor .jgor-st-step--editor.is-align-center {
+	align-items: center;
+}
+
+.jgor-st-story--editor .jgor-st-step--editor.is-align-end {
+	align-items: flex-end;
+}
+
 /* Without a medium the step falls back to a simple column with the picker. */
 .jgor-st-story--editor .jgor-st-step--editor:not(.has-media) {
 	flex-direction: column;

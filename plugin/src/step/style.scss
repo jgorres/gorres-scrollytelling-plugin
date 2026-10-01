@@ -24,7 +24,8 @@
 /* Light text is the sensible default on top of a darkened medium; choosing a
    text colour for the block overrides it. A text box with its own background
    keeps the text colour of the theme, which is made for such a surface. */
-.jgor-st-step:not(.has-text-color) > .jgor-st-step__content:not(.has-background) {
+.jgor-st-step:not(.has-text-color) > .jgor-st-step__content:not(.has-background),
+.jgor-st-step:not(.has-text-color) > .jgor-st-step__pin > .jgor-st-step__content:not(.has-background) {
 	color: #fff;
 }
 
@@ -52,6 +53,60 @@
 
 .jgor-st-story.is-align-end .jgor-st-step {
 	align-items: flex-end;
+}
+
+/* A step can place its own text box differently. Same weight as the rules of
+   the story above, so these win by coming later. */
+.jgor-st-story .jgor-st-step.is-text-left {
+	justify-content: flex-start;
+}
+
+.jgor-st-story .jgor-st-step.is-text-center {
+	justify-content: center;
+}
+
+.jgor-st-story .jgor-st-step.is-text-right {
+	justify-content: flex-end;
+}
+
+.jgor-st-story .jgor-st-step.is-align-start {
+	align-items: flex-start;
+}
+
+.jgor-st-story .jgor-st-step.is-align-center {
+	align-items: center;
+}
+
+.jgor-st-story .jgor-st-step.is-align-end {
+	align-items: flex-end;
+}
+
+/* Pinned text box: the step hands its room and its padding to an element that
+   sticks to the top of the screen, like the stage behind it, and is as tall.
+   The box sits in there where it would sit in the step, and stays for as long
+   as the step is taller than the screen. A step of one screen leaves nothing
+   to stay for and behaves like any other. */
+.jgor-st-step.is-pinned {
+	display: block;
+	padding: 0;
+}
+
+.jgor-st-step__pin {
+	position: sticky;
+	top: var(--jgor-st-offset, 0px);
+	box-sizing: border-box;
+	display: flex;
+	justify-content: inherit;
+	align-items: inherit;
+	min-height: calc(100svh - var(--jgor-st-offset, 0px));
+	padding: clamp(1.5rem, 6vh, 4rem) clamp(1rem, 4vw, 3rem);
+}
+
+/* A stage limited to the medium is not as tall as the screen. */
+.jgor-st-story.is-stage-limited .jgor-st-step__pin {
+	aspect-ratio: var(--jgor-st-stage-ratio, 1);
+	min-height: 0;
+	max-height: calc(100svh - var(--jgor-st-offset, 0px));
 }
 
 /* A narrow column always uses the full width; the configured width only

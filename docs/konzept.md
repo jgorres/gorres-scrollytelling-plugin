@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.29 · Stand: 01.10.2026 · Plugin-Version: 2.9.0
+Version: 1.30 · Stand: 01.10.2026 · Plugin-Version: 2.10.0
 
 ## 1. Zweck
 
@@ -139,6 +139,8 @@ zusätzlich die ungenutzte Klasse `no-fade`.
 | `portraitFocalPoint` | Fokuspunkt des Hochformat-Bilds |
 | `textEffect` | eigener Effekt des Textkastens; leer übernimmt den der Story, `none` schaltet ihn ab |
 | `minHeight` | eigene Höhe des Schritts in Prozent der Bildschirmhöhe (20 bis 200); 0 übernimmt `minStepHeight` der Story |
+| `textPosition`, `stepAlign` | eigene Position des Textkastens, waagerecht und senkrecht; leer übernimmt die der Story |
+| `pinText` | Textkasten bleibt auf dem Bildschirm stehen, solange der Schritt durchläuft |
 
 #### Bild für Hochformat (`portraitId`, `portraitUrl`)
 
@@ -174,6 +176,44 @@ Hochformat-Bild, ein Handy im Querformat das Querformat.
   Bühne und Schritten.
 - Der Editor zeigt im Schritt weiter das Medium; das Hochformat-Bild ist im
   Fokuspunkt-Wähler des Bereichs zu sehen.
+
+#### Eigene Position und angehefteter Textkasten (`textPosition`, `stepAlign`, `pinText`)
+
+Seit 2.10.0. Die Story setzt die Position der Textkästen als Klassen an ihrem
+Wrapper (`is-text-…`, `is-align-…`). Ein Schritt mit eigener Position trägt
+dieselben Klassen selbst (`jgor_st_step_position_classes()`); die Regeln dafür
+stehen im Stylesheet des Schritts hinter denen der Story und haben dasselbe
+Gewicht, gewinnen also durch die Reihenfolge. Das gilt auch in einer Reihe.
+
+Mit `pinText` gibt `step/render.php` ein weiteres Element um den Textkasten
+aus:
+
+```html
+<div class="jgor-st-step is-pinned">
+	<div class="jgor-st-step__pin">
+		<div class="jgor-st-step__content">…</div>
+	</div>
+</div>
+```
+
+`.jgor-st-step__pin` klebt wie die Bühne am oberen Rand (`position: sticky`,
+`top: --jgor-st-offset`), ist so hoch wie der Bildschirm und übernimmt
+Innenabstand und Ausrichtung des Schritts (`justify-content` und `align-items`
+per `inherit`). Der Kasten steht darin an seiner üblichen Stelle und bleibt
+stehen, solange der Schritt höher ist als der Bildschirm: Die Strecke ist
+Schritthöhe minus Bildschirmhöhe, bei 150 % also ein halber Bildschirm, bei
+100 % nichts. Danach schiebt das Ende des Schritts ihn nach oben hinaus. Kein
+Script.
+
+- Ein angehefteter Kasten hat keinen Texteffekt: Die Effekte gehören zu einem
+  Kasten, der über den Bildschirm wandert. Das erspart auch die Geister-
+  Elemente von `view/text.js`.
+- In einer Reihe wirkt `pinText` nicht (Kontext `scrollstage/inRow`), die
+  Reihe hält ihre Schritte selbst fest.
+- Begrenzte Bühne: Das Element bekommt wie der Ausschnitt einer Reihe das
+  Seitenverhältnis der Bühne statt der Bildschirmhöhe.
+- Der Editor zeigt die eigene Position, das Anheften nicht; beides liegt im
+  Bereich „Position" des Schritts.
 
 #### Eigene Schritthöhe (`minHeight`)
 
@@ -745,3 +785,4 @@ aber mit Node 20.
 | 1.27 | 01.10.2026 | Bild für Hochformat je Schritt (`portraitId`, `portraitUrl`, `portraitFocalPoint`): Ausgabe als `picture` mit `source media="(orientation: portrait)"`, eigener Fokuspunkt, eigenes Verhältnis der begrenzten Bühne (Plugin 2.9.0) |
 | 1.28 | 01.10.2026 | Abschnitt 12, Startseiten der Onlinehilfe: Hochformat-Banner im ersten Schritt; Bundle neu exportiert (Plugin 2.9.0, Release-ZIP jetzt mit `src/`); am Plugin selbst nichts geändert |
 | 1.29 | 01.10.2026 | Abschnitt 9: Das Release-ZIP enthält die Block-Quellen `src/` (Richtlinien von WordPress.org), `build.sh` prüft das; `.distignore` schließt `src/` nicht mehr aus |
+| 1.30 | 01.10.2026 | Eigene Position des Textkastens je Schritt (`textPosition`, `stepAlign`) und angehefteter Textkasten (`pinText`, Element `.jgor-st-step__pin`, nur CSS) (Plugin 2.10.0) |
