@@ -11,6 +11,11 @@
  * half of the step is inside, so only one step of a row counts at a time.
  * While a row plays from top to bottom, the line is as tall as its step and
  * stands in for it.
+ *
+ * Which medium is shown and whether its video runs are two separate things:
+ * a second observer watches the stage, and the video of the shown medium only
+ * runs while the stage is inside the viewport. A story further down the page
+ * does not start its video on load, and a story left behind stops it.
  */
 
 import { ITEM_SELECTOR, STEP_SELECTOR, TRACK_CLASS } from './selectors';
@@ -29,6 +34,8 @@ function prefersReducedMotion() {
 /**
  * Activates the medium belonging to a step.
  *
+ * Only decides which medium is shown; the videos are handled by syncVideos().
+ *
  * @param {HTMLElement[]} items       Stage items, in the order of the steps.
  * @param {number}        index       Index of the step that is in view.
  * @param {number}        activeIndex Index of the medium shown right now.
@@ -46,8 +53,6 @@ function activateItem( items, index, activeIndex ) {
 		return activeIndex;
 	}
 
-	const reducedMotion = prefersReducedMotion();
-
 	items.forEach( ( item, position ) => {
 		const isActive = position === target;
 
@@ -59,26 +64,43 @@ function activateItem( items, index, activeIndex ) {
 		} else {
 			item.setAttribute( 'aria-hidden', 'true' );
 		}
-
-		// Only the visible video should run, and none at all when the visitor
-		// asked for reduced motion.
-		const video = item.querySelector( 'video' );
-
-		if ( video ) {
-			if ( isActive && ! reducedMotion ) {
-				const playing = video.play();
-
-				if ( playing && 'function' === typeof playing.catch ) {
-					// Autoplay can be refused; the poster frame stays visible.
-					playing.catch( () => {} );
-				}
-			} else {
-				video.pause();
-			}
-		}
 	} );
 
 	return target;
+}
+
+/**
+ * Plays the video of the shown medium and pauses every other one.
+ *
+ * The video only runs while the stage is inside the viewport, and none runs
+ * at all when the visitor asked for reduced motion.
+ *
+ * @param {HTMLElement[]} items        Stage items, in the order of the steps.
+ * @param {number}        activeIndex  Index of the medium shown right now.
+ * @param {boolean}       stageVisible Whether the stage is inside the viewport.
+ * @return {void}
+ */
+function syncVideos( items, activeIndex, stageVisible ) {
+	const mayPlay = stageVisible && ! prefersReducedMotion();
+
+	items.forEach( ( item, position ) => {
+		const video = item.querySelector( 'video' );
+
+		if ( ! video ) {
+			return;
+		}
+
+		if ( mayPlay && position === activeIndex ) {
+			const playing = video.play();
+
+			if ( playing && 'function' === typeof playing.catch ) {
+				// Autoplay can be refused; the poster frame stays visible.
+				playing.catch( () => {} );
+			}
+		} else {
+			video.pause();
+		}
+	} );
 }
 
 /**
@@ -131,7 +153,9 @@ export function setupMedia( story ) {
 	// From here on the script controls which medium is visible.
 	story.classList.add( 'is-enhanced' );
 
+	// The first medium is shown right away, its video waits for the stage.
 	let activeIndex = activateItem( items, 0, -1 );
+	let stageVisible = false;
 
 	const observer = new window.IntersectionObserver(
 		( entries ) => {
@@ -140,11 +164,16 @@ export function setupMedia( story ) {
 					return;
 				}
 
-				activeIndex = activateItem(
+				const nextIndex = activateItem(
 					items,
 					targets.indexOf( entry.target ),
 					activeIndex
 				);
+
+				if ( nextIndex !== activeIndex ) {
+					activeIndex = nextIndex;
+					syncVideos( items, activeIndex, stageVisible );
+				}
 			} );
 		},
 		{
@@ -156,4 +185,20 @@ export function setupMedia( story ) {
 	);
 
 	targets.forEach( ( target ) => observer.observe( target ) );
+
+	// The stage tells whether the story is on screen at all. Its first report
+	// arrives right after observing, so a story at the top of the page starts
+	// its video without any scrolling.
+	const stageObserver = new window.IntersectionObserver(
+		( entries ) => {
+			entries.forEach( ( entry ) => {
+				stageVisible = entry.isIntersecting;
+			} );
+
+			syncVideos( items, activeIndex, stageVisible );
+		},
+		{ threshold: 0 }
+	);
+
+	stageObserver.observe( stage );
 }

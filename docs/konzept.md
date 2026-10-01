@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.24 · Stand: 01.10.2026 · Plugin-Version: 2.8.3
+Version: 1.25 · Stand: 01.10.2026 · Plugin-Version: 2.8.4
 
 ## 1. Zweck
 
@@ -699,3 +699,4 @@ aber mit Node 20.
 | 1.22 | 01.10.2026 | readme: Description nennt mehrere Textkästen vor einem Medium (Plugin 2.8.2); am Plugin selbst nichts geändert |
 | 1.23 | 01.10.2026 | „Tested up to" aus dem Plugin-Header entfernt: Die automatische Prüfung bei der Einreichung (WordPress.org) lehnt die Zeile dort ab (`plugin_header_tested_up_to_not_allowed`), sie steht nur noch in `readme.txt`; der lokale Plugin Check 2.1.0 meldet das nicht (Plugin 2.8.3) |
 | 1.24 | 01.10.2026 | Abschnitt 12: Onlinehilfe im WordPress Playground (Vorlagen-Site `scrollstage.local`, Bundle `playground/`); am Plugin selbst nichts geändert |
+| 1.25 | 01.10.2026 | Video startet erst, wenn die Bühne im Viewport ist, und hält an, sobald die Story den Bildschirm verlässt: zweiter IntersectionObserver auf der Bühne in `view/media.js`; vorher lief das Video des ersten Schritts ab dem Laden der Seite und das letzte aktive Video nach der Story weiter (Plugin 2.8.4) |
