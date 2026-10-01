@@ -35,7 +35,8 @@
         "show_on_front": "page",
         "page_on_front": "5",
         "page_for_posts": "0",
-        "wp_page_for_privacy_policy": "3"
+        "wp_page_for_privacy_policy": "3",
+        "site_logo": "37"
     },
     "posts": [
         {
@@ -57,7 +58,8 @@
                 "_wp_page_template": [
                     "default"
                 ]
-            }
+            },
+            "terms": []
         },
         {
             "id": 4,
@@ -72,7 +74,8 @@
             "excerpt": "",
             "language": "",
             "translations": [],
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 5,
@@ -83,14 +86,19 @@
             "parent": 0,
             "menu_order": 1,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"left\",\"textWidth\":40,\"overlayOpacity\":40,\"textEffect\":\"fade\"} -->\n<!-- wp:scrollstage/step {\"mediaId\":65,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-mountain-sunrise.jpg\",\"mediaAlt\":\"Snow-capped mountain peak bathed in golden sunrise light against a deep blue sky.\"} -->\n<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">A medium fills the screen</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>It stays in place while this text box scrolls across it. Keep scrolling.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":66,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-turquoise-lake.jpg\",\"mediaAlt\":\"Turquoise lake surrounded by rocky, snow-capped mountains in Langtang, with a sandy shoreline under a clear blue sky.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">The next step changes the medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>As soon as a step reaches the middle of the screen, its image or video takes over the stage.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":67,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-foggy-forest-lakes.jpg\",\"mediaAlt\":\"Two small lakes surrounded by a foggy forest with a few hiking paths in view.\",\"backgroundColor\":\"base\",\"textEffect\":\"slide\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Every step has its own look</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>This text box has a background and slides in, the others fade. Position, width and dimming come from the story.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":68,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-starry-night.jpg\",\"mediaAlt\":\"A mountain under a clear, starry night sky, with numerous stars visible above the dark silhouette of the rocky peak.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Now build your own</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>You are logged in: open this page in the editor and change the story, or read on below.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->\n\n<!-- wp:paragraph -->\n<p>Scrollstage turns a web page into a story driven by scrolling: scrollytelling. One medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>This site is the help for the plugin, and it is a playground at the same time: Scrollstage is installed, you are logged in as administrator, and nothing you try here can break anything. Open the editor, build a story and see how it behaves.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Start here</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/installation/\">Installation</a>: requirements, installing the plugin and your first story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/\">Blocks</a>: the four blocks a story is built from.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/\">Settings</a>: media, text boxes, text effects and step height.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/faq/\">FAQ</a>: answers to frequent questions.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">What is scrollytelling?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Scrollytelling (from “scrolling” and “storytelling”) is a way of telling stories on the web in which scrolling itself moves the story forward. Instead of merely moving the page down, every scroll step triggers a change: graphics build up, maps zoom, images change, charts animate to match the text.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Built to behave</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>No JavaScript library.</strong> The front end script is about seven kilobytes, a little over two when compressed.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Readable without JavaScript.</strong> The first medium stays visible and the text follows underneath.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Respects reduced motion.</strong> No cross-fade, no text effect, no sideways movement and no playing video when the visitor asked for less motion.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Works with the keyboard</strong> and exposes one medium at a time to screen readers.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 6,
                 "en": 5
             },
-            "meta": []
+            "meta": {
+                "_wp_page_template": [
+                    "page-no-title"
+                ]
+            },
+            "terms": []
         },
         {
             "id": 6,
@@ -101,14 +109,19 @@
             "parent": 0,
             "menu_order": 1,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"left\",\"textWidth\":40,\"overlayOpacity\":40,\"textEffect\":\"fade\"} -->\n<!-- wp:scrollstage/step {\"mediaId\":65,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-mountain-sunrise.jpg\",\"mediaAlt\":\"Snow-capped mountain peak bathed in golden sunrise light against a deep blue sky.\"} -->\n<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">Ein Medium füllt den Bildschirm</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Es bleibt stehen, während dieser Textkasten darüber hinwegscrollt. Scroll weiter.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":66,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-turquoise-lake.jpg\",\"mediaAlt\":\"Turquoise lake surrounded by rocky, snow-capped mountains in Langtang, with a sandy shoreline under a clear blue sky.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Der nächste Schritt wechselt das Medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Sobald ein Schritt die Bildschirmmitte erreicht, übernimmt sein Bild oder Video die Bühne.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":67,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-foggy-forest-lakes.jpg\",\"mediaAlt\":\"Two small lakes surrounded by a foggy forest with a few hiking paths in view.\",\"backgroundColor\":\"base\",\"textEffect\":\"slide\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Jeder Schritt sieht anders aus</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Dieser Textkasten hat einen Hintergrund und gleitet herein, die anderen blenden ein. Position, Breite und Abdunklung kommen aus der Story.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"mediaId\":68,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/scrollstage-starry-night.jpg\",\"mediaAlt\":\"A mountain under a clear, starry night sky, with numerous stars visible above the dark silhouette of the rocky peak.\"} -->\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Jetzt bist du dran</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Du bist angemeldet: Öffne diese Seite im Editor und ändere die Story, oder lies unten weiter.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->\n\n<!-- wp:paragraph -->\n<p>Scrollstage macht aus einer Webseite eine Geschichte, die das Scrollen vorantreibt: Scrollytelling. Ein Medium füllt den Bildschirm und bleibt stehen, während der Text des aktuellen Schritts darüber hinwegscrollt. Sobald der nächste Schritt die Bildschirmmitte erreicht, wechselt das Medium dahinter.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Diese Site ist die Hilfe zum Plugin und zugleich ein Spielplatz: Scrollstage ist installiert, du bist als Administrator angemeldet, und nichts, was du hier ausprobierst, kann etwas kaputt machen. Öffne den Editor, baue eine Story und sieh dir an, wie sie sich verhält.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Hier geht es los</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/installieren/\">Installation</a>: Voraussetzungen, Plugin installieren und die erste Story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/\">Blöcke</a>: die vier Blöcke, aus denen eine Story besteht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/\">Einstellungen</a>: Medien, Textkästen, Texteffekte und Schritthöhe.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/haeufige-fragen/\">Häufige Fragen</a>: Antworten auf oft gestellte Fragen.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Was ist Scrollytelling?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Scrollytelling (aus „Scrolling“ und „Storytelling“) ist eine Art, im Web Geschichten zu erzählen, bei der das Scrollen selbst die Geschichte voranbringt. Statt die Seite nur nach unten zu bewegen, löst jeder Scrollschritt eine Veränderung aus: Grafiken bauen sich auf, Karten zoomen, Bilder wechseln, Diagramme bewegen sich passend zum Text.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Sauber gebaut</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Keine JavaScript-Bibliothek.</strong> Das Script im Frontend ist rund sieben Kilobyte groß, komprimiert gut zwei.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Lesbar ohne JavaScript.</strong> Das erste Medium bleibt sichtbar, der Text folgt darunter.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Achtet auf reduzierte Bewegung.</strong> Keine Überblendung, kein Texteffekt, keine Seitwärtsbewegung und kein laufendes Video, wenn der Besucher weniger Bewegung wünscht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Mit der Tastatur bedienbar</strong>, und Screenreader bekommen immer nur ein Medium.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 6,
                 "en": 5
             },
-            "meta": []
+            "meta": {
+                "_wp_page_template": [
+                    "page-no-title"
+                ]
+            },
+            "terms": []
         },
         {
             "id": 7,
@@ -119,14 +132,15 @@
             "parent": 0,
             "menu_order": 2,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Scrollstage is an ordinary WordPress plugin: install it, activate it and add its blocks to a page. There is no settings screen, everything is set in the block editor.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Requirements</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>WordPress 6.7 or newer</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>PHP 8.1 or newer</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The block editor. The plugin works with block themes and with classic themes.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Install and activate</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>In the dashboard, open <strong>Plugins → Add Plugin</strong> and search for “Scrollstage”.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Select <strong>Install Now</strong>, then <strong>Activate</strong>.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>If you have the plugin as a ZIP file instead, choose <strong>Upload Plugin</strong> on the same screen, pick the file and activate the plugin afterwards.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Your first story</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Create a page or open an existing one in the editor.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Add the block <strong>Scrollstage Story</strong>. It comes with a first step.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Select the step and choose an image or a video for it, then write its text. Any block can serve as text.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Add as many further steps as the story needs, each with its own medium.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>For a story that touches the edges of the screen, set the story block to <strong>full width</strong> in its toolbar.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Save the page and view it: the medium stays in place while the text scrolls across it.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Where to go from here</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The pages under <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/\">Blocks</a> describe the four blocks, the pages under <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/\">Settings</a> what you can adjust. In this demo the plugin is already installed and you are logged in, so you can try everything right away.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 8,
                 "en": 7
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 8,
@@ -137,14 +151,15 @@
             "parent": 0,
             "menu_order": 2,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Scrollstage ist ein gewöhnliches WordPress-Plugin: installieren, aktivieren und die Blöcke in eine Seite einfügen. Eine eigene Einstellungsseite gibt es nicht, alles wird im Block-Editor eingestellt.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Voraussetzungen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>WordPress 6.7 oder neuer</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>PHP 8.1 oder neuer</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Block-Editor. Das Plugin arbeitet mit Block-Themes und mit klassischen Themes.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Installieren und aktivieren</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Öffne im Dashboard <strong>Plugins → Plugin hinzufügen</strong> und suche nach „Scrollstage“.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Wähle <strong>Jetzt installieren</strong> und danach <strong>Aktivieren</strong>.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Liegt dir das Plugin als ZIP-Datei vor, wähle auf derselben Seite <strong>Plugin hochladen</strong>, gib die Datei an und aktiviere das Plugin anschließend.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Deine erste Story</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Lege eine Seite an oder öffne eine vorhandene im Editor.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Füge den Block <strong>Scrollstage Story</strong> ein. Er bringt einen ersten Schritt mit.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Wähle den Schritt aus, gib ihm ein Bild oder ein Video und schreibe seinen Text. Als Text eignet sich jeder Block.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Füge so viele weitere Schritte hinzu, wie die Story braucht, jeden mit eigenem Medium.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Soll die Story bis an die Bildschirmränder reichen, stelle den Story-Block in seiner Werkzeugleiste auf <strong>volle Breite</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Speichere die Seite und sieh sie dir an: Das Medium bleibt stehen, während der Text darüber hinwegscrollt.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So geht es weiter</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Die Seiten unter <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/\">Blöcke</a> beschreiben die vier Blöcke, die Seiten unter <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/\">Einstellungen</a>, was sich anpassen lässt. In dieser Demo ist das Plugin schon installiert und du bist angemeldet, du kannst also alles sofort ausprobieren.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 8,
                 "en": 7
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 9,
@@ -155,14 +170,15 @@
             "parent": 0,
             "menu_order": 3,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>A story is put together from four kinds of blocks, and it can hold as many of them as it needs. You find them in the block inserter in the category “Scrollstage”.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">Scrollstage Story</a>: the frame. It holds the layout of the text boxes, the dimming of the media and the length of a step.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/step/\">Scrollstage Step</a>: one step of the story with its own image or video and any blocks as text.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/row/\">Scrollstage Row</a>: optional group of steps that pass sideways while the visitor keeps scrolling down.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/after/\">Scrollstage Afterword</a>: optional content that follows the last step.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How they fit together</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Steps, rows and the afterword only exist inside a story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>A row holds steps of its own.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>A story can mix steps and rows in any order; the afterword always comes last.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 10,
                 "en": 9
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 10,
@@ -173,14 +189,15 @@
             "parent": 0,
             "menu_order": 3,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Eine Story wird aus vier Arten von Blöcken zusammengesetzt und kann beliebig viele davon enthalten. Du findest sie im Block-Inserter in der Kategorie „Scrollstage“.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Scrollstage Story</a>: der Rahmen. Er bestimmt die Anordnung der Textkästen, die Abdunklung der Medien und die Länge eines Schritts.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/step/\">Scrollstage Step</a>: ein Schritt der Story mit eigenem Bild oder Video und beliebigen Blöcken als Text.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/row/\">Scrollstage Row</a>: optionale Gruppe von Schritten, die seitwärts durchlaufen, während der Besucher weiter nach unten scrollt.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/after/\">Scrollstage Afterword</a>: optionaler Inhalt, der auf den letzten Schritt folgt.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wie sie zusammengehören</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Schritte, Reihen und der Nachspann existieren nur innerhalb einer Story.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Eine Reihe enthält eigene Schritte.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Eine Story kann Schritte und Reihen in beliebiger Folge mischen; der Nachspann kommt immer zuletzt.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 10,
                 "en": 9
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 11,
@@ -191,14 +208,15 @@
             "parent": 9,
             "menu_order": 4,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Story</strong> is the frame of every story. It holds the steps and decides how the whole story looks and moves: where the text boxes sit, how the media fill the screen and how long a step lasts.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">What goes inside</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/step/\">Scrollstage Step</a>: any number of steps, each with its own medium and text.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/row/\">Scrollstage Row</a>: optional, a group of steps that pass sideways.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/after/\">Scrollstage Afterword</a>: optional, content that follows the last step.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Settings</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Select the story block and open the block settings in the sidebar. They are grouped into three panels.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>Text boxes</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Horizontal position</strong>: Left, Middle or Right.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Text box width in percent</strong>: on narrow screens the boxes always use the full width.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Vertical position</strong>: Top, Middle or Bottom.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p><strong>Media</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Media fit</strong>: “Fill the frame” crops the medium to the size of the screen, “Show the whole medium” leaves margins free.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Limit the stage to the medium</strong>: the stage becomes as wide as the narrowest medium instead of the full width.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Pull up the following content</strong>: with a limited stage, the content after the story shows right below the stage from the first step on.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Dimming in percent</strong>: a dark layer on top of the media so that text stays readable.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Offset from the top (px)</strong>: room for a fixed menu above the media.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Step height</strong>: decides how long a medium stays in place.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p><strong>Motion</strong></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Transition</strong>: Cross-fade or None between two media.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Text effect</strong>: how the text boxes appear and disappear. A step can set its own effect.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Details are on the pages <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/media/\">Media</a>, <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/text-effects/\">Text effects</a> and <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/step-height/\">Step height</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Good to know</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Set the block to <strong>full width</strong> if the story should touch the edges of the screen.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Several settings are marked “Front end only”: the editor shows the steps one below the other, the effect itself is visible on the published page.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Without JavaScript the first medium stays visible and the text follows underneath.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 12,
                 "en": 11
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 12,
@@ -209,14 +227,15 @@
             "parent": 10,
             "menu_order": 4,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Story</strong> ist der Rahmen jeder Story. Der Block enthält die Schritte und legt fest, wie die ganze Story aussieht und sich bewegt: wo die Textkästen stehen, wie die Medien den Bildschirm füllen und wie lang ein Schritt ist.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Was hineingehört</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/step/\">Scrollstage Step</a>: beliebig viele Schritte, jeder mit eigenem Medium und Text.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/row/\">Scrollstage Row</a>: optional, eine Gruppe von Schritten, die seitwärts durchlaufen.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/after/\">Scrollstage Afterword</a>: optional, Inhalt, der auf den letzten Schritt folgt.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Einstellungen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Wähle den Story-Block aus und öffne die Block-Einstellungen in der Seitenleiste. Sie sind in drei Bereiche gegliedert. Die Bezeichnungen sind englisch, weil die Oberfläche des Plugins noch nicht übersetzt ist.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><strong>Text boxes</strong> (Textkästen)</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Horizontal position</strong>: links, mittig oder rechts.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Text box width in percent</strong>: Breite der Textkästen; auf schmalen Bildschirmen nutzen sie immer die volle Breite.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Vertical position</strong>: oben, mittig oder unten.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p><strong>Media</strong> (Medien)</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Media fit</strong>: „Fill the frame“ schneidet das Medium auf die Bildschirmgröße zu, „Show the whole medium“ zeigt es ganz und lässt Ränder frei.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Limit the stage to the medium</strong>: Die Bühne wird so breit wie das schmalste Medium statt bildschirmbreit.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Pull up the following content</strong>: Bei begrenzter Bühne steht der Inhalt nach der Story vom ersten Schritt an direkt unter der Bühne.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Dimming in percent</strong>: dunkle Schicht über den Medien, damit Text lesbar bleibt.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Offset from the top (px)</strong>: Platz für ein feststehendes Menü über den Medien.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Step height</strong>: legt fest, wie lange ein Medium stehen bleibt.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p><strong>Motion</strong> (Bewegung)</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Transition</strong>: Überblendung („Cross-fade“) oder harter Wechsel („None“) zwischen zwei Medien.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Text effect</strong>: wie die Textkästen erscheinen und verschwinden. Ein Schritt kann einen eigenen Effekt setzen.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Einzelheiten stehen auf den Seiten <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/medien/\">Medien</a>, <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/texteffekte/\">Texteffekte</a> und <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/schritthoehe/\">Schritthöhe</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Gut zu wissen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Stelle den Block auf <strong>volle Breite</strong>, wenn die Story bis an die Bildschirmränder reichen soll.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Mehrere Einstellungen tragen den Hinweis „Front end only“: Der Editor zeigt die Schritte untereinander, die Wirkung selbst siehst du auf der veröffentlichten Seite.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Ohne JavaScript bleibt das erste Medium sichtbar und der Text folgt darunter.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 12,
                 "en": 11
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 13,
@@ -227,14 +246,15 @@
             "parent": 9,
             "menu_order": 5,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Step</strong> is one step of the story: a medium and the text that scrolls across it. As soon as a step reaches the middle of the screen, its medium takes over the stage.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Choose an image or a video from the media library. A video runs muted and only while its step is visible.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Alternative text</strong>: leave it empty to use the text from the media library.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Focal point</strong>: sets which point stays visible when the medium is cropped.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Replace medium</strong> in the toolbar and <strong>Remove medium</strong> in the sidebar change or clear the medium.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>A step without a medium keeps the medium of the step before. That way several text boxes can scroll across the same image or video one after the other.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Text</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Any blocks can go into a step: headings, paragraphs, lists, buttons. Together they form the text box of the step.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Look of the text box</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Each step styles its own box through the usual block settings: text and background color, border and rounded corners, shadow, padding and typography. See <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/typography-and-text-box/\">Typography and text box</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Height and motion</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Height</strong>: switch off “Use the step height of the story” to give the step a height of its own. See <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/step-height/\">Step height</a>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Motion → Text effect</strong>: “Same as story” or an effect of its own. See <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/text-effects/\">Text effects</a>.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 14,
                 "en": 13
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 14,
@@ -245,14 +265,15 @@
             "parent": 10,
             "menu_order": 5,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Step</strong> ist ein Schritt der Story: ein Medium und der Text, der darüber hinwegscrollt. Sobald ein Schritt die Bildschirmmitte erreicht, übernimmt sein Medium die Bühne.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle ein Bild oder ein Video aus der Mediathek. Ein Video läuft stumm und nur, solange sein Schritt sichtbar ist.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Alternative text</strong>: Bleibt das Feld leer, gilt der Alternativtext aus der Mediathek.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Focal point</strong>: legt fest, welcher Punkt beim Zuschneiden sichtbar bleibt.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Replace medium</strong> in der Werkzeugleiste und <strong>Remove medium</strong> in der Seitenleiste tauschen oder entfernen das Medium.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Ein Schritt ohne Medium behält das Medium des Schritts davor. So können mehrere Textkästen nacheinander über dasselbe Bild oder Video scrollen.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Text</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>In einen Schritt passen beliebige Blöcke: Überschriften, Absätze, Listen, Buttons. Zusammen bilden sie den Textkasten des Schritts.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Aussehen des Textkastens</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Jeder Schritt gestaltet seinen Kasten über die üblichen Block-Einstellungen: Text- und Hintergrundfarbe, Rahmen und runde Ecken, Schatten, Innenabstand und Typografie. Siehe <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/schrift-und-textkasten/\">Schrift und Textkasten</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Höhe und Bewegung</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Height</strong>: Schalte „Use the step height of the story“ aus, um dem Schritt eine eigene Höhe zu geben. Siehe <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/schritthoehe/\">Schritthöhe</a>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Motion → Text effect</strong>: „Same as story“ oder ein eigener Effekt. Siehe <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/texteffekte/\">Texteffekte</a>.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 14,
                 "en": 13
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 15,
@@ -263,14 +284,15 @@
             "parent": 9,
             "menu_order": 6,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Row</strong> is an optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollstage Row</strong> between its steps.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Add steps to the row, just like in the story itself.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The editor shows the steps of a row one below the other; the sideways movement is visible on the published page.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Behavior in browsers</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browsers with scroll timelines (Chrome, Edge, Safari from version 26) move the row along with the scroll position.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>All others, Firefox at the time of writing, glide from one step to the next.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>If the text of a step is too tall for the screen, or the visitor asked for reduced motion, the steps follow each other vertically like ordinary steps.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Limits</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Text effects do not apply inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The height of a single step has no effect inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The row has no settings of its own; position, dimming and step height come from the story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 16,
                 "en": 15
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 16,
@@ -281,50 +303,53 @@
             "parent": 10,
             "menu_order": 6,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Row</strong> ist eine optionale Gruppe von Schritten in einer Story, die seitwärts durchlaufen: Der Bildschirm bleibt stehen und die Schritte ziehen hindurch, während der Besucher weiter nach unten scrollt. Schritte vor und nach der Reihe scrollen wie gewohnt senkrecht.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du sie ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge zwischen seinen Schritten den Block <strong>Scrollstage Row</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Füge der Reihe Schritte hinzu, genau wie in der Story selbst.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Editor zeigt die Schritte einer Reihe untereinander; die Seitwärtsbewegung siehst du auf der veröffentlichten Seite.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Verhalten in den Browsern</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browser mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) bewegen die Reihe stufenlos mit der Scrollposition.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Alle anderen, derzeit Firefox, gleiten von einem Schritt zum nächsten.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Ist der Text eines Schritts zu hoch für den Bildschirm oder wünscht der Besucher reduzierte Bewegung, folgen die Schritte untereinander wie gewöhnliche Schritte.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Grenzen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Texteffekte wirken in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die eigene Höhe eines einzelnen Schritts wirkt in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die Reihe hat keine eigenen Einstellungen; Position, Abdunklung und Schritthöhe kommen aus der Story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 16,
                 "en": 15
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 17,
             "type": "page",
             "status": "publish",
-            "title": "After",
+            "title": "Afterword",
             "slug": "after",
             "parent": 9,
             "menu_order": 7,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Afterword</strong> is optional content that follows the last step of a story: a closing paragraph, a button, a gallery, any blocks you like.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">When to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The afterword matters most when the story uses <strong>Limit the stage to the medium</strong>. The stage is then lower than the screen, and the space below it would stay empty while the steps play. The afterword fills that space: it appears right below the stage from the first step on and only scrolls away once the story ends.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollstage Afterword</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Put the closing content into it.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The afterword always follows the last step, wherever it stands in the editor.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Afterword or “Pull up the following content”?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>If the content belongs to the story itself, use the afterword. If it is ordinary page content that merely follows the story, leave it outside and switch on <strong>Pull up the following content</strong> in the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a> instead.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 18,
                 "en": 17
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 18,
             "type": "page",
             "status": "publish",
-            "title": "Nachspann (After)",
+            "title": "Nachspann (Afterword)",
             "slug": "after",
             "parent": 10,
             "menu_order": 7,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollstage Afterword</strong> ist optionaler Inhalt, der auf den letzten Schritt einer Story folgt: ein Schlussabsatz, ein Button, eine Galerie, beliebige Blöcke.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wann er sinnvoll ist</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Der Nachspann ist vor allem wichtig, wenn die Story <strong>Limit the stage to the medium</strong> nutzt. Die Bühne ist dann niedriger als der Bildschirm, und der Platz darunter bliebe leer, solange die Schritte laufen. Der Nachspann füllt diesen Platz: Er steht vom ersten Schritt an direkt unter der Bühne und scrollt erst weg, wenn die Story endet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du ihn ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge den Block <strong>Scrollstage Afterword</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Lege den Schlussinhalt hinein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Nachspann folgt immer auf den letzten Schritt, egal wo er im Editor steht.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Nachspann oder „Pull up the following content“?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Gehört der Inhalt zur Story selbst, nimm den Nachspann. Ist es gewöhnlicher Seiteninhalt, der nur auf die Story folgt, lass ihn außerhalb und schalte stattdessen im <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a> <strong>Pull up the following content</strong> ein.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 18,
                 "en": 17
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 19,
@@ -335,14 +360,15 @@
             "parent": 0,
             "menu_order": 8,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Scrollstage has no settings screen of its own. Everything is set in the block editor: for the whole story in the story block, for a single step in that step.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/media/\">Media</a>: how images and videos fill the screen, limiting the stage, dimming, offset and the change between media.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/typography-and-text-box/\">Typography and text box</a>: position and width of the text boxes, their look and their typography.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/text-effects/\">Text effects</a>: how the text boxes appear and disappear.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/step-height/\">Step height</a>: how long a medium stays in place, and several text boxes in front of one medium.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Story or step?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Story block</strong>: position and width of the text boxes, media fit, limited stage, dimming, offset, step height, transition and text effect for all steps.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Step</strong>: medium, alternative text and focal point, look and typography of the text box, a height of its own and a text effect of its own.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 20,
                 "en": 19
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 20,
@@ -353,14 +379,15 @@
             "parent": 0,
             "menu_order": 8,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Scrollstage hat keine eigene Einstellungsseite. Alles wird im Block-Editor eingestellt: für die ganze Story im Story-Block, für einen einzelnen Schritt in diesem Schritt.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/medien/\">Medien</a>: wie Bilder und Videos den Bildschirm füllen, Bühne begrenzen, Abdunklung, Abstand oben und der Wechsel zwischen den Medien.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/schrift-und-textkasten/\">Schrift und Textkasten</a>: Position und Breite der Textkästen, ihr Aussehen und ihre Schrift.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/texteffekte/\">Texteffekte</a>: wie die Textkästen erscheinen und verschwinden.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/schritthoehe/\">Schritthöhe</a>: wie lange ein Medium stehen bleibt, und mehrere Textkästen vor einem Medium.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Story oder Schritt?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Story-Block</strong>: Position und Breite der Textkästen, Medienanpassung, begrenzte Bühne, Abdunklung, Abstand oben, Schritthöhe, Übergang und Texteffekt für alle Schritte.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Schritt</strong>: Medium, Alternativtext und Fokuspunkt, Aussehen und Schrift des Textkastens, eine eigene Höhe und ein eigener Texteffekt.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 20,
                 "en": 19
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 21,
@@ -371,14 +398,15 @@
             "parent": 19,
             "menu_order": 9,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>The media of a story are set in two places: each <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/step/\">step</a> carries its own image or video, and the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a> decides in its panel <strong>Media</strong> how all of them are shown.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Fill the frame or show the whole medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Fill the frame</strong> crops every medium to the size of the screen. The aspect ratio does not matter, but the resolution does: a screen-high medium needs roughly screen height times aspect ratio in width, about 2560 pixels for a 16:9 image.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Show the whole medium</strong> leaves margins free. Give every medium of a story the same aspect ratio, otherwise the margins change from step to step.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>With “Fill the frame”, set the <strong>Focal point</strong> of each step so the right part survives the crop.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Limit the stage to the medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Normally the media use the full width, and with “Show the whole medium” the text can end up beside the medium. With <strong>Limit the stage to the medium</strong> the stage becomes as wide as the narrowest medium of the story.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>The stage is then lower than the screen. To fill the space below it, switch on <strong>Pull up the following content</strong> or add a <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/after/\">Scrollstage Afterword</a>.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Dimming and offset</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Dimming in percent</strong> (0 to 90, preset 35): a dark layer on top of the media so that text stays readable.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Offset from the top (px)</strong> (0 to 200): room for a fixed menu above the media.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Change between media</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>In the panel <strong>Motion</strong>, <strong>Transition</strong> chooses between “Cross-fade” and “None”, an instant change. Systems asking for reduced motion never cross-fade.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Images and videos</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Images and videos come from the media library.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>A video runs muted and only while its own step is visible. It stays paused when the visitor asked for reduced motion.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The plugin calculates the <code>sizes</code> attribute from the aspect ratio of each image, so the browser loads a file that is sharp enough for a screen-high medium.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Screen readers get one medium at a time: only the visible one is exposed.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Example: a video as medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The story below uses a video. It runs muted and only while its step is visible. The second step has no medium of its own, so its text scrolls across the same video.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"right\",\"textWidth\":40,\"overlayOpacity\":30} -->\n<!-- wp:scrollstage/step {\"mediaId\":69,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/testbild-video.mp4\",\"mediaType\":\"video\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">A video on the stage</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Choose a video from the media library instead of an image. It starts as soon as the step is visible.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"minHeight\":60,\"backgroundColor\":\"base\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Same video, next text box</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>This step has no medium and a lower height of its own. The video keeps playing behind it.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 22,
                 "en": 21
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 22,
@@ -389,14 +417,15 @@
             "parent": 20,
             "menu_order": 9,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Die Medien einer Story werden an zwei Stellen eingestellt: Jeder <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/step/\">Schritt</a> trägt sein eigenes Bild oder Video, und der <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a> legt im Bereich <strong>Media</strong> fest, wie alle gezeigt werden.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Rahmen füllen oder ganzes Medium zeigen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Fill the frame</strong> schneidet jedes Medium auf die Bildschirmgröße zu. Das Seitenverhältnis ist egal, die Auflösung nicht: Ein bildschirmhohes Medium braucht in der Breite etwa Bildschirmhöhe mal Seitenverhältnis, bei einem 16:9-Bild rund 2560 Pixel.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Show the whole medium</strong> lässt Ränder frei. Gib allen Medien einer Story dasselbe Seitenverhältnis, sonst ändern sich die Ränder von Schritt zu Schritt.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Setze bei „Fill the frame“ in jedem Schritt den <strong>Focal point</strong>, damit der richtige Ausschnitt erhalten bleibt.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Bühne auf das Medium begrenzen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Normalerweise nutzen die Medien die volle Breite, und bei „Show the whole medium“ kann der Text neben dem Medium landen. Mit <strong>Limit the stage to the medium</strong> wird die Bühne so breit wie das schmalste Medium der Story.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Die Bühne ist dann niedriger als der Bildschirm. Um den Platz darunter zu füllen, schalte <strong>Pull up the following content</strong> ein oder füge einen <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/after/\">Nachspann (Scrollstage Afterword)</a> ein.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Abdunklung und Abstand oben</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Dimming in percent</strong> (0 bis 90, Vorgabe 35): dunkle Schicht über den Medien, damit Text lesbar bleibt.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Offset from the top (px)</strong> (0 bis 200): Platz für ein feststehendes Menü über den Medien.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wechsel zwischen den Medien</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Im Bereich <strong>Motion</strong> wählt <strong>Transition</strong> zwischen „Cross-fade“ (Überblendung) und „None“ (harter Wechsel). Systeme, die reduzierte Bewegung wünschen, blenden nie über.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Bilder und Videos</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Bilder und Videos kommen aus der Mediathek.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Ein Video läuft stumm und nur, solange sein Schritt sichtbar ist. Es bleibt angehalten, wenn der Besucher reduzierte Bewegung wünscht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Das Plugin berechnet das Attribut <code>sizes</code> aus dem Seitenverhältnis jedes Bildes, damit der Browser eine Datei lädt, die für ein bildschirmhohes Medium scharf genug ist.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Screenreader bekommen immer nur ein Medium: das gerade sichtbare.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Beispiel: ein Video als Medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Die folgende Story nutzt ein Video. Es läuft stumm und nur, solange sein Schritt sichtbar ist. Der zweite Schritt hat kein eigenes Medium, sein Text scrollt deshalb über dasselbe Video.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:scrollstage/story {\"align\":\"full\",\"textPosition\":\"right\",\"textWidth\":40,\"overlayOpacity\":30} -->\n<!-- wp:scrollstage/step {\"mediaId\":69,\"mediaUrl\":\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/testbild-video.mp4\",\"mediaType\":\"video\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Ein Video auf der Bühne</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Wähle statt eines Bildes ein Video aus der Mediathek. Es startet, sobald der Schritt sichtbar ist.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n\n<!-- wp:scrollstage/step {\"minHeight\":60,\"backgroundColor\":\"base\"} -->\n<!-- wp:heading {\"level\":3} -->\n<h3 class=\"wp-block-heading\">Dasselbe Video, nächster Textkasten</h3>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Dieser Schritt hat kein Medium und eine geringere eigene Höhe. Das Video läuft dahinter weiter.</p>\n<!-- /wp:paragraph -->\n<!-- /wp:scrollstage/step -->\n<!-- /wp:scrollstage/story -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 22,
                 "en": 21
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 23,
@@ -407,14 +436,15 @@
             "parent": 19,
             "menu_order": 10,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Position and width of the text boxes are set once for the whole story. How a box looks is set per <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/step/\">step</a>, so every step can have its own look.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Position and width (story)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>In the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a>, panel <strong>Text boxes</strong>:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Horizontal position</strong>: Left, Middle or Right.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Vertical position</strong>: Top, Middle or Bottom.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Text box width in percent</strong> (20 to 100, preset 45) of the available column. On narrow screens the boxes always use the full width.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Look of the box (step)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Select a step and open the tab <strong>Styles</strong> in the sidebar:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Color</strong>: text and background color.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Border</strong>: color, width, style and rounded corners.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Shadow</strong></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Dimensions</strong>: padding inside the box, margin around it.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Background, border, shadow and padding apply to the text box itself, not to the whole step. A step without a background stays transparent, and its text stands directly on the dimmed medium.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Typography (step)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Under <strong>Typography</strong> a step sets font family, size, weight and style, line height, letter spacing, letter case, decoration and text alignment. Not all of them are shown at first: open the menu with the three dots next to “Typography” to add more.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Readable text on bright media</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Raise <strong>Dimming in percent</strong> in the story block, see <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/media/\">Media</a>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Or give the step a background color, a border or a shadow.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 24,
                 "en": 23
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 24,
@@ -425,14 +455,15 @@
             "parent": 20,
             "menu_order": 10,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Position und Breite der Textkästen werden einmal für die ganze Story festgelegt. Wie ein Kasten aussieht, wird je <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/step/\">Schritt</a> eingestellt, jeder Schritt kann also anders aussehen.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Position und Breite (Story)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Im <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a>, Bereich <strong>Text boxes</strong>:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Horizontal position</strong>: links, mittig oder rechts.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Vertical position</strong>: oben, mittig oder unten.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Text box width in percent</strong> (20 bis 100, Vorgabe 45) der verfügbaren Spalte. Auf schmalen Bildschirmen nutzen die Kästen immer die volle Breite.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Aussehen des Kastens (Schritt)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Wähle einen Schritt aus und öffne in der Seitenleiste den Reiter <strong>Stile</strong>:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>Farbe</strong>: Text- und Hintergrundfarbe.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Rahmen</strong>: Farbe, Breite, Stil und runde Ecken.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Schatten</strong></li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Größe</strong>: Innenabstand im Kasten, Außenabstand darum.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Hintergrund, Rahmen, Schatten und Innenabstand gelten für den Textkasten selbst, nicht für den ganzen Schritt. Ein Schritt ohne Hintergrund bleibt durchsichtig, sein Text steht dann direkt auf dem abgedunkelten Medium.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Schrift (Schritt)</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Unter <strong>Typografie</strong> stellt ein Schritt Schriftart, Größe, Stärke und Stil, Zeilenhöhe, Zeichenabstand, Groß- und Kleinschreibung, Dekoration und Textausrichtung ein. Nicht alles ist sofort sichtbar: Über das Menü mit den drei Punkten neben „Typografie“ blendest du weitere Felder ein.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Lesbarer Text auf hellen Medien</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Erhöhe im Story-Block <strong>Dimming in percent</strong>, siehe <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/medien/\">Medien</a>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Oder gib dem Schritt eine Hintergrundfarbe, einen Rahmen oder einen Schatten.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 24,
                 "en": 23
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 25,
@@ -443,14 +474,15 @@
             "parent": 19,
             "menu_order": 11,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>A text effect decides how the text boxes appear and disappear while scrolling. It is set for the whole story, and every step can choose its own.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Where to set it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">Story block</a>, panel <strong>Motion → Text effect</strong>: the effect for all steps. The preset is “None”.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/step/\">Step</a>, panel <strong>Motion → Text effect</strong>: “Same as story” or an effect of its own, including “None”.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">The effects</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>None</strong>: the box simply scrolls in and out.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Fade in</strong>: the box fades in and fades out again.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Slide up</strong>: the box slides in from below while it fades in.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Zoom in</strong>: the box grows from a smaller size to its full size.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Rotate in</strong>: the box spins in like a propeller and grows while it does.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Dissolve</strong>: the box builds up from a fine pattern of dots.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Good to know</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>The effects are visible on the published page only, not in the editor.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Visitors who asked their system for reduced motion see no effect.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Text effects do not apply inside a <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/row/\">row</a>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>In browsers with scroll timelines (Chrome, Edge, Safari from version 26) the effect follows the scroll position. In other browsers, Firefox at the time of writing, it plays as a short animation when the box comes into view.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 26,
                 "en": 25
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 26,
@@ -461,14 +493,15 @@
             "parent": 20,
             "menu_order": 11,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Ein Texteffekt legt fest, wie die Textkästen beim Scrollen erscheinen und verschwinden. Er gilt für die ganze Story, und jeder Schritt kann einen eigenen wählen.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wo du ihn einstellst</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a>, Bereich <strong>Motion → Text effect</strong>: der Effekt für alle Schritte. Vorgabe ist „None“.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/step/\">Schritt</a>, Bereich <strong>Motion → Text effect</strong>: „Same as story“ oder ein eigener Effekt, auch „None“.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Die Effekte</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li><strong>None</strong>: Der Kasten scrollt einfach herein und hinaus.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Fade in</strong>: Der Kasten blendet ein und wieder aus.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Slide up</strong>: Der Kasten gleitet von unten herein und blendet dabei ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Zoom in</strong>: Der Kasten wächst von einer kleineren Größe auf seine volle Größe.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Rotate in</strong>: Der Kasten dreht sich wie ein Propeller herein und wächst dabei.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li><strong>Dissolve</strong>: Der Kasten baut sich aus einem feinen Punktraster auf.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Gut zu wissen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Die Effekte sind nur auf der veröffentlichten Seite sichtbar, nicht im Editor.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Besucher, die in ihrem System reduzierte Bewegung eingestellt haben, sehen keinen Effekt.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>In einer <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/row/\">Reihe</a> wirken Texteffekte nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>In Browsern mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) folgt der Effekt der Scrollposition. In anderen Browsern, derzeit Firefox, läuft er als kurze Animation ab, sobald der Kasten ins Bild kommt.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 26,
                 "en": 25
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 27,
@@ -479,14 +512,15 @@
             "parent": 19,
             "menu_order": 12,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>The height of a step decides how long its medium stays in place: the taller the step, the longer the visitor scrolls before the next one takes over.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">For the whole story</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>In the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a>, panel <strong>Media</strong>, set <strong>Step height in percent of the screen height</strong> (40 to 200, preset 100). 100 means each step is one screen high.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">For a single step</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/step/\">step</a> and open the panel <strong>Height</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Switch off <strong>Use the step height of the story</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Set <strong>Step height in percent of the screen height</strong> (20 to 200).</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>A text box taller than the chosen height makes the step as tall as it needs.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Several text boxes in front of one medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Give the first step the medium and add further steps without one: their text boxes scroll across the medium of the first step, one after the other. To bring the boxes closer together, give these steps a lower height of their own. Each of them keeps its own look and its own text effect.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Good to know</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>The height takes effect on the published page only, not in the editor.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Inside a <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/row/\">row</a> the height of a single step has no effect.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 28,
                 "en": 27
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 28,
@@ -497,14 +531,15 @@
             "parent": 20,
             "menu_order": 12,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:paragraph -->\n<p>Die Höhe eines Schritts legt fest, wie lange sein Medium stehen bleibt: Je höher der Schritt, desto länger scrollt der Besucher, bis der nächste übernimmt.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Für die ganze Story</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Stelle im <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a>, Bereich <strong>Media</strong>, den Wert <strong>Step height in percent of the screen height</strong> ein (40 bis 200, Vorgabe 100). 100 heißt: Jeder Schritt ist einen Bildschirm hoch.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Für einen einzelnen Schritt</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/step/\">Schritt</a> aus und öffne den Bereich <strong>Height</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Schalte <strong>Use the step height of the story</strong> aus.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Stelle <strong>Step height in percent of the screen height</strong> ein (20 bis 200).</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:paragraph -->\n<p>Ist ein Textkasten höher als die gewählte Höhe, wird der Schritt so hoch, wie der Kasten es braucht.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Mehrere Textkästen vor einem Medium</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Gib dem ersten Schritt das Medium und füge weitere Schritte ohne Medium hinzu: Ihre Textkästen scrollen nacheinander über das Medium des ersten Schritts. Damit die Kästen dichter aufeinander folgen, gib diesen Schritten eine geringere eigene Höhe. Jeder von ihnen behält sein eigenes Aussehen und seinen eigenen Texteffekt.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Gut zu wissen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Die Höhe wirkt nur auf der veröffentlichten Seite, nicht im Editor.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>In einer <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/row/\">Reihe</a> wirkt die eigene Höhe eines einzelnen Schritts nicht.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 28,
                 "en": 27
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 29,
@@ -515,14 +550,15 @@
             "parent": 0,
             "menu_order": 13,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:accordion -->\n<div role=\"group\" class=\"wp-block-accordion\"><!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Which image sizes should I use?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>For “Fill the frame” the aspect ratio does not matter, but the resolution does: a screen-high medium needs roughly screen height times aspect ratio in width, so about 2560 pixels for a 16:9 image. For “Show the whole medium” it is worth giving every medium of a story the same aspect ratio, otherwise the free margins change from step to step. More on the page <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/media/\">Media</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Can I use videos?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Yes, images and videos from the media library. A video runs muted and only while its own step is visible, and it stays paused when the visitor asked for reduced motion.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">What happens to a step without a medium?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Its text scrolls across the medium of the previous step. That is useful for a closing note on the last image.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Can several text boxes scroll across the same medium?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Yes. Give the first step the medium and add further steps without one: their text boxes scroll across the medium of the first step, one after the other. To bring the boxes closer together, open “Height” in the settings of such a step, switch off “Use the step height of the story” and choose a lower height. Each of these steps keeps its own look and its own text effect. Inside a row the height of a single step has no effect. More on the page <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/step-height/\">Step height</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Why is there empty space below the stage?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>With “Limit the stage to the medium” the stage is lower than the screen, and content after the story only follows the last step. Switch on “Pull up the following content” in the story block: the content after it then sits right below the stage while the steps play and scrolls on once the story ends. If the content belongs to the story itself, put it into a <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/after/\">Scrollstage Afterword</a> block inside the story instead.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">How does a row behave in different browsers?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Browsers with scroll timelines (Chrome, Edge, Safari from version 26) move the row along with the scroll position. All others, Firefox at the time of writing, glide from one step to the next. If the text of a step is too tall for the screen, or the visitor asked for reduced motion, the steps of the row follow each other vertically like ordinary steps. Text effects do not apply inside a row. More on the page <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/row/\">Row</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Does the text stay readable on a bright image?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>The story dims its media; you can set how much. Each step can also give its text box a background, a border and a shadow and set its own text color through the usual block settings. More on the page <a href=\"{{JGOR_ST_HELP_SITE_URL}}/settings/typography-and-text-box/\">Typography and text box</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item --></div>\n<!-- /wp:accordion -->",
             "excerpt": "",
             "language": "en",
             "translations": {
                 "de": 30,
                 "en": 29
             },
-            "meta": []
+            "meta": [],
+            "terms": []
         },
         {
             "id": 30,
@@ -533,14 +569,539 @@
             "parent": 0,
             "menu_order": 13,
             "mime_type": "",
-            "content": "",
+            "content": "<!-- wp:accordion -->\n<div role=\"group\" class=\"wp-block-accordion\"><!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Welche Bildgrößen soll ich verwenden?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Bei „Fill the frame“ ist das Seitenverhältnis egal, die Auflösung nicht: Ein bildschirmhohes Medium braucht in der Breite etwa Bildschirmhöhe mal Seitenverhältnis, bei einem 16:9-Bild also rund 2560 Pixel. Bei „Show the whole medium“ lohnt es sich, allen Medien einer Story dasselbe Seitenverhältnis zu geben, sonst ändern sich die freien Ränder von Schritt zu Schritt. Mehr auf der Seite <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/medien/\">Medien</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Kann ich Videos verwenden?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Ja, Bilder und Videos aus der Mediathek. Ein Video läuft stumm und nur, solange sein eigener Schritt sichtbar ist, und es bleibt angehalten, wenn der Besucher reduzierte Bewegung wünscht.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Was passiert mit einem Schritt ohne Medium?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Sein Text scrollt über das Medium des vorherigen Schritts. Das eignet sich für eine Schlussbemerkung auf dem letzten Bild.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Können mehrere Textkästen über dasselbe Medium scrollen?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Ja. Gib dem ersten Schritt das Medium und füge weitere Schritte ohne Medium hinzu: Ihre Textkästen scrollen nacheinander über das Medium des ersten Schritts. Damit die Kästen dichter aufeinander folgen, öffne in den Einstellungen eines solchen Schritts „Height“, schalte „Use the step height of the story“ aus und wähle eine geringere Höhe. Jeder dieser Schritte behält sein eigenes Aussehen und seinen eigenen Texteffekt. In einer Reihe wirkt die Höhe eines einzelnen Schritts nicht. Mehr auf der Seite <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/schritthoehe/\">Schritthöhe</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Warum ist unter der Bühne leerer Platz?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Mit „Limit the stage to the medium“ ist die Bühne niedriger als der Bildschirm, und Inhalt nach der Story folgt erst auf den letzten Schritt. Schalte im Story-Block „Pull up the following content“ ein: Der Inhalt danach steht dann direkt unter der Bühne, solange die Schritte laufen, und scrollt weiter, sobald die Story endet. Gehört der Inhalt zur Story selbst, lege ihn stattdessen in einen Block <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/after/\">Scrollstage Afterword</a> innerhalb der Story.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Wie verhält sich eine Reihe in den verschiedenen Browsern?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Browser mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) bewegen die Reihe stufenlos mit der Scrollposition. Alle anderen, derzeit Firefox, gleiten von einem Schritt zum nächsten. Ist der Text eines Schritts zu hoch für den Bildschirm oder wünscht der Besucher reduzierte Bewegung, folgen die Schritte der Reihe untereinander wie gewöhnliche Schritte. Texteffekte wirken in einer Reihe nicht. Mehr auf der Seite <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/row/\">Reihe (Row)</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item -->\n\n<!-- wp:accordion-item -->\n<div class=\"wp-block-accordion-item\"><!-- wp:accordion-heading -->\n<h3 class=\"wp-block-accordion-heading has-icon has-icon-right\"><button type=\"button\" class=\"wp-block-accordion-heading__toggle\"><span class=\"wp-block-accordion-heading__toggle-title\">Bleibt der Text auf einem hellen Bild lesbar?</span><span class=\"wp-block-accordion-heading__toggle-icon\" aria-hidden=\"true\">+</span></button></h3>\n<!-- /wp:accordion-heading -->\n\n<!-- wp:accordion-panel -->\n<div role=\"region\" class=\"wp-block-accordion-panel\"><!-- wp:paragraph -->\n<p>Die Story dunkelt ihre Medien ab; wie stark, stellst du ein. Jeder Schritt kann seinem Textkasten außerdem einen Hintergrund, einen Rahmen und einen Schatten geben und über die üblichen Block-Einstellungen eine eigene Textfarbe setzen. Mehr auf der Seite <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/einstellungen/schrift-und-textkasten/\">Schrift und Textkasten</a>.</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:accordion-panel --></div>\n<!-- /wp:accordion-item --></div>\n<!-- /wp:accordion -->",
             "excerpt": "",
             "language": "de",
             "translations": {
                 "de": 30,
                 "en": 29
             },
-            "meta": []
+            "meta": [],
+            "terms": []
+        },
+        {
+            "id": 32,
+            "type": "wp_template_part",
+            "status": "publish",
+            "title": "Footer",
+            "slug": "footer",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "",
+            "content": "<!-- wp:group {\"style\":{\"spacing\":{\"padding\":{\"top\":\"var:preset|spacing|60\",\"bottom\":\"var:preset|spacing|50\"}}},\"layout\":{\"type\":\"constrained\"}} -->\n<div class=\"wp-block-group\" style=\"padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)\">\n\t<!-- wp:group {\"align\":\"wide\",\"layout\":{\"type\":\"default\"}} -->\n\t<div class=\"wp-block-group alignwide\">\n\t\t<!-- wp:group {\"align\":\"full\",\"layout\":{\"type\":\"flex\",\"flexWrap\":\"wrap\",\"justifyContent\":\"space-between\",\"verticalAlignment\":\"top\"}} -->\n\t\t<div class=\"wp-block-group alignfull\">\n\t\t\t<!-- wp:columns -->\n\t\t\t<div class=\"wp-block-columns\">\n\t\t\t\t<!-- wp:column {\"width\":\"100%\"} -->\n\t\t\t\t<div class=\"wp-block-column\" style=\"flex-basis:100%\"><!-- wp:site-title {\"level\":2} /-->\n\n\t\t\t\t<!-- wp:site-tagline /-->\n\t\t\t\t</div>\n\t\t\t\t<!-- /wp:column -->\n\n\t\t\t\t<!-- wp:column {\"width\":\"\"} -->\n\t\t\t\t<div class=\"wp-block-column\">\n\t\t\t\t\t<!-- wp:spacer {\"height\":\"var:preset|spacing|40\",\"width\":\"0px\"} -->\n\t\t\t\t\t<div style=\"height:var(--wp--preset--spacing--40);width:0px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\t\t\t\t\t<!-- /wp:spacer -->\n\t\t\t\t</div>\n\t\t\t\t<!-- /wp:column -->\n\t\t\t</div>\n\t\t\t<!-- /wp:columns -->\n\n\t\t\t<!-- wp:group {\"style\":{\"spacing\":{\"blockGap\":\"var:preset|spacing|80\"}},\"layout\":{\"type\":\"flex\",\"flexWrap\":\"wrap\",\"verticalAlignment\":\"top\",\"justifyContent\":\"space-between\"}} -->\n\t\t\t<div class=\"wp-block-group\">\n\t\t\t\t<!-- wp:navigation {\"overlayMenu\":\"never\",\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\"}} -->\n\t\t\t\t\t<!-- wp:navigation-link {\"label\":\"About\",\"url\":\"#\"} /-->\n\n\t\t\t\t\t<!-- wp:navigation-link {\"label\":\"FAQs\",\"url\":\"#\"} /-->\n\n\t\t\t\t\t<!-- wp:navigation-link {\"label\":\"Authors\",\"url\":\"#\"} /-->\n\t\t\t\t<!-- /wp:navigation -->\n\n\t\t\t\t<!-- wp:navigation {\"overlayMenu\":\"never\",\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\"}} -->\n\t\t\t\t\t<!-- wp:navigation-link {\"label\":\"Patterns\",\"url\":\"#\"} /-->\n\n\t\t\t\t<!-- /wp:navigation -->\n\t\t\t</div>\n\t\t\t\t<!-- /wp:group -->\n\t\t</div>\n\t\t<!-- /wp:group -->\n\n\t\t<!-- wp:spacer {\"height\":\"var:preset|spacing|70\"} -->\n\t\t<div style=\"height:var(--wp--preset--spacing--70)\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>\n\t\t<!-- /wp:spacer -->\n\n\t\t<!-- wp:group {\"align\":\"full\",\"style\":{\"spacing\":{\"blockGap\":\"var:preset|spacing|20\"}},\"layout\":{\"type\":\"flex\",\"flexWrap\":\"wrap\",\"justifyContent\":\"space-between\"}} -->\n\t\t<div class=\"wp-block-group alignfull\">\n\t\t\t<!-- wp:paragraph {\"fontSize\":\"small\"} -->\n\t\t\t<p class=\"has-small-font-size\">4050 / 2 = Twenty Twenty-Five</p>\n\t\t\t<!-- /wp:paragraph -->\n\t\t\t<!-- wp:paragraph {\"fontSize\":\"small\"} -->\n\t\t\t<p class=\"has-small-font-size\">\n\t\t\t\tDesigned with <a href=\"https://wordpress.org\" rel=\"nofollow\">WordPress</a>\t\t\t</p>\n\t\t\t<!-- /wp:paragraph -->\n\t\t</div>\n\t\t<!-- /wp:group -->\n\t</div>\n\t<!-- /wp:group -->\n</div>\n<!-- /wp:group -->",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": [],
+            "terms": {
+                "wp_theme": [
+                    "twentytwentyfive"
+                ],
+                "wp_template_part_area": [
+                    "footer"
+                ]
+            }
+        },
+        {
+            "id": 37,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "banner-1544x500",
+            "slug": "banner-1544x500",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/banner-1544x500-1.png"
+                ],
+                "_wp_attachment_image_alt": [
+                    "Scrollstage"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 1544,
+                        "height": 500,
+                        "file": "2026/10/banner-1544x500-1.png",
+                        "filesize": 394919,
+                        "sizes": {
+                            "medium": {
+                                "file": "banner-1544x500-1-300x97.png",
+                                "width": 300,
+                                "height": 97,
+                                "mime-type": "image/png",
+                                "filesize": 14720
+                            },
+                            "large": {
+                                "file": "banner-1544x500-1-1024x332.png",
+                                "width": 1024,
+                                "height": 332,
+                                "mime-type": "image/png",
+                                "filesize": 98210
+                            },
+                            "thumbnail": {
+                                "file": "banner-1544x500-1-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 10894
+                            },
+                            "medium_large": {
+                                "file": "banner-1544x500-1-768x249.png",
+                                "width": 768,
+                                "height": 249,
+                                "mime-type": "image/png",
+                                "filesize": 45799
+                            },
+                            "1536x1536": {
+                                "file": "banner-1544x500-1-1536x497.png",
+                                "width": 1536,
+                                "height": 497,
+                                "mime-type": "image/png",
+                                "filesize": 201132
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 38,
+            "type": "wp_template_part",
+            "status": "publish",
+            "title": "Header",
+            "slug": "header",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "",
+            "content": "<!-- wp:group {\"align\":\"full\",\"layout\":{\"type\":\"default\"}} -->\n<div class=\"wp-block-group alignfull\">\n\t<!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->\n\t<div class=\"wp-block-group\">\n\t\t<!-- wp:group {\"align\":\"wide\",\"style\":{\"spacing\":{\"padding\":{\"top\":\"var:preset|spacing|30\",\"bottom\":\"var:preset|spacing|30\"}}},\"layout\":{\"type\":\"flex\",\"orientation\":\"vertical\"}} -->\n\t\t<div class=\"wp-block-group alignwide\" style=\"padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)\">\n\t\t\t<!-- wp:site-logo {\"width\":560} /-->\n\t\t\t<!-- wp:group {\"style\":{\"spacing\":{\"blockGap\":\"var:preset|spacing|10\"}},\"layout\":{\"type\":\"flex\",\"flexWrap\":\"nowrap\",\"justifyContent\":\"left\"}} -->\n\t\t\t<div class=\"wp-block-group\">\n\t\t\t\t<!-- wp:navigation {\"overlayBackgroundColor\":\"base\",\"overlayTextColor\":\"contrast\",\"layout\":{\"type\":\"flex\",\"justifyContent\":\"left\",\"flexWrap\":\"wrap\"}} /-->\n\t\t\t</div>\n\t\t\t<!-- /wp:group -->\n\t\t</div>\n\t\t<!-- /wp:group -->\n\t</div>\n\t<!-- /wp:group -->\n</div>\n<!-- /wp:group -->",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": [],
+            "terms": {
+                "wp_theme": [
+                    "twentytwentyfive"
+                ],
+                "wp_template_part_area": [
+                    "header"
+                ]
+            }
+        },
+        {
+            "id": 65,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "Mountain sunrise",
+            "slug": "mountain-sunrise",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "Source: https://wordpress.org/photos/photo/2636a4a877/ — Photo by Uttkrista Chhetri, WordPress Photo Directory, CC0.",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/scrollstage-mountain-sunrise.jpg"
+                ],
+                "_wp_attachment_image_alt": [
+                    "Snow-capped mountain peak bathed in golden sunrise light against a deep blue sky."
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2560,
+                        "height": 1707,
+                        "file": "2026/10/scrollstage-mountain-sunrise.jpg",
+                        "filesize": 295413,
+                        "sizes": {
+                            "medium": {
+                                "file": "scrollstage-mountain-sunrise-300x200.jpg",
+                                "width": 300,
+                                "height": 200,
+                                "mime-type": "image/jpeg",
+                                "filesize": 7167
+                            },
+                            "large": {
+                                "file": "scrollstage-mountain-sunrise-1024x683.jpg",
+                                "width": 1024,
+                                "height": 683,
+                                "mime-type": "image/jpeg",
+                                "filesize": 55828
+                            },
+                            "thumbnail": {
+                                "file": "scrollstage-mountain-sunrise-150x150.jpg",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/jpeg",
+                                "filesize": 3935
+                            },
+                            "medium_large": {
+                                "file": "scrollstage-mountain-sunrise-768x512.jpg",
+                                "width": 768,
+                                "height": 512,
+                                "mime-type": "image/jpeg",
+                                "filesize": 33357
+                            },
+                            "1536x1536": {
+                                "file": "scrollstage-mountain-sunrise-1536x1024.jpg",
+                                "width": 1536,
+                                "height": 1024,
+                                "mime-type": "image/jpeg",
+                                "filesize": 116718
+                            },
+                            "2048x2048": {
+                                "file": "scrollstage-mountain-sunrise-2048x1366.jpg",
+                                "width": 2048,
+                                "height": 1366,
+                                "mime-type": "image/jpeg",
+                                "filesize": 199014
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 66,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "Turquoise lake",
+            "slug": "turquoise-lake",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "Source: https://wordpress.org/photos/photo/8546aacee3/ — Photo by Adeline Dahal, WordPress Photo Directory, CC0.",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/scrollstage-turquoise-lake.jpg"
+                ],
+                "_wp_attachment_image_alt": [
+                    "Turquoise lake surrounded by rocky, snow-capped mountains in Langtang, with a sandy shoreline under a clear blue sky."
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2560,
+                        "height": 1441,
+                        "file": "2026/10/scrollstage-turquoise-lake.jpg",
+                        "filesize": 976080,
+                        "sizes": {
+                            "medium": {
+                                "file": "scrollstage-turquoise-lake-300x169.jpg",
+                                "width": 300,
+                                "height": 169,
+                                "mime-type": "image/jpeg",
+                                "filesize": 13390
+                            },
+                            "large": {
+                                "file": "scrollstage-turquoise-lake-1024x576.jpg",
+                                "width": 1024,
+                                "height": 576,
+                                "mime-type": "image/jpeg",
+                                "filesize": 156339
+                            },
+                            "thumbnail": {
+                                "file": "scrollstage-turquoise-lake-150x150.jpg",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/jpeg",
+                                "filesize": 6185
+                            },
+                            "medium_large": {
+                                "file": "scrollstage-turquoise-lake-768x432.jpg",
+                                "width": 768,
+                                "height": 432,
+                                "mime-type": "image/jpeg",
+                                "filesize": 85037
+                            },
+                            "1536x1536": {
+                                "file": "scrollstage-turquoise-lake-1536x865.jpg",
+                                "width": 1536,
+                                "height": 865,
+                                "mime-type": "image/jpeg",
+                                "filesize": 359692
+                            },
+                            "2048x2048": {
+                                "file": "scrollstage-turquoise-lake-2048x1153.jpg",
+                                "width": 2048,
+                                "height": 1153,
+                                "mime-type": "image/jpeg",
+                                "filesize": 611482
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 67,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "Foggy forest lakes",
+            "slug": "foggy-forest-lakes",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "Source: https://wordpress.org/photos/photo/4446a9f62a/ — Photo by annezazu, WordPress Photo Directory, CC0.",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/scrollstage-foggy-forest-lakes.jpg"
+                ],
+                "_wp_attachment_image_alt": [
+                    "Two small lakes surrounded by a foggy forest with a few hiking paths in view."
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2560,
+                        "height": 1707,
+                        "file": "2026/10/scrollstage-foggy-forest-lakes.jpg",
+                        "filesize": 705010,
+                        "sizes": {
+                            "medium": {
+                                "file": "scrollstage-foggy-forest-lakes-300x200.jpg",
+                                "width": 300,
+                                "height": 200,
+                                "mime-type": "image/jpeg",
+                                "filesize": 14771
+                            },
+                            "large": {
+                                "file": "scrollstage-foggy-forest-lakes-1024x683.jpg",
+                                "width": 1024,
+                                "height": 683,
+                                "mime-type": "image/jpeg",
+                                "filesize": 133198
+                            },
+                            "thumbnail": {
+                                "file": "scrollstage-foggy-forest-lakes-150x150.jpg",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/jpeg",
+                                "filesize": 6353
+                            },
+                            "medium_large": {
+                                "file": "scrollstage-foggy-forest-lakes-768x512.jpg",
+                                "width": 768,
+                                "height": 512,
+                                "mime-type": "image/jpeg",
+                                "filesize": 79262
+                            },
+                            "1536x1536": {
+                                "file": "scrollstage-foggy-forest-lakes-1536x1024.jpg",
+                                "width": 1536,
+                                "height": 1024,
+                                "mime-type": "image/jpeg",
+                                "filesize": 264423
+                            },
+                            "2048x2048": {
+                                "file": "scrollstage-foggy-forest-lakes-2048x1366.jpg",
+                                "width": 2048,
+                                "height": 1366,
+                                "mime-type": "image/jpeg",
+                                "filesize": 423535
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 68,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "Starry night",
+            "slug": "starry-night",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "Source: https://wordpress.org/photos/photo/41567fd0c2/ — Photo by Milan Hamal, WordPress Photo Directory, CC0.",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/scrollstage-starry-night.jpg"
+                ],
+                "_wp_attachment_image_alt": [
+                    "A mountain under a clear, starry night sky, with numerous stars visible above the dark silhouette of the rocky peak."
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2560,
+                        "height": 1707,
+                        "file": "2026/10/scrollstage-starry-night.jpg",
+                        "filesize": 382300,
+                        "sizes": {
+                            "medium": {
+                                "file": "scrollstage-starry-night-300x200.jpg",
+                                "width": 300,
+                                "height": 200,
+                                "mime-type": "image/jpeg",
+                                "filesize": 5732
+                            },
+                            "large": {
+                                "file": "scrollstage-starry-night-1024x683.jpg",
+                                "width": 1024,
+                                "height": 683,
+                                "mime-type": "image/jpeg",
+                                "filesize": 53466
+                            },
+                            "thumbnail": {
+                                "file": "scrollstage-starry-night-150x150.jpg",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/jpeg",
+                                "filesize": 2906
+                            },
+                            "medium_large": {
+                                "file": "scrollstage-starry-night-768x512.jpg",
+                                "width": 768,
+                                "height": 512,
+                                "mime-type": "image/jpeg",
+                                "filesize": 31048
+                            },
+                            "1536x1536": {
+                                "file": "scrollstage-starry-night-1536x1024.jpg",
+                                "width": 1536,
+                                "height": 1024,
+                                "mime-type": "image/jpeg",
+                                "filesize": 116052
+                            },
+                            "2048x2048": {
+                                "file": "scrollstage-starry-night-2048x1366.jpg",
+                                "width": 2048,
+                                "height": 1366,
+                                "mime-type": "image/jpeg",
+                                "filesize": 205466
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 69,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "Test video with motion",
+            "slug": "test-video-with-motion",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "video/mp4",
+            "content": "Self-generated test video by Jörn Gorres.",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/testbild-video.mp4"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "bitrate": 5653440,
+                        "filesize": 7069829,
+                        "mime_type": "video/quicktime",
+                        "length": 10,
+                        "length_formatted": "0:10",
+                        "width": 1920,
+                        "height": 1080,
+                        "fileformat": "mp4",
+                        "dataformat": "quicktime",
+                        "codec": "H.264/MPEG-4 AVC",
+                        "created_timestamp": -2082844800
+                    }
+                ]
+            },
+            "terms": []
         }
     ]
 }

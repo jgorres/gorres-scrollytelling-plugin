@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.23 · Stand: 01.10.2026 · Plugin-Version: 2.8.3
+Version: 1.24 · Stand: 01.10.2026 · Plugin-Version: 2.8.3
 
 ## 1. Zweck
 
@@ -49,6 +49,8 @@ die Release-ZIPs und die Übersetzungsdateien für GlotPress.
 ├── build.sh                   Release-ZIP erzeugen
 ├── .distignore                Ausschlüsse aus plugin/ für ZIP und SVN-Export
 ├── docs/                      diese Doku, banner.svg, Quellvideo der Aufnahme
+├── playground/                Onlinehilfe als Bundle für den WordPress
+│                              Playground, siehe Abschnitt 12
 ├── stubs/                     zusätzliche Stubs für PHPStan (derzeit leer)
 ├── composer.json, phpcs.xml.dist, phpstan.neon.dist, phpstan-bootstrap.php
 └── package.json
@@ -536,6 +538,138 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | Reihe in Firefox | stufenweises Gleiten | Scroll-Timelines fehlen dort, und `transform` im Scroll-Handler flattert; am Prototyp abgenommen |
 | Texteffekte in einer Reihe | keine | die Effekte setzen einen Kasten voraus, der von unten kommt und oben geht |
 
+## 12. Onlinehilfe im WordPress Playground
+
+Die Hilfe zum Plugin ist eine eigene WordPress-Site, die im WordPress
+Playground läuft: Der Leser sieht die Blöcke live und kann sie, als
+Administrator angemeldet, im Editor ausprobieren. Jeder Aufruf baut die Site
+im Browser neu auf; Änderungen eines Besuchers gehen mit dem Schließen des
+Tabs verloren.
+
+### Vorlagen-Site
+
+Gepflegt wird die Hilfe auf der lokalen Site `https://scrollstage.local`
+(WordPress aktuell, PHP 8.4, Admin `jgorres`):
+
+- Theme Twenty Twenty-Five aktiv, GeneratePress installiert und inaktiv.
+- Plugins aktiv: Plugin Check, Simple Page Ordering, Polylang (freie Version),
+  Scrollstage aus dem Release-ZIP (kein Symlink auf das Repo).
+- Polylang: Englisch ist Standardsprache ohne Präfix, Deutsch liegt unter
+  `/de/`. Die Option „Startseiten-URL enthält den Sprachcode" ist gesetzt,
+  damit die deutsche Startseite `/de/` heißt.
+- 13 Seiten je Sprache, paarweise als Übersetzungen verknüpft: Startseite,
+  Installation, Blocks (Story, Step, Row, Afterword), Settings (Media,
+  Typography and text box, Text effects, Step height), FAQ.
+- Deutsche Texte in der du-Form. Blocknamen und Schalter bleiben englisch,
+  solange die Oberfläche des Plugins nicht übersetzt ist.
+
+Besonderheiten der Site:
+
+| Teil | Umsetzung |
+| --- | --- |
+| Navigation | Seitenliste plus Block `polylang/navigation-language-switcher`. Die freie Polylang-Version übersetzt `wp_navigation` nicht; die Seitenliste filtert selbst je Sprache. Die Reihenfolge kommt aus dem Seitenbaum (Simple Page Ordering) |
+| Kopf | angepasster Template-Teil `header`: Website-Logo (Banner aus der Mediathek, 560 px) statt Site-Titel, Navigation in eigener Zeile darunter. Der Logo-Link folgt der Sprache |
+| Fuß | angepasster Template-Teil `footer`: ohne Logo, ohne die Platzhalter Blog, Events, Shop und Themes, mit dem Text „4050 / 2 = Twenty Twenty-Five" |
+| Startseite | Vorlage `page-no-title`; beginnt mit einer Beispiel-Story aus vier Schritten, die Überschrift des ersten Schritts ist die `h1` |
+| FAQ | Accordion-Block des Core (`core/accordion`), sieben Einträge |
+| Medien | Beispiel-Story mit dem Testvideo am Ende der Seite |
+
+Medien: vier Fotos aus dem WordPress Photo Directory (CC0, auf 2560 px
+verkleinert) und das selbst erzeugte Testvideo. Quelle und Fotograf stehen in
+der Bildbeschreibung der Mediathek. Bilder von Picsum/Unsplash werden bewusst
+nicht verwendet, weil deren Lizenz bei WordPress.org nicht als GPL-kompatibel
+gilt.
+
+### Bundle
+
+`playground/` ist ein Blueprint-Bundle: `blueprint.json` in der Wurzel, alle
+weiteren Dateien werden daraus als `bundled`-Ressourcen gelesen.
+
+| Datei | Inhalt |
+| --- | --- |
+| `blueprint.json` | Schritte für den Playground |
+| `import.php` | baut die Site im Playground aus `content.json` auf |
+| `export.php` | liest die Vorlagen-Site aus (läuft lokal per `wp eval-file`) |
+| `build.sh` | ruft den Export auf und kopiert das aktuelle Release-ZIP |
+| `content.json` | erzeugt: Sprachen, Polylang-Einstellungen, Optionen, Beiträge |
+| `uploads.zip` | erzeugt: Inhalt von `wp-content/uploads` |
+| `scrollstage.zip` | erzeugt: Kopie von `scrollstage-<version>.zip` |
+
+Nach jeder Änderung an der Vorlagen-Site:
+
+```
+playground/build.sh
+```
+
+Das Script erwartet das Release-ZIP der Version aus dem Plugin-Header; fehlt
+es, zuerst `./build.sh` im Repo ausführen.
+
+Der Weg der Inhalte ist JSON plus Import-Script, nicht WXR und nicht SQL: WXR
+vergibt neue IDs und überträgt die Sprachzuordnung von Polylang nicht
+zuverlässig, ein Dump aus MariaDB müsste im Playground erst für SQLite
+übersetzt werden.
+
+`export.php` schreibt Seiten, Beiträge, Navigation, synchronisierte Vorlagen,
+angepasste Templates und Template-Teile sowie Anhänge mit ID, Sprache,
+Übersetzungspartnern, Elternseite, Reihenfolge, Meta-Feldern und den Begriffen
+`wp_theme` und `wp_template_part_area`. Die Adresse der Site wird durch den
+Platzhalter `{{JGOR_ST_HELP_SITE_URL}}` ersetzt.
+
+`import.php` läuft nur unter WP-CLI und nur mit dem Argument `confirm-wipe`,
+weil es zuerst alle vorhandenen Inhalte dieser Beitragstypen löscht. Es legt
+die Sprachen an, lädt fehlende Sprachpakete nach und fügt die Beiträge mit
+ihren ursprünglichen IDs ein (`import_id`), damit ID-Verweise in
+Block-Attributen (Medien der Schritte, Website-Logo) stimmen.
+
+### Schritte des Blueprints
+
+1. Anmelden; Twenty Twenty-Five aktivieren, GeneratePress installieren.
+2. Plugin Check, Simple Page Ordering und Polylang von WordPress.org,
+   Scrollstage aus `scrollstage.zip`.
+3. Akismet und Hello Dolly löschen, falls vorhanden. Das geschieht per
+   `runPHP` mit `delete_plugins()`: `wp plugin delete` als `wp-cli`-Schritt
+   bricht im Playground ab, weil WP-CLI dafür einen Unterprozess startet.
+4. Willkommens-Dialog des Editors abschalten (`updateUserMeta`,
+   `wp_persisted_preferences`).
+5. `uploads.zip` entpacken, `import.php` und `content.json` ablegen, Import
+   per `wp eval-file`.
+6. `wp rewrite flush` als eigener Schritt. Im Import-Lauf kennt Polylang die
+   Sprachen noch nicht; dort gebaute Regeln hätten kein `/de/`, und alle
+   deutschen Seiten lieferten 404. `import.php` verwirft die Regeln deshalb
+   nur.
+7. Hilfsdateien wieder entfernen.
+
+### Prüfen
+
+Ohne Server, Ergebnis in ein Verzeichnis schreiben und in der SQLite-Datei
+`wp-content/database/.ht.sqlite` nachsehen:
+
+```
+npx @wp-playground/cli@latest run-blueprint --blueprint=./playground/ \
+  --blueprint-may-read-adjacent-files --mount-before-install=<verzeichnis>:/wordpress
+```
+
+Im Browser (endet nicht von selbst, Adresse `http://127.0.0.1:9400`):
+
+```
+npx @wp-playground/cli@latest server --blueprint=./playground/ \
+  --blueprint-may-read-adjacent-files
+```
+
+Der Server baut die Site nur beim Start. Nach `playground/build.sh` muss er
+neu gestartet werden. Das CLI verlangt laut Paket Node 24, lief am 01.10.2026
+aber mit Node 20.
+
+### Offen
+
+- Ablage: öffentliches GitHub-Repo, aus dem der Playground das Bundle über
+  `?blueprint-url=…` lädt. Eigener Webspace scheidet wegen des Traffics aus.
+- Nach der Freischaltung bei WordPress.org: Scrollstage im Blueprint per Slug
+  statt aus dem ZIP, zusätzlich `assets/blueprints/blueprint.json` im SVN für
+  den Knopf „Live Preview".
+- `uploads.zip` ist rund 13 MB groß, gut die Hälfte davon das Video. Das
+  verlängert jeden Start der Hilfe.
+
 ## Änderungen
 
 | Version | Datum | Änderung |
@@ -564,3 +698,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.21 | 01.10.2026 | Editor mit klassischem Theme: Schritte und Reihen füllen die Story wieder, statt auf ihren Inhalt zu schrumpfen (Plugin 2.8.1) |
 | 1.22 | 01.10.2026 | readme: Description nennt mehrere Textkästen vor einem Medium (Plugin 2.8.2); am Plugin selbst nichts geändert |
 | 1.23 | 01.10.2026 | „Tested up to" aus dem Plugin-Header entfernt: Die automatische Prüfung bei der Einreichung (WordPress.org) lehnt die Zeile dort ab (`plugin_header_tested_up_to_not_allowed`), sie steht nur noch in `readme.txt`; der lokale Plugin Check 2.1.0 meldet das nicht (Plugin 2.8.3) |
+| 1.24 | 01.10.2026 | Abschnitt 12: Onlinehilfe im WordPress Playground (Vorlagen-Site `scrollstage.local`, Bundle `playground/`); am Plugin selbst nichts geändert |

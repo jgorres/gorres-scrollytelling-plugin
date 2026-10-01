@@ -81,6 +81,28 @@
 			}
 		},
 		{
+			"step": "runPHP",
+			"code": "<?php\nrequire '/wordpress/wp-load.php';\nrequire_once ABSPATH . 'wp-admin/includes/plugin.php';\nrequire_once ABSPATH . 'wp-admin/includes/file.php';\n$jgor_st_help_bundled = array_intersect( array( 'akismet/akismet.php', 'hello.php' ), array_keys( get_plugins() ) );\nif ( $jgor_st_help_bundled ) {\n\tdelete_plugins( array_values( $jgor_st_help_bundled ) );\n}\n"
+		},
+		{
+			"step": "updateUserMeta",
+			"userId": 1,
+			"meta": {
+				"wp_persisted_preferences": {
+					"core/edit-post": {
+						"welcomeGuide": false
+					},
+					"core/edit-site": {
+						"welcomeGuide": false,
+						"welcomeGuidePage": false,
+						"welcomeGuideStyles": false,
+						"welcomeGuideTemplate": false
+					},
+					"_modified": "2026-10-01T00:00:00.000Z"
+				}
+			}
+		},
+		{
 			"step": "unzip",
 			"zipFile": {
 				"resource": "bundled",
@@ -111,6 +133,10 @@
 		{
 			"step": "wp-cli",
 			"command": "wp eval-file /wordpress/wp-content/jgor-st-help/import.php /wordpress/wp-content/jgor-st-help/content.json confirm-wipe"
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp rewrite flush"
 		},
 		{
 			"step": "rm",

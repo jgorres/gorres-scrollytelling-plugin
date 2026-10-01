@@ -2,8 +2,8 @@
 /**
  * Exports the online help site for the WordPress Playground bundle.
  *
- * Reads languages, pages, navigation, media and a few options of the local
- * help site and writes them to content.json and uploads.zip. import.php
+ * Reads languages, pages, navigation, customized templates and template
+ * parts, media and a few options of the local help site and writes them to content.json and uploads.zip. import.php
  * rebuilds the site from these two files inside the Playground.
  *
  * Usage: wp eval-file export.php <target directory>
@@ -96,14 +96,39 @@ function jgor_st_help_export_meta( int $post_id ): array {
 }
 
 /**
- * Collects pages, posts, navigation, synced patterns and attachments.
+ * Collects the template taxonomies of a post.
+ *
+ * Customized templates and template parts are bound to their theme and
+ * area through these terms.
+ *
+ * @param int $post_id Post ID.
+ * @return array<string, array<int, string>> Term slugs by taxonomy.
+ */
+function jgor_st_help_export_terms( int $post_id ): array {
+	$terms = array();
+
+	foreach ( array( 'wp_theme', 'wp_template_part_area' ) as $taxonomy ) {
+		$slugs = wp_get_object_terms( $post_id, $taxonomy, array( 'fields' => 'slugs' ) );
+
+		if ( ! is_wp_error( $slugs ) && ! empty( $slugs ) ) {
+			sort( $slugs );
+			$terms[ $taxonomy ] = array_values( $slugs );
+		}
+	}
+
+	return $terms;
+}
+
+/**
+ * Collects pages, posts, navigation, synced patterns, customized templates
+ * and template parts, and attachments.
  *
  * @return array<int, array<string, mixed>> Posts ordered by ID.
  */
 function jgor_st_help_export_posts(): array {
 	$posts = get_posts(
 		array(
-			'post_type'        => array( 'page', 'post', 'wp_navigation', 'wp_block', 'attachment' ),
+			'post_type'        => array( 'page', 'post', 'wp_navigation', 'wp_block', 'wp_template', 'wp_template_part', 'attachment' ),
 			'post_status'      => array( 'publish', 'draft', 'private', 'inherit' ),
 			'posts_per_page'   => -1,
 			'orderby'          => 'ID',
@@ -134,6 +159,7 @@ function jgor_st_help_export_posts(): array {
 			'language'     => $language ? $language : '',
 			'translations' => array_map( 'intval', $translations ),
 			'meta'         => jgor_st_help_export_meta( $post->ID ),
+			'terms'        => jgor_st_help_export_terms( $post->ID ),
 		);
 	}
 
@@ -148,7 +174,7 @@ function jgor_st_help_export_posts(): array {
 function jgor_st_help_export_options(): array {
 	$options = array();
 
-	foreach ( array( 'blogname', 'blogdescription', 'permalink_structure', 'show_on_front', 'page_on_front', 'page_for_posts', 'wp_page_for_privacy_policy' ) as $name ) {
+	foreach ( array( 'blogname', 'blogdescription', 'permalink_structure', 'show_on_front', 'page_on_front', 'page_for_posts', 'wp_page_for_privacy_policy', 'site_logo' ) as $name ) {
 		$options[ $name ] = get_option( $name );
 	}
 

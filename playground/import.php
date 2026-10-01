@@ -3,12 +3,12 @@
  * Builds the online help site inside the WordPress Playground.
  *
  * Reads content.json written by export.php and recreates the Polylang
- * languages, the pages with their translations, the navigation, the media
- * entries and a few options. All posts keep their IDs, so references in
+ * languages, the pages with their translations, the navigation, customized
+ * templates and template parts, the media entries and a few options. All posts keep their IDs, so references in
  * block attributes stay valid.
  *
- * The script removes every existing page, post, navigation, synced pattern
- * and attachment first. It is meant for a fresh Playground instance only and
+ * The script removes every existing page, post, navigation, synced pattern,
+ * customized template, template part and attachment first. It is meant for a fresh Playground instance only and
  * therefore refuses to run without the literal argument "confirm-wipe".
  *
  * Usage: wp eval-file import.php <path to content.json> confirm-wipe
@@ -33,7 +33,7 @@ const JGOR_ST_HELP_IMPORT_URL_TOKEN = '{{JGOR_ST_HELP_SITE_URL}}';
  * @return array<int, string> Post type names.
  */
 function jgor_st_help_import_post_types(): array {
-	return array( 'page', 'post', 'wp_navigation', 'wp_block', 'attachment' );
+	return array( 'page', 'post', 'wp_navigation', 'wp_block', 'wp_template', 'wp_template_part', 'attachment' );
 }
 
 /**
@@ -235,6 +235,15 @@ function jgor_st_help_import_post( array $post, int $author ): int {
 		}
 	}
 
+	// Templates and template parts are bound to theme and area by terms.
+	$terms = isset( $post['terms'] ) && is_array( $post['terms'] ) ? $post['terms'] : array();
+
+	foreach ( array( 'wp_theme', 'wp_template_part_area' ) as $taxonomy ) {
+		if ( ! empty( $terms[ $taxonomy ] ) && is_array( $terms[ $taxonomy ] ) ) {
+			wp_set_object_terms( $id, array_map( 'sanitize_title', $terms[ $taxonomy ] ), $taxonomy );
+		}
+	}
+
 	return $id;
 }
 
@@ -278,7 +287,7 @@ function jgor_st_help_import_options( array $options ): void {
 	global $wp_rewrite;
 
 	$text    = array( 'blogname', 'blogdescription' );
-	$numbers = array( 'page_on_front', 'page_for_posts', 'wp_page_for_privacy_policy' );
+	$numbers = array( 'page_on_front', 'page_for_posts', 'wp_page_for_privacy_policy', 'site_logo' );
 
 	foreach ( $text as $name ) {
 		if ( isset( $options[ $name ] ) ) {
@@ -300,7 +309,12 @@ function jgor_st_help_import_options( array $options ): void {
 		$wp_rewrite->set_permalink_structure( sanitize_option( 'permalink_structure', (string) $options['permalink_structure'] ) );
 	}
 
-	flush_rewrite_rules();
+	/*
+	 * Polylang hooks its language prefixes into the rewrite rules while it
+	 * boots. In this request it booted without languages, so rules built here
+	 * would lack the prefixes. Drop them; the next request rebuilds them.
+	 */
+	delete_option( 'rewrite_rules' );
 }
 
 /**
