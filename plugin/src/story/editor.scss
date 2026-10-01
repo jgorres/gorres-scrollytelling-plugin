@@ -13,3 +13,12 @@
 	border: 1px dashed #c3c4c7;
 	border-radius: 4px;
 }
+
+/* Steps, rows and the afterword fill the story. For classic themes the editor
+   centres every block with automatic margins and a maximum width; inside this
+   flex column that would shrink each of them to the width of its content. */
+.editor-styles-wrapper .jgor-st-story--editor > .wp-block {
+	max-width: none;
+	margin-right: 0;
+	margin-left: 0;
+}

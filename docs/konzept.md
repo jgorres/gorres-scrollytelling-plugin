@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.20 · Stand: 01.10.2026 · Plugin-Version: 2.8.0
+Version: 1.21 · Stand: 01.10.2026 · Plugin-Version: 2.8.1
 
 ## 1. Zweck
 
@@ -185,6 +185,14 @@ Die Typografie-Schlüssel heißen in `block.json` noch `__experimental…`, weil
 WordPress 7.1 sie in seinen eigenen Blöcken so führt. Setzt ein Theme Werte
 direkt an Überschriften (Twenty Twenty-Five: Schriftstärke, Zeichenabstand),
 haben diese Vorrang vor den Werten des Schritts.
+
+Klassische Themes (GeneratePress) laden im Editor `classic.min.css` des Core.
+Es zentriert jeden Block mit automatischen Rändern und einer Höchstbreite. In
+der Story, im Editor eine Flex-Spalte, schrumpften Schritte, Reihen und
+Nachspann dadurch auf die Breite ihres Inhalts, sichtbar bei einer Story in
+voller Breite. Seit 2.8.1 heben `story/editor.scss` und `row/editor.scss`
+Ränder und Höchstbreite für die Kinder von Story und Reihe auf. Block-Themes
+laden dieses Stylesheet nicht.
 
 Das Editor-Stylesheet der Blöcke hängt an der `version` aus `block.json`.
 Ohne Versionssprung liefert der Browser nach einer CSS-Änderung das alte
@@ -553,3 +561,4 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 | 1.18 | 30.09.2026 | `.distignore` liegt in der Wurzel des Repos statt in `plugin/`: Plugin Check meldete die versteckte Datei auf den Testsites, die den Ordner per Symlink laden. Paket unverändert |
 | 1.19 | 30.09.2026 | Projekt von `~/dev/scrollstage` nach `~/dev/jgorres-im-WP-Repository/scrollstage` umgezogen; Symlinks der Testsites nachgezogen |
 | 1.20 | 01.10.2026 | Attribut `minHeight` am Schritt: eigene Schritthöhe, damit mehrere Textkästen nacheinander vor demselben Medium durchlaufen (Plugin 2.8.0) |
+| 1.21 | 01.10.2026 | Editor mit klassischem Theme: Schritte und Reihen füllen die Story wieder, statt auf ihren Inhalt zu schrumpfen (Plugin 2.8.1) |

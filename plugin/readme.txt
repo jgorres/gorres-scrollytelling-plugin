@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.8.0
+Stable tag: 2.8.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,9 @@ The story dims its media; you can set how much. Each step can also give its text
 4. A single step in the editor with its medium and its text.
 
 == Changelog ==
+
+= 2.8.1 =
+* Fixed: in the editor of classic themes, steps and rows inside a full-width story shrank to the width of their content. They fill the story again.
 
 = 2.8.0 =
 * New: a step can have a height of its own instead of the step height of the story. Lower steps without a medium let several text boxes scroll across the same medium one after the other.

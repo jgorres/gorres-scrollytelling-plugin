@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.10 · Stand: 01.10.2026 · Plugin-Version: 2.8.0
+Version: 1.11 · Stand: 01.10.2026 · Plugin-Version: 2.8.1
 
 ## 1. Ausgangspunkt
 
@@ -220,6 +220,21 @@ verglichen, byte-gleich.
 Nicht geprüft: Safari, WordPress 6.7, eigene Höhe zusammen mit begrenzter
 Bühne oder Nachspann.
 
+Nachtrag 2.8.1: Bei der Prüfung in Edge fiel auf, dass im Editor die Schritte
+einer Story in voller Breite unterschiedlich breit waren (Seite 109: 545, 348
+und 528 px, die Reihe 332 px, bei einer 985 px breiten Story). Das betrifft
+klassische Themes und alle Browser; Ursache und Korrektur stehen in
+`konzept.md`, Abschnitt 3. Aufgefallen ist es erst jetzt, weil die Pro-Site
+bei den früheren Editor-Prüfungen mit Twenty Twenty-Five lief.
+
+Nachweis: Editor der Seiten 109, 136 und 33 mit GeneratePress und mit Twenty
+Twenty-Five (`?wp_theme_preview=twentytwentyfive`) in Chromium 154, Firefox
+146 und Edge 154: Schritte, Reihe und Schritte der Reihe sind je Seite gleich
+breit und füllen die Story (Story abzüglich 34 px Rahmen und Innenabstand),
+alle Blöcke gültig, keine Script-Fehler. Geändert haben sich nur die
+Editor-Stylesheets von Story und Reihe; Frontend-Stylesheets und -Scripte
+des Builds sind byte-gleich mit 2.8.0.
+
 ## 3. Testsites
 
 Zwei lokale Sites mit demselben Inhalt (Datenbank-Kopie von
@@ -293,3 +308,4 @@ den Entwicklungsstand.
 | 1.8 | 01.10.2026 | Schritt 4 (Plugin 2.8.0): eigene Schritthöhe je Schritt, Entscheidung gegen einen Kasten-Block; Edge als dritter Prüfbrowser |
 | 1.9 | 01.10.2026 | Reihe und Texteffekte in Edge 154 nachgeprüft |
 | 1.10 | 01.10.2026 | Begrenzte Bühne, Hochziehen und Editor in Edge 154 nachgeprüft |
+| 1.11 | 01.10.2026 | Nachtrag 2.8.1: Breite der Schritte im Editor klassischer Themes |

@@ -24,3 +24,10 @@
 	flex-direction: column;
 	gap: 1.5rem;
 }
+
+/* The steps fill the row, see the same rule for the children of the story. */
+.editor-styles-wrapper .jgor-st-row__steps > .wp-block {
+	max-width: none;
+	margin-right: 0;
+	margin-left: 0;
+}
