@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.32 · Stand: 01.10.2026 · Plugin-Version: 2.11.0
+Version: 1.33 · Stand: 01.10.2026 · Plugin-Version: 2.11.0
 
 ## 1. Zweck
 
@@ -704,7 +704,7 @@ Besonderheiten der Site:
 | Navigation | Seitenliste plus Block `polylang/navigation-language-switcher`. Die freie Polylang-Version übersetzt `wp_navigation` nicht; die Seitenliste filtert selbst je Sprache. Die Reihenfolge kommt aus dem Seitenbaum (Simple Page Ordering) |
 | Kopf | angepasster Template-Teil `header`: Website-Logo (Banner aus der Mediathek, 560 px) statt Site-Titel, Navigation in eigener Zeile darunter. Der Logo-Link folgt der Sprache |
 | Fuß | angepasster Template-Teil `footer`: ohne Logo, ohne die Platzhalter Blog, Events, Shop und Themes, mit dem Text „4050 / 2 = Twenty Twenty-Five" |
-| Startseite | eigene Vorlage `home-menu-below` (wie `page-no-title`, ohne Kopf), nur den beiden Startseiten zugewiesen; beginnt mit einer Beispiel-Story aus fünf Schritten ohne Abdunklung. Erster Schritt ist das animierte Banner (APNG) ohne Text, eingebunden nur über `mediaUrl` (`mediaId` 0): mit `mediaId` gäbe das Plugin ein `srcset` aus, und die verkleinerten Fassungen sind Standbilder. Für Bildschirme im Hochformat trägt der Schritt ein zweites, hochkant angelegtes Banner (`portraitUrl`, ebenfalls ohne ID; Quelle `assets/banner-portrait-animated.svg`). Die Überschrift des zweiten Schritts ist die `h1`. Direkt hinter der Story steht das Menü als Gruppe im Seiteninhalt (ohne Logo, Position „sticky", Hintergrund `base`): es bleibt am oberen Rand hängen, sobald es ihn erreicht, und verschwindet wieder, wenn man in die Story zurückscrollt |
+| Startseite | eigene Vorlage `home-menu-below` (wie `page-no-title`, ohne Kopf), nur den beiden Startseiten zugewiesen; beginnt mit einer Beispiel-Story aus fünf Schritten ohne Abdunklung. Erster Schritt ist das animierte Banner ohne Scroll-Hinweis als SVG (`assets/banner-animated-stage.svg`, im Hochformat `banner-portrait-animated-stage.svg`, beide nur über die Adresse eingebunden, Fokuspunkt oben): Es scrollt mit dem Schritt weg (`mediaScroll`, Schritthöhe 150 %), dahinter steht schon das erste Foto. Der Scroll-Hinweis (`banner-animated-scroll-hint.svg`) ist ein Bild im Textkasten dieses Schritts, unten mittig angeheftet (`pinText`): Er bleibt einen halben Bildschirm lang stehen und geht dann mit der Unterkante des Banners hinaus. Die Überschrift des zweiten Schritts ist die `h1`. Direkt hinter der Story steht das Menü als Gruppe im Seiteninhalt (ohne Logo, Position „sticky", Hintergrund `base`): es bleibt am oberen Rand hängen, sobald es ihn erreicht, und verschwindet wieder, wenn man in die Story zurückscrollt |
 | FAQ | Accordion-Block des Core (`core/accordion`), sieben Einträge |
 | Medien | Beispiel-Story mit dem Testvideo am Ende der Seite |
 
@@ -841,3 +841,4 @@ aber mit Node 20.
 | 1.30 | 01.10.2026 | Eigene Position des Textkastens je Schritt (`textPosition`, `stepAlign`) und angehefteter Textkasten (`pinText`, Element `.jgor-st-step__pin`, nur CSS) (Plugin 2.10.0) |
 | 1.31 | 01.10.2026 | Medium scrollt mit dem Schritt (`mediaScroll`, Element `.jgor-st-step__cover`); die Bühne zeigt am Anfang einer Story das erste folgende Medium (`is-initial`) statt leer zu bleiben (Plugin 2.11.0) |
 | 1.32 | 01.10.2026 | Plugin-Header ohne `Plugin URI` (die Seite joern.gorres.com/scrollstage wird nicht mehr genannt); ein mitscrollendes Bild füllt eine eigene Schritthöhe (`has-own-height`); Beschriftung „Middle" im Schritt wie in der Story (Plugin 2.11.0) |
+| 1.33 | 01.10.2026 | Abschnitt 12, Onlinehilfe: Startseiten mit wegscrollendem Banner und angeheftetem Scroll-Hinweis (SVG statt PNG), Hilfe-Seiten um Hochformat-Bild, eigene Position, angehefteten Textkasten und mitscrollendes Bild ergänzt; Bundle neu exportiert (Plugin 2.11.0). Safe SVG ist nur auf der Vorlagen-Site aktiv und steht bewusst nicht im Blueprint; die SVG werden im Playground als Dateien ausgeliefert |
