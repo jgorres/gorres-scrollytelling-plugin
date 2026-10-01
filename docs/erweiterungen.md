@@ -1,6 +1,6 @@
 # Scrollstage – Erweiterungen
 
-Version: 1.8 · Stand: 01.10.2026 · Plugin-Version: 2.8.0
+Version: 1.10 · Stand: 01.10.2026 · Plugin-Version: 2.8.0
 
 ## 1. Ausgangspunkt
 
@@ -260,6 +260,20 @@ den Entwicklungsstand.
 * Jede Änderung am Frontend wird in drei Browsern geprüft: Chromium, Firefox
   und Edge (seit 01.10.2026; Edge läuft lokal als Flatpak
   `com.microsoft.Edge`).
+  Nachgeholt am 01.10.2026 in Edge 154 für die älteren Testseiten: Reihe
+  stufenlos (Spur von 0 bis −2560 px, solange der Ausschnitt klebt,
+  Medienfolge 1 bis 6 auf- und abwärts), Texteffekte `fade`, `slide`,
+  `zoom`, `rotate` und `dissolve` folgen dem Scrollweg, keine Fehler in der
+  Konsole. Ebenfalls in Edge 154, mit Chromium 154 als Gegenprobe im selben
+  Lauf: begrenzte Bühne mit Hochziehen (`/scrollstage-standard-width/`:
+  Bühne 1120×630 px klebt oben, der hochgezogene Inhalt klebt bei 630 px
+  darunter und geht mit ihr, Medienfolge 1 bis 5, Video läuft nur in seinem
+  Schritt; Scrollverlauf in beiden Browsern gleich) und der Editor (Seiten
+  33, 136, 109: alle Blöcke gültig, Schalter für begrenzte Bühne, Hochziehen
+  und eigene Schritthöhe, neue Story mit Schritt, Reihe und Nachspann
+  einfügbar, Vorschau im Canvas; Werte in beiden Browsern gleich bis auf die
+  Breite des Scrollbalkens). Der hochgezogene Inhalt ist in Edge 51 px höher
+  als in Chromium, vermutlich wegen anderer Schriften im Flatpak.
 * Für neue Funktionen bekommt `scrollstage-pro.local` eigene Testseiten; die
   drei gemeinsamen Seiten bleiben auf beiden Sites gleich.
 * Die Testseiten auf `plugintest.local` bleiben, wie sie sind.
@@ -277,3 +291,5 @@ den Entwicklungsstand.
 | 1.6 | 30.09.2026 | Schritt 3 erledigt (Plugin 2.7.0): Block „Scrollstage Row", Abweichungen vom Prototyp, Testseite auf Pro |
 | 1.7 | 30.09.2026 | Pfad des Projekts nach dem Umzug nach `~/dev/jgorres-im-WP-Repository/scrollstage` |
 | 1.8 | 01.10.2026 | Schritt 4 (Plugin 2.8.0): eigene Schritthöhe je Schritt, Entscheidung gegen einen Kasten-Block; Edge als dritter Prüfbrowser |
+| 1.9 | 01.10.2026 | Reihe und Texteffekte in Edge 154 nachgeprüft |
+| 1.10 | 01.10.2026 | Begrenzte Bühne, Hochziehen und Editor in Edge 154 nachgeprüft |
