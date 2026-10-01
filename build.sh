@@ -7,8 +7,9 @@ clear
 # Date: 29.09.2026
 # Description: Builds the release ZIP of the Scrollstage plugin for the
 #              WordPress.org directory: checks the version numbers, compiles
-#              the blocks with wp-scripts, exports plugin/ without the files
-#              listed in .distignore and zips the result.
+#              the blocks with wp-scripts, exports plugin/ (including the
+#              block sources in src/) without the files listed in
+#              .distignore and zips the result.
 # ==================================================
 
 set -euo pipefail
@@ -97,10 +98,16 @@ if find "${STAGE_DIR}/${SLUG}" \( -name '*.po' -o -name '*.mo' -o -name '*.l10n.
 	exit 1
 fi
 
-if [[ -d "${STAGE_DIR}/${SLUG}/src" ]]; then
-	echo "Fehler: src/ liegt im Paket." >&2
-	exit 1
-fi
+# The WordPress.org guidelines require the human-readable sources of the
+# compiled files in build/, so src/ must be part of the package.
+for block in story step row after; do
+	if [[ ! -f "${STAGE_DIR}/${SLUG}/src/${block}/block.json" ]]; then
+		echo "Fehler: src/${block}/ fehlt im Paket." >&2
+		exit 1
+	fi
+done
+
+echo "  ok  src/story, src/step, src/row, src/after"
 
 FILE_COUNT="$(find "${STAGE_DIR}/${SLUG}" -type f | wc -l)"
 echo "  ok  ${FILE_COUNT} Dateien"

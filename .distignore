@@ -8,9 +8,6 @@ Thumbs.db
 *.swp
 *.zip
 
-# Block sources: the editor and front end load the compiled files in build/.
-src/
-
 # Translations: the WordPress.org plugin team rejects packages with bundled
 # translation files. Languages are handled through translate.wordpress.org;
 # from languages/ only the .pot template is shipped.
