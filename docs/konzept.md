@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.37 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
+Version: 1.38 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
 
 ## 1. Zweck
 
@@ -848,3 +848,4 @@ aber mit Node 20.
 | 1.35 | 02.10.2026 | Abschnitt 12, Onlinehilfe: Aufnahmen der Editor-Bereiche (`docs/hilfe-screenshots/`, Schema `scrollstage-ui-<block>-<bereich>-<en\|de>.png`, doppelte Auflösung) in beiden Sprachen in die Hilfe-Seiten eingebaut (Spalten-Block, Bild 280 px breit mit Rahmen, Alternativtext in der Seitensprache); die deutschen Seiten nennen die deutschen Schalternamen der Übersetzung für 2.11.0 (`scrollstage-glotpress/stable-de_DE.po`, nur lokal auf scrollstage.local geladen, nicht im Bundle); am Plugin selbst nichts geändert |
 | 1.36 | 02.10.2026 | Umbenennung: Das Plugin heißt Gorres Scrollytelling, Slug und Text-Domain `gorres-scrollytelling`, Hauptdatei `gorres-scrollytelling.php`, Block-Namensraum `gorres-scrollytelling/*`, Blöcke „Scrollytelling Story/Step/Row/Afterword“ (Plugin 2.12.0). Prefix `jgor_st_` und Klassen `jgor-st-*` bleiben. Hilfe-Site, Übersetzung und Bundle umgestellt; die Inhalte von scrollstage.local, scrollstage-pro.local und plugintest.local per Suchen/Ersetzen im Block-Markup migriert. Ältere Einträge dieser Tabelle nennen noch den früheren Namen Scrollstage. Offen: Grafiken mit dem neuen Schriftzug, Umzug von Repo-Ordner und lokalen Sites |
 | 1.37 | 02.10.2026 | Grafiken mit dem neuen Schriftzug: „Gorres“ klein und hellblau über „Scrollytelling“ (Noto Sans Bold, in den animierten SVG als Pfade); `docs/banner.svg`, die vier animierten Banner-SVG (im Hochformat die Bühne etwas kleiner, damit der zweizeilige Schriftzug Platz hat) und die vier PNG-Animationen unter `assets/` neu erzeugt; Logo und Startseiten-Banner der Onlinehilfe ersetzt, Bundle neu exportiert. Offen: `screenshot-1.png`, `-3.png` und `-4.png` zeigen noch den alten Namen (Browser-Tab bzw. Blocknamen im Editor) |
+| 1.38 | 02.10.2026 | WordPress.org-Screenshots ohne den früheren Namen: `screenshot-1.png` ohne Browserleiste (oben 50 px abgeschnitten, 800×570, sonst bildgleich), `screenshot-3.png` und `screenshot-4.png` im Editor neu aufgenommen (Blocknamen „Scrollytelling Story“ und „Scrollytelling Step“) |
