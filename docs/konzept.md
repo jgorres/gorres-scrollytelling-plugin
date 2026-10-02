@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.34 · Stand: 02.10.2026 · Plugin-Version: 2.11.0
+Version: 1.35 · Stand: 02.10.2026 · Plugin-Version: 2.11.0
 
 ## 1. Zweck
 
@@ -845,3 +845,4 @@ aber mit Node 20.
 | 1.32 | 01.10.2026 | Plugin-Header ohne `Plugin URI` (die Seite joern.gorres.com/scrollstage wird nicht mehr genannt); ein mitscrollendes Bild füllt eine eigene Schritthöhe (`has-own-height`); Beschriftung „Middle" im Schritt wie in der Story (Plugin 2.11.0) |
 | 1.33 | 01.10.2026 | Abschnitt 12, Onlinehilfe: Startseiten mit wegscrollendem Banner und angeheftetem Scroll-Hinweis (SVG statt PNG), Hilfe-Seiten um Hochformat-Bild, eigene Position, angehefteten Textkasten und mitscrollendes Bild ergänzt; Bundle neu exportiert (Plugin 2.11.0). Safe SVG ist nur auf der Vorlagen-Site aktiv und steht bewusst nicht im Blueprint; die SVG werden im Playground als Dateien ausgeliefert |
 | 1.34 | 02.10.2026 | Abschnitt 12, Onlinehilfe: Blueprint blendet die Adminleiste im Frontend aus (`show_admin_bar_front`); Seiten „Schrift und Textkasten" und „Texteffekte" an die Editor-Bezeichnungen von WordPress 7.1 angepasst; Bundle im Playground in Chromium, Firefox und Edge geprüft; am Plugin selbst nichts geändert |
+| 1.35 | 02.10.2026 | Abschnitt 12, Onlinehilfe: Aufnahmen der Editor-Bereiche (`docs/hilfe-screenshots/`, Schema `scrollstage-ui-<block>-<bereich>-<en\|de>.png`, doppelte Auflösung) in beiden Sprachen in die Hilfe-Seiten eingebaut (Spalten-Block, Bild 280 px breit mit Rahmen, Alternativtext in der Seitensprache); die deutschen Seiten nennen die deutschen Schalternamen der Übersetzung für 2.11.0 (`scrollstage-glotpress/stable-de_DE.po`, nur lokal auf scrollstage.local geladen, nicht im Bundle); am Plugin selbst nichts geändert |
