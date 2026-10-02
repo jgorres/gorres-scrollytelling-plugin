@@ -1,6 +1,6 @@
 # Scrollstage – Konzept und Aufbau
 
-Version: 1.33 · Stand: 01.10.2026 · Plugin-Version: 2.11.0
+Version: 1.34 · Stand: 02.10.2026 · Plugin-Version: 2.11.0
 
 ## 1. Zweck
 
@@ -764,7 +764,9 @@ Block-Attributen (Medien der Schritte, Website-Logo) stimmen.
    `runPHP` mit `delete_plugins()`: `wp plugin delete` als `wp-cli`-Schritt
    bricht im Playground ab, weil WP-CLI dafür einen Unterprozess startet.
 4. Willkommens-Dialog des Editors abschalten (`updateUserMeta`,
-   `wp_persisted_preferences`).
+   `wp_persisted_preferences`) und die Adminleiste auf den Hilfe-Seiten
+   ausblenden (`show_admin_bar_front` = `false`). Der Besucher bleibt
+   angemeldet und erreicht den Editor über `/wp-admin/`.
 5. `uploads.zip` entpacken, `import.php` und `content.json` ablegen, Import
    per `wp eval-file`.
 6. `wp rewrite flush` als eigener Schritt. Im Import-Lauf kennt Polylang die
@@ -842,3 +844,4 @@ aber mit Node 20.
 | 1.31 | 01.10.2026 | Medium scrollt mit dem Schritt (`mediaScroll`, Element `.jgor-st-step__cover`); die Bühne zeigt am Anfang einer Story das erste folgende Medium (`is-initial`) statt leer zu bleiben (Plugin 2.11.0) |
 | 1.32 | 01.10.2026 | Plugin-Header ohne `Plugin URI` (die Seite joern.gorres.com/scrollstage wird nicht mehr genannt); ein mitscrollendes Bild füllt eine eigene Schritthöhe (`has-own-height`); Beschriftung „Middle" im Schritt wie in der Story (Plugin 2.11.0) |
 | 1.33 | 01.10.2026 | Abschnitt 12, Onlinehilfe: Startseiten mit wegscrollendem Banner und angeheftetem Scroll-Hinweis (SVG statt PNG), Hilfe-Seiten um Hochformat-Bild, eigene Position, angehefteten Textkasten und mitscrollendes Bild ergänzt; Bundle neu exportiert (Plugin 2.11.0). Safe SVG ist nur auf der Vorlagen-Site aktiv und steht bewusst nicht im Blueprint; die SVG werden im Playground als Dateien ausgeliefert |
+| 1.34 | 02.10.2026 | Abschnitt 12, Onlinehilfe: Blueprint blendet die Adminleiste im Frontend aus (`show_admin_bar_front`); Seiten „Schrift und Textkasten" und „Texteffekte" an die Editor-Bezeichnungen von WordPress 7.1 angepasst; Bundle im Playground in Chromium, Firefox und Edge geprüft; am Plugin selbst nichts geändert |

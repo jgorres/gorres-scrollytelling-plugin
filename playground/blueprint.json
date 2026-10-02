@@ -88,6 +88,7 @@
 			"step": "updateUserMeta",
 			"userId": 1,
 			"meta": {
+				"show_admin_bar_front": "false",
 				"wp_persisted_preferences": {
 					"core/edit-post": {
 						"welcomeGuide": false
