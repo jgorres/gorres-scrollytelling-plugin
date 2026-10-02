@@ -77,7 +77,8 @@
     </g>
   </g>
   </g>
-  <text x="660" y="235" font-family="Noto Sans, DejaVu Sans, sans-serif" font-size="118" font-weight="700" fill="#ffffff">Scrollstage</text>
+  <text x="664" y="150" font-family="Noto Sans, DejaVu Sans, sans-serif" font-size="54" font-weight="700" fill="#38bdf8">Gorres</text>
+  <text x="660" y="250" font-family="Noto Sans, DejaVu Sans, sans-serif" font-size="104" font-weight="700" fill="#ffffff">Scrollytelling</text>
   <text x="664" y="315" font-family="Noto Sans, DejaVu Sans, sans-serif" font-size="40" fill="#cbd5e1">Scroll-driven stories, built from blocks.</text>
   <text x="664" y="372" font-family="Noto Sans, DejaVu Sans, sans-serif" font-size="30" fill="#94a3b8">Media stay in place while your text scrolls across them.</text>
 </svg>

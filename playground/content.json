@@ -620,49 +620,49 @@
                     "2026/10/banner-1544x500-1.png"
                 ],
                 "_wp_attachment_image_alt": [
-                    "Scrollstage"
+                    "Gorres Scrollytelling"
                 ],
                 "_wp_attachment_metadata": [
                     {
                         "width": 1544,
                         "height": 500,
                         "file": "2026/10/banner-1544x500-1.png",
-                        "filesize": 394919,
+                        "filesize": 573623,
                         "sizes": {
                             "medium": {
                                 "file": "banner-1544x500-1-300x97.png",
                                 "width": 300,
                                 "height": 97,
                                 "mime-type": "image/png",
-                                "filesize": 14720
+                                "filesize": 15908
                             },
                             "large": {
                                 "file": "banner-1544x500-1-1024x332.png",
                                 "width": 1024,
                                 "height": 332,
                                 "mime-type": "image/png",
-                                "filesize": 98210
+                                "filesize": 134349
                             },
                             "thumbnail": {
                                 "file": "banner-1544x500-1-150x150.png",
                                 "width": 150,
                                 "height": 150,
                                 "mime-type": "image/png",
-                                "filesize": 10894
+                                "filesize": 13214
                             },
                             "medium_large": {
                                 "file": "banner-1544x500-1-768x249.png",
                                 "width": 768,
                                 "height": 249,
                                 "mime-type": "image/png",
-                                "filesize": 45799
+                                "filesize": 58326
                             },
                             "1536x1536": {
                                 "file": "banner-1544x500-1-1536x497.png",
                                 "width": 1536,
                                 "height": 497,
                                 "mime-type": "image/png",
-                                "filesize": 201132
+                                "filesize": 256813
                             }
                         },
                         "image_meta": {
@@ -1127,7 +1127,7 @@
             "id": 99,
             "type": "attachment",
             "status": "inherit",
-            "title": "Scrollstage banner, scroll hint (animated SVG)",
+            "title": "Gorres Scrollytelling banner, scroll hint (animated SVG)",
             "slug": "scrollstage-banner-scroll-hint-animated-svg",
             "parent": 0,
             "menu_order": 0,
@@ -1201,7 +1201,7 @@
             "id": 102,
             "type": "attachment",
             "status": "inherit",
-            "title": "Scrollstage banner, stage (animated SVG)",
+            "title": "Gorres Scrollytelling banner, stage (animated SVG)",
             "slug": "scrollstage-banner-stage-animated-svg",
             "parent": 0,
             "menu_order": 0,
@@ -1215,7 +1215,7 @@
                     "2026/10/banner-animated-stage.svg"
                 ],
                 "_wp_attachment_image_alt": [
-                    "Scrollstage"
+                    "Gorres Scrollytelling"
                 ],
                 "_wp_attachment_metadata": [
                     {
@@ -1275,7 +1275,7 @@
             "id": 114,
             "type": "attachment",
             "status": "inherit",
-            "title": "Scrollstage banner, stage, portrait (animated SVG)",
+            "title": "Gorres Scrollytelling banner, stage, portrait (animated SVG)",
             "slug": "scrollstage-banner-stage-portrait-animated-svg",
             "parent": 0,
             "menu_order": 0,
@@ -1289,7 +1289,7 @@
                     "2026/10/banner-portrait-animated-stage.svg"
                 ],
                 "_wp_attachment_image_alt": [
-                    "Scrollstage"
+                    "Gorres Scrollytelling"
                 ],
                 "_wp_attachment_metadata": [
                     {
