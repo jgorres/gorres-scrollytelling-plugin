@@ -5,7 +5,8 @@ Version: 1.16 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
 Hinweis: Das Plugin hieß bis 2.11.0 „Scrollstage“ (Slug `scrollstage`, Blöcke
 `scrollstage/*`). Dieser Plan beschreibt die Schritte unter den damaligen Namen;
 seit 2.12.0 gelten `gorres-scrollytelling` und die Blocknamen „Scrollytelling …“,
-siehe `konzept.md`.
+siehe `konzept.md`. Die Entwicklungs-Site heißt jetzt `gorres-scrollytelling-pro.local`
+(früher `scrollstage-pro.local`), das Repo `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling/`.
 
 ## 1. Ausgangspunkt
 
@@ -343,7 +344,7 @@ Scrollstage aktiv:
 | Site | Scrollstage | Zweck |
 | --- | --- | --- |
 | `https://scrollstage-basis.local` | 2.4.0 aus `scrollstage-2.4.0.zip`, feste Kopie | Vergleichsstand |
-| `https://scrollstage-pro.local` | Symlink auf `~/dev/jgorres-im-WP-Repository/scrollstage/plugin` | Entwicklungsstand |
+| `https://scrollstage-pro.local` | Symlink auf `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling/plugin` | Entwicklungsstand |
 
 Testseiten auf beiden: `/scrollstage-hero/`, `/scrollstage-standard-width/`
 (begrenzte Bühne, Hochziehen) und `/scrollytelling-test/`. Jede hat fünf

@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.38 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
+Version: 1.39 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
 
 ## 1. Zweck
 
@@ -20,7 +20,7 @@ Plugin im WordPress-Verzeichnis ist oder werden soll. Im selben Ordner liegen
 die Release-ZIPs und die Übersetzungsdateien für GlotPress.
 
 ```
-~/dev/jgorres-im-WP-Repository/scrollstage/
+~/dev/jgorres-im-WP-Repository/gorres-scrollytelling/
 ├── plugin/                    ausgeliefertes Plugin
 │   ├── gorres-scrollytelling.php        Header, Konstanten, Textdomain, Modul-Loader
 │   ├── readme.txt             für das WordPress-Verzeichnis
@@ -629,7 +629,7 @@ wp i18n make-pot plugin plugin/languages/gorres-scrollytelling.pot \
 2. `.pot` neu erzeugen, Version in Header, Konstante, `readme.txt`
    (`Stable tag`), `package.json` und allen vier `block.json` gleichziehen.
 3. Vier Screenshots als `assets/screenshot-1..4.png` außerhalb des Plugins,
-   Motiv 1 als animiertes PNG aus `docs/scrollstage-hero.mp4`; Icon und
+   Motiv 1 als animiertes PNG aus `docs/gorres-scrollytelling-hero.mp4`; Icon und
    Banner ebenfalls animiert, aus `assets/icon.svg` und `docs/banner.svg`
    im Browser gerendert (kleine Größen aus den großen skalieren).
 4. `./build.sh`: prüft die Versionsnummern, baut die Blöcke, exportiert
@@ -682,7 +682,7 @@ Tabs verloren.
 
 ### Vorlagen-Site
 
-Gepflegt wird die Hilfe auf der lokalen Site `https://scrollstage.local`
+Gepflegt wird die Hilfe auf der lokalen Site `https://gorres-scrollytelling.local`
 (WordPress aktuell, PHP 8.4, Admin `jgorres`):
 
 - Theme Twenty Twenty-Five aktiv, GeneratePress installiert und inaktiv.
@@ -849,3 +849,4 @@ aber mit Node 20.
 | 1.36 | 02.10.2026 | Umbenennung: Das Plugin heißt Gorres Scrollytelling, Slug und Text-Domain `gorres-scrollytelling`, Hauptdatei `gorres-scrollytelling.php`, Block-Namensraum `gorres-scrollytelling/*`, Blöcke „Scrollytelling Story/Step/Row/Afterword“ (Plugin 2.12.0). Prefix `jgor_st_` und Klassen `jgor-st-*` bleiben. Hilfe-Site, Übersetzung und Bundle umgestellt; die Inhalte von scrollstage.local, scrollstage-pro.local und plugintest.local per Suchen/Ersetzen im Block-Markup migriert. Ältere Einträge dieser Tabelle nennen noch den früheren Namen Scrollstage. Offen: Grafiken mit dem neuen Schriftzug, Umzug von Repo-Ordner und lokalen Sites |
 | 1.37 | 02.10.2026 | Grafiken mit dem neuen Schriftzug: „Gorres“ klein und hellblau über „Scrollytelling“ (Noto Sans Bold, in den animierten SVG als Pfade); `docs/banner.svg`, die vier animierten Banner-SVG (im Hochformat die Bühne etwas kleiner, damit der zweizeilige Schriftzug Platz hat) und die vier PNG-Animationen unter `assets/` neu erzeugt; Logo und Startseiten-Banner der Onlinehilfe ersetzt, Bundle neu exportiert. Offen: `screenshot-1.png`, `-3.png` und `-4.png` zeigen noch den alten Namen (Browser-Tab bzw. Blocknamen im Editor) |
 | 1.38 | 02.10.2026 | WordPress.org-Screenshots ohne den früheren Namen: `screenshot-1.png` ohne Browserleiste (oben 50 px abgeschnitten, 800×570, sonst bildgleich), `screenshot-3.png` und `screenshot-4.png` im Editor neu aufgenommen (Blocknamen „Scrollytelling Story“ und „Scrollytelling Step“) |
+| 1.39 | 02.10.2026 | Umzug auf den neuen Namen: Repo `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling/`, Übersetzungen `gorres-scrollytelling-glotpress/`, Hilfe-Site `gorres-scrollytelling.local`, Entwicklungs-Site `gorres-scrollytelling-pro.local` (über die Toolchain neu angelegt, Dateien und Datenbank übernommen). Bilddateien der Hilfe und die Aufnahmen unter `docs/hilfe-screenshots/` heißen `gorres-scrollytelling-…`, das Quellvideo `docs/gorres-scrollytelling-hero.mp4`. `scrollstage-basis.local` und `scrollstage-wp67.local` bleiben als Vergleichsstände des früheren Plugins |

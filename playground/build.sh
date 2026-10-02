@@ -22,7 +22,7 @@ BUNDLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(dirname "${BUNDLE_DIR}")"
 SLUG="gorres-scrollytelling"
 ZIP_DIR="${HOME}/dev/jgorres-im-WP-Repository"
-SITE_DIR="${1:-/var/www/local-sites/scrollstage.local}"
+SITE_DIR="${1:-/var/www/local-sites/gorres-scrollytelling.local}"
 
 # --------------------------------------------------
 # 1. Check the inputs.
