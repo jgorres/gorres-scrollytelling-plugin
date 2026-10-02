@@ -2,7 +2,7 @@
 /**
  * Additions to the admin screens.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -28,7 +28,7 @@ function jgor_st_plugin_row_meta( $links, $file ) {
 	$links[] = sprintf(
 		'<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>',
 		esc_url( 'https://ko-fi.com/joerngorres/' ),
-		esc_html__( 'Buy the plugin author a Mercedes-Benz 😉', 'scrollstage' )
+		esc_html__( 'Buy the plugin author a Mercedes-Benz 😉', 'gorres-scrollytelling' )
 	);
 
 	return $links;

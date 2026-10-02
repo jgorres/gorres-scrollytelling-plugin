@@ -20,7 +20,7 @@
  * the top of the screen and is as tall as the screen, so the box keeps its
  * place while the rest of the step scrolls by.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  *
  * @var array<string, mixed> $attributes Block attributes.
  * @var string               $content    Rendered markup of the inner blocks.
@@ -39,7 +39,7 @@ $jgor_st_classes = 'jgor-st-step';
 // Effect of the text box: the step's own choice, otherwise the one of the story.
 $jgor_st_effect = jgor_st_resolve_text_effect(
 	$attributes['textEffect'] ?? '',
-	$block->context['scrollstage/textEffect'] ?? ''
+	$block->context['gorres-scrollytelling/textEffect'] ?? ''
 );
 
 /*
@@ -47,7 +47,7 @@ $jgor_st_effect = jgor_st_resolve_text_effect(
  * and at the top. Inside a row the boxes pass sideways, there is nothing for
  * the effects to hold on to.
  */
-$jgor_st_in_row = ! empty( $block->context['scrollstage/inRow'] );
+$jgor_st_in_row = ! empty( $block->context['gorres-scrollytelling/inRow'] );
 
 if ( $jgor_st_in_row ) {
 	$jgor_st_effect = '';
@@ -72,8 +72,8 @@ if ( $jgor_st_pinned ) {
 $jgor_st_cover = '';
 
 if ( ! $jgor_st_in_row && jgor_st_has_scrolling_medium( $attributes ) ) {
-	$jgor_st_fit   = isset( $block->context['scrollstage/mediaFit'] ) && 'contain' === $block->context['scrollstage/mediaFit'] ? 'contain' : 'cover';
-	$jgor_st_parts = jgor_st_medium_parts( $attributes, $jgor_st_fit, ! empty( $block->context['scrollstage/firstStep'] ) );
+	$jgor_st_fit   = isset( $block->context['gorres-scrollytelling/mediaFit'] ) && 'contain' === $block->context['gorres-scrollytelling/mediaFit'] ? 'contain' : 'cover';
+	$jgor_st_parts = jgor_st_medium_parts( $attributes, $jgor_st_fit, ! empty( $block->context['gorres-scrollytelling/firstStep'] ) );
 
 	if ( '' !== $jgor_st_parts['markup'] ) {
 		$jgor_st_classes .= ' has-cover';

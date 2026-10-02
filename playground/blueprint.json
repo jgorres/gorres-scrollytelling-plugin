@@ -1,9 +1,9 @@
 {
 	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
 	"meta": {
-		"title": "Scrollstage Help",
+		"title": "Gorres Scrollytelling Help",
 		"author": "Jörn Gorres",
-		"description": "Online help for the Scrollstage plugin in English and German, with live examples of the blocks."
+		"description": "Online help for the Gorres Scrollytelling plugin in English and German, with live examples of the blocks."
 	},
 	"landingPage": "/",
 	"preferredVersions": {
@@ -73,11 +73,11 @@
 			"step": "installPlugin",
 			"pluginData": {
 				"resource": "bundled",
-				"path": "/scrollstage.zip"
+				"path": "/gorres-scrollytelling.zip"
 			},
 			"options": {
 				"activate": true,
-				"targetFolderName": "scrollstage"
+				"targetFolderName": "gorres-scrollytelling"
 			}
 		},
 		{

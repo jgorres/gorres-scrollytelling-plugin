@@ -6,7 +6,7 @@
  * takes it out of the stream and the parent story block places it behind its
  * steps.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  *
  * @var array<string, mixed> $attributes Block attributes.
  * @var string               $content    Rendered markup of the inner blocks.

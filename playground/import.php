@@ -13,7 +13,7 @@
  *
  * Usage: wp eval-file import.php <path to content.json> confirm-wipe
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  */
 
 defined( 'ABSPATH' ) || exit;

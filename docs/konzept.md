@@ -1,6 +1,6 @@
-# Scrollstage – Konzept und Aufbau
+# Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.35 · Stand: 02.10.2026 · Plugin-Version: 2.11.0
+Version: 1.36 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
 
 ## 1. Zweck
 
@@ -22,7 +22,7 @@ die Release-ZIPs und die Übersetzungsdateien für GlotPress.
 ```
 ~/dev/jgorres-im-WP-Repository/scrollstage/
 ├── plugin/                    ausgeliefertes Plugin
-│   ├── scrollstage.php        Header, Konstanten, Textdomain, Modul-Loader
+│   ├── gorres-scrollytelling.php        Header, Konstanten, Textdomain, Modul-Loader
 │   ├── readme.txt             für das WordPress-Verzeichnis
 │   ├── uninstall.php          derzeit ohne Daten zu löschen
 │   ├── includes/
@@ -44,7 +44,7 @@ die Release-ZIPs und die Übersetzungsdateien für GlotPress.
 │   │   │                      story/view/row.js)
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
-│   └── languages/scrollstage.pot
+│   └── languages/gorres-scrollytelling.pot
 ├── assets/                    WP.org-Assets: Screenshots, Icon, Banner (nicht im Paket)
 ├── build.sh                   Release-ZIP erzeugen
 ├── .distignore                Ausschlüsse aus plugin/ für ZIP und SVN-Export
@@ -56,8 +56,8 @@ die Release-ZIPs und die Übersetzungsdateien für GlotPress.
 └── package.json
 ```
 
-Namensregeln: Slug und Text-Domain `scrollstage`, Blöcke `scrollstage/story`,
-`scrollstage/step`, `scrollstage/row` und `scrollstage/after`, Funktionen
+Namensregeln: Slug und Text-Domain `gorres-scrollytelling`, Blöcke `gorres-scrollytelling/story`,
+`gorres-scrollytelling/step`, `gorres-scrollytelling/row` und `gorres-scrollytelling/after`, Funktionen
 `jgor_st_`, Konstanten `JGOR_ST_`, CSS-Klassen `jgor-st-`.
 
 Seit 2.4.1 sind die Quellen der Story in Module geteilt. `view.js` und
@@ -225,7 +225,7 @@ folgenden Medium.
   streicht das Attribut für Schritte einer Reihe, damit die Bühne ihr Medium
   behält.
 - Der Schritt erfährt die Einpassung der Story über den Kontext
-  `scrollstage/mediaFit` und über `scrollstage/firstStep`
+  `gorres-scrollytelling/mediaFit` und über `gorres-scrollytelling/firstStep`
   (`jgor_st_first_step_context()`), ob er die Story eröffnet; nur dann wird
   sein Bild nicht verzögert geladen.
 - Der Editor zeigt das Bild wie jedes andere im Schritt.
@@ -261,7 +261,7 @@ Script.
 - Ein angehefteter Kasten hat keinen Texteffekt: Die Effekte gehören zu einem
   Kasten, der über den Bildschirm wandert. Das erspart auch die Geister-
   Elemente von `view/text.js`.
-- In einer Reihe wirkt `pinText` nicht (Kontext `scrollstage/inRow`), die
+- In einer Reihe wirkt `pinText` nicht (Kontext `gorres-scrollytelling/inRow`), die
   Reihe hält ihre Schritte selbst fest.
 - Begrenzte Bühne: Das Element bekommt wie der Ausschnitt einer Reihe das
   Seitenverhältnis der Bühne statt der Bildschirmhöhe.
@@ -281,7 +281,7 @@ stehen (Abschnitt 4), die Kästen folgen dicht aufeinander, und jeder behält
 seinen eigenen Kastenstil und Texteffekt. Ein Kasten, der höher ist als der
 Wert, dehnt den Schritt (`min-height`).
 
-In einer Reihe zählt der Wert nicht (Kontext `scrollstage/inRow`): Der
+In einer Reihe zählt der Wert nicht (Kontext `gorres-scrollytelling/inRow`): Der
 Scrollweg der Reihe ist Anzahl der Schritte mal Schritthöhe der Story. Der
 Editor zeigt die Höhe nicht, dort sind alle Schritte gleich hoch; die
 Einstellung liegt im Bereich „Height" des Schritts.
@@ -346,7 +346,7 @@ flache Liste in Dokumentreihenfolge.
 Schritte in einer Reihe bekommen keinen Texteffekt, denn die Effekte gehören
 zu einem Kasten, der von unten kommt und oben geht. Der Filter
 `render_block_context` (`jgor_st_row_context()`) setzt dafür den Kontext
-`scrollstage/inRow`, weil ein Schritt beim Rendern seinen Elternblock nicht
+`gorres-scrollytelling/inRow`, weil ein Schritt beim Rendern seinen Elternblock nicht
 sieht.
 
 | Klasse an `.jgor-st-row` | Bedeutung | gesetzt von |
@@ -390,7 +390,7 @@ hereinschieben (`slide`), sich vergrößern (`zoom`), sich hereindrehen
 verschwindet oben auf demselben Weg.
 
 1. Die Story reicht ihr `textEffect` als Block-Kontext
-   (`scrollstage/textEffect`) an die Schritte weiter.
+   (`gorres-scrollytelling/textEffect`) an die Schritte weiter.
    `jgor_st_resolve_text_effect()` wählt den eigenen Wert des Schritts, sonst
    den der Story; `step/render.php` setzt daraus
    `has-text-effect is-text-effect-<name>` am Schritt.
@@ -518,7 +518,7 @@ Bei begrenzter Bühne ist die Bühne niedriger als der Bildschirm. Ohne
 Nachspann bliebe darunter während aller Schritte weißer Raum, denn Inhalt nach
 dem Block kommt erst nach dem letzten Schritt.
 
-1. Der Filter `render_block_scrollstage/after` (Priorität `PHP_INT_MAX`)
+1. Der Filter `render_block_gorres-scrollytelling/after` (Priorität `PHP_INT_MAX`)
    nimmt das fertige Markup aus dem Inhalt und legt es je Blockinstanz in
    einer `WeakMap` ab (`jgor_st_after_store()`). `story/render.php` holt es
    über `$block->inner_blocks` ab und setzt es als `.jgor-st-story__after`
@@ -616,8 +616,8 @@ npm run start          # Entwicklungsmodus
 npm run lint:js        # ESLint, mit -- --fix auch korrigieren
 npm run lint:css       # Stylelint
 composer check         # PHPCS (WPCS) und PHPStan Level 6
-wp i18n make-pot plugin plugin/languages/scrollstage.pot \
-  --domain=scrollstage --exclude=build,node_modules --package-name="Scrollstage"
+wp i18n make-pot plugin plugin/languages/gorres-scrollytelling.pot \
+  --domain=gorres-scrollytelling --exclude=build,node_modules --slug=gorres-scrollytelling
 ```
 
 `plugin/build/` liegt nicht im Repo. Vor jedem Paket oder Deploy muss
@@ -635,7 +635,7 @@ wp i18n make-pot plugin plugin/languages/scrollstage.pot \
 4. `./build.sh`: prüft die Versionsnummern, baut die Blöcke, exportiert
    `plugin/` ohne die Einträge aus `.distignore` (`.po`, `.mo`, `.json`,
    `.l10n.php`) und schreibt
-   `~/dev/jgorres-im-WP-Repository/scrollstage-<version>.zip`. Die
+   `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling-<version>.zip`. Die
    Block-Quellen `src/` gehören ins Paket: Die Richtlinien von WordPress.org
    verlangen die lesbaren Quellen der kompilierten Dateien in `build/`.
    `build.sh` bricht ab, wenn `src/<block>/block.json` im Paket fehlt.
@@ -661,7 +661,7 @@ Die Erweiterungen und die beiden Testsites dazu stehen in `erweiterungen.md`.
 
 | Frage | Entscheidung | Grund |
 | --- | --- | --- |
-| Name | Scrollstage | „Scrollytelling" ist im Verzeichnis vergeben und zu generisch |
+| Name | Gorres Scrollytelling | „Scrollytelling" ist im Verzeichnis vergeben und zu generisch |
 | Sprache der Oberfläche | Englisch | translate.wordpress.org übersetzt von en_US |
 | Themes | nur Blöcke, kein Theme-Code | volle Breite kommt aus dem Theme, kein Sonderfall für ein einzelnes Theme |
 | Animationsbibliothek | keine | IntersectionObserver genügt, knapp 7 KB (komprimiert 2,2 KB) statt 70 KB |
@@ -687,7 +687,7 @@ Gepflegt wird die Hilfe auf der lokalen Site `https://scrollstage.local`
 
 - Theme Twenty Twenty-Five aktiv, GeneratePress installiert und inaktiv.
 - Plugins aktiv: Plugin Check, Simple Page Ordering, Polylang (freie Version),
-  Scrollstage aus dem Release-ZIP (kein Symlink auf das Repo).
+  Gorres Scrollytelling aus dem Release-ZIP (kein Symlink auf das Repo).
 - Polylang: Englisch ist Standardsprache ohne Präfix, Deutsch liegt unter
   `/de/`. Die Option „Startseiten-URL enthält den Sprachcode" ist gesetzt,
   damit die deutsche Startseite `/de/` heißt.
@@ -727,7 +727,7 @@ weiteren Dateien werden daraus als `bundled`-Ressourcen gelesen.
 | `build.sh` | ruft den Export auf und kopiert das aktuelle Release-ZIP |
 | `content.json` | erzeugt: Sprachen, Polylang-Einstellungen, Optionen, Beiträge |
 | `uploads.zip` | erzeugt: Inhalt von `wp-content/uploads` |
-| `scrollstage.zip` | erzeugt: Kopie von `scrollstage-<version>.zip` |
+| `gorres-scrollytelling.zip` | erzeugt: Kopie von `gorres-scrollytelling-<version>.zip` |
 
 Nach jeder Änderung an der Vorlagen-Site:
 
@@ -759,7 +759,7 @@ Block-Attributen (Medien der Schritte, Website-Logo) stimmen.
 
 1. Anmelden; Twenty Twenty-Five aktivieren, GeneratePress installieren.
 2. Plugin Check, Simple Page Ordering und Polylang von WordPress.org,
-   Scrollstage aus `scrollstage.zip`.
+   Gorres Scrollytelling aus `gorres-scrollytelling.zip`.
 3. Akismet und Hello Dolly löschen, falls vorhanden. Das geschieht per
    `runPHP` mit `delete_plugins()`: `wp plugin delete` als `wp-cli`-Schritt
    bricht im Playground ab, weil WP-CLI dafür einen Unterprozess startet.
@@ -800,7 +800,7 @@ aber mit Node 20.
 
 - Ablage: öffentliches GitHub-Repo, aus dem der Playground das Bundle über
   `?blueprint-url=…` lädt. Eigener Webspace scheidet wegen des Traffics aus.
-- Nach der Freischaltung bei WordPress.org: Scrollstage im Blueprint per Slug
+- Nach der Freischaltung bei WordPress.org: Gorres Scrollytelling im Blueprint per Slug
   statt aus dem ZIP, zusätzlich `assets/blueprints/blueprint.json` im SVN für
   den Knopf „Live Preview".
 - `uploads.zip` ist rund 13 MB groß, gut die Hälfte davon das Video. Das
@@ -846,3 +846,4 @@ aber mit Node 20.
 | 1.33 | 01.10.2026 | Abschnitt 12, Onlinehilfe: Startseiten mit wegscrollendem Banner und angeheftetem Scroll-Hinweis (SVG statt PNG), Hilfe-Seiten um Hochformat-Bild, eigene Position, angehefteten Textkasten und mitscrollendes Bild ergänzt; Bundle neu exportiert (Plugin 2.11.0). Safe SVG ist nur auf der Vorlagen-Site aktiv und steht bewusst nicht im Blueprint; die SVG werden im Playground als Dateien ausgeliefert |
 | 1.34 | 02.10.2026 | Abschnitt 12, Onlinehilfe: Blueprint blendet die Adminleiste im Frontend aus (`show_admin_bar_front`); Seiten „Schrift und Textkasten" und „Texteffekte" an die Editor-Bezeichnungen von WordPress 7.1 angepasst; Bundle im Playground in Chromium, Firefox und Edge geprüft; am Plugin selbst nichts geändert |
 | 1.35 | 02.10.2026 | Abschnitt 12, Onlinehilfe: Aufnahmen der Editor-Bereiche (`docs/hilfe-screenshots/`, Schema `scrollstage-ui-<block>-<bereich>-<en\|de>.png`, doppelte Auflösung) in beiden Sprachen in die Hilfe-Seiten eingebaut (Spalten-Block, Bild 280 px breit mit Rahmen, Alternativtext in der Seitensprache); die deutschen Seiten nennen die deutschen Schalternamen der Übersetzung für 2.11.0 (`scrollstage-glotpress/stable-de_DE.po`, nur lokal auf scrollstage.local geladen, nicht im Bundle); am Plugin selbst nichts geändert |
+| 1.36 | 02.10.2026 | Umbenennung: Das Plugin heißt Gorres Scrollytelling, Slug und Text-Domain `gorres-scrollytelling`, Hauptdatei `gorres-scrollytelling.php`, Block-Namensraum `gorres-scrollytelling/*`, Blöcke „Scrollytelling Story/Step/Row/Afterword“ (Plugin 2.12.0). Prefix `jgor_st_` und Klassen `jgor-st-*` bleiben. Hilfe-Site, Übersetzung und Bundle umgestellt; die Inhalte von scrollstage.local, scrollstage-pro.local und plugintest.local per Suchen/Ersetzen im Block-Markup migriert. Ältere Einträge dieser Tabelle nennen noch den früheren Namen Scrollstage. Offen: Grafiken mit dem neuen Schriftzug, Umzug von Repo-Ordner und lokalen Sites |

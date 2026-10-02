@@ -30,11 +30,11 @@ export default function Edit() {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Afterword', 'scrollstage' ) }>
+				<PanelBody title={ __( 'Afterword', 'gorres-scrollytelling' ) }>
 					<Notice status="info" isDismissible={ false }>
 						{ __(
 							'The afterword always follows the last step. When the story limits the stage to the medium, it appears right below the stage from the first step on and only scrolls away once the story ends. Front end only.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 					</Notice>
 				</PanelBody>

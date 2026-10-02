@@ -9,9 +9,12 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = [ 'scrollstage/step' ];
+const ALLOWED_BLOCKS = [ 'gorres-scrollytelling/step' ];
 
-const TEMPLATE = [ [ 'scrollstage/step' ], [ 'scrollstage/step' ] ];
+const TEMPLATE = [
+	[ 'gorres-scrollytelling/step' ],
+	[ 'gorres-scrollytelling/step' ],
+];
 
 export default function Edit() {
 	const blockProps = useBlockProps( {
@@ -32,7 +35,7 @@ export default function Edit() {
 			<p className="jgor-st-row__note">
 				{ __(
 					'Row: these steps pass sideways on the front end.',
-					'scrollstage'
+					'gorres-scrollytelling'
 				) }
 			</p>
 			<div { ...innerBlocksProps } />

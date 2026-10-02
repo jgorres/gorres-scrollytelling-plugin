@@ -10,7 +10,7 @@
  * The media of the steps are not rendered here. Like those of all other
  * steps they are part of the sticky stage of the parent story block.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  *
  * @var array<string, mixed> $attributes Block attributes.
  * @var string               $content    Rendered markup of the inner blocks.

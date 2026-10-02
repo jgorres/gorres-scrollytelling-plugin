@@ -5,7 +5,7 @@ clear
 # Script name: build.sh
 # Author: Jörn Gorres
 # Date: 01.10.2026
-# Description: Builds the WordPress Playground bundle of the Scrollstage
+# Description: Builds the WordPress Playground bundle of the Gorres Scrollytelling
 #              online help: exports the content of the local help site
 #              (content.json, uploads.zip) and copies the current release
 #              ZIP of the plugin next to blueprint.json.
@@ -14,13 +14,13 @@ clear
 set -euo pipefail
 
 echo "===================================================="
-echo "   SCROLLSTAGE: PLAYGROUND-BUNDLE ERZEUGEN"
+echo "   GORRES SCROLLYTELLING: PLAYGROUND-BUNDLE ERZEUGEN"
 echo "===================================================="
 echo ""
 
 BUNDLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(dirname "${BUNDLE_DIR}")"
-SLUG="scrollstage"
+SLUG="gorres-scrollytelling"
 ZIP_DIR="${HOME}/dev/jgorres-im-WP-Repository"
 SITE_DIR="${1:-/var/www/local-sites/scrollstage.local}"
 

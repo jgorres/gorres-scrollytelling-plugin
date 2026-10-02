@@ -5,7 +5,7 @@
  * Only executed when the plugin is deleted from the admin screen. Block content
  * lives in the posts themselves and is deliberately left untouched.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

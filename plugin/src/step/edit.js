@@ -180,18 +180,18 @@ export default function Edit( { attributes, setAttributes } ) {
 						allowedTypes={ ALLOWED_MEDIA }
 						accept="image/*,video/*"
 						onSelect={ onSelectMedia }
-						name={ __( 'Replace medium', 'scrollstage' ) }
+						name={ __( 'Replace medium', 'gorres-scrollytelling' ) }
 					/>
 				</BlockControls>
 			) }
 
 			<InspectorControls>
-				<PanelBody title={ __( 'Medium', 'scrollstage' ) }>
+				<PanelBody title={ __( 'Medium', 'gorres-scrollytelling' ) }>
 					{ ! hasMedia && (
 						<p>
 							{ __(
 								'No medium is set for this step. While scrolling, the medium of the previous step stays in place.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 						</p>
 					) }
@@ -200,7 +200,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						<Notice status="warning" isDismissible={ false }>
 							{ __(
 								'This image has no alternative text. People using a screen reader will not learn what it shows.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 						</Notice>
 					) }
@@ -208,10 +208,13 @@ export default function Edit( { attributes, setAttributes } ) {
 					{ hasMedia && 'image' === mediaType && (
 						<TextareaControl
 							__nextHasNoMarginBottom
-							label={ __( 'Alternative text', 'scrollstage' ) }
+							label={ __(
+								'Alternative text',
+								'gorres-scrollytelling'
+							) }
 							help={ __(
 								'Leave empty to use the alternative text from the media library.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							value={ mediaAlt }
 							onChange={ ( value ) =>
@@ -223,10 +226,13 @@ export default function Edit( { attributes, setAttributes } ) {
 					{ hasMedia && (
 						<FocalPointPicker
 							__nextHasNoMarginBottom
-							label={ __( 'Focal point', 'scrollstage' ) }
+							label={ __(
+								'Focal point',
+								'gorres-scrollytelling'
+							) }
 							help={ __(
 								'Sets which point stays visible when the medium is cropped.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							url={ mediaUrl }
 							value={ focalPoint ?? { x: 0.5, y: 0.5 } }
@@ -241,11 +247,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							__nextHasNoMarginBottom
 							label={ __(
 								'Let the image scroll along',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							help={ __(
 								'The image does not stay in place. It fills the screen at the start of this step and scrolls away with it, while the medium of the next step already shows behind it. An image taller than the screen keeps its height and makes the step as tall as itself, unless the step has a height of its own, which the image then fills. Front end only; has no effect inside a row.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							checked={ mediaScroll }
 							onChange={ ( value ) =>
@@ -261,19 +267,22 @@ export default function Edit( { attributes, setAttributes } ) {
 							variant="secondary"
 							onClick={ () => setAttributes( EMPTY_MEDIA ) }
 						>
-							{ __( 'Remove medium', 'scrollstage' ) }
+							{ __( 'Remove medium', 'gorres-scrollytelling' ) }
 						</Button>
 					) }
 				</PanelBody>
 				{ canHavePortrait && (
 					<PanelBody
-						title={ __( 'Portrait screens', 'scrollstage' ) }
+						title={ __(
+							'Portrait screens',
+							'gorres-scrollytelling'
+						) }
 						initialOpen={ false }
 					>
 						<p>
 							{ __(
 								'Optional second image for screens that are taller than wide, such as a phone held upright. It replaces the image of this step there and shares its alternative text. Front end only.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 						</p>
 
@@ -282,7 +291,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								__nextHasNoMarginBottom
 								label={ __(
 									'Focal point on portrait screens',
-									'scrollstage'
+									'gorres-scrollytelling'
 								) }
 								url={ portraitUrl }
 								value={
@@ -311,11 +320,11 @@ export default function Edit( { attributes, setAttributes } ) {
 											{ hasPortrait
 												? __(
 														'Replace image',
-														'scrollstage'
+														'gorres-scrollytelling'
 													)
 												: __(
 														'Choose image',
-														'scrollstage'
+														'gorres-scrollytelling'
 													) }
 										</Button>
 									) }
@@ -331,38 +340,44 @@ export default function Edit( { attributes, setAttributes } ) {
 										setAttributes( REMOVED_PORTRAIT )
 									}
 								>
-									{ __( 'Remove image', 'scrollstage' ) }
+									{ __(
+										'Remove image',
+										'gorres-scrollytelling'
+									) }
 								</Button>
 							) }
 						</Flex>
 					</PanelBody>
 				) }
 				<PanelBody
-					title={ __( 'Position', 'scrollstage' ) }
+					title={ __( 'Position', 'gorres-scrollytelling' ) }
 					initialOpen={ false }
 				>
 					<SelectControl
 						__nextHasNoMarginBottom
 						label={ __(
 							'Horizontal position of the text box',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ textPosition }
 						options={ [
 							{
-								label: __( 'Same as story', 'scrollstage' ),
+								label: __(
+									'Same as story',
+									'gorres-scrollytelling'
+								),
 								value: '',
 							},
 							{
-								label: __( 'Left', 'scrollstage' ),
+								label: __( 'Left', 'gorres-scrollytelling' ),
 								value: 'left',
 							},
 							{
-								label: __( 'Middle', 'scrollstage' ),
+								label: __( 'Middle', 'gorres-scrollytelling' ),
 								value: 'center',
 							},
 							{
-								label: __( 'Right', 'scrollstage' ),
+								label: __( 'Right', 'gorres-scrollytelling' ),
 								value: 'right',
 							},
 						] }
@@ -374,24 +389,27 @@ export default function Edit( { attributes, setAttributes } ) {
 						__nextHasNoMarginBottom
 						label={ __(
 							'Vertical position of the text box',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ stepAlign }
 						options={ [
 							{
-								label: __( 'Same as story', 'scrollstage' ),
+								label: __(
+									'Same as story',
+									'gorres-scrollytelling'
+								),
 								value: '',
 							},
 							{
-								label: __( 'Top', 'scrollstage' ),
+								label: __( 'Top', 'gorres-scrollytelling' ),
 								value: 'start',
 							},
 							{
-								label: __( 'Middle', 'scrollstage' ),
+								label: __( 'Middle', 'gorres-scrollytelling' ),
 								value: 'center',
 							},
 							{
-								label: __( 'Bottom', 'scrollstage' ),
+								label: __( 'Bottom', 'gorres-scrollytelling' ),
 								value: 'end',
 							},
 						] }
@@ -403,11 +421,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						__nextHasNoMarginBottom
 						label={ __(
 							'Keep the text box in place',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						help={ __(
 							'The text box stays where it is on the screen while the visitor scrolls through this step, and leaves at the top when the step ends. It needs a step taller than the screen: set a height above 100 percent under "Height". The text box then goes without a text effect. Front end only; has no effect inside a row.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						checked={ pinText }
 						onChange={ ( value ) =>
@@ -416,18 +434,18 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Height', 'scrollstage' ) }
+					title={ __( 'Height', 'gorres-scrollytelling' ) }
 					initialOpen={ false }
 				>
 					<ToggleControl
 						__nextHasNoMarginBottom
 						label={ __(
 							'Use the step height of the story',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						help={ __(
 							'Switch off to give this step a height of its own. Lower steps without a medium let several text boxes scroll across the same medium one after the other. Front end only; has no effect inside a row.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						checked={ ! hasOwnHeight }
 						onChange={ ( value ) =>
@@ -441,11 +459,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							__nextHasNoMarginBottom
 							label={ __(
 								'Step height in percent of the screen height',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							help={ __(
 								'A text box taller than this makes the step as tall as it needs.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							value={ minHeight }
 							min={ 20 }
@@ -460,44 +478,56 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Motion', 'scrollstage' ) }
+					title={ __( 'Motion', 'gorres-scrollytelling' ) }
 					initialOpen={ false }
 				>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Text effect', 'scrollstage' ) }
+						label={ __( 'Text effect', 'gorres-scrollytelling' ) }
 						help={ __(
 							'How the text box of this step appears and disappears while scrolling. Front end only.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ textEffect }
 						options={ [
 							{
-								label: __( 'Same as story', 'scrollstage' ),
+								label: __(
+									'Same as story',
+									'gorres-scrollytelling'
+								),
 								value: '',
 							},
 							{
-								label: __( 'None', 'scrollstage' ),
+								label: __( 'None', 'gorres-scrollytelling' ),
 								value: 'none',
 							},
 							{
-								label: __( 'Fade in', 'scrollstage' ),
+								label: __( 'Fade in', 'gorres-scrollytelling' ),
 								value: 'fade',
 							},
 							{
-								label: __( 'Slide up', 'scrollstage' ),
+								label: __(
+									'Slide up',
+									'gorres-scrollytelling'
+								),
 								value: 'slide',
 							},
 							{
-								label: __( 'Zoom in', 'scrollstage' ),
+								label: __( 'Zoom in', 'gorres-scrollytelling' ),
 								value: 'zoom',
 							},
 							{
-								label: __( 'Rotate in', 'scrollstage' ),
+								label: __(
+									'Rotate in',
+									'gorres-scrollytelling'
+								),
 								value: 'rotate',
 							},
 							{
-								label: __( 'Dissolve', 'scrollstage' ),
+								label: __(
+									'Dissolve',
+									'gorres-scrollytelling'
+								),
 								value: 'dissolve',
 							},
 						] }
@@ -523,10 +553,13 @@ export default function Edit( { attributes, setAttributes } ) {
 					<MediaPlaceholder
 						icon="format-image"
 						labels={ {
-							title: __( 'Medium of this step', 'scrollstage' ),
+							title: __(
+								'Medium of this step',
+								'gorres-scrollytelling'
+							),
 							instructions: __(
 								'Choose an image or video for this text to scroll across.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							),
 						} }
 						allowedTypes={ ALLOWED_MEDIA }

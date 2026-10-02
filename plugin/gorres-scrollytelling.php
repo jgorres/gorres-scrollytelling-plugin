@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name:       Scrollstage
+ * Plugin Name:       Gorres Scrollytelling
  * Description:       Full-screen media that stay in place while text boxes scroll across them.
- * Version:           2.11.0
+ * Version:           2.12.0
  * Requires at least: 6.7
  * Requires PHP:      8.1
  * Author:            Jörn Gorres
  * Author URI:        https://joern.gorres.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       scrollstage
+ * Text Domain:       gorres-scrollytelling
  * Domain Path:       /languages
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
  * every release. The block assets take their cache-busting version from the
  * "version" field of each block.json, which has to be raised as well.
  */
-define( 'JGOR_ST_VERSION', '2.11.0' );
+define( 'JGOR_ST_VERSION', '2.12.0' );
 define( 'JGOR_ST_MIN_PHP', '8.1' );
 define( 'JGOR_ST_FILE', __FILE__ );
 define( 'JGOR_ST_PATH', plugin_dir_path( __FILE__ ) );
@@ -68,11 +68,11 @@ function jgor_st_activate() {
 			esc_html(
 				sprintf(
 					/* translators: %s: required PHP version */
-					__( 'This plugin requires PHP %s or newer.', 'scrollstage' ),
+					__( 'This plugin requires PHP %s or newer.', 'gorres-scrollytelling' ),
 					JGOR_ST_MIN_PHP
 				)
 			),
-			esc_html__( 'Plugin activation stopped', 'scrollstage' ),
+			esc_html__( 'Plugin activation stopped', 'gorres-scrollytelling' ),
 			array( 'back_link' => true )
 		);
 	}

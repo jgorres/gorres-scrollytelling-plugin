@@ -14,7 +14,7 @@
  * With "pullContent" the script also pulls the content after the block up
  * below a limited stage. That content stays where it is in the document.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  *
  * @var array<string, mixed> $attributes Block attributes.
  * @var string               $content    Rendered markup of the inner blocks.
@@ -99,7 +99,7 @@ $jgor_st_after = '';
 
 if ( $block->inner_blocks instanceof WP_Block_List ) {
 	foreach ( $block->inner_blocks as $jgor_st_inner ) {
-		if ( $jgor_st_inner instanceof WP_Block && 'scrollstage/after' === $jgor_st_inner->name ) {
+		if ( $jgor_st_inner instanceof WP_Block && 'gorres-scrollytelling/after' === $jgor_st_inner->name ) {
 			$jgor_st_after .= jgor_st_after_store( $jgor_st_inner );
 		}
 	}

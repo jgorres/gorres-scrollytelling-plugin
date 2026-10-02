@@ -1,15 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "scrollstage/step",
-	"version": "2.11.0",
-	"title": "Scrollstage Step",
-	"category": "scrollstage",
+	"name": "gorres-scrollytelling/step",
+	"version": "2.12.0",
+	"title": "Scrollytelling Step",
+	"category": "gorres-scrollytelling",
 	"icon": "align-left",
 	"description": "One step of the story: text that scrolls across the medium belonging to it.",
 	"keywords": [ "scrollytelling", "step", "story" ],
-	"textdomain": "scrollstage",
-	"parent": [ "scrollstage/story", "scrollstage/row" ],
+	"textdomain": "gorres-scrollytelling",
+	"parent": [ "gorres-scrollytelling/story", "gorres-scrollytelling/row" ],
 	"supports": {
 		"anchor": true,
 		"html": false,
@@ -106,10 +106,10 @@
 		}
 	},
 	"usesContext": [
-		"scrollstage/textEffect",
-		"scrollstage/inRow",
-		"scrollstage/mediaFit",
-		"scrollstage/firstStep"
+		"gorres-scrollytelling/textEffect",
+		"gorres-scrollytelling/inRow",
+		"gorres-scrollytelling/mediaFit",
+		"gorres-scrollytelling/firstStep"
 	],
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

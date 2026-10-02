@@ -20,12 +20,15 @@ import {
 } from '@wordpress/components';
 
 const ALLOWED_BLOCKS = [
-	'scrollstage/step',
-	'scrollstage/row',
-	'scrollstage/after',
+	'gorres-scrollytelling/step',
+	'gorres-scrollytelling/row',
+	'gorres-scrollytelling/after',
 ];
 
-const TEMPLATE = [ [ 'scrollstage/step' ], [ 'scrollstage/step' ] ];
+const TEMPLATE = [
+	[ 'gorres-scrollytelling/step' ],
+	[ 'gorres-scrollytelling/step' ],
+];
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
@@ -64,22 +67,27 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Text boxes', 'scrollstage' ) }>
+				<PanelBody
+					title={ __( 'Text boxes', 'gorres-scrollytelling' ) }
+				>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Horizontal position', 'scrollstage' ) }
+						label={ __(
+							'Horizontal position',
+							'gorres-scrollytelling'
+						) }
 						value={ textPosition }
 						options={ [
 							{
-								label: __( 'Left', 'scrollstage' ),
+								label: __( 'Left', 'gorres-scrollytelling' ),
 								value: 'left',
 							},
 							{
-								label: __( 'Middle', 'scrollstage' ),
+								label: __( 'Middle', 'gorres-scrollytelling' ),
 								value: 'center',
 							},
 							{
-								label: __( 'Right', 'scrollstage' ),
+								label: __( 'Right', 'gorres-scrollytelling' ),
 								value: 'right',
 							},
 						] }
@@ -91,11 +99,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						__nextHasNoMarginBottom
 						label={ __(
 							'Text box width in percent',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						help={ __(
 							'On narrow screens the boxes always use the full width.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ textWidth }
 						min={ 20 }
@@ -107,19 +115,22 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Vertical position', 'scrollstage' ) }
+						label={ __(
+							'Vertical position',
+							'gorres-scrollytelling'
+						) }
 						value={ stepAlign }
 						options={ [
 							{
-								label: __( 'Top', 'scrollstage' ),
+								label: __( 'Top', 'gorres-scrollytelling' ),
 								value: 'start',
 							},
 							{
-								label: __( 'Middle', 'scrollstage' ),
+								label: __( 'Middle', 'gorres-scrollytelling' ),
 								value: 'center',
 							},
 							{
-								label: __( 'Bottom', 'scrollstage' ),
+								label: __( 'Bottom', 'gorres-scrollytelling' ),
 								value: 'end',
 							},
 						] }
@@ -128,24 +139,27 @@ export default function Edit( { attributes, setAttributes } ) {
 						}
 					/>
 				</PanelBody>
-				<PanelBody title={ __( 'Media', 'scrollstage' ) }>
+				<PanelBody title={ __( 'Media', 'gorres-scrollytelling' ) }>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Media fit', 'scrollstage' ) }
+						label={ __( 'Media fit', 'gorres-scrollytelling' ) }
 						help={ __(
 							'“Fill the frame” crops the medium to the size of the screen, “Show the whole medium” leaves margins free.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ mediaFit }
 						options={ [
 							{
-								label: __( 'Fill the frame', 'scrollstage' ),
+								label: __(
+									'Fill the frame',
+									'gorres-scrollytelling'
+								),
 								value: 'cover',
 							},
 							{
 								label: __(
 									'Show the whole medium',
-									'scrollstage'
+									'gorres-scrollytelling'
 								),
 								value: 'contain',
 							},
@@ -159,11 +173,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							__nextHasNoMarginBottom
 							label={ __(
 								'Limit the stage to the medium',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							help={ __(
 								'Otherwise the media use the full width and the text can end up beside the medium. The width follows the narrowest medium of the story. Front end only.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							checked={ limitStage }
 							onChange={ ( value ) =>
@@ -176,11 +190,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							__nextHasNoMarginBottom
 							label={ __(
 								'Pull up the following content',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							help={ __(
 								'The content after the story appears right below the stage from the first step on and only scrolls on once the story ends. Front end only.',
-								'scrollstage'
+								'gorres-scrollytelling'
 							) }
 							checked={ pullContent }
 							onChange={ ( value ) =>
@@ -190,10 +204,13 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 					<RangeControl
 						__nextHasNoMarginBottom
-						label={ __( 'Dimming in percent', 'scrollstage' ) }
+						label={ __(
+							'Dimming in percent',
+							'gorres-scrollytelling'
+						) }
 						help={ __(
 							'Sits on top of the media so that text stays readable.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ overlayOpacity }
 						min={ 0 }
@@ -207,11 +224,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						__nextHasNoMarginBottom
 						label={ __(
 							'Offset from the top (px)',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						help={ __(
 							'Room for a fixed menu above the media.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ stickyOffset }
 						min={ 0 }
@@ -225,11 +242,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						__nextHasNoMarginBottom
 						label={ __(
 							'Step height in percent of the screen height',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						help={ __(
 							'Decides how long a medium stays in place.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ minStepHeight }
 						min={ 40 }
@@ -241,24 +258,27 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Motion', 'scrollstage' ) }
+					title={ __( 'Motion', 'gorres-scrollytelling' ) }
 					initialOpen={ false }
 				>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Transition', 'scrollstage' ) }
+						label={ __( 'Transition', 'gorres-scrollytelling' ) }
 						help={ __(
 							'With “None” the media switch instantly. Systems asking for reduced motion never cross-fade.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ transition }
 						options={ [
 							{
-								label: __( 'Cross-fade', 'scrollstage' ),
+								label: __(
+									'Cross-fade',
+									'gorres-scrollytelling'
+								),
 								value: 'fade',
 							},
 							{
-								label: __( 'None', 'scrollstage' ),
+								label: __( 'None', 'gorres-scrollytelling' ),
 								value: 'none',
 							},
 						] }
@@ -268,35 +288,44 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 					<SelectControl
 						__nextHasNoMarginBottom
-						label={ __( 'Text effect', 'scrollstage' ) }
+						label={ __( 'Text effect', 'gorres-scrollytelling' ) }
 						help={ __(
 							'How the text boxes appear and disappear while scrolling. A step can set its own effect. Front end only; systems asking for reduced motion show no effect.',
-							'scrollstage'
+							'gorres-scrollytelling'
 						) }
 						value={ textEffect }
 						options={ [
 							{
-								label: __( 'None', 'scrollstage' ),
+								label: __( 'None', 'gorres-scrollytelling' ),
 								value: 'none',
 							},
 							{
-								label: __( 'Fade in', 'scrollstage' ),
+								label: __( 'Fade in', 'gorres-scrollytelling' ),
 								value: 'fade',
 							},
 							{
-								label: __( 'Slide up', 'scrollstage' ),
+								label: __(
+									'Slide up',
+									'gorres-scrollytelling'
+								),
 								value: 'slide',
 							},
 							{
-								label: __( 'Zoom in', 'scrollstage' ),
+								label: __( 'Zoom in', 'gorres-scrollytelling' ),
 								value: 'zoom',
 							},
 							{
-								label: __( 'Rotate in', 'scrollstage' ),
+								label: __(
+									'Rotate in',
+									'gorres-scrollytelling'
+								),
 								value: 'rotate',
 							},
 							{
-								label: __( 'Dissolve', 'scrollstage' ),
+								label: __(
+									'Dissolve',
+									'gorres-scrollytelling'
+								),
 								value: 'dissolve',
 							},
 						] }

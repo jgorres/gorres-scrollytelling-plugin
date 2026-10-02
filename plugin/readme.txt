@@ -1,11 +1,11 @@
-=== Scrollstage ===
+=== Gorres Scrollytelling ===
 Contributors: jgorres
 Donate link: https://ko-fi.com/joerngorres/
 Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.11.0
+Stable tag: 2.12.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,18 +13,18 @@ Full-screen media that stay in place while text boxes scroll across them, built 
 
 == Description ==
 
-Scrollstage turns a web page into a story driven by scrolling: scrollytelling.
+Gorres Scrollytelling turns a web page into a story driven by scrolling: scrollytelling.
 
 Scrollytelling (from "scrolling" and "storytelling") is a way of telling stories on the web in which scrolling itself moves the story forward. Instead of merely moving the page down, every scroll step triggers a change: graphics build up, maps zoom, images change, charts animate to match the text.
 
-With Scrollstage, one medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.
+With Gorres Scrollytelling, one medium fills the screen and stays in place while the text of the current step scrolls across it. As soon as the next step reaches the middle of the screen, the medium behind it changes.
 
 A story is put together from four kinds of blocks, and it can hold as many of them as it needs:
 
-* **Scrollstage Story** — the frame. It holds the layout of the text boxes, the dimming of the media and the length of a step.
-* **Scrollstage Step** — one step of the story. It carries its own image or video plus any blocks you want as text. A story takes any number of steps. A step without a medium keeps the medium of the step before, so several text boxes can scroll across the same image or video one after the other.
-* **Scrollstage Row** — optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.
-* **Scrollstage Afterword** — optional content that follows the last step. Below a stage that is limited to the medium it shows up right under the stage from the first step on, instead of leaving that space empty.
+* **Scrollytelling Story** — the frame. It holds the layout of the text boxes, the dimming of the media and the length of a step.
+* **Scrollytelling Step** — one step of the story. It carries its own image or video plus any blocks you want as text. A story takes any number of steps. A step without a medium keeps the medium of the step before, so several text boxes can scroll across the same image or video one after the other.
+* **Scrollytelling Row** — optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.
+* **Scrollytelling Afterword** — optional content that follows the last step. Below a stage that is limited to the medium it shows up right under the stage from the first step on, instead of leaving that space empty.
 
 = What you can set =
 
@@ -59,7 +59,7 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 
 1. Install the plugin through Plugins → Add New, or upload the folder to `/wp-content/plugins/`.
 2. Activate it.
-3. Add the block "Scrollstage Story" to a page and pick a medium for every step.
+3. Add the block "Scrollytelling Story" to a page and pick a medium for every step.
 4. For a story that touches the edges of the screen, set the story block to full width.
 
 == Frequently Asked Questions ==
@@ -94,7 +94,7 @@ Yes. Open "Position" in the settings of the step and switch on "Keep the text bo
 
 = Why is there empty space below the stage? =
 
-With "Limit the stage to the medium" the stage is lower than the screen, and content after the story only follows the last step. Switch on "Pull up the following content" in the story block: the content after it then sits right below the stage while the steps play and scrolls on once the story ends. If the content belongs to the story itself, put it into a "Scrollstage Afterword" block inside the story instead.
+With "Limit the stage to the medium" the stage is lower than the screen, and content after the story only follows the last step. Switch on "Pull up the following content" in the story block: the content after it then sits right below the stage while the steps play and scrolls on once the story ends. If the content belongs to the story itself, put it into a "Scrollytelling Afterword" block inside the story instead.
 
 = How does a row behave in different browsers? =
 
@@ -123,6 +123,10 @@ The build tool is [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/
 The plugin uses no third-party libraries.
 
 == Changelog ==
+
+= 2.12.0 =
+* Changed: the plugin is now called Gorres Scrollytelling. The blocks are named Scrollytelling Story, Scrollytelling Step, Scrollytelling Row and Scrollytelling Afterword.
+* Changed: the blocks use the namespace `gorres-scrollytelling`, and the text domain is `gorres-scrollytelling`.
 
 = 2.11.0 =
 * New: the image of a step can scroll along with the step instead of staying in place on the stage.
@@ -159,7 +163,7 @@ The plugin uses no third-party libraries.
 * Readme: description reworked, donate link added. No change in behavior.
 
 = 2.7.0 =
-* New: block "Scrollstage Row". Put steps into a row inside a story and they pass sideways while the visitor keeps scrolling down; steps before and after the row scroll vertically as before.
+* New: block "Scrollytelling Row". Put steps into a row inside a story and they pass sideways while the visitor keeps scrolling down; steps before and after the row scroll vertically as before.
 * Browsers with scroll timelines move the row with the scroll position; all others glide from step to step. A row whose text does not fit the screen, and every row for visitors who prefer reduced motion, plays vertically.
 * Keyboard focus and links to an anchor bring a step of a row into view.
 

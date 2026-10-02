@@ -8,7 +8,7 @@
  *
  * Usage: wp eval-file export.php <target directory>
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  */
 
 defined( 'ABSPATH' ) || exit;

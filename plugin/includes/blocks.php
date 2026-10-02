@@ -2,7 +2,7 @@
 /**
  * Block category and block registration.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -20,8 +20,8 @@ function jgor_st_block_categories( $categories ) {
 	array_unshift(
 		$categories,
 		array(
-			'slug'  => 'scrollstage',
-			'title' => __( 'Scrollstage', 'scrollstage' ),
+			'slug'  => 'gorres-scrollytelling',
+			'title' => __( 'Gorres Scrollytelling', 'gorres-scrollytelling' ),
 			'icon'  => null,
 		)
 	);
@@ -108,7 +108,7 @@ function jgor_st_collect_after( $block_content, $parsed_block = array(), $instan
 
 	return jgor_st_after_store( $instance, (string) $block_content );
 }
-add_filter( 'render_block_scrollstage/after', 'jgor_st_collect_after', PHP_INT_MAX, 3 );
+add_filter( 'render_block_gorres-scrollytelling/after', 'jgor_st_collect_after', PHP_INT_MAX, 3 );
 
 /**
  * Keeps the stylesheet of the afterword although its block renders empty.
@@ -122,7 +122,7 @@ add_filter( 'render_block_scrollstage/after', 'jgor_st_collect_after', PHP_INT_M
  * @return bool True for the afterword, otherwise the unchanged value.
  */
 function jgor_st_keep_after_assets( $enqueue, $block_name ) {
-	return 'scrollstage/after' === $block_name ? true : (bool) $enqueue;
+	return 'gorres-scrollytelling/after' === $block_name ? true : (bool) $enqueue;
 }
 add_filter( 'enqueue_empty_block_content_assets', 'jgor_st_keep_after_assets', 10, 2 );
 
@@ -148,7 +148,7 @@ function jgor_st_collect_steps( $inner_blocks, $in_row = false ) {
 	foreach ( $inner_blocks as $child ) {
 		$name = isset( $child['blockName'] ) ? $child['blockName'] : '';
 
-		if ( 'scrollstage/step' === $name ) {
+		if ( 'gorres-scrollytelling/step' === $name ) {
 			$attrs = isset( $child['attrs'] ) && is_array( $child['attrs'] ) ? $child['attrs'] : array();
 
 			if ( $in_row ) {
@@ -156,7 +156,7 @@ function jgor_st_collect_steps( $inner_blocks, $in_row = false ) {
 			}
 
 			$steps[] = $attrs;
-		} elseif ( 'scrollstage/row' === $name && isset( $child['innerBlocks'] ) && is_array( $child['innerBlocks'] ) ) {
+		} elseif ( 'gorres-scrollytelling/row' === $name && isset( $child['innerBlocks'] ) && is_array( $child['innerBlocks'] ) ) {
 			$steps = array_merge( $steps, jgor_st_collect_steps( $child['innerBlocks'], true ) );
 		}
 	}
@@ -168,7 +168,7 @@ function jgor_st_collect_steps( $inner_blocks, $in_row = false ) {
  * Tells the steps of a row that they sit in one.
  *
  * A step has no way to look at its parent while it renders. The context it
- * receives can be extended, though, and "scrollstage/inRow" is listed in the
+ * receives can be extended, though, and "gorres-scrollytelling/inRow" is listed in the
  * usesContext of the step block.
  *
  * @param array<string, mixed> $context      Context of the block to render.
@@ -179,8 +179,8 @@ function jgor_st_collect_steps( $inner_blocks, $in_row = false ) {
 function jgor_st_row_context( $context, $parsed_block = array(), $parent_block = null ) {
 	unset( $parsed_block );
 
-	if ( $parent_block instanceof WP_Block && 'scrollstage/row' === $parent_block->name ) {
-		$context['scrollstage/inRow'] = true;
+	if ( $parent_block instanceof WP_Block && 'gorres-scrollytelling/row' === $parent_block->name ) {
+		$context['gorres-scrollytelling/inRow'] = true;
 	}
 
 	return $context;
@@ -203,11 +203,11 @@ add_filter( 'render_block_context', 'jgor_st_row_context', 10, 3 );
  * @return array<string, mixed> Context, marked for the first step of a story.
  */
 function jgor_st_first_step_context( $context, $parsed_block = array(), $parent_block = null ) {
-	if ( ! $parent_block instanceof WP_Block || 'scrollstage/story' !== $parent_block->name ) {
+	if ( ! $parent_block instanceof WP_Block || 'gorres-scrollytelling/story' !== $parent_block->name ) {
 		return $context;
 	}
 
-	if ( ! isset( $parsed_block['blockName'] ) || 'scrollstage/step' !== $parsed_block['blockName'] ) {
+	if ( ! isset( $parsed_block['blockName'] ) || 'gorres-scrollytelling/step' !== $parsed_block['blockName'] ) {
 		return $context;
 	}
 
@@ -215,7 +215,7 @@ function jgor_st_first_step_context( $context, $parsed_block = array(), $parent_
 	$first    = reset( $siblings );
 
 	if ( is_array( $first ) && $first === $parsed_block ) {
-		$context['scrollstage/firstStep'] = true;
+		$context['gorres-scrollytelling/firstStep'] = true;
 	}
 
 	return $context;

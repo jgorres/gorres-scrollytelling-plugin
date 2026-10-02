@@ -1,6 +1,6 @@
 {
-    "name": "jg/scrollstage",
-    "description": "WordPress plugin Scrollstage: full-screen media that stay in place while text boxes scroll across them",
+    "name": "jg/gorres-scrollytelling",
+    "description": "WordPress plugin Gorres Scrollytelling: full-screen media that stay in place while text boxes scroll across them",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "authors": [

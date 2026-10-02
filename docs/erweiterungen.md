@@ -1,6 +1,11 @@
-# Scrollstage – Erweiterungen
+# Gorres Scrollytelling – Erweiterungen
 
-Version: 1.15 · Stand: 01.10.2026 · Plugin-Version: 2.11.0
+Version: 1.16 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
+
+Hinweis: Das Plugin hieß bis 2.11.0 „Scrollstage“ (Slug `scrollstage`, Blöcke
+`scrollstage/*`). Dieser Plan beschreibt die Schritte unter den damaligen Namen;
+seit 2.12.0 gelten `gorres-scrollytelling` und die Blocknamen „Scrollytelling …“,
+siehe `konzept.md`.
 
 ## 1. Ausgangspunkt
 
@@ -407,3 +412,4 @@ den Entwicklungsstand.
 | 1.13 | 01.10.2026 | Schritt 5: Bild für Hochformat (2.9.0), Prüfung im Browser offen |
 | 1.14 | 01.10.2026 | Schritt 6: eigene Position und angehefteter Textkasten (2.10.0), Prüfung im Browser offen |
 | 1.15 | 01.10.2026 | Schritt 7: Medium scrollt mit (2.11.0), Prüfung im Browser offen |
+| 1.16 | 02.10.2026 | Umbenennung in Gorres Scrollytelling (2.12.0), Hinweis am Anfang; die Schritte selbst sind unverändert |

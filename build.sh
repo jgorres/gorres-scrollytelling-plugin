@@ -5,7 +5,7 @@ clear
 # Script name: build.sh
 # Author: Jörn Gorres
 # Date: 29.09.2026
-# Description: Builds the release ZIP of the Scrollstage plugin for the
+# Description: Builds the release ZIP of the Gorres Scrollytelling plugin for the
 #              WordPress.org directory: checks the version numbers, compiles
 #              the blocks with wp-scripts, exports plugin/ (including the
 #              block sources in src/) without the files listed in
@@ -15,13 +15,13 @@ clear
 set -euo pipefail
 
 echo "===================================================="
-echo "   SCROLLSTAGE: RELEASE-ZIP ERZEUGEN"
+echo "   GORRES SCROLLYTELLING: RELEASE-ZIP ERZEUGEN"
 echo "===================================================="
 echo ""
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLUGIN_DIR="${REPO_DIR}/plugin"
-SLUG="scrollstage"
+SLUG="gorres-scrollytelling"
 TARGET_DIR="${HOME}/dev/jgorres-im-WP-Repository"
 STAGE_DIR="$(mktemp -d)"
 
