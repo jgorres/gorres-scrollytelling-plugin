@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.39 · Stand: 02.10.2026 · Plugin-Version: 2.12.0
+Version: 1.40 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
 
 ## 1. Zweck
 
@@ -850,3 +850,4 @@ aber mit Node 20.
 | 1.37 | 02.10.2026 | Grafiken mit dem neuen Schriftzug: „Gorres“ klein und hellblau über „Scrollytelling“ (Noto Sans Bold, in den animierten SVG als Pfade); `docs/banner.svg`, die vier animierten Banner-SVG (im Hochformat die Bühne etwas kleiner, damit der zweizeilige Schriftzug Platz hat) und die vier PNG-Animationen unter `assets/` neu erzeugt; Logo und Startseiten-Banner der Onlinehilfe ersetzt, Bundle neu exportiert. Offen: `screenshot-1.png`, `-3.png` und `-4.png` zeigen noch den alten Namen (Browser-Tab bzw. Blocknamen im Editor) |
 | 1.38 | 02.10.2026 | WordPress.org-Screenshots ohne den früheren Namen: `screenshot-1.png` ohne Browserleiste (oben 50 px abgeschnitten, 800×570, sonst bildgleich), `screenshot-3.png` und `screenshot-4.png` im Editor neu aufgenommen (Blocknamen „Scrollytelling Story“ und „Scrollytelling Step“) |
 | 1.39 | 02.10.2026 | Umzug auf den neuen Namen: Repo `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling/`, Übersetzungen `gorres-scrollytelling-glotpress/`, Hilfe-Site `gorres-scrollytelling.local`, Entwicklungs-Site `gorres-scrollytelling-pro.local` (über die Toolchain neu angelegt, Dateien und Datenbank übernommen). Bilddateien der Hilfe und die Aufnahmen unter `docs/hilfe-screenshots/` heißen `gorres-scrollytelling-…`, das Quellvideo `docs/gorres-scrollytelling-hero.mp4`. `scrollstage-basis.local` und `scrollstage-wp67.local` bleiben als Vergleichsstände des früheren Plugins |
+| 1.40 | 03.10.2026 | Onlinehilfe: Aufnahmen für Reihe und Nachspann (`…-ui-row-editor`, `…-ui-after-editor`, `…-ui-after-afterword`, je en/de): Reihe mit zwei Schritten und Nachspann unter dem letzten Schritt, dafür im Editor der Startseite vorübergehend eingefügt und nicht gespeichert; Bereich „Afterword“ der Seitenleiste. Seiten Row und Afterword in beiden Sprachen ergänzt, Bundle neu exportiert. Alle 43 Anhänge der Hilfe-Site werden verwendet |

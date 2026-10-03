@@ -284,7 +284,7 @@
             "parent": 9,
             "menu_order": 6,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Row</strong> is an optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Row</strong> between its steps.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Add steps to the row, just like in the story itself.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The editor shows the steps of a row one below the other; the sideways movement is visible on the published page.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Behavior in browsers</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browsers with scroll timelines (Chrome, Edge, Safari from version 26) move the row along with the scroll position.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>All others, Firefox at the time of writing, glide from one step to the next.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>If the text of a step is too tall for the screen, or the visitor asked for reduced motion, the steps follow each other vertically like ordinary steps.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Limits</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Text effects do not apply inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The height of a single step has no effect inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The row has no settings of its own; position, dimming and step height come from the story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Row</strong> is an optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":241,\"width\":\"1186px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-row-editor-en.png\" alt=\"A row with two steps in the editor, with the note that the steps pass sideways on the front end\" class=\"has-border-color wp-image-241\" style=\"border-color:#cccccc;border-width:1px;width:1186px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Row</strong> between its steps.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Add steps to the row, just like in the story itself.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The editor shows the steps of a row one below the other; the sideways movement is visible on the published page.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Behavior in browsers</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browsers with scroll timelines (Chrome, Edge, Safari from version 26) move the row along with the scroll position.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>All others, Firefox at the time of writing, glide from one step to the next.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>If the text of a step is too tall for the screen, or the visitor asked for reduced motion, the steps follow each other vertically like ordinary steps.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Limits</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Text effects do not apply inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The height of a single step has no effect inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The row has no settings of its own; position, dimming and step height come from the story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
@@ -303,7 +303,7 @@
             "parent": 10,
             "menu_order": 6,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Reihe</strong> ist eine optionale Gruppe von Schritten in einer Story, die seitwärts durchlaufen: Der Bildschirm bleibt stehen und die Schritte ziehen hindurch, während der Besucher weiter nach unten scrollt. Schritte vor und nach der Reihe scrollen wie gewohnt senkrecht.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du sie ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge zwischen seinen Schritten den Block <strong>Scrollytelling-Reihe</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Füge der Reihe Schritte hinzu, genau wie in der Story selbst.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Editor zeigt die Schritte einer Reihe untereinander; die Seitwärtsbewegung siehst du auf der veröffentlichten Seite.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Verhalten in den Browsern</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browser mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) bewegen die Reihe stufenlos mit der Scrollposition.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Alle anderen, derzeit Firefox, gleiten von einem Schritt zum nächsten.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Ist der Text eines Schritts zu hoch für den Bildschirm oder wünscht der Besucher reduzierte Bewegung, folgen die Schritte untereinander wie gewöhnliche Schritte.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Grenzen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Texteffekte wirken in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die eigene Höhe eines einzelnen Schritts wirkt in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die Reihe hat keine eigenen Einstellungen; Position, Abdunklung und Schritthöhe kommen aus der Story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Reihe</strong> ist eine optionale Gruppe von Schritten in einer Story, die seitwärts durchlaufen: Der Bildschirm bleibt stehen und die Schritte ziehen hindurch, während der Besucher weiter nach unten scrollt. Schritte vor und nach der Reihe scrollen wie gewohnt senkrecht.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":242,\"width\":\"1186px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-row-editor-de.png\" alt=\"Eine Reihe mit zwei Schritten im Editor, mit dem Hinweis, dass die Schritte im Frontend seitwärts vorbeiziehen\" class=\"has-border-color wp-image-242\" style=\"border-color:#cccccc;border-width:1px;width:1186px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du sie ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge zwischen seinen Schritten den Block <strong>Scrollytelling-Reihe</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Füge der Reihe Schritte hinzu, genau wie in der Story selbst.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Editor zeigt die Schritte einer Reihe untereinander; die Seitwärtsbewegung siehst du auf der veröffentlichten Seite.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Verhalten in den Browsern</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browser mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) bewegen die Reihe stufenlos mit der Scrollposition.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Alle anderen, derzeit Firefox, gleiten von einem Schritt zum nächsten.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Ist der Text eines Schritts zu hoch für den Bildschirm oder wünscht der Besucher reduzierte Bewegung, folgen die Schritte untereinander wie gewöhnliche Schritte.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Grenzen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Texteffekte wirken in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die eigene Höhe eines einzelnen Schritts wirkt in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die Reihe hat keine eigenen Einstellungen; Position, Abdunklung und Schritthöhe kommen aus der Story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
@@ -322,7 +322,7 @@
             "parent": 9,
             "menu_order": 7,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Afterword</strong> is optional content that follows the last step of a story: a closing paragraph, a button, a gallery, any blocks you like.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">When to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The afterword matters most when the story uses <strong>Limit the stage to the medium</strong>. The stage is then lower than the screen, and the space below it would stay empty while the steps play. The afterword fills that space: it appears right below the stage from the first step on and only scrolls away once the story ends.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Afterword</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Put the closing content into it.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The afterword always follows the last step, wherever it stands in the editor.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Afterword or “Pull up the following content”?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>If the content belongs to the story itself, use the afterword. If it is ordinary page content that merely follows the story, leave it outside and switch on <strong>Pull up the following content</strong> in the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a> instead.</p>\n<!-- /wp:paragraph -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Afterword</strong> is optional content that follows the last step of a story: a closing paragraph, a button, a gallery, any blocks you like.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":243,\"width\":\"1198px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-editor-en.png\" alt=\"An afterword below the last step in the editor\" class=\"has-border-color wp-image-243\" style=\"border-color:#cccccc;border-width:1px;width:1198px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">When to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The afterword matters most when the story uses <strong>Limit the stage to the medium</strong>. The stage is then lower than the screen, and the space below it would stay empty while the steps play. The afterword fills that space: it appears right below the stage from the first step on and only scrolls away once the story ends.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Afterword</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Put the closing content into it.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The afterword always follows the last step, wherever it stands in the editor.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"280px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:280px\"><!-- wp:image {\"id\":245,\"width\":\"280px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-afterword-en.png\" alt=\"Panel Afterword in the settings of the afterword block\" class=\"has-border-color wp-image-245\" style=\"border-color:#cccccc;border-width:1px;width:280px;height:auto\"/></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Afterword or “Pull up the following content”?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>If the content belongs to the story itself, use the afterword. If it is ordinary page content that merely follows the story, leave it outside and switch on <strong>Pull up the following content</strong> in the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a> instead.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "en",
             "translations": {
@@ -341,7 +341,7 @@
             "parent": 10,
             "menu_order": 7,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Nachspann</strong> ist optionaler Inhalt, der auf den letzten Schritt einer Story folgt: ein Schlussabsatz, ein Button, eine Galerie, beliebige Blöcke.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wann er sinnvoll ist</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Der Nachspann ist vor allem wichtig, wenn die Story <strong>Bühne auf das Medium begrenzen</strong> nutzt. Die Bühne ist dann niedriger als der Bildschirm, und der Platz darunter bliebe leer, solange die Schritte laufen. Der Nachspann füllt diesen Platz: Er steht vom ersten Schritt an direkt unter der Bühne und scrollt erst weg, wenn die Story endet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du ihn ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge den Block <strong>Scrollytelling-Nachspann</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Lege den Schlussinhalt hinein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Nachspann folgt immer auf den letzten Schritt, egal wo er im Editor steht.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Nachspann oder „Folgenden Inhalt hochziehen“?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Gehört der Inhalt zur Story selbst, nimm den Nachspann. Ist es gewöhnlicher Seiteninhalt, der nur auf die Story folgt, lass ihn außerhalb und schalte stattdessen im <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a> <strong>Folgenden Inhalt hochziehen</strong> ein.</p>\n<!-- /wp:paragraph -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Nachspann</strong> ist optionaler Inhalt, der auf den letzten Schritt einer Story folgt: ein Schlussabsatz, ein Button, eine Galerie, beliebige Blöcke.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":244,\"width\":\"1198px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-editor-de.png\" alt=\"Ein Nachspann unter dem letzten Schritt im Editor\" class=\"has-border-color wp-image-244\" style=\"border-color:#cccccc;border-width:1px;width:1198px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wann er sinnvoll ist</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Der Nachspann ist vor allem wichtig, wenn die Story <strong>Bühne auf das Medium begrenzen</strong> nutzt. Die Bühne ist dann niedriger als der Bildschirm, und der Platz darunter bliebe leer, solange die Schritte laufen. Der Nachspann füllt diesen Platz: Er steht vom ersten Schritt an direkt unter der Bühne und scrollt erst weg, wenn die Story endet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du ihn ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge den Block <strong>Scrollytelling-Nachspann</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Lege den Schlussinhalt hinein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Nachspann folgt immer auf den letzten Schritt, egal wo er im Editor steht.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"280px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:280px\"><!-- wp:image {\"id\":246,\"width\":\"280px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-afterword-de.png\" alt=\"Bereich Nachspann in den Einstellungen des Nachspann-Blocks\" class=\"has-border-color wp-image-246\" style=\"border-color:#cccccc;border-width:1px;width:280px;height:auto\"/></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Nachspann oder „Folgenden Inhalt hochziehen“?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Gehört der Inhalt zur Story selbst, nimm den Nachspann. Ist es gewöhnlicher Seiteninhalt, der nur auf die Story folgt, lass ihn außerhalb und schalte stattdessen im <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a> <strong>Folgenden Inhalt hochziehen</strong> ein.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "de",
             "translations": {
@@ -3059,6 +3059,472 @@
                                 "height": 150,
                                 "mime-type": "image/png",
                                 "filesize": 7695
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 241,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-row-editor-en",
+            "slug": "gorres-scrollytelling-ui-row-editor-en",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-row-editor-en.png"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2372,
+                        "height": 1594,
+                        "file": "2026/10/gorres-scrollytelling-ui-row-editor-en.png",
+                        "filesize": 3438744,
+                        "sizes": {
+                            "medium": {
+                                "file": "gorres-scrollytelling-ui-row-editor-en-300x202.png",
+                                "width": 300,
+                                "height": 202,
+                                "mime-type": "image/png",
+                                "filesize": 115290
+                            },
+                            "large": {
+                                "file": "gorres-scrollytelling-ui-row-editor-en-1024x688.png",
+                                "width": 1024,
+                                "height": 688,
+                                "mime-type": "image/png",
+                                "filesize": 1034448
+                            },
+                            "thumbnail": {
+                                "file": "gorres-scrollytelling-ui-row-editor-en-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 43303
+                            },
+                            "medium_large": {
+                                "file": "gorres-scrollytelling-ui-row-editor-en-768x516.png",
+                                "width": 768,
+                                "height": 516,
+                                "mime-type": "image/png",
+                                "filesize": 633778
+                            },
+                            "1536x1536": {
+                                "file": "gorres-scrollytelling-ui-row-editor-en-1536x1032.png",
+                                "width": 1536,
+                                "height": 1032,
+                                "mime-type": "image/png",
+                                "filesize": 1998341
+                            },
+                            "2048x2048": {
+                                "file": "gorres-scrollytelling-ui-row-editor-en-2048x1376.png",
+                                "width": 2048,
+                                "height": 1376,
+                                "mime-type": "image/png",
+                                "filesize": 3102924
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 242,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-row-editor-de",
+            "slug": "gorres-scrollytelling-ui-row-editor-de",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-row-editor-de.png"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2372,
+                        "height": 1594,
+                        "file": "2026/10/gorres-scrollytelling-ui-row-editor-de.png",
+                        "filesize": 3440689,
+                        "sizes": {
+                            "medium": {
+                                "file": "gorres-scrollytelling-ui-row-editor-de-300x202.png",
+                                "width": 300,
+                                "height": 202,
+                                "mime-type": "image/png",
+                                "filesize": 115431
+                            },
+                            "large": {
+                                "file": "gorres-scrollytelling-ui-row-editor-de-1024x688.png",
+                                "width": 1024,
+                                "height": 688,
+                                "mime-type": "image/png",
+                                "filesize": 1037674
+                            },
+                            "thumbnail": {
+                                "file": "gorres-scrollytelling-ui-row-editor-de-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 43561
+                            },
+                            "medium_large": {
+                                "file": "gorres-scrollytelling-ui-row-editor-de-768x516.png",
+                                "width": 768,
+                                "height": 516,
+                                "mime-type": "image/png",
+                                "filesize": 634839
+                            },
+                            "1536x1536": {
+                                "file": "gorres-scrollytelling-ui-row-editor-de-1536x1032.png",
+                                "width": 1536,
+                                "height": 1032,
+                                "mime-type": "image/png",
+                                "filesize": 2000112
+                            },
+                            "2048x2048": {
+                                "file": "gorres-scrollytelling-ui-row-editor-de-2048x1376.png",
+                                "width": 2048,
+                                "height": 1376,
+                                "mime-type": "image/png",
+                                "filesize": 3108200
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 243,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-after-editor-en",
+            "slug": "gorres-scrollytelling-ui-after-editor-en",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-after-editor-en.png"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2396,
+                        "height": 798,
+                        "file": "2026/10/gorres-scrollytelling-ui-after-editor-en.png",
+                        "filesize": 1117860,
+                        "sizes": {
+                            "medium": {
+                                "file": "gorres-scrollytelling-ui-after-editor-en-300x100.png",
+                                "width": 300,
+                                "height": 100,
+                                "mime-type": "image/png",
+                                "filesize": 43437
+                            },
+                            "large": {
+                                "file": "gorres-scrollytelling-ui-after-editor-en-1024x341.png",
+                                "width": 1024,
+                                "height": 341,
+                                "mime-type": "image/png",
+                                "filesize": 363402
+                            },
+                            "thumbnail": {
+                                "file": "gorres-scrollytelling-ui-after-editor-en-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 31343
+                            },
+                            "medium_large": {
+                                "file": "gorres-scrollytelling-ui-after-editor-en-768x256.png",
+                                "width": 768,
+                                "height": 256,
+                                "mime-type": "image/png",
+                                "filesize": 230612
+                            },
+                            "1536x1536": {
+                                "file": "gorres-scrollytelling-ui-after-editor-en-1536x512.png",
+                                "width": 1536,
+                                "height": 512,
+                                "mime-type": "image/png",
+                                "filesize": 681520
+                            },
+                            "2048x2048": {
+                                "file": "gorres-scrollytelling-ui-after-editor-en-2048x682.png",
+                                "width": 2048,
+                                "height": 682,
+                                "mime-type": "image/png",
+                                "filesize": 1046264
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 244,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-after-editor-de",
+            "slug": "gorres-scrollytelling-ui-after-editor-de",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-after-editor-de.png"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 2396,
+                        "height": 858,
+                        "file": "2026/10/gorres-scrollytelling-ui-after-editor-de.png",
+                        "filesize": 1134863,
+                        "sizes": {
+                            "medium": {
+                                "file": "gorres-scrollytelling-ui-after-editor-de-300x107.png",
+                                "width": 300,
+                                "height": 107,
+                                "mime-type": "image/png",
+                                "filesize": 44021
+                            },
+                            "large": {
+                                "file": "gorres-scrollytelling-ui-after-editor-de-1024x367.png",
+                                "width": 1024,
+                                "height": 367,
+                                "mime-type": "image/png",
+                                "filesize": 371317
+                            },
+                            "thumbnail": {
+                                "file": "gorres-scrollytelling-ui-after-editor-de-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 29352
+                            },
+                            "medium_large": {
+                                "file": "gorres-scrollytelling-ui-after-editor-de-768x275.png",
+                                "width": 768,
+                                "height": 275,
+                                "mime-type": "image/png",
+                                "filesize": 234603
+                            },
+                            "1536x1536": {
+                                "file": "gorres-scrollytelling-ui-after-editor-de-1536x550.png",
+                                "width": 1536,
+                                "height": 550,
+                                "mime-type": "image/png",
+                                "filesize": 697557
+                            },
+                            "2048x2048": {
+                                "file": "gorres-scrollytelling-ui-after-editor-de-2048x733.png",
+                                "width": 2048,
+                                "height": 733,
+                                "mime-type": "image/png",
+                                "filesize": 1070899
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 245,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-after-afterword-en",
+            "slug": "gorres-scrollytelling-ui-after-afterword-en",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-after-afterword-en.png"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 560,
+                        "height": 444,
+                        "file": "2026/10/gorres-scrollytelling-ui-after-afterword-en.png",
+                        "filesize": 44331,
+                        "sizes": {
+                            "medium": {
+                                "file": "gorres-scrollytelling-ui-after-afterword-en-300x238.png",
+                                "width": 300,
+                                "height": 238,
+                                "mime-type": "image/png",
+                                "filesize": 33423
+                            },
+                            "thumbnail": {
+                                "file": "gorres-scrollytelling-ui-after-afterword-en-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 15768
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 246,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-after-afterword-de",
+            "slug": "gorres-scrollytelling-ui-after-afterword-de",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/png",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-after-afterword-de.png"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 560,
+                        "height": 484,
+                        "file": "2026/10/gorres-scrollytelling-ui-after-afterword-de.png",
+                        "filesize": 47638,
+                        "sizes": {
+                            "medium": {
+                                "file": "gorres-scrollytelling-ui-after-afterword-de-300x259.png",
+                                "width": 300,
+                                "height": 259,
+                                "mime-type": "image/png",
+                                "filesize": 34892
+                            },
+                            "thumbnail": {
+                                "file": "gorres-scrollytelling-ui-after-afterword-de-150x150.png",
+                                "width": 150,
+                                "height": 150,
+                                "mime-type": "image/png",
+                                "filesize": 15476
                             }
                         },
                         "image_meta": {
