@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.50 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
+Version: 1.51 · Stand: 03.10.2026 · Plugin-Version: 2.12.2
 
 ## 1. Zweck
 
@@ -764,6 +764,15 @@ hat; Änderungen am Bundle gehören deshalb immer ins Plugin-Repo. Commit und
 Push im Hilfe-Repo von Hand. Link:
 `https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jgorres/gorres-scrollytelling-help/main/blueprint.json&mode=seamless`
 
+Kurze Adresse: `https://joern.gorres.com/gorres-scrollytelling-help/` leitet
+per `.htaccess` (302, Regel vor dem WordPress-Block) auf den Playground-Link
+weiter. Das Plugin nutzt nur diese kurze Adresse (Konstante `JGOR_ST_HELP_URL`,
+Link „Documentation" in der Plugin-Zeile, Abschnitt „Documentation" der
+readme): Der Plugin Check lehnt `raw.githubusercontent.com` im PHP-Code als
+„ausgelagerten Inhalt" ab, und die Weiterleitung lässt sich ändern, ohne das
+Plugin neu auszuliefern. Die Hilfe selbst erwähnt keine Anmeldung: Der
+Besucher ist zwar angemeldet, aber ohne Adminleiste und ohne Link zum Editor.
+
 Der Weg der Inhalte ist JSON plus Import-Script, nicht WXR und nicht SQL: WXR
 vergibt neue IDs und überträgt die Sprachzuordnung von Polylang nicht
 zuverlässig, ein Dump aus MariaDB müsste im Playground erst für SQLite
@@ -885,3 +894,4 @@ aber mit Node 20.
 | 1.48 | 03.10.2026 | Onlinehilfe: Fußzeile der Vorlagen-Site (Template-Teil `footer`, ID 32) ohne die Platzhalter-Links „About/FAQs/Authors/Patterns“ auf `#` und ohne die Zeile „4050 / 2“ von Twenty Twenty-Five; es bleiben Website-Titel und „Designed with WordPress“. Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
 | 1.49 | 03.10.2026 | Ordnerschema der `README.md` in `~/dev/jgorres-im-WP-Repository/`: `glotpress/` (vorher Nebenordner `-glotpress`, jetzt im Git), `dist/` für die Release-ZIPs, `help/` für den Checkout des Hilfe-Repos (vorher Nebenordner `-help`); `build.sh` schreibt nach `dist/`, `playground/build.sh` liest von dort und spiegelt nach `help/`; `.gitignore` um `/dist/`, `/svn/`, `/help/` ergänzt. Abschnitte 2, 9 und 12 |
 | 1.50 | 03.10.2026 | Onlinehilfe: Hilfetexte zu 2.9.0–2.11.0 (Hochformat-Bild, eigene Position, stehender Textkasten, mitscrollendes Bild) vom Nutzer gegengelesen, Beschriftungen gegen Plugin und Übersetzung geprüft; ein Satz auf der Seite „Schritthöhe“ umformuliert („bestimmt die Höhe des Schritts, wie lange …“). Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
+| 1.51 | 03.10.2026 | Plugin 2.12.2: Link „Documentation“ in der Plugin-Zeile (vor dem Spendenlink, Konstante `JGOR_ST_HELP_URL`) und Abschnitt „Documentation“ in der readme (Onlinehilfe, Quellcode), beides über die kurze Adresse `joern.gorres.com/gorres-scrollytelling-help/` (Weiterleitung, Abschnitt 12). Aussage „du bist angemeldet“ aus readme und Installationsseiten der Hilfe entfernt. `phpstan-bootstrap.php` auf die neuen Namen und Konstanten |

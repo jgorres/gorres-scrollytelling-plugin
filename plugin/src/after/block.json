@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "gorres-scrollytelling/after",
-	"version": "2.12.1",
+	"version": "2.12.2",
 	"title": "Scrollytelling Afterword",
 	"category": "gorres-scrollytelling",
 	"icon": "text",

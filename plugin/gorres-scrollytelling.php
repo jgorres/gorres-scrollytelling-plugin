@@ -3,7 +3,7 @@
  * Plugin Name:       Gorres Scrollytelling
  * Plugin URI:        https://github.com/jgorres/gorres-scrollytelling-plugin
  * Description:       Full-screen media that stay in place while text boxes scroll across them.
- * Version:           2.12.1
+ * Version:           2.12.2
  * Requires at least: 6.7
  * Requires PHP:      8.1
  * Author:            Jörn Gorres
@@ -25,11 +25,18 @@ defined( 'ABSPATH' ) || exit;
  * every release. The block assets take their cache-busting version from the
  * "version" field of each block.json, which has to be raised as well.
  */
-define( 'JGOR_ST_VERSION', '2.12.1' );
+define( 'JGOR_ST_VERSION', '2.12.2' );
 define( 'JGOR_ST_MIN_PHP', '8.1' );
 define( 'JGOR_ST_FILE', __FILE__ );
 define( 'JGOR_ST_PATH', plugin_dir_path( __FILE__ ) );
 define( 'JGOR_ST_URL', plugin_dir_url( __FILE__ ) );
+
+/**
+ * Address of the online help. The short address redirects to a help site
+ * that runs in WordPress Playground, built from the public repository
+ * jgorres/gorres-scrollytelling-help.
+ */
+define( 'JGOR_ST_HELP_URL', 'https://joern.gorres.com/gorres-scrollytelling-help/' );
 
 /**
  * Includes the module files from includes/.

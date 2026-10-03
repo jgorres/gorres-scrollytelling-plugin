@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.12.1
+Stable tag: 2.12.2
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,13 @@ A story is put together from four kinds of blocks, and it can hold as many of th
 * **Works with the keyboard.** A link or a field in a step of a row that is not on screen yet is brought into view when it receives the focus, and so is a step that a link points to.
 * **Screen readers get one medium at a time.** All media of a story live in the document at once; only the visible one is exposed.
 * **Sharp images.** The plugin calculates the sizes attribute from the aspect ratio of the image, because a screen-high medium needs a wider file than the screen itself.
+
+The online help shows every block and setting live, see the section Documentation.
+
+== Documentation ==
+
+* [Online help](https://joern.gorres.com/gorres-scrollytelling-help/): a help site that runs in WordPress Playground, in English and German. Every page shows the blocks live, with the settings they describe.
+* [Source code](https://github.com/jgorres/gorres-scrollytelling-plugin): the plugin on GitHub.
 
 == Installation ==
 
@@ -123,6 +130,9 @@ The build tool is [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/
 The plugin uses no third-party libraries.
 
 == Changelog ==
+
+= 2.12.2 =
+* Added: links to the online help in WordPress Playground, in the readme and in the row of the plugin in the plugin list.
 
 = 2.12.1 =
 * Added: the plugin header links to the source code repository on GitHub.

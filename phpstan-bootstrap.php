@@ -6,22 +6,25 @@
  * placeholders; all that matters is that the constants count as defined
  * during analysis.
  *
- * @package Scrollstage
+ * @package Gorres_Scrollytelling
  */
 
-// Plugin scrollstage (defined in plugin/scrollstage.php).
+// Plugin Gorres Scrollytelling (defined in plugin/gorres-scrollytelling.php).
 if ( ! defined( 'JGOR_ST_VERSION' ) ) {
-	define( 'JGOR_ST_VERSION', '2.1.1' );
+	define( 'JGOR_ST_VERSION', '2.12.2' );
 }
 if ( ! defined( 'JGOR_ST_MIN_PHP' ) ) {
 	define( 'JGOR_ST_MIN_PHP', '8.1' );
 }
 if ( ! defined( 'JGOR_ST_FILE' ) ) {
-	define( 'JGOR_ST_FILE', __DIR__ . '/plugin/scrollstage.php' );
+	define( 'JGOR_ST_FILE', __DIR__ . '/plugin/gorres-scrollytelling.php' );
 }
 if ( ! defined( 'JGOR_ST_PATH' ) ) {
 	define( 'JGOR_ST_PATH', __DIR__ . '/plugin/' );
 }
 if ( ! defined( 'JGOR_ST_URL' ) ) {
-	define( 'JGOR_ST_URL', 'https://example.local/wp-content/plugins/scrollstage/' );
+	define( 'JGOR_ST_URL', 'https://example.local/wp-content/plugins/gorres-scrollytelling/' );
+}
+if ( ! defined( 'JGOR_ST_HELP_URL' ) ) {
+	define( 'JGOR_ST_HELP_URL', 'https://joern.gorres.com/gorres-scrollytelling-help/' );
 }

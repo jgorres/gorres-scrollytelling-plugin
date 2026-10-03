@@ -2,7 +2,7 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gorres Scrollytelling 2.12.0\n"
+"Project-Id-Version: Gorres Scrollytelling 2.12.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gorres-scrollytelling\n"
 "POT-Creation-Date: 2026-10-02T18:06:18+00:00\n"
 "PO-Revision-Date: 2026-10-02 14:00+0200\n"
@@ -46,7 +46,11 @@ msgstr "Dieses Plugin benötigt PHP %s oder neuer."
 msgid "Plugin activation stopped"
 msgstr "Plugin-Aktivierung abgebrochen"
 
-#: includes/admin.php:31
+#: includes/admin.php:32
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: includes/admin.php:38
 msgid "Buy the plugin author a Mercedes-Benz 😉"
 msgstr "Spendiere dem Plugin-Autor einen Mercedes-Benz 😉"
 

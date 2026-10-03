@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "gorres-scrollytelling/row",
-	"version": "2.12.1",
+	"version": "2.12.2",
 	"title": "Scrollytelling Row",
 	"category": "gorres-scrollytelling",
 	"icon": "slides",
