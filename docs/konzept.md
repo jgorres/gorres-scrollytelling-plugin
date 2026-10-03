@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.45 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
+Version: 1.46 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
 
 ## 1. Zweck
 
@@ -18,6 +18,12 @@ Projektdoku ist deutsch.
 Das Projekt liegt unter `~/dev/jgorres-im-WP-Repository/`, wie alles, was ein
 Plugin im WordPress-Verzeichnis ist oder werden soll. Im selben Ordner liegen
 die Release-ZIPs und die Übersetzungsdateien für GlotPress.
+
+Das Git-Repo hat seit dem 03.10.2026 das Remote `origin` auf GitHub:
+`https://github.com/jgorres/gorres-scrollytelling-plugin` (öffentlich, Branch
+`main`, dazu der Tag `basisplugin-2.4.0`). Diese Adresse steht als `Plugin URI`
+im Plugin-Header; WordPress.org verlangt dort eine eigene Seite zum Plugin und
+erlaubt keine WordPress.org-Adresse. Push von Hand nach jedem Commit.
 
 ```
 ~/dev/jgorres-im-WP-Repository/gorres-scrollytelling/
@@ -868,3 +874,4 @@ aber mit Node 20.
 | 1.43 | 03.10.2026 | Onlinehilfe auf GitHub: Bundle als eigenes Repo `jgorres/gorres-scrollytelling-help` (lokal `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling-help`, mit README und LICENSE, GPL v2 oder später); `playground/build.sh` kopiert das Bundle nach jedem Export dorthin, Commit und Push von Hand. Playground-Link: `https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jgorres/gorres-scrollytelling-help/main/blueprint.json&mode=seamless` |
 | 1.44 | 03.10.2026 | Code-Review zur Spiegelung: `playground/build.sh` spiegelt per `rsync --delete` statt fester Dateiliste, ohne `build.sh` und `export.php`, prüft das Hilfe-Repo per `git rev-parse` und bricht bei nicht committeten Änderungen dort ab, `git status` nur einmal mit Fehlerabbruch; Hilfe-Repo ohne die beiden Scripte, README angepasst. Konzept: Abschnitt „Ablage auf GitHub“, Punkte unter „Offen“ und Bundle-Größe berichtigt |
 | 1.45 | 03.10.2026 | Onlinehilfe: die fünf englischen Alternativtexte der deutschen Startseite (vier Fotos, Scroll-Hinweis) übersetzt, Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
+| 1.46 | 03.10.2026 | Plugin-Repo auf GitHub `jgorres/gorres-scrollytelling-plugin` (Remote `origin`, `main` und Tag `basisplugin-2.4.0` gepusht); `Plugin URI` im Header zeigt dorthin (Plugin 2.12.1, Abschnitt 2) |
