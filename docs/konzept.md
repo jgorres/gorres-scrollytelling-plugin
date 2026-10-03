@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.44 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
+Version: 1.45 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
 
 ## 1. Zweck
 
@@ -867,3 +867,4 @@ aber mit Node 20.
 | 1.42 | 03.10.2026 | Onlinehilfe: Testvideo auf 1280×720 (H.264, CRF 28, ohne Ton, 0,9 MB) und die vier Fotos auf 1920 px Breite (JPEG 82) verkleinert, Zwischengrößen neu; Originale unter `docs/medien-original/`. `uploads.zip` 7,4 MB |
 | 1.43 | 03.10.2026 | Onlinehilfe auf GitHub: Bundle als eigenes Repo `jgorres/gorres-scrollytelling-help` (lokal `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling-help`, mit README und LICENSE, GPL v2 oder später); `playground/build.sh` kopiert das Bundle nach jedem Export dorthin, Commit und Push von Hand. Playground-Link: `https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jgorres/gorres-scrollytelling-help/main/blueprint.json&mode=seamless` |
 | 1.44 | 03.10.2026 | Code-Review zur Spiegelung: `playground/build.sh` spiegelt per `rsync --delete` statt fester Dateiliste, ohne `build.sh` und `export.php`, prüft das Hilfe-Repo per `git rev-parse` und bricht bei nicht committeten Änderungen dort ab, `git status` nur einmal mit Fehlerabbruch; Hilfe-Repo ohne die beiden Scripte, README angepasst. Konzept: Abschnitt „Ablage auf GitHub“, Punkte unter „Offen“ und Bundle-Größe berichtigt |
+| 1.45 | 03.10.2026 | Onlinehilfe: die fünf englischen Alternativtexte der deutschen Startseite (vier Fotos, Scroll-Hinweis) übersetzt, Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
