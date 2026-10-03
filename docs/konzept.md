@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.43 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
+Version: 1.44 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
 
 ## 1. Zweck
 
@@ -724,7 +724,7 @@ weiteren Dateien werden daraus als `bundled`-Ressourcen gelesen.
 | `blueprint.json` | Schritte für den Playground |
 | `import.php` | baut die Site im Playground aus `content.json` auf |
 | `export.php` | liest die Vorlagen-Site aus (läuft lokal per `wp eval-file`) |
-| `build.sh` | ruft den Export auf und kopiert das aktuelle Release-ZIP |
+| `build.sh` | ruft den Export auf, kopiert das aktuelle Release-ZIP und spiegelt das Bundle in den GitHub-Ordner |
 | `content.json` | erzeugt: Sprachen, Polylang-Einstellungen, Optionen, Beiträge |
 | `uploads.zip` | erzeugt: Inhalt von `wp-content/uploads` |
 | `gorres-scrollytelling.zip` | erzeugt: Kopie von `gorres-scrollytelling-<version>.zip` |
@@ -737,6 +737,19 @@ playground/build.sh
 
 Das Script erwartet das Release-ZIP der Version aus dem Plugin-Header; fehlt
 es, zuerst `./build.sh` im Repo ausführen.
+
+### Ablage auf GitHub
+
+Der Playground lädt das Bundle über `?blueprint-url=…` aus dem öffentlichen
+Repo `jgorres/gorres-scrollytelling-help` (GPL v2 oder später, mit README und
+LICENSE); eigener Webspace scheidet wegen des Traffics aus. Lokaler Checkout:
+`~/dev/jgorres-im-WP-Repository/gorres-scrollytelling-help`. Quelle bleibt
+`playground/` im Plugin-Repo: `playground/build.sh` spiegelt das Bundle am
+Ende per `rsync --delete` dorthin (ohne `build.sh`, `export.php`, README,
+LICENSE) und bricht vorher ab, wenn der Checkout nicht committete Änderungen
+hat; Änderungen am Bundle gehören deshalb immer ins Plugin-Repo. Commit und
+Push im Hilfe-Repo von Hand. Link:
+`https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jgorres/gorres-scrollytelling-help/main/blueprint.json&mode=seamless`
 
 Der Weg der Inhalte ist JSON plus Import-Script, nicht WXR und nicht SQL: WXR
 vergibt neue IDs und überträgt die Sprachzuordnung von Polylang nicht
@@ -798,13 +811,12 @@ aber mit Node 20.
 
 ### Offen
 
-- Ablage: öffentliches GitHub-Repo, aus dem der Playground das Bundle über
-  `?blueprint-url=…` lädt. Eigener Webspace scheidet wegen des Traffics aus.
+- Playground-Link im Browser noch nicht ausprobiert.
 - Nach der Freischaltung bei WordPress.org: Gorres Scrollytelling im Blueprint per Slug
   statt aus dem ZIP, zusätzlich `assets/blueprints/blueprint.json` im SVN für
   den Knopf „Live Preview".
-- `uploads.zip` ist rund 13 MB groß, gut die Hälfte davon das Video. Das
-  verlängert jeden Start der Hilfe.
+- Das Bundle ist rund 7,8 MB groß (`uploads.zip` 7,4 MB). Das verlängert
+  jeden Start der Hilfe.
 
 ## Änderungen
 
@@ -854,3 +866,4 @@ aber mit Node 20.
 | 1.41 | 03.10.2026 | Onlinehilfe: die vier Editor-Aufnahmen (Reihe, Nachspann) als JPEG in einfacher Auflösung (1186 px, Qualität 88) statt PNG in doppelter; alle Aufnahmen ohne Zwischengrößen (Dateien und Metadaten entfernt, die Seiten nutzen nur das Original). `uploads.zip` damit 15,9 MB statt 45,7 MB |
 | 1.42 | 03.10.2026 | Onlinehilfe: Testvideo auf 1280×720 (H.264, CRF 28, ohne Ton, 0,9 MB) und die vier Fotos auf 1920 px Breite (JPEG 82) verkleinert, Zwischengrößen neu; Originale unter `docs/medien-original/`. `uploads.zip` 7,4 MB |
 | 1.43 | 03.10.2026 | Onlinehilfe auf GitHub: Bundle als eigenes Repo `jgorres/gorres-scrollytelling-help` (lokal `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling-help`, mit README und LICENSE, GPL v2 oder später); `playground/build.sh` kopiert das Bundle nach jedem Export dorthin, Commit und Push von Hand. Playground-Link: `https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/jgorres/gorres-scrollytelling-help/main/blueprint.json&mode=seamless` |
+| 1.44 | 03.10.2026 | Code-Review zur Spiegelung: `playground/build.sh` spiegelt per `rsync --delete` statt fester Dateiliste, ohne `build.sh` und `export.php`, prüft das Hilfe-Repo per `git rev-parse` und bricht bei nicht committeten Änderungen dort ab, `git status` nur einmal mit Fehlerabbruch; Hilfe-Repo ohne die beiden Scripte, README angepasst. Konzept: Abschnitt „Ablage auf GitHub“, Punkte unter „Offen“ und Bundle-Größe berichtigt |

@@ -7,8 +7,9 @@ clear
 # Date: 01.10.2026
 # Description: Builds the WordPress Playground bundle of the Gorres Scrollytelling
 #              online help: exports the content of the local help site
-#              (content.json, uploads.zip) and copies the current release
-#              ZIP of the plugin next to blueprint.json.
+#              (content.json, uploads.zip), copies the current release ZIP of
+#              the plugin next to blueprint.json and mirrors the bundle into
+#              the local checkout of the public GitHub repository.
 # ==================================================
 
 set -euo pipefail
@@ -23,6 +24,11 @@ REPO_DIR="$(dirname "${BUNDLE_DIR}")"
 SLUG="gorres-scrollytelling"
 ZIP_DIR="${HOME}/dev/jgorres-im-WP-Repository"
 SITE_DIR="${1:-/var/www/local-sites/gorres-scrollytelling.local}"
+GITHUB_DIR="${ZIP_DIR}/${SLUG}-help"
+
+# Files of the bundle that stay out of the GitHub repository, and files of the
+# repository that are not part of the bundle.
+MIRROR_EXCLUDES=(--exclude=/.git --exclude=/README.md --exclude=/LICENSE --exclude=/build.sh --exclude=/export.php)
 
 # --------------------------------------------------
 # 1. Check the inputs.
@@ -37,7 +43,7 @@ if [[ ! -f "${SITE_DIR}/wp-load.php" ]]; then
 	exit 1
 fi
 
-for tool in wp php python3; do
+for tool in wp php python3 rsync git; do
 	if ! command -v "${tool}" > /dev/null 2>&1; then
 		echo "Fehler: '${tool}' fehlt." >&2
 		exit 1
@@ -58,8 +64,23 @@ if [[ ! -f "${PLUGIN_ZIP}" ]]; then
 	exit 1
 fi
 
+# The GitHub checkout is optional, but when it exists it must be clean:
+# the mirror would otherwise overwrite edits made there without a trace.
+MIRROR=0
+if git -C "${GITHUB_DIR}" rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+	MIRROR=1
+	STATUS="$(git -C "${GITHUB_DIR}" status --porcelain)"
+	if [[ -n "${STATUS}" ]]; then
+		echo "Fehler: '${GITHUB_DIR}' hat nicht committete Änderungen:" >&2
+		echo "${STATUS}" | sed 's/^/  /' >&2
+		echo "Zuerst dort committen und pushen oder die Änderungen verwerfen." >&2
+		exit 1
+	fi
+fi
+
 echo "Hilfe-Site:    ${SITE_DIR}"
 echo "Plugin-ZIP:    ${PLUGIN_ZIP}"
+echo "GitHub-Ordner: ${GITHUB_DIR}"
 echo ""
 
 # --------------------------------------------------
@@ -87,21 +108,18 @@ done
 # --------------------------------------------------
 # 5. Mirror the bundle into the GitHub repository (commit and push by hand).
 # --------------------------------------------------
-GITHUB_DIR="${ZIP_DIR}/${SLUG}-help"
-
-if [[ -d "${GITHUB_DIR}/.git" ]]; then
-	for file in blueprint.json import.php export.php build.sh content.json uploads.zip "${SLUG}.zip"; do
-		cp "${BUNDLE_DIR}/${file}" "${GITHUB_DIR}/${file}"
-	done
-	echo "  ok  nach ${GITHUB_DIR} kopiert"
-	if [[ -n "$(git -C "${GITHUB_DIR}" status --porcelain)" ]]; then
+if [[ "${MIRROR}" -eq 1 ]]; then
+	rsync -rc --delete "${MIRROR_EXCLUDES[@]}" "${BUNDLE_DIR}/" "${GITHUB_DIR}/"
+	echo "  ok  nach ${GITHUB_DIR} gespiegelt"
+	STATUS="$(git -C "${GITHUB_DIR}" status --short)"
+	if [[ -n "${STATUS}" ]]; then
 		echo "      Dort warten Änderungen auf Commit und Push:"
-		git -C "${GITHUB_DIR}" status --short | sed 's/^/      /'
+		echo "${STATUS}" | sed 's/^/      /'
 	else
 		echo "      GitHub-Ordner war schon auf diesem Stand."
 	fi
 else
-	echo "Hinweis: GitHub-Ordner '${GITHUB_DIR}' fehlt, nichts kopiert."
+	echo "Hinweis: '${GITHUB_DIR}' ist kein Git-Repository, nichts gespiegelt."
 fi
 
 echo ""
