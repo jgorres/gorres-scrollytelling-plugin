@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.47 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
+Version: 1.48 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
 
 ## 1. Zweck
 
@@ -875,3 +875,4 @@ aber mit Node 20.
 | 1.45 | 03.10.2026 | Onlinehilfe: die fünf englischen Alternativtexte der deutschen Startseite (vier Fotos, Scroll-Hinweis) übersetzt, Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
 | 1.46 | 03.10.2026 | Plugin-Repo auf GitHub `jgorres/gorres-scrollytelling-plugin` (Remote `origin`, `main` und Tag `basisplugin-2.4.0` gepusht); `Plugin URI` im Header zeigt dorthin (Plugin 2.12.1, Abschnitt 2) |
 | 1.47 | 03.10.2026 | Playground-Link am 03.10.2026 in Chromium geprüft: Site baut sich in rund 30 s auf, Startseite mit Story (Medienwechsel beim Scrollen, `is-enhanced`), Menü mit allen 13 Seiten und Sprachwechsel, deutsche Startseite, Schritt-Seite mit Aufnahmen, FAQ, Plugin 2.12.1 aktiv, angemeldet; keine Konsolenfehler. Punkt unter „Offen“ gestrichen |
+| 1.48 | 03.10.2026 | Onlinehilfe: Fußzeile der Vorlagen-Site (Template-Teil `footer`, ID 32) ohne die Platzhalter-Links „About/FAQs/Authors/Patterns“ auf `#` und ohne die Zeile „4050 / 2“ von Twenty Twenty-Five; es bleiben Website-Titel und „Designed with WordPress“. Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
