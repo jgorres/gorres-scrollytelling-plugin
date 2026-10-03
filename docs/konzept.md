@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.41 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
+Version: 1.42 · Stand: 03.10.2026 · Plugin-Version: 2.12.0
 
 ## 1. Zweck
 
@@ -852,3 +852,4 @@ aber mit Node 20.
 | 1.39 | 02.10.2026 | Umzug auf den neuen Namen: Repo `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling/`, Übersetzungen `gorres-scrollytelling-glotpress/`, Hilfe-Site `gorres-scrollytelling.local`, Entwicklungs-Site `gorres-scrollytelling-pro.local` (über die Toolchain neu angelegt, Dateien und Datenbank übernommen). Bilddateien der Hilfe und die Aufnahmen unter `docs/hilfe-screenshots/` heißen `gorres-scrollytelling-…`, das Quellvideo `docs/gorres-scrollytelling-hero.mp4`. `scrollstage-basis.local` und `scrollstage-wp67.local` bleiben als Vergleichsstände des früheren Plugins |
 | 1.40 | 03.10.2026 | Onlinehilfe: Aufnahmen für Reihe und Nachspann (`…-ui-row-editor`, `…-ui-after-editor`, `…-ui-after-afterword`, je en/de): Reihe mit zwei Schritten und Nachspann unter dem letzten Schritt, dafür im Editor der Startseite vorübergehend eingefügt und nicht gespeichert; Bereich „Afterword“ der Seitenleiste. Seiten Row und Afterword in beiden Sprachen ergänzt, Bundle neu exportiert. Alle 43 Anhänge der Hilfe-Site werden verwendet |
 | 1.41 | 03.10.2026 | Onlinehilfe: die vier Editor-Aufnahmen (Reihe, Nachspann) als JPEG in einfacher Auflösung (1186 px, Qualität 88) statt PNG in doppelter; alle Aufnahmen ohne Zwischengrößen (Dateien und Metadaten entfernt, die Seiten nutzen nur das Original). `uploads.zip` damit 15,9 MB statt 45,7 MB |
+| 1.42 | 03.10.2026 | Onlinehilfe: Testvideo auf 1280×720 (H.264, CRF 28, ohne Ton, 0,9 MB) und die vier Fotos auf 1920 px Breite (JPEG 82) verkleinert, Zwischengrößen neu; Originale unter `docs/medien-original/`. `uploads.zip` 7,4 MB |

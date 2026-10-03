@@ -730,52 +730,45 @@
                 ],
                 "_wp_attachment_metadata": [
                     {
-                        "width": 2560,
-                        "height": 1707,
+                        "width": 1920,
+                        "height": 1280,
                         "file": "2026/10/gorres-scrollytelling-mountain-sunrise.jpg",
-                        "filesize": 295413,
+                        "filesize": 183860,
                         "sizes": {
                             "medium": {
                                 "file": "gorres-scrollytelling-mountain-sunrise-300x200.jpg",
                                 "width": 300,
                                 "height": 200,
                                 "mime-type": "image/jpeg",
-                                "filesize": 7167
+                                "filesize": 7176
                             },
                             "large": {
                                 "file": "gorres-scrollytelling-mountain-sunrise-1024x683.jpg",
                                 "width": 1024,
                                 "height": 683,
                                 "mime-type": "image/jpeg",
-                                "filesize": 55828
+                                "filesize": 56177
                             },
                             "thumbnail": {
                                 "file": "gorres-scrollytelling-mountain-sunrise-150x150.jpg",
                                 "width": 150,
                                 "height": 150,
                                 "mime-type": "image/jpeg",
-                                "filesize": 3935
+                                "filesize": 3922
                             },
                             "medium_large": {
                                 "file": "gorres-scrollytelling-mountain-sunrise-768x512.jpg",
                                 "width": 768,
                                 "height": 512,
                                 "mime-type": "image/jpeg",
-                                "filesize": 33357
+                                "filesize": 33852
                             },
                             "1536x1536": {
                                 "file": "gorres-scrollytelling-mountain-sunrise-1536x1024.jpg",
                                 "width": 1536,
                                 "height": 1024,
                                 "mime-type": "image/jpeg",
-                                "filesize": 116718
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-mountain-sunrise-2048x1366.jpg",
-                                "width": 2048,
-                                "height": 1366,
-                                "mime-type": "image/jpeg",
-                                "filesize": 199014
+                                "filesize": 117655
                             }
                         },
                         "image_meta": {
@@ -820,52 +813,45 @@
                 ],
                 "_wp_attachment_metadata": [
                     {
-                        "width": 2560,
-                        "height": 1441,
+                        "width": 1920,
+                        "height": 1081,
                         "file": "2026/10/gorres-scrollytelling-turquoise-lake.jpg",
-                        "filesize": 976080,
+                        "filesize": 600823,
                         "sizes": {
                             "medium": {
                                 "file": "gorres-scrollytelling-turquoise-lake-300x169.jpg",
                                 "width": 300,
                                 "height": 169,
                                 "mime-type": "image/jpeg",
-                                "filesize": 13390
+                                "filesize": 13389
                             },
                             "large": {
-                                "file": "gorres-scrollytelling-turquoise-lake-1024x576.jpg",
+                                "file": "gorres-scrollytelling-turquoise-lake-1024x577.jpg",
                                 "width": 1024,
-                                "height": 576,
+                                "height": 577,
                                 "mime-type": "image/jpeg",
-                                "filesize": 156339
+                                "filesize": 154556
                             },
                             "thumbnail": {
                                 "file": "gorres-scrollytelling-turquoise-lake-150x150.jpg",
                                 "width": 150,
                                 "height": 150,
                                 "mime-type": "image/jpeg",
-                                "filesize": 6185
+                                "filesize": 6174
                             },
                             "medium_large": {
                                 "file": "gorres-scrollytelling-turquoise-lake-768x432.jpg",
                                 "width": 768,
                                 "height": 432,
                                 "mime-type": "image/jpeg",
-                                "filesize": 85037
+                                "filesize": 84829
                             },
                             "1536x1536": {
                                 "file": "gorres-scrollytelling-turquoise-lake-1536x865.jpg",
                                 "width": 1536,
                                 "height": 865,
                                 "mime-type": "image/jpeg",
-                                "filesize": 359692
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-turquoise-lake-2048x1153.jpg",
-                                "width": 2048,
-                                "height": 1153,
-                                "mime-type": "image/jpeg",
-                                "filesize": 611482
+                                "filesize": 344311
                             }
                         },
                         "image_meta": {
@@ -910,52 +896,45 @@
                 ],
                 "_wp_attachment_metadata": [
                     {
-                        "width": 2560,
-                        "height": 1707,
+                        "width": 1920,
+                        "height": 1280,
                         "file": "2026/10/gorres-scrollytelling-foggy-forest-lakes.jpg",
-                        "filesize": 705010,
+                        "filesize": 461882,
                         "sizes": {
                             "medium": {
                                 "file": "gorres-scrollytelling-foggy-forest-lakes-300x200.jpg",
                                 "width": 300,
                                 "height": 200,
                                 "mime-type": "image/jpeg",
-                                "filesize": 14771
+                                "filesize": 14786
                             },
                             "large": {
                                 "file": "gorres-scrollytelling-foggy-forest-lakes-1024x683.jpg",
                                 "width": 1024,
                                 "height": 683,
                                 "mime-type": "image/jpeg",
-                                "filesize": 133198
+                                "filesize": 132355
                             },
                             "thumbnail": {
                                 "file": "gorres-scrollytelling-foggy-forest-lakes-150x150.jpg",
                                 "width": 150,
                                 "height": 150,
                                 "mime-type": "image/jpeg",
-                                "filesize": 6353
+                                "filesize": 6364
                             },
                             "medium_large": {
                                 "file": "gorres-scrollytelling-foggy-forest-lakes-768x512.jpg",
                                 "width": 768,
                                 "height": 512,
                                 "mime-type": "image/jpeg",
-                                "filesize": 79262
+                                "filesize": 79550
                             },
                             "1536x1536": {
                                 "file": "gorres-scrollytelling-foggy-forest-lakes-1536x1024.jpg",
                                 "width": 1536,
                                 "height": 1024,
                                 "mime-type": "image/jpeg",
-                                "filesize": 264423
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-foggy-forest-lakes-2048x1366.jpg",
-                                "width": 2048,
-                                "height": 1366,
-                                "mime-type": "image/jpeg",
-                                "filesize": 423535
+                                "filesize": 261025
                             }
                         },
                         "image_meta": {
@@ -1000,52 +979,45 @@
                 ],
                 "_wp_attachment_metadata": [
                     {
-                        "width": 2560,
-                        "height": 1707,
+                        "width": 1920,
+                        "height": 1280,
                         "file": "2026/10/gorres-scrollytelling-starry-night.jpg",
-                        "filesize": 382300,
+                        "filesize": 223184,
                         "sizes": {
                             "medium": {
                                 "file": "gorres-scrollytelling-starry-night-300x200.jpg",
                                 "width": 300,
                                 "height": 200,
                                 "mime-type": "image/jpeg",
-                                "filesize": 5732
+                                "filesize": 5761
                             },
                             "large": {
                                 "file": "gorres-scrollytelling-starry-night-1024x683.jpg",
                                 "width": 1024,
                                 "height": 683,
                                 "mime-type": "image/jpeg",
-                                "filesize": 53466
+                                "filesize": 54694
                             },
                             "thumbnail": {
                                 "file": "gorres-scrollytelling-starry-night-150x150.jpg",
                                 "width": 150,
                                 "height": 150,
                                 "mime-type": "image/jpeg",
-                                "filesize": 2906
+                                "filesize": 2925
                             },
                             "medium_large": {
                                 "file": "gorres-scrollytelling-starry-night-768x512.jpg",
                                 "width": 768,
                                 "height": 512,
                                 "mime-type": "image/jpeg",
-                                "filesize": 31048
+                                "filesize": 31763
                             },
                             "1536x1536": {
                                 "file": "gorres-scrollytelling-starry-night-1536x1024.jpg",
                                 "width": 1536,
                                 "height": 1024,
                                 "mime-type": "image/jpeg",
-                                "filesize": 116052
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-starry-night-2048x1366.jpg",
-                                "width": 2048,
-                                "height": 1366,
-                                "mime-type": "image/jpeg",
-                                "filesize": 205466
+                                "filesize": 119595
                             }
                         },
                         "image_meta": {
@@ -1087,13 +1059,13 @@
                 ],
                 "_wp_attachment_metadata": [
                     {
-                        "bitrate": 5653440,
-                        "filesize": 7069829,
+                        "bitrate": 712542,
+                        "filesize": 894401,
                         "mime_type": "video/quicktime",
                         "length": 10,
                         "length_formatted": "0:10",
-                        "width": 1920,
-                        "height": 1080,
+                        "width": 1280,
+                        "height": 720,
                         "fileformat": "mp4",
                         "dataformat": "quicktime",
                         "codec": "H.264/MPEG-4 AVC",
