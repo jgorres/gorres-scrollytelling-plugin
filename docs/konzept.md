@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.48 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
+Version: 1.49 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
 
 ## 1. Zweck
 
@@ -16,8 +16,10 @@ Projektdoku ist deutsch.
 ## 2. Verzeichnisse
 
 Das Projekt liegt unter `~/dev/jgorres-im-WP-Repository/`, wie alles, was ein
-Plugin im WordPress-Verzeichnis ist oder werden soll. Im selben Ordner liegen
-die Release-ZIPs und die Übersetzungsdateien für GlotPress.
+Plugin im WordPress-Verzeichnis ist oder werden soll. Der Aufbau folgt dem
+Schema der dortigen `README.md`: ein Ordner je Plugin, darin `plugin/`, `docs/`,
+`assets/`, `glotpress/`, `svn/`, `dist/` und `build.sh`; Nebenordner mit Suffix
+gibt es seit dem 03.10.2026 nicht mehr.
 
 Das Git-Repo hat seit dem 03.10.2026 das Remote `origin` auf GitHub:
 `https://github.com/jgorres/gorres-scrollytelling-plugin` (öffentlich, Branch
@@ -52,9 +54,14 @@ erlaubt keine WordPress.org-Adresse. Push von Hand nach jedem Commit.
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
 │   └── languages/gorres-scrollytelling.pot
 ├── assets/                    WP.org-Assets: Screenshots, Icon, Banner (nicht im Paket)
-├── build.sh                   Release-ZIP erzeugen
+├── build.sh                   Release-ZIP nach dist/ erzeugen
 ├── .distignore                Ausschlüsse aus plugin/ für ZIP und SVN-Export
 ├── docs/                      diese Doku, banner.svg, Quellvideo der Aufnahme
+├── glotpress/                 .po-Stände für translate.wordpress.org (im Git)
+├── dist/                      Release-ZIPs gorres-scrollytelling-<version>.zip (nicht im Git)
+├── svn/                       SVN-Checkout nach der Freischaltung (nicht im Git)
+├── help/                      Checkout des Hilfe-Repos jgorres/gorres-scrollytelling-help,
+│                              eigenes Git (nicht in diesem Git), siehe Abschnitt 12
 ├── playground/                Onlinehilfe als Bundle für den WordPress
 │                              Playground, siehe Abschnitt 12
 ├── stubs/                     zusätzliche Stubs für PHPStan (derzeit leer)
@@ -641,7 +648,7 @@ wp i18n make-pot plugin plugin/languages/gorres-scrollytelling.pot \
 4. `./build.sh`: prüft die Versionsnummern, baut die Blöcke, exportiert
    `plugin/` ohne die Einträge aus `.distignore` (`.po`, `.mo`, `.json`,
    `.l10n.php`) und schreibt
-   `~/dev/jgorres-im-WP-Repository/gorres-scrollytelling-<version>.zip`. Die
+   `dist/gorres-scrollytelling-<version>.zip`. Die
    Block-Quellen `src/` gehören ins Paket: Die Richtlinien von WordPress.org
    verlangen die lesbaren Quellen der kompilierten Dateien in `build/`.
    `build.sh` bricht ab, wenn `src/<block>/block.json` im Paket fehlt.
@@ -733,7 +740,7 @@ weiteren Dateien werden daraus als `bundled`-Ressourcen gelesen.
 | `build.sh` | ruft den Export auf, kopiert das aktuelle Release-ZIP und spiegelt das Bundle in den GitHub-Ordner |
 | `content.json` | erzeugt: Sprachen, Polylang-Einstellungen, Optionen, Beiträge |
 | `uploads.zip` | erzeugt: Inhalt von `wp-content/uploads` |
-| `gorres-scrollytelling.zip` | erzeugt: Kopie von `gorres-scrollytelling-<version>.zip` |
+| `gorres-scrollytelling.zip` | erzeugt: Kopie von `dist/gorres-scrollytelling-<version>.zip` |
 
 Nach jeder Änderung an der Vorlagen-Site:
 
@@ -749,7 +756,7 @@ es, zuerst `./build.sh` im Repo ausführen.
 Der Playground lädt das Bundle über `?blueprint-url=…` aus dem öffentlichen
 Repo `jgorres/gorres-scrollytelling-help` (GPL v2 oder später, mit README und
 LICENSE); eigener Webspace scheidet wegen des Traffics aus. Lokaler Checkout:
-`~/dev/jgorres-im-WP-Repository/gorres-scrollytelling-help`. Quelle bleibt
+`help/` im Plugin-Ordner (eigenes Git, im `.gitignore` des Plugin-Repos). Quelle bleibt
 `playground/` im Plugin-Repo: `playground/build.sh` spiegelt das Bundle am
 Ende per `rsync --delete` dorthin (ohne `build.sh`, `export.php`, README,
 LICENSE) und bricht vorher ab, wenn der Checkout nicht committete Änderungen
@@ -876,3 +883,4 @@ aber mit Node 20.
 | 1.46 | 03.10.2026 | Plugin-Repo auf GitHub `jgorres/gorres-scrollytelling-plugin` (Remote `origin`, `main` und Tag `basisplugin-2.4.0` gepusht); `Plugin URI` im Header zeigt dorthin (Plugin 2.12.1, Abschnitt 2) |
 | 1.47 | 03.10.2026 | Playground-Link am 03.10.2026 in Chromium geprüft: Site baut sich in rund 30 s auf, Startseite mit Story (Medienwechsel beim Scrollen, `is-enhanced`), Menü mit allen 13 Seiten und Sprachwechsel, deutsche Startseite, Schritt-Seite mit Aufnahmen, FAQ, Plugin 2.12.1 aktiv, angemeldet; keine Konsolenfehler. Punkt unter „Offen“ gestrichen |
 | 1.48 | 03.10.2026 | Onlinehilfe: Fußzeile der Vorlagen-Site (Template-Teil `footer`, ID 32) ohne die Platzhalter-Links „About/FAQs/Authors/Patterns“ auf `#` und ohne die Zeile „4050 / 2“ von Twenty Twenty-Five; es bleiben Website-Titel und „Designed with WordPress“. Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
+| 1.49 | 03.10.2026 | Ordnerschema der `README.md` in `~/dev/jgorres-im-WP-Repository/`: `glotpress/` (vorher Nebenordner `-glotpress`, jetzt im Git), `dist/` für die Release-ZIPs, `help/` für den Checkout des Hilfe-Repos (vorher Nebenordner `-help`); `build.sh` schreibt nach `dist/`, `playground/build.sh` liest von dort und spiegelt nach `help/`; `.gitignore` um `/dist/`, `/svn/`, `/help/` ergänzt. Abschnitte 2, 9 und 12 |

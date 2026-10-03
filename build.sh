@@ -22,7 +22,7 @@ echo ""
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLUGIN_DIR="${REPO_DIR}/plugin"
 SLUG="gorres-scrollytelling"
-TARGET_DIR="${HOME}/dev/jgorres-im-WP-Repository"
+TARGET_DIR="${REPO_DIR}/dist"
 STAGE_DIR="$(mktemp -d)"
 
 trap 'rm -rf "${STAGE_DIR}"' EXIT

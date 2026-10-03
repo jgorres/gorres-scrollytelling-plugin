@@ -2,8 +2,13 @@
 /vendor/
 node_modules/
 
-# Build-Ergebnisse (wp-scripts)
+# Build-Ergebnisse (wp-scripts) und Release-ZIPs
 /plugin/build/
+/dist/
+
+# SVN-Checkout und Hilfe-Repo (eigene Arbeitskopien, nicht Teil dieses Repos)
+/svn/
+/help/
 
 # Zugangsdaten
 .env

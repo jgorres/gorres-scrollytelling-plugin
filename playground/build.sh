@@ -22,9 +22,9 @@ echo ""
 BUNDLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(dirname "${BUNDLE_DIR}")"
 SLUG="gorres-scrollytelling"
-ZIP_DIR="${HOME}/dev/jgorres-im-WP-Repository"
+ZIP_DIR="${REPO_DIR}/dist"
 SITE_DIR="${1:-/var/www/local-sites/gorres-scrollytelling.local}"
-GITHUB_DIR="${ZIP_DIR}/${SLUG}-help"
+GITHUB_DIR="${REPO_DIR}/help"
 
 # Files of the bundle that stay out of the GitHub repository, and files of the
 # repository that are not part of the bundle.
