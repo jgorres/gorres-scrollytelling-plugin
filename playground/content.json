@@ -284,7 +284,7 @@
             "parent": 9,
             "menu_order": 6,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Row</strong> is an optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":241,\"width\":\"1186px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-row-editor-en.png\" alt=\"A row with two steps in the editor, with the note that the steps pass sideways on the front end\" class=\"has-border-color wp-image-241\" style=\"border-color:#cccccc;border-width:1px;width:1186px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Row</strong> between its steps.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Add steps to the row, just like in the story itself.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The editor shows the steps of a row one below the other; the sideways movement is visible on the published page.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Behavior in browsers</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browsers with scroll timelines (Chrome, Edge, Safari from version 26) move the row along with the scroll position.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>All others, Firefox at the time of writing, glide from one step to the next.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>If the text of a step is too tall for the screen, or the visitor asked for reduced motion, the steps follow each other vertically like ordinary steps.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Limits</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Text effects do not apply inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The height of a single step has no effect inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The row has no settings of its own; position, dimming and step height come from the story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Row</strong> is an optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":253,\"width\":\"1186px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-row-editor-en.jpg\" alt=\"A row with two steps in the editor, with the note that the steps pass sideways on the front end\" class=\"has-border-color wp-image-253\" style=\"border-color:#cccccc;border-width:1px;width:1186px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Row</strong> between its steps.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Add steps to the row, just like in the story itself.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The editor shows the steps of a row one below the other; the sideways movement is visible on the published page.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Behavior in browsers</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browsers with scroll timelines (Chrome, Edge, Safari from version 26) move the row along with the scroll position.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>All others, Firefox at the time of writing, glide from one step to the next.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>If the text of a step is too tall for the screen, or the visitor asked for reduced motion, the steps follow each other vertically like ordinary steps.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Limits</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Text effects do not apply inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The height of a single step has no effect inside a row.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The row has no settings of its own; position, dimming and step height come from the story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "en",
             "translations": {
@@ -303,7 +303,7 @@
             "parent": 10,
             "menu_order": 6,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Reihe</strong> ist eine optionale Gruppe von Schritten in einer Story, die seitwärts durchlaufen: Der Bildschirm bleibt stehen und die Schritte ziehen hindurch, während der Besucher weiter nach unten scrollt. Schritte vor und nach der Reihe scrollen wie gewohnt senkrecht.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":242,\"width\":\"1186px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-row-editor-de.png\" alt=\"Eine Reihe mit zwei Schritten im Editor, mit dem Hinweis, dass die Schritte im Frontend seitwärts vorbeiziehen\" class=\"has-border-color wp-image-242\" style=\"border-color:#cccccc;border-width:1px;width:1186px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du sie ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge zwischen seinen Schritten den Block <strong>Scrollytelling-Reihe</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Füge der Reihe Schritte hinzu, genau wie in der Story selbst.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Editor zeigt die Schritte einer Reihe untereinander; die Seitwärtsbewegung siehst du auf der veröffentlichten Seite.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Verhalten in den Browsern</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browser mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) bewegen die Reihe stufenlos mit der Scrollposition.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Alle anderen, derzeit Firefox, gleiten von einem Schritt zum nächsten.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Ist der Text eines Schritts zu hoch für den Bildschirm oder wünscht der Besucher reduzierte Bewegung, folgen die Schritte untereinander wie gewöhnliche Schritte.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Grenzen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Texteffekte wirken in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die eigene Höhe eines einzelnen Schritts wirkt in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die Reihe hat keine eigenen Einstellungen; Position, Abdunklung und Schritthöhe kommen aus der Story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Reihe</strong> ist eine optionale Gruppe von Schritten in einer Story, die seitwärts durchlaufen: Der Bildschirm bleibt stehen und die Schritte ziehen hindurch, während der Besucher weiter nach unten scrollt. Schritte vor und nach der Reihe scrollen wie gewohnt senkrecht.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":254,\"width\":\"1186px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-row-editor-de.jpg\" alt=\"Eine Reihe mit zwei Schritten im Editor, mit dem Hinweis, dass die Schritte im Frontend seitwärts vorbeiziehen\" class=\"has-border-color wp-image-254\" style=\"border-color:#cccccc;border-width:1px;width:1186px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du sie ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge zwischen seinen Schritten den Block <strong>Scrollytelling-Reihe</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Füge der Reihe Schritte hinzu, genau wie in der Story selbst.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Editor zeigt die Schritte einer Reihe untereinander; die Seitwärtsbewegung siehst du auf der veröffentlichten Seite.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Verhalten in den Browsern</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Browser mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) bewegen die Reihe stufenlos mit der Scrollposition.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Alle anderen, derzeit Firefox, gleiten von einem Schritt zum nächsten.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Ist der Text eines Schritts zu hoch für den Bildschirm oder wünscht der Besucher reduzierte Bewegung, folgen die Schritte untereinander wie gewöhnliche Schritte.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Grenzen</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list -->\n<ul class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Texteffekte wirken in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die eigene Höhe eines einzelnen Schritts wirkt in einer Reihe nicht.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Die Reihe hat keine eigenen Einstellungen; Position, Abdunklung und Schritthöhe kommen aus der Story.</li>\n<!-- /wp:list-item --></ul>\n<!-- /wp:list -->",
             "excerpt": "",
             "language": "de",
             "translations": {
@@ -322,7 +322,7 @@
             "parent": 9,
             "menu_order": 7,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Afterword</strong> is optional content that follows the last step of a story: a closing paragraph, a button, a gallery, any blocks you like.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":243,\"width\":\"1198px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-editor-en.png\" alt=\"An afterword below the last step in the editor\" class=\"has-border-color wp-image-243\" style=\"border-color:#cccccc;border-width:1px;width:1198px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">When to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The afterword matters most when the story uses <strong>Limit the stage to the medium</strong>. The stage is then lower than the screen, and the space below it would stay empty while the steps play. The afterword fills that space: it appears right below the stage from the first step on and only scrolls away once the story ends.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Afterword</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Put the closing content into it.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The afterword always follows the last step, wherever it stands in the editor.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"280px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:280px\"><!-- wp:image {\"id\":245,\"width\":\"280px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-afterword-en.png\" alt=\"Panel Afterword in the settings of the afterword block\" class=\"has-border-color wp-image-245\" style=\"border-color:#cccccc;border-width:1px;width:280px;height:auto\"/></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Afterword or “Pull up the following content”?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>If the content belongs to the story itself, use the afterword. If it is ordinary page content that merely follows the story, leave it outside and switch on <strong>Pull up the following content</strong> in the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a> instead.</p>\n<!-- /wp:paragraph -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling Afterword</strong> is optional content that follows the last step of a story: a closing paragraph, a button, a gallery, any blocks you like.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":255,\"width\":\"1198px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-editor-en.jpg\" alt=\"An afterword below the last step in the editor\" class=\"has-border-color wp-image-255\" style=\"border-color:#cccccc;border-width:1px;width:1198px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">When to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>The afterword matters most when the story uses <strong>Limit the stage to the medium</strong>. The stage is then lower than the screen, and the space below it would stay empty while the steps play. The afterword fills that space: it appears right below the stage from the first step on and only scrolls away once the story ends.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">How to use it</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Select the story block and add the block <strong>Scrollytelling Afterword</strong>.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Put the closing content into it.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>The afterword always follows the last step, wherever it stands in the editor.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"280px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:280px\"><!-- wp:image {\"id\":245,\"width\":\"280px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-afterword-en.png\" alt=\"Panel Afterword in the settings of the afterword block\" class=\"has-border-color wp-image-245\" style=\"border-color:#cccccc;border-width:1px;width:280px;height:auto\"/></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Afterword or “Pull up the following content”?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>If the content belongs to the story itself, use the afterword. If it is ordinary page content that merely follows the story, leave it outside and switch on <strong>Pull up the following content</strong> in the <a href=\"{{JGOR_ST_HELP_SITE_URL}}/blocks/story/\">story block</a> instead.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "en",
             "translations": {
@@ -341,7 +341,7 @@
             "parent": 10,
             "menu_order": 7,
             "mime_type": "",
-            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Nachspann</strong> ist optionaler Inhalt, der auf den letzten Schritt einer Story folgt: ein Schlussabsatz, ein Button, eine Galerie, beliebige Blöcke.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":244,\"width\":\"1198px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-editor-de.png\" alt=\"Ein Nachspann unter dem letzten Schritt im Editor\" class=\"has-border-color wp-image-244\" style=\"border-color:#cccccc;border-width:1px;width:1198px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wann er sinnvoll ist</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Der Nachspann ist vor allem wichtig, wenn die Story <strong>Bühne auf das Medium begrenzen</strong> nutzt. Die Bühne ist dann niedriger als der Bildschirm, und der Platz darunter bliebe leer, solange die Schritte laufen. Der Nachspann füllt diesen Platz: Er steht vom ersten Schritt an direkt unter der Bühne und scrollt erst weg, wenn die Story endet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du ihn ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge den Block <strong>Scrollytelling-Nachspann</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Lege den Schlussinhalt hinein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Nachspann folgt immer auf den letzten Schritt, egal wo er im Editor steht.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"280px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:280px\"><!-- wp:image {\"id\":246,\"width\":\"280px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-afterword-de.png\" alt=\"Bereich Nachspann in den Einstellungen des Nachspann-Blocks\" class=\"has-border-color wp-image-246\" style=\"border-color:#cccccc;border-width:1px;width:280px;height:auto\"/></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Nachspann oder „Folgenden Inhalt hochziehen“?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Gehört der Inhalt zur Story selbst, nimm den Nachspann. Ist es gewöhnlicher Seiteninhalt, der nur auf die Story folgt, lass ihn außerhalb und schalte stattdessen im <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a> <strong>Folgenden Inhalt hochziehen</strong> ein.</p>\n<!-- /wp:paragraph -->",
+            "content": "<!-- wp:paragraph -->\n<p><strong>Scrollytelling-Nachspann</strong> ist optionaler Inhalt, der auf den letzten Schritt einer Story folgt: ein Schlussabsatz, ein Button, eine Galerie, beliebige Blöcke.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:image {\"id\":256,\"width\":\"1198px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-editor-de.jpg\" alt=\"Ein Nachspann unter dem letzten Schritt im Editor\" class=\"has-border-color wp-image-256\" style=\"border-color:#cccccc;border-width:1px;width:1198px;height:auto\"/></figure>\n<!-- /wp:image -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Wann er sinnvoll ist</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Der Nachspann ist vor allem wichtig, wenn die Story <strong>Bühne auf das Medium begrenzen</strong> nutzt. Die Bühne ist dann niedriger als der Bildschirm, und der Platz darunter bliebe leer, solange die Schritte laufen. Der Nachspann füllt diesen Platz: Er steht vom ersten Schritt an direkt unter der Bühne und scrollt erst weg, wenn die Story endet.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">So setzt du ihn ein</h2>\n<!-- /wp:heading -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:list {\"ordered\":true} -->\n<ol class=\"wp-block-list\"><!-- wp:list-item -->\n<li>Wähle den Story-Block aus und füge den Block <strong>Scrollytelling-Nachspann</strong> ein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Lege den Schlussinhalt hinein.</li>\n<!-- /wp:list-item -->\n\n<!-- wp:list-item -->\n<li>Der Nachspann folgt immer auf den letzten Schritt, egal wo er im Editor steht.</li>\n<!-- /wp:list-item --></ol>\n<!-- /wp:list --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"width\":\"280px\"} -->\n<div class=\"wp-block-column\" style=\"flex-basis:280px\"><!-- wp:image {\"id\":246,\"width\":\"280px\",\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"style\":{\"border\":{\"width\":\"1px\",\"color\":\"#cccccc\"}}} -->\n<figure class=\"wp-block-image size-full is-resized has-custom-border\"><img src=\"{{JGOR_ST_HELP_SITE_URL}}/wp-content/uploads/2026/10/gorres-scrollytelling-ui-after-afterword-de.png\" alt=\"Bereich Nachspann in den Einstellungen des Nachspann-Blocks\" class=\"has-border-color wp-image-246\" style=\"border-color:#cccccc;border-width:1px;width:280px;height:auto\"/></figure>\n<!-- /wp:image --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Nachspann oder „Folgenden Inhalt hochziehen“?</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Gehört der Inhalt zur Story selbst, nimm den Nachspann. Ist es gewöhnlicher Seiteninhalt, der nur auf die Story folgt, lass ihn außerhalb und schalte stattdessen im <a href=\"{{JGOR_ST_HELP_SITE_URL}}/de/bloecke/story/\">Story-Block</a> <strong>Folgenden Inhalt hochziehen</strong> ein.</p>\n<!-- /wp:paragraph -->",
             "excerpt": "",
             "language": "de",
             "translations": {
@@ -1368,22 +1368,7 @@
                         "height": 700,
                         "file": "2026/10/gorres-scrollytelling-ui-blocks-inserter-de.png",
                         "filesize": 13837,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-blocks-inserter-de-300x300.png",
-                                "width": 300,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 16556
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-blocks-inserter-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 6125
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1427,22 +1412,7 @@
                         "height": 700,
                         "file": "2026/10/gorres-scrollytelling-ui-blocks-inserter-en.png",
                         "filesize": 13562,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-blocks-inserter-en-300x300.png",
-                                "width": 300,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 15938
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-blocks-inserter-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 5817
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1486,22 +1456,7 @@
                         "height": 720,
                         "file": "2026/10/gorres-scrollytelling-ui-step-height-de.png",
                         "filesize": 56135,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-height-de-233x300.png",
-                                "width": 233,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 31453
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-height-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 14226
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1545,22 +1500,7 @@
                         "height": 684,
                         "file": "2026/10/gorres-scrollytelling-ui-step-height-en.png",
                         "filesize": 51012,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-height-en-246x300.png",
-                                "width": 246,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 31981
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-height-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 13899
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1604,36 +1544,7 @@
                         "height": 1730,
                         "file": "2026/10/gorres-scrollytelling-ui-step-medium-de.png",
                         "filesize": 248465,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-medium-de-97x300.png",
-                                "width": 97,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 21898
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-step-medium-de-331x1024.png",
-                                "width": 331,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 159555
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-medium-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 19312
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-step-medium-de-497x1536.png",
-                                "width": 497,
-                                "height": 1536,
-                                "mime-type": "image/png",
-                                "filesize": 295638
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1677,36 +1588,7 @@
                         "height": 1694,
                         "file": "2026/10/gorres-scrollytelling-ui-step-medium-en.png",
                         "filesize": 241813,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-medium-en-99x300.png",
-                                "width": 99,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 21934
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-step-medium-en-339x1024.png",
-                                "width": 339,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 159757
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-medium-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 18556
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-step-medium-en-508x1536.png",
-                                "width": 508,
-                                "height": 1536,
-                                "mime-type": "image/png",
-                                "filesize": 291819
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1750,22 +1632,7 @@
                         "height": 394,
                         "file": "2026/10/gorres-scrollytelling-ui-step-motion-de.png",
                         "filesize": 21674,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-motion-de-300x211.png",
-                                "width": 300,
-                                "height": 211,
-                                "mime-type": "image/png",
-                                "filesize": 17336
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-motion-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 8197
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1809,22 +1676,7 @@
                         "height": 358,
                         "file": "2026/10/gorres-scrollytelling-ui-step-motion-en.png",
                         "filesize": 20156,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-motion-en-300x192.png",
-                                "width": 300,
-                                "height": 192,
-                                "mime-type": "image/png",
-                                "filesize": 15842
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-motion-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 7456
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1868,36 +1720,7 @@
                         "height": 1998,
                         "file": "2026/10/gorres-scrollytelling-ui-step-portrait-screens-de.png",
                         "filesize": 296187,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-de-84x300.png",
-                                "width": 84,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 13943
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-de-287x1024.png",
-                                "width": 287,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 99792
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 9633
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-de-431x1536.png",
-                                "width": 431,
-                                "height": 1536,
-                                "mime-type": "image/png",
-                                "filesize": 276501
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -1941,36 +1764,7 @@
                         "height": 1966,
                         "file": "2026/10/gorres-scrollytelling-ui-step-portrait-screens-en.png",
                         "filesize": 289790,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-en-85x300.png",
-                                "width": 85,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 13342
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-en-292x1024.png",
-                                "width": 292,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 96718
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 9423
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-step-portrait-screens-en-438x1536.png",
-                                "width": 438,
-                                "height": 1536,
-                                "mime-type": "image/png",
-                                "filesize": 284134
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2014,22 +1808,7 @@
                         "height": 904,
                         "file": "2026/10/gorres-scrollytelling-ui-step-position-de.png",
                         "filesize": 70503,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-position-de-186x300.png",
-                                "width": 186,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 28426
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-position-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 13893
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2073,22 +1852,7 @@
                         "height": 832,
                         "file": "2026/10/gorres-scrollytelling-ui-step-position-en.png",
                         "filesize": 64639,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-position-en-202x300.png",
-                                "width": 202,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 29246
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-position-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 12596
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2132,22 +1896,7 @@
                         "height": 216,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-background-de.png",
                         "filesize": 5800,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-background-de-300x116.png",
-                                "width": 300,
-                                "height": 116,
-                                "mime-type": "image/png",
-                                "filesize": 4469
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-background-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 870
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2191,22 +1940,7 @@
                         "height": 216,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-background-en.png",
                         "filesize": 6517,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-background-en-300x116.png",
-                                "width": 300,
-                                "height": 116,
-                                "mime-type": "image/png",
-                                "filesize": 4784
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-background-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 657
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2250,22 +1984,7 @@
                         "height": 588,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-border-shadow-de.png",
                         "filesize": 22381,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-border-shadow-de-286x300.png",
-                                "width": 286,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 15968
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-border-shadow-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 6508
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2309,22 +2028,7 @@
                         "height": 588,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-border-shadow-en.png",
                         "filesize": 22007,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-border-shadow-en-286x300.png",
-                                "width": 286,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 15004
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-border-shadow-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 6110
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2368,22 +2072,7 @@
                         "height": 604,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-dimensions-de.png",
                         "filesize": 15253,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-dimensions-de-278x300.png",
-                                "width": 278,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 12796
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-dimensions-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 5195
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2427,22 +2116,7 @@
                         "height": 604,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-dimensions-en.png",
                         "filesize": 14375,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-dimensions-en-278x300.png",
-                                "width": 278,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 11468
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-dimensions-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 4738
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2486,29 +2160,7 @@
                         "height": 1170,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-typography-de.png",
                         "filesize": 37678,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-typography-de-144x300.png",
-                                "width": 144,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 10364
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-step-styles-typography-de-490x1024.png",
-                                "width": 490,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 56890
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-typography-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 6149
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2552,29 +2204,7 @@
                         "height": 1170,
                         "file": "2026/10/gorres-scrollytelling-ui-step-styles-typography-en.png",
                         "filesize": 34482,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-styles-typography-en-144x300.png",
-                                "width": 144,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 9794
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-step-styles-typography-en-490x1024.png",
-                                "width": 490,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 51935
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-styles-typography-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 5891
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2618,22 +2248,7 @@
                         "height": 92,
                         "file": "2026/10/gorres-scrollytelling-ui-step-toolbar-de.png",
                         "filesize": 5103,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-toolbar-de-300x40.png",
-                                "width": 300,
-                                "height": 40,
-                                "mime-type": "image/png",
-                                "filesize": 3407
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-toolbar-de-150x92.png",
-                                "width": 150,
-                                "height": 92,
-                                "mime-type": "image/png",
-                                "filesize": 2051
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2677,22 +2292,7 @@
                         "height": 92,
                         "file": "2026/10/gorres-scrollytelling-ui-step-toolbar-en.png",
                         "filesize": 4781,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-step-toolbar-en-300x40.png",
-                                "width": 300,
-                                "height": 40,
-                                "mime-type": "image/png",
-                                "filesize": 3366
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-step-toolbar-en-150x92.png",
-                                "width": 150,
-                                "height": 92,
-                                "mime-type": "image/png",
-                                "filesize": 2183
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2736,29 +2336,7 @@
                         "height": 1166,
                         "file": "2026/10/gorres-scrollytelling-ui-story-media-de.png",
                         "filesize": 69215,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-story-media-de-144x300.png",
-                                "width": 144,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 18934
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-story-media-de-492x1024.png",
-                                "width": 492,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 109968
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-story-media-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 10620
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2802,29 +2380,7 @@
                         "height": 1094,
                         "file": "2026/10/gorres-scrollytelling-ui-story-media-en.png",
                         "filesize": 60260,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-story-media-en-154x300.png",
-                                "width": 154,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 18802
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-story-media-en-524x1024.png",
-                                "width": 524,
-                                "height": 1024,
-                                "mime-type": "image/png",
-                                "filesize": 103747
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-story-media-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 11021
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2868,22 +2424,7 @@
                         "height": 748,
                         "file": "2026/10/gorres-scrollytelling-ui-story-motion-de.png",
                         "filesize": 52424,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-story-motion-de-225x300.png",
-                                "width": 225,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 29118
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-story-motion-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 12050
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2927,22 +2468,7 @@
                         "height": 712,
                         "file": "2026/10/gorres-scrollytelling-ui-story-motion-en.png",
                         "filesize": 46842,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-story-motion-en-236x300.png",
-                                "width": 236,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 26353
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-story-motion-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 11422
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -2986,22 +2512,7 @@
                         "height": 676,
                         "file": "2026/10/gorres-scrollytelling-ui-story-text-boxes-de.png",
                         "filesize": 31330,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-story-text-boxes-de-249x300.png",
-                                "width": 249,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 19887
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-story-text-boxes-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 8607
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -3045,370 +2556,7 @@
                         "height": 676,
                         "file": "2026/10/gorres-scrollytelling-ui-story-text-boxes-en.png",
                         "filesize": 29503,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-story-text-boxes-en-249x300.png",
-                                "width": 249,
-                                "height": 300,
-                                "mime-type": "image/png",
-                                "filesize": 17999
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-story-text-boxes-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 7695
-                            }
-                        },
-                        "image_meta": {
-                            "aperture": "0",
-                            "credit": "",
-                            "camera": "",
-                            "caption": "",
-                            "created_timestamp": "0",
-                            "copyright": "",
-                            "focal_length": "0",
-                            "iso": "0",
-                            "shutter_speed": "0",
-                            "title": "",
-                            "orientation": "0",
-                            "keywords": [],
-                            "alt": ""
-                        }
-                    }
-                ]
-            },
-            "terms": []
-        },
-        {
-            "id": 241,
-            "type": "attachment",
-            "status": "inherit",
-            "title": "gorres-scrollytelling-ui-row-editor-en",
-            "slug": "gorres-scrollytelling-ui-row-editor-en",
-            "parent": 0,
-            "menu_order": 0,
-            "mime_type": "image/png",
-            "content": "",
-            "excerpt": "",
-            "language": "",
-            "translations": [],
-            "meta": {
-                "_wp_attached_file": [
-                    "2026/10/gorres-scrollytelling-ui-row-editor-en.png"
-                ],
-                "_wp_attachment_metadata": [
-                    {
-                        "width": 2372,
-                        "height": 1594,
-                        "file": "2026/10/gorres-scrollytelling-ui-row-editor-en.png",
-                        "filesize": 3438744,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-row-editor-en-300x202.png",
-                                "width": 300,
-                                "height": 202,
-                                "mime-type": "image/png",
-                                "filesize": 115290
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-row-editor-en-1024x688.png",
-                                "width": 1024,
-                                "height": 688,
-                                "mime-type": "image/png",
-                                "filesize": 1034448
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-row-editor-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 43303
-                            },
-                            "medium_large": {
-                                "file": "gorres-scrollytelling-ui-row-editor-en-768x516.png",
-                                "width": 768,
-                                "height": 516,
-                                "mime-type": "image/png",
-                                "filesize": 633778
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-row-editor-en-1536x1032.png",
-                                "width": 1536,
-                                "height": 1032,
-                                "mime-type": "image/png",
-                                "filesize": 1998341
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-ui-row-editor-en-2048x1376.png",
-                                "width": 2048,
-                                "height": 1376,
-                                "mime-type": "image/png",
-                                "filesize": 3102924
-                            }
-                        },
-                        "image_meta": {
-                            "aperture": "0",
-                            "credit": "",
-                            "camera": "",
-                            "caption": "",
-                            "created_timestamp": "0",
-                            "copyright": "",
-                            "focal_length": "0",
-                            "iso": "0",
-                            "shutter_speed": "0",
-                            "title": "",
-                            "orientation": "0",
-                            "keywords": [],
-                            "alt": ""
-                        }
-                    }
-                ]
-            },
-            "terms": []
-        },
-        {
-            "id": 242,
-            "type": "attachment",
-            "status": "inherit",
-            "title": "gorres-scrollytelling-ui-row-editor-de",
-            "slug": "gorres-scrollytelling-ui-row-editor-de",
-            "parent": 0,
-            "menu_order": 0,
-            "mime_type": "image/png",
-            "content": "",
-            "excerpt": "",
-            "language": "",
-            "translations": [],
-            "meta": {
-                "_wp_attached_file": [
-                    "2026/10/gorres-scrollytelling-ui-row-editor-de.png"
-                ],
-                "_wp_attachment_metadata": [
-                    {
-                        "width": 2372,
-                        "height": 1594,
-                        "file": "2026/10/gorres-scrollytelling-ui-row-editor-de.png",
-                        "filesize": 3440689,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-row-editor-de-300x202.png",
-                                "width": 300,
-                                "height": 202,
-                                "mime-type": "image/png",
-                                "filesize": 115431
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-row-editor-de-1024x688.png",
-                                "width": 1024,
-                                "height": 688,
-                                "mime-type": "image/png",
-                                "filesize": 1037674
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-row-editor-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 43561
-                            },
-                            "medium_large": {
-                                "file": "gorres-scrollytelling-ui-row-editor-de-768x516.png",
-                                "width": 768,
-                                "height": 516,
-                                "mime-type": "image/png",
-                                "filesize": 634839
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-row-editor-de-1536x1032.png",
-                                "width": 1536,
-                                "height": 1032,
-                                "mime-type": "image/png",
-                                "filesize": 2000112
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-ui-row-editor-de-2048x1376.png",
-                                "width": 2048,
-                                "height": 1376,
-                                "mime-type": "image/png",
-                                "filesize": 3108200
-                            }
-                        },
-                        "image_meta": {
-                            "aperture": "0",
-                            "credit": "",
-                            "camera": "",
-                            "caption": "",
-                            "created_timestamp": "0",
-                            "copyright": "",
-                            "focal_length": "0",
-                            "iso": "0",
-                            "shutter_speed": "0",
-                            "title": "",
-                            "orientation": "0",
-                            "keywords": [],
-                            "alt": ""
-                        }
-                    }
-                ]
-            },
-            "terms": []
-        },
-        {
-            "id": 243,
-            "type": "attachment",
-            "status": "inherit",
-            "title": "gorres-scrollytelling-ui-after-editor-en",
-            "slug": "gorres-scrollytelling-ui-after-editor-en",
-            "parent": 0,
-            "menu_order": 0,
-            "mime_type": "image/png",
-            "content": "",
-            "excerpt": "",
-            "language": "",
-            "translations": [],
-            "meta": {
-                "_wp_attached_file": [
-                    "2026/10/gorres-scrollytelling-ui-after-editor-en.png"
-                ],
-                "_wp_attachment_metadata": [
-                    {
-                        "width": 2396,
-                        "height": 798,
-                        "file": "2026/10/gorres-scrollytelling-ui-after-editor-en.png",
-                        "filesize": 1117860,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-after-editor-en-300x100.png",
-                                "width": 300,
-                                "height": 100,
-                                "mime-type": "image/png",
-                                "filesize": 43437
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-after-editor-en-1024x341.png",
-                                "width": 1024,
-                                "height": 341,
-                                "mime-type": "image/png",
-                                "filesize": 363402
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-after-editor-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 31343
-                            },
-                            "medium_large": {
-                                "file": "gorres-scrollytelling-ui-after-editor-en-768x256.png",
-                                "width": 768,
-                                "height": 256,
-                                "mime-type": "image/png",
-                                "filesize": 230612
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-after-editor-en-1536x512.png",
-                                "width": 1536,
-                                "height": 512,
-                                "mime-type": "image/png",
-                                "filesize": 681520
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-ui-after-editor-en-2048x682.png",
-                                "width": 2048,
-                                "height": 682,
-                                "mime-type": "image/png",
-                                "filesize": 1046264
-                            }
-                        },
-                        "image_meta": {
-                            "aperture": "0",
-                            "credit": "",
-                            "camera": "",
-                            "caption": "",
-                            "created_timestamp": "0",
-                            "copyright": "",
-                            "focal_length": "0",
-                            "iso": "0",
-                            "shutter_speed": "0",
-                            "title": "",
-                            "orientation": "0",
-                            "keywords": [],
-                            "alt": ""
-                        }
-                    }
-                ]
-            },
-            "terms": []
-        },
-        {
-            "id": 244,
-            "type": "attachment",
-            "status": "inherit",
-            "title": "gorres-scrollytelling-ui-after-editor-de",
-            "slug": "gorres-scrollytelling-ui-after-editor-de",
-            "parent": 0,
-            "menu_order": 0,
-            "mime_type": "image/png",
-            "content": "",
-            "excerpt": "",
-            "language": "",
-            "translations": [],
-            "meta": {
-                "_wp_attached_file": [
-                    "2026/10/gorres-scrollytelling-ui-after-editor-de.png"
-                ],
-                "_wp_attachment_metadata": [
-                    {
-                        "width": 2396,
-                        "height": 858,
-                        "file": "2026/10/gorres-scrollytelling-ui-after-editor-de.png",
-                        "filesize": 1134863,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-after-editor-de-300x107.png",
-                                "width": 300,
-                                "height": 107,
-                                "mime-type": "image/png",
-                                "filesize": 44021
-                            },
-                            "large": {
-                                "file": "gorres-scrollytelling-ui-after-editor-de-1024x367.png",
-                                "width": 1024,
-                                "height": 367,
-                                "mime-type": "image/png",
-                                "filesize": 371317
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-after-editor-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 29352
-                            },
-                            "medium_large": {
-                                "file": "gorres-scrollytelling-ui-after-editor-de-768x275.png",
-                                "width": 768,
-                                "height": 275,
-                                "mime-type": "image/png",
-                                "filesize": 234603
-                            },
-                            "1536x1536": {
-                                "file": "gorres-scrollytelling-ui-after-editor-de-1536x550.png",
-                                "width": 1536,
-                                "height": 550,
-                                "mime-type": "image/png",
-                                "filesize": 697557
-                            },
-                            "2048x2048": {
-                                "file": "gorres-scrollytelling-ui-after-editor-de-2048x733.png",
-                                "width": 2048,
-                                "height": 733,
-                                "mime-type": "image/png",
-                                "filesize": 1070899
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -3452,22 +2600,7 @@
                         "height": 444,
                         "file": "2026/10/gorres-scrollytelling-ui-after-afterword-en.png",
                         "filesize": 44331,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-after-afterword-en-300x238.png",
-                                "width": 300,
-                                "height": 238,
-                                "mime-type": "image/png",
-                                "filesize": 33423
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-after-afterword-en-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 15768
-                            }
-                        },
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
@@ -3511,22 +2644,183 @@
                         "height": 484,
                         "file": "2026/10/gorres-scrollytelling-ui-after-afterword-de.png",
                         "filesize": 47638,
-                        "sizes": {
-                            "medium": {
-                                "file": "gorres-scrollytelling-ui-after-afterword-de-300x259.png",
-                                "width": 300,
-                                "height": 259,
-                                "mime-type": "image/png",
-                                "filesize": 34892
-                            },
-                            "thumbnail": {
-                                "file": "gorres-scrollytelling-ui-after-afterword-de-150x150.png",
-                                "width": 150,
-                                "height": 150,
-                                "mime-type": "image/png",
-                                "filesize": 15476
-                            }
-                        },
+                        "sizes": [],
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 253,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-row-editor-en",
+            "slug": "gorres-scrollytelling-ui-row-editor-en-2",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-row-editor-en.jpg"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 1186,
+                        "height": 797,
+                        "file": "2026/10/gorres-scrollytelling-ui-row-editor-en.jpg",
+                        "filesize": 243923,
+                        "sizes": [],
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 254,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-row-editor-de",
+            "slug": "gorres-scrollytelling-ui-row-editor-de-2",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-row-editor-de.jpg"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 1186,
+                        "height": 797,
+                        "file": "2026/10/gorres-scrollytelling-ui-row-editor-de.jpg",
+                        "filesize": 244938,
+                        "sizes": [],
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 255,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-after-editor-en",
+            "slug": "gorres-scrollytelling-ui-after-editor-en-2",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-after-editor-en.jpg"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 1198,
+                        "height": 399,
+                        "file": "2026/10/gorres-scrollytelling-ui-after-editor-en.jpg",
+                        "filesize": 100316,
+                        "sizes": [],
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": [],
+                            "alt": ""
+                        }
+                    }
+                ]
+            },
+            "terms": []
+        },
+        {
+            "id": 256,
+            "type": "attachment",
+            "status": "inherit",
+            "title": "gorres-scrollytelling-ui-after-editor-de",
+            "slug": "gorres-scrollytelling-ui-after-editor-de-2",
+            "parent": 0,
+            "menu_order": 0,
+            "mime_type": "image/jpeg",
+            "content": "",
+            "excerpt": "",
+            "language": "",
+            "translations": [],
+            "meta": {
+                "_wp_attached_file": [
+                    "2026/10/gorres-scrollytelling-ui-after-editor-de.jpg"
+                ],
+                "_wp_attachment_metadata": [
+                    {
+                        "width": 1198,
+                        "height": 429,
+                        "file": "2026/10/gorres-scrollytelling-ui-after-editor-de.jpg",
+                        "filesize": 106616,
+                        "sizes": [],
                         "image_meta": {
                             "aperture": "0",
                             "credit": "",
