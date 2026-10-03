@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.46 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
+Version: 1.47 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
 
 ## 1. Zweck
 
@@ -817,7 +817,6 @@ aber mit Node 20.
 
 ### Offen
 
-- Playground-Link im Browser noch nicht ausprobiert.
 - Nach der Freischaltung bei WordPress.org: Gorres Scrollytelling im Blueprint per Slug
   statt aus dem ZIP, zusätzlich `assets/blueprints/blueprint.json` im SVN für
   den Knopf „Live Preview".
@@ -875,3 +874,4 @@ aber mit Node 20.
 | 1.44 | 03.10.2026 | Code-Review zur Spiegelung: `playground/build.sh` spiegelt per `rsync --delete` statt fester Dateiliste, ohne `build.sh` und `export.php`, prüft das Hilfe-Repo per `git rev-parse` und bricht bei nicht committeten Änderungen dort ab, `git status` nur einmal mit Fehlerabbruch; Hilfe-Repo ohne die beiden Scripte, README angepasst. Konzept: Abschnitt „Ablage auf GitHub“, Punkte unter „Offen“ und Bundle-Größe berichtigt |
 | 1.45 | 03.10.2026 | Onlinehilfe: die fünf englischen Alternativtexte der deutschen Startseite (vier Fotos, Scroll-Hinweis) übersetzt, Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
 | 1.46 | 03.10.2026 | Plugin-Repo auf GitHub `jgorres/gorres-scrollytelling-plugin` (Remote `origin`, `main` und Tag `basisplugin-2.4.0` gepusht); `Plugin URI` im Header zeigt dorthin (Plugin 2.12.1, Abschnitt 2) |
+| 1.47 | 03.10.2026 | Playground-Link am 03.10.2026 in Chromium geprüft: Site baut sich in rund 30 s auf, Startseite mit Story (Medienwechsel beim Scrollen, `is-enhanced`), Menü mit allen 13 Seiten und Sprachwechsel, deutsche Startseite, Schritt-Seite mit Aufnahmen, FAQ, Plugin 2.12.1 aktiv, angemeldet; keine Konsolenfehler. Punkt unter „Offen“ gestrichen |
