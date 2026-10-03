@@ -5,7 +5,7 @@ Tags: scrollytelling, storytelling, scroll, sticky, blocks
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 2.12.2
+Stable tag: 2.12.3
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,16 +120,19 @@ The story dims its media; you can set how much. Each step can also give its text
 
 == Source code ==
 
-The files in `build/` are compiled and minified. Their human-readable sources ship with the plugin in the folder `src/`, one subfolder per block: `src/story/`, `src/step/`, `src/row/` and `src/after/`.
+The files in `build/` are compiled and minified. Their human-readable sources ship with the plugin in the folder `src/`, one subfolder per block: `src/story/`, `src/step/`, `src/row/` and `src/after/`. The complete source code, including the development tools, is public at [github.com/jgorres/gorres-scrollytelling-plugin](https://github.com/jgorres/gorres-scrollytelling-plugin).
 
-The build tool is [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts) (webpack). To regenerate `build/` from `src/`, run these commands in the plugin folder, with Node.js and npm installed:
+The build tool is [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts) (webpack); `package.json` ships with the plugin. To regenerate `build/` from `src/`, run these commands in the plugin folder, with Node.js and npm installed:
 
-1. `npm install --save-dev @wordpress/scripts@35`
-2. `npx wp-scripts build --webpack-src-dir=src --output-path=build`
+1. `npm install`
+2. `npm run build`
 
 The plugin uses no third-party libraries.
 
 == Changelog ==
+
+= 2.12.3 =
+* Added: `package.json` ships with the plugin, so `build/` can be regenerated from `src/` with `npm install` and `npm run build`. The readme names the public source code repository.
 
 = 2.12.2 =
 * Added: links to the online help in WordPress Playground, in the readme and in the row of the plugin in the plugin list.

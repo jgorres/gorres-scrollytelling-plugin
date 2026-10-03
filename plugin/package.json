@@ -5,11 +5,10 @@
 	"author": "Jörn Gorres",
 	"license": "GPL-2.0-or-later",
 	"private": true,
+	"homepage": "https://github.com/jgorres/gorres-scrollytelling-plugin",
 	"scripts": {
-		"build": "wp-scripts build --webpack-src-dir=plugin/src --output-path=plugin/build",
-		"start": "wp-scripts start --webpack-src-dir=plugin/src --output-path=plugin/build",
-		"lint:js": "wp-scripts lint-js plugin/src",
-		"lint:css": "wp-scripts lint-style \"plugin/src/**/*.scss\""
+		"build": "wp-scripts build --webpack-src-dir=src --output-path=build",
+		"start": "wp-scripts start --webpack-src-dir=src --output-path=build"
 	},
 	"devDependencies": {
 		"@wordpress/block-editor": "^17.1.0",

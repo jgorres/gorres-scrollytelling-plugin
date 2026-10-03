@@ -57,6 +57,8 @@ check_version "readme.txt Stable tag" \
 	"$(sed -n 's/^Stable tag:[[:space:]]*\([0-9.]*\).*/\1/p' "${PLUGIN_DIR}/readme.txt")"
 check_version "package.json" \
 	"$(sed -n 's/^[[:space:]]*"version":[[:space:]]*"\([0-9.]*\)".*/\1/p' "${REPO_DIR}/package.json")"
+check_version "plugin/package.json" \
+	"$(sed -n 's/^[[:space:]]*"version":[[:space:]]*"\([0-9.]*\)".*/\1/p' "${PLUGIN_DIR}/package.json")"
 
 for block in story step row after; do
 	check_version "src/${block}/block.json" \
@@ -108,6 +110,13 @@ for block in story step row after; do
 done
 
 echo "  ok  src/story, src/step, src/row, src/after"
+
+if [[ ! -f "${STAGE_DIR}/${SLUG}/package.json" ]]; then
+	echo "Fehler: package.json fehlt im Paket." >&2
+	exit 1
+fi
+
+echo "  ok  package.json"
 
 FILE_COUNT="$(find "${STAGE_DIR}/${SLUG}" -type f | wc -l)"
 echo "  ok  ${FILE_COUNT} Dateien"

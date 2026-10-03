@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.51 · Stand: 03.10.2026 · Plugin-Version: 2.12.2
+Version: 1.52 · Stand: 03.10.2026 · Plugin-Version: 2.12.3
 
 ## 1. Zweck
 
@@ -52,6 +52,8 @@ erlaubt keine WordPress.org-Adresse. Push von Hand nach jedem Commit.
 │   │   │                      story/view/row.js)
 │   │   └── after/             Nachspann, ohne view.js
 │   ├── build/                 Ergebnis von "npm run build", nicht im Repo
+│   ├── package.json           für den Nachbau aus dem Paket (npm install, npm run build);
+│   │                          Version wie das Root-package.json, build.sh prüft beide
 │   └── languages/gorres-scrollytelling.pot
 ├── assets/                    WP.org-Assets: Screenshots, Icon, Banner (nicht im Paket)
 ├── build.sh                   Release-ZIP nach dist/ erzeugen
@@ -649,9 +651,15 @@ wp i18n make-pot plugin plugin/languages/gorres-scrollytelling.pot \
    `plugin/` ohne die Einträge aus `.distignore` (`.po`, `.mo`, `.json`,
    `.l10n.php`) und schreibt
    `dist/gorres-scrollytelling-<version>.zip`. Die
-   Block-Quellen `src/` gehören ins Paket: Die Richtlinien von WordPress.org
-   verlangen die lesbaren Quellen der kompilierten Dateien in `build/`.
-   `build.sh` bricht ab, wenn `src/<block>/block.json` im Paket fehlt.
+   Block-Quellen `src/` und `package.json` gehören ins Paket: Die Richtlinien
+   von WordPress.org verlangen die lesbaren Quellen der kompilierten Dateien in
+   `build/` samt Bauanleitung (Review-Forderung zu 2.8.3: `src/` plus
+   `package.json` im ZIP oder öffentliches Repo, readme beschreibt den Build).
+   Beides ist erfüllt: `plugin/package.json` baut mit `npm install` und
+   `npm run build` aus dem entpackten ZIP ein funktional gleiches `build/`
+   (geprüft 03.10.2026; nur Modulnummern und Hashes weichen ab), readme-Abschnitt
+   „Source code" nennt die Befehle und das GitHub-Repo. `build.sh` bricht ab,
+   wenn `src/<block>/block.json` oder `package.json` im Paket fehlt.
 5. Plugin Check laufen lassen, dann einreichen. Erwartung: keine Fehler,
    keine Warnungen.
 6. Nach Freischaltung SVN: `trunk` plus `tags/<version>`, Assets nach
@@ -895,3 +903,4 @@ aber mit Node 20.
 | 1.49 | 03.10.2026 | Ordnerschema der `README.md` in `~/dev/jgorres-im-WP-Repository/`: `glotpress/` (vorher Nebenordner `-glotpress`, jetzt im Git), `dist/` für die Release-ZIPs, `help/` für den Checkout des Hilfe-Repos (vorher Nebenordner `-help`); `build.sh` schreibt nach `dist/`, `playground/build.sh` liest von dort und spiegelt nach `help/`; `.gitignore` um `/dist/`, `/svn/`, `/help/` ergänzt. Abschnitte 2, 9 und 12 |
 | 1.50 | 03.10.2026 | Onlinehilfe: Hilfetexte zu 2.9.0–2.11.0 (Hochformat-Bild, eigene Position, stehender Textkasten, mitscrollendes Bild) vom Nutzer gegengelesen, Beschriftungen gegen Plugin und Übersetzung geprüft; ein Satz auf der Seite „Schritthöhe“ umformuliert („bestimmt die Höhe des Schritts, wie lange …“). Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
 | 1.51 | 03.10.2026 | Plugin 2.12.2: Link „Documentation“ in der Plugin-Zeile (vor dem Spendenlink, Konstante `JGOR_ST_HELP_URL`) und Abschnitt „Documentation“ in der readme (Onlinehilfe, Quellcode), beides über die kurze Adresse `joern.gorres.com/gorres-scrollytelling-help/` (Weiterleitung, Abschnitt 12). Aussage „du bist angemeldet“ aus readme und Installationsseiten der Hilfe entfernt. `phpstan-bootstrap.php` auf die neuen Namen und Konstanten |
+| 1.52 | 03.10.2026 | Plugin 2.12.3: `plugin/package.json` im Paket (Scripts build/start mit `src`→`build`, dieselben devDependencies wie im Root, sonst meldet ESLint fehlende Abhängigkeiten), readme „Source code“ mit `npm install`/`npm run build` und GitHub-Link, `build.sh` prüft beide package.json und das Vorhandensein im Paket; Nachbau aus dem ZIP geprüft. Abschnitte 2 und 9 |

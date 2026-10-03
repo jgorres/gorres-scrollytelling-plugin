@@ -11,7 +11,7 @@
 
 // Plugin Gorres Scrollytelling (defined in plugin/gorres-scrollytelling.php).
 if ( ! defined( 'JGOR_ST_VERSION' ) ) {
-	define( 'JGOR_ST_VERSION', '2.12.2' );
+	define( 'JGOR_ST_VERSION', '2.12.3' );
 }
 if ( ! defined( 'JGOR_ST_MIN_PHP' ) ) {
 	define( 'JGOR_ST_MIN_PHP', '8.1' );

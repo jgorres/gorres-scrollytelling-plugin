@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Erweiterungen
 
-Version: 1.19 · Stand: 03.10.2026 · Plugin-Version: 2.12.2
+Version: 1.20 · Stand: 03.10.2026 · Plugin-Version: 2.12.3
 
 Hinweis: Das Plugin hieß bis 2.11.0 „Scrollstage“ (Slug `scrollstage`, Blöcke
 `scrollstage/*`). Dieser Plan beschreibt die Schritte unter den damaligen Namen;
@@ -417,3 +417,4 @@ den Entwicklungsstand.
 | 1.17 | 02.10.2026 | Prüfung von 2.12.0 (damit auch der Schritte 5 bis 7: Hochformat-Bild, eigene Position, angehefteter Textkasten, mitscrollendes Bild) in Chromium 154, Firefox 146 und Edge 154 ohne Befund. Frontend: die sieben Testseiten auf `gorres-scrollytelling-pro.local` (Medienfolge, Texteffekte, Reihe stufenlos bzw. in Firefox stufenweise, keine Konsolenfehler) und die 26 Seiten der Hilfe-Site samt Startseiten-Ablauf im Quer- und Hochformat. Editor: neun Seiten ohne ungültige Blöcke und ohne Warnungen, gleiche Breiten von Story, Schritten und Reihe, alle Bereiche vorhanden, zehn Schalter und Auswahlfelder ändern ihr Attribut, Inserter zeigt die vier Blöcke. Ungeprüft bleibt Safari |
 | 1.18 | 03.10.2026 | Plugin 2.12.1: nur `Plugin URI` auf das GitHub-Repo `jgorres/gorres-scrollytelling-plugin`, kein Code geändert; Einreichung bei WordPress.org mit `gorres-scrollytelling-2.12.1.zip` |
 | 1.19 | 03.10.2026 | Plugin 2.12.2: Link zur Onlinehilfe in Plugin-Zeile und readme über `joern.gorres.com/gorres-scrollytelling-help/`; Einreichung bei WordPress.org mit `dist/gorres-scrollytelling-2.12.2.zip` |
+| 1.20 | 03.10.2026 | Plugin 2.12.3: `package.json` im Paket, readme-Bauanleitung `npm install`/`npm run build` (Review-Forderung zu 2.8.3 erfüllt); Einreichung mit `dist/gorres-scrollytelling-2.12.3.zip` |

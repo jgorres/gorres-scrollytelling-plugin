@@ -2,7 +2,7 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gorres Scrollytelling 2.12.2\n"
+"Project-Id-Version: Gorres Scrollytelling 2.12.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gorres-scrollytelling\n"
 "POT-Creation-Date: 2026-10-02T18:06:18+00:00\n"
 "PO-Revision-Date: 2026-10-02 14:00+0200\n"
