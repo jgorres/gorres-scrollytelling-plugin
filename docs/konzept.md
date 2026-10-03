@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.49 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
+Version: 1.50 · Stand: 03.10.2026 · Plugin-Version: 2.12.1
 
 ## 1. Zweck
 
@@ -884,3 +884,4 @@ aber mit Node 20.
 | 1.47 | 03.10.2026 | Playground-Link am 03.10.2026 in Chromium geprüft: Site baut sich in rund 30 s auf, Startseite mit Story (Medienwechsel beim Scrollen, `is-enhanced`), Menü mit allen 13 Seiten und Sprachwechsel, deutsche Startseite, Schritt-Seite mit Aufnahmen, FAQ, Plugin 2.12.1 aktiv, angemeldet; keine Konsolenfehler. Punkt unter „Offen“ gestrichen |
 | 1.48 | 03.10.2026 | Onlinehilfe: Fußzeile der Vorlagen-Site (Template-Teil `footer`, ID 32) ohne die Platzhalter-Links „About/FAQs/Authors/Patterns“ auf `#` und ohne die Zeile „4050 / 2“ von Twenty Twenty-Five; es bleiben Website-Titel und „Designed with WordPress“. Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
 | 1.49 | 03.10.2026 | Ordnerschema der `README.md` in `~/dev/jgorres-im-WP-Repository/`: `glotpress/` (vorher Nebenordner `-glotpress`, jetzt im Git), `dist/` für die Release-ZIPs, `help/` für den Checkout des Hilfe-Repos (vorher Nebenordner `-help`); `build.sh` schreibt nach `dist/`, `playground/build.sh` liest von dort und spiegelt nach `help/`; `.gitignore` um `/dist/`, `/svn/`, `/help/` ergänzt. Abschnitte 2, 9 und 12 |
+| 1.50 | 03.10.2026 | Onlinehilfe: Hilfetexte zu 2.9.0–2.11.0 (Hochformat-Bild, eigene Position, stehender Textkasten, mitscrollendes Bild) vom Nutzer gegengelesen, Beschriftungen gegen Plugin und Übersetzung geprüft; ein Satz auf der Seite „Schritthöhe“ umformuliert („bestimmt die Höhe des Schritts, wie lange …“). Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
