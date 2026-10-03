@@ -84,6 +84,26 @@ for json in blueprint.json content.json; do
 	echo "  ok  ${json}"
 done
 
+# --------------------------------------------------
+# 5. Mirror the bundle into the GitHub repository (commit and push by hand).
+# --------------------------------------------------
+GITHUB_DIR="${ZIP_DIR}/${SLUG}-help"
+
+if [[ -d "${GITHUB_DIR}/.git" ]]; then
+	for file in blueprint.json import.php export.php build.sh content.json uploads.zip "${SLUG}.zip"; do
+		cp "${BUNDLE_DIR}/${file}" "${GITHUB_DIR}/${file}"
+	done
+	echo "  ok  nach ${GITHUB_DIR} kopiert"
+	if [[ -n "$(git -C "${GITHUB_DIR}" status --porcelain)" ]]; then
+		echo "      Dort warten Änderungen auf Commit und Push:"
+		git -C "${GITHUB_DIR}" status --short | sed 's/^/      /'
+	else
+		echo "      GitHub-Ordner war schon auf diesem Stand."
+	fi
+else
+	echo "Hinweis: GitHub-Ordner '${GITHUB_DIR}' fehlt, nichts kopiert."
+fi
+
 echo ""
 echo "Bundle: ${BUNDLE_DIR}"
 echo ""
