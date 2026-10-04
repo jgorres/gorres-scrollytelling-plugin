@@ -1,6 +1,6 @@
 # Gorres Scrollytelling – Konzept und Aufbau
 
-Version: 1.52 · Stand: 03.10.2026 · Plugin-Version: 2.12.3
+Version: 1.53 · Stand: 04.10.2026 · Plugin-Version: 2.12.3
 
 ## 1. Zweck
 
@@ -644,8 +644,11 @@ wp i18n make-pot plugin plugin/languages/gorres-scrollytelling.pot \
 2. `.pot` neu erzeugen, Version in Header, Konstante, `readme.txt`
    (`Stable tag`), `package.json` und allen vier `block.json` gleichziehen.
 3. Vier Screenshots als `assets/screenshot-1..4.png` außerhalb des Plugins,
-   Motiv 1 als animiertes PNG aus `docs/gorres-scrollytelling-hero.mp4`; Icon und
-   Banner ebenfalls animiert, aus `assets/icon.svg` und `docs/banner.svg`
+   Motiv 1 als animiertes PNG aus `docs/gorres-scrollytelling-hero.mp4`,
+   danach mit `docs/apng-build.py` verkleinert (Median-Hintergrund je Szene
+   gegen das Videorauschen, harter Schnitt statt Überblendung, eine Palette
+   per ffmpeg, je Bild nur das geänderte Rechteck; 3,0 MB statt 5,3 MB); Icon
+   und Banner ebenfalls animiert, aus `assets/icon.svg` und `docs/banner.svg`
    im Browser gerendert (kleine Größen aus den großen skalieren).
 4. `./build.sh`: prüft die Versionsnummern, baut die Blöcke, exportiert
    `plugin/` ohne die Einträge aus `.distignore` (`.po`, `.mo`, `.json`,
@@ -904,3 +907,4 @@ aber mit Node 20.
 | 1.50 | 03.10.2026 | Onlinehilfe: Hilfetexte zu 2.9.0–2.11.0 (Hochformat-Bild, eigene Position, stehender Textkasten, mitscrollendes Bild) vom Nutzer gegengelesen, Beschriftungen gegen Plugin und Übersetzung geprüft; ein Satz auf der Seite „Schritthöhe“ umformuliert („bestimmt die Höhe des Schritts, wie lange …“). Bundle neu exportiert (`uploads.zip` inhaltsgleich) |
 | 1.51 | 03.10.2026 | Plugin 2.12.2: Link „Documentation“ in der Plugin-Zeile (vor dem Spendenlink, Konstante `JGOR_ST_HELP_URL`) und Abschnitt „Documentation“ in der readme (Onlinehilfe, Quellcode), beides über die kurze Adresse `joern.gorres.com/gorres-scrollytelling-help/` (Weiterleitung, Abschnitt 12). Aussage „du bist angemeldet“ aus readme und Installationsseiten der Hilfe entfernt. `phpstan-bootstrap.php` auf die neuen Namen und Konstanten |
 | 1.52 | 03.10.2026 | Plugin 2.12.3: `plugin/package.json` im Paket (Scripts build/start mit `src`→`build`, dieselben devDependencies wie im Root, sonst meldet ESLint fehlende Abhängigkeiten), readme „Source code“ mit `npm install`/`npm run build` und GitHub-Link, `build.sh` prüft beide package.json und das Vorhandensein im Paket; Nachbau aus dem ZIP geprüft. Abschnitte 2 und 9 |
+| 1.53 | 04.10.2026 | WordPress.org hat 2.12.3 freigegeben (Slug `gorres-scrollytelling`, SVN-Checkout unter `svn/`). `assets/screenshot-1.png` von 5,3 MB auf 3,0 MB verkleinert, Verfahren als `docs/apng-build.py` abgelegt (Abschnitt 9); Bildtreue und Abspielen in Chromium geprüft |
