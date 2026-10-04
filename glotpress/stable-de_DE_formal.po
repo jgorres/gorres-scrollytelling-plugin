@@ -8,7 +8,7 @@ msgstr ""
 "PO-Revision-Date: 2026-10-04 12:00+0200\n"
 "Last-Translator: Jörn Gorres <joern@gorres.com>\n"
 "Language-Team: Deutsch <joern@gorres.com>\n"
-"Language: de_DE\n"
+"Language: de_DE_formal\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -199,7 +199,7 @@ msgstr "Textkästen"
 
 #: build/step/index.js:1 src/step/edit.js:560
 msgid "Choose an image or video for this text to scroll across."
-msgstr "Wähle ein Bild oder Video, über das dieser Text scrollen soll."
+msgstr "Wählen Sie ein Bild oder Video, über das dieser Text scrollen soll."
 
 #: build/step/index.js:1 src/step/edit.js:556
 msgid "Medium of this step"
@@ -272,7 +272,7 @@ msgstr "Höhe"
 
 #: build/step/index.js:1 src/step/edit.js:426
 msgid "The text box stays where it is on the screen while the visitor scrolls through this step, and leaves at the top when the step ends. It needs a step taller than the screen: set a height above 100 percent under \"Height\". The text box then goes without a text effect. Front end only; has no effect inside a row."
-msgstr "Der Textkasten bleibt an seiner Stelle auf dem Bildschirm stehen, während der Besucher durch diesen Schritt scrollt, und geht oben hinaus, wenn der Schritt endet. Dafür muss der Schritt höher sein als der Bildschirm: Stelle unter „Höhe“ eine Höhe über 100 Prozent ein. Der Textkasten hat dann keinen Texteffekt. Nur im Frontend; in einer Reihe ohne Wirkung."
+msgstr "Der Textkasten bleibt an seiner Stelle auf dem Bildschirm stehen, während der Besucher durch diesen Schritt scrollt, und geht oben hinaus, wenn der Schritt endet. Dafür muss der Schritt höher sein als der Bildschirm: Stellen Sie unter „Höhe“ eine Höhe über 100 Prozent ein. Der Textkasten hat dann keinen Texteffekt. Nur im Frontend; in einer Reihe ohne Wirkung."
 
 #: build/step/index.js:1 src/step/edit.js:422
 msgid "Keep the text box in place"
@@ -402,7 +402,7 @@ msgstr "Nachspann"
 
 #: includes/admin.php:39
 msgid "Buy the plugin author a Mercedes-Benz 😉"
-msgstr "Spendiere dem Plugin-Autor einen Mercedes-Benz 😉"
+msgstr "Spendieren Sie dem Plugin-Autor einen Mercedes-Benz 😉"
 
 #: includes/admin.php:33
 msgid "Documentation"
