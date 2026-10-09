@@ -98,7 +98,7 @@ msgstr "scrollytelling"
 #: build/after/block.json src/after/block.json
 msgctxt "block description"
 msgid "Content that follows the last step. With a stage limited to the medium it sits right below the stage from the first step on."
-msgstr "Inhalt, der auf den letzten Schritt folgt. Bei einer auf das Medium begrenzten Bühne sitzt er ab dem ersten Schritt direkt unter der Bühne."
+msgstr "Inhalt, der auf den letzten Schritt folgt. Bei einer auf das Medium begrenzten Bühne steht er ab dem ersten Schritt direkt unter der Bühne."
 
 #: build/after/block.json src/after/block.json
 msgctxt "block title"
@@ -107,7 +107,7 @@ msgstr "Scrollytelling-Nachspann"
 
 #: build/story/index.js:1 src/story/edit.js:292
 msgid "How the text boxes appear and disappear while scrolling. A step can set its own effect. Front end only; systems asking for reduced motion show no effect."
-msgstr "Wie die Textkästen beim Scrollen erscheinen und verschwinden. Ein Schritt kann einen eigenen Effekt festlegen. Nur im Frontend; Systeme, die reduzierte Bewegung wünschen, zeigen keinen Effekt."
+msgstr "Wie die Textkästen beim Scrollen erscheinen und verschwinden. Ein Schritt kann einen eigenen Effekt festlegen. Nur im Frontend; ist im System reduzierte Bewegung eingestellt, gibt es keinen Effekt."
 
 #: build/story/index.js:1 src/story/edit.js:274
 msgid "Cross-fade"
@@ -115,7 +115,7 @@ msgstr "Überblenden"
 
 #: build/story/index.js:1 src/story/edit.js:267
 msgid "With “None” the media switch instantly. Systems asking for reduced motion never cross-fade."
-msgstr "Bei „Keiner“ wechseln die Medien sofort. Systeme, die reduzierte Bewegung wünschen, blenden nie über."
+msgstr "Bei „Keiner“ wechseln die Medien sofort. Ist im System reduzierte Bewegung eingestellt, wird nie übergeblendet."
 
 #: build/story/index.js:1 src/story/edit.js:266
 msgid "Transition"
@@ -251,7 +251,7 @@ msgstr "Bewegung"
 
 #: build/step/index.js:1 src/step/edit.js:464
 msgid "A text box taller than this makes the step as tall as it needs."
-msgstr "Ein Textkasten, der höher ist, macht den Schritt so hoch wie nötig."
+msgstr "Ist der Textkasten höher, wird der Schritt so hoch wie nötig."
 
 #: build/step/index.js:1 build/story/index.js:1 src/step/edit.js:460
 #: src/story/edit.js:243
@@ -260,7 +260,7 @@ msgstr "Schritthöhe in Prozent der Bildschirmhöhe"
 
 #: build/step/index.js:1 src/step/edit.js:446
 msgid "Switch off to give this step a height of its own. Lower steps without a medium let several text boxes scroll across the same medium one after the other. Front end only; has no effect inside a row."
-msgstr "Ausschalten, um diesem Schritt eine eigene Höhe zu geben. Niedrigere Schritte ohne Medium lassen mehrere Textkästen nacheinander über dasselbe Medium scrollen. Nur im Frontend; in einer Reihe ohne Wirkung."
+msgstr "Schalte das aus, um diesem Schritt eine eigene Höhe zu geben. Niedrigere Schritte ohne Medium lassen mehrere Textkästen nacheinander über dasselbe Medium scrollen. Nur im Frontend; in einer Reihe ohne Wirkung."
 
 #: build/step/index.js:1 src/step/edit.js:442
 msgid "Use the step height of the story"
@@ -272,7 +272,7 @@ msgstr "Höhe"
 
 #: build/step/index.js:1 src/step/edit.js:426
 msgid "The text box stays where it is on the screen while the visitor scrolls through this step, and leaves at the top when the step ends. It needs a step taller than the screen: set a height above 100 percent under \"Height\". The text box then goes without a text effect. Front end only; has no effect inside a row."
-msgstr "Der Textkasten bleibt an seiner Stelle auf dem Bildschirm stehen, während der Besucher durch diesen Schritt scrollt, und geht oben hinaus, wenn der Schritt endet. Dafür muss der Schritt höher sein als der Bildschirm: Stelle unter „Höhe“ eine Höhe über 100 Prozent ein. Der Textkasten hat dann keinen Texteffekt. Nur im Frontend; in einer Reihe ohne Wirkung."
+msgstr "Der Textkasten bleibt an seiner Stelle auf dem Bildschirm stehen, während der Besucher durch diesen Schritt scrollt, und verlässt den Bildschirm nach oben, wenn der Schritt endet. Dafür muss der Schritt höher sein als der Bildschirm: Stelle unter „Höhe“ eine Höhe über 100 Prozent ein. Der Textkasten hat dann keinen Texteffekt. Nur im Frontend; in einer Reihe ohne Wirkung."
 
 #: build/step/index.js:1 src/step/edit.js:422
 msgid "Keep the text box in place"
@@ -350,7 +350,7 @@ msgstr "Medium entfernen"
 
 #: build/step/index.js:1 src/step/edit.js:252
 msgid "The image does not stay in place. It fills the screen at the start of this step and scrolls away with it, while the medium of the next step already shows behind it. An image taller than the screen keeps its height and makes the step as tall as itself, unless the step has a height of its own, which the image then fills. Front end only; has no effect inside a row."
-msgstr "Das Bild bleibt nicht stehen. Es füllt am Anfang dieses Schritts den Bildschirm und scrollt mit ihm weg, während dahinter schon das Medium des nächsten Schritts zu sehen ist. Ein Bild, das höher ist als der Bildschirm, behält seine Höhe und macht den Schritt so hoch wie sich selbst. Hat der Schritt eine eigene Höhe, füllt das Bild diese. Nur im Frontend; in einer Reihe ohne Wirkung."
+msgstr "Das Bild bleibt nicht stehen. Es füllt am Anfang dieses Schritts den Bildschirm und scrollt mit ihm weg, während dahinter schon das Medium des nächsten Schritts zu sehen ist. Ein Bild, das höher ist als der Bildschirm, behält seine Höhe, und der Schritt wird so hoch wie das Bild. Hat der Schritt eine eigene Höhe, füllt das Bild diese. Nur im Frontend; in einer Reihe ohne Wirkung."
 
 #: build/step/index.js:1 src/step/edit.js:248
 msgid "Let the image scroll along"
@@ -366,7 +366,7 @@ msgstr "Fokuspunkt"
 
 #: build/step/index.js:1 src/step/edit.js:215
 msgid "Leave empty to use the alternative text from the media library."
-msgstr "Leer lassen, um den Alternativtext aus der Mediathek zu verwenden."
+msgstr "Lass das Feld leer, um den Alternativtext aus der Mediathek zu verwenden."
 
 #: build/step/index.js:1 src/step/edit.js:211
 msgid "Alternative text"
@@ -415,7 +415,7 @@ msgstr "Plugin-Aktivierung abgebrochen"
 #. translators: %s: required PHP version
 #: gorres-scrollytelling.php:79
 msgid "This plugin requires PHP %s or newer."
-msgstr "Dieses Plugin benötigt PHP %s oder neuer."
+msgstr "Dieses Plugin erfordert PHP %s oder höher."
 
 #. Author URI of the plugin
 #: gorres-scrollytelling.php

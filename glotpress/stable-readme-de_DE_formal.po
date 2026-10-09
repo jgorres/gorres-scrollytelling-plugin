@@ -16,7 +16,7 @@ msgstr ""
 #. Short description.
 #, gp-priority: high
 msgid "Full-screen media that stay in place while text boxes scroll across them, built from blocks in the editor."
-msgstr "Bildschirmfüllende Medien, die an Ort und Stelle bleiben, während Textkästen darüber scrollen – aufgebaut aus Blöcken im Editor."
+msgstr "Bildschirmfüllende Medien, die an Ort und Stelle bleiben, während Textkästen darüber scrollen – aufgebaut aus Blöcken im Editor."
 
 #. Plugin name.
 #, gp-priority: high
@@ -25,7 +25,7 @@ msgstr "Gorres Scrollytelling"
 
 #. Found in faq paragraph.
 msgid "The story dims its media; you can set how much. Each step can also give its text box a background, a border and a shadow and set its own text color through the usual block settings."
-msgstr "Die Story dunkelt ihre Medien ab; wie stark, legen Sie fest. Zusätzlich kann jeder Schritt seinem Textkasten über die üblichen Block-Einstellungen einen Hintergrund, einen Rahmen und einen Schatten geben und eine eigene Textfarbe festlegen."
+msgstr "Die Story dunkelt ihre Medien ab; wie stark, legen Sie fest. Zusätzlich kann jeder Schritt seinem Textkasten über die üblichen Block-Einstellungen einen Hintergrund, einen Rand und einen Schatten geben und eine eigene Textfarbe festlegen."
 
 #. Found in faq paragraph.
 msgid "Browsers with scroll timelines (Chrome, Edge, Safari from version 26) move the row along with the scroll position. All others, Firefox at the time of writing, glide from one step to the next. If the text of a step is too tall for the screen, or the visitor asked for reduced motion, the steps of the row follow each other vertically like ordinary steps. Text effects do not apply inside a row."
@@ -33,11 +33,11 @@ msgstr "Browser mit Scroll-Timelines (Chrome, Edge, Safari ab Version 26) bewege
 
 #. Found in faq paragraph.
 msgid "With \"Limit the stage to the medium\" the stage is lower than the screen, and content after the story only follows the last step. Switch on \"Pull up the following content\" in the story block: the content after it then sits right below the stage while the steps play and scrolls on once the story ends. If the content belongs to the story itself, put it into a \"Scrollytelling Afterword\" block inside the story instead."
-msgstr "Mit „Bühne auf das Medium begrenzen“ ist die Bühne niedriger als der Bildschirm, und der Inhalt nach der Story folgt erst auf den letzten Schritt. Schalten Sie im Story-Block „Folgenden Inhalt hochziehen“ ein: Der Inhalt danach sitzt dann direkt unter der Bühne, während die Schritte ablaufen, und scrollt weiter, sobald die Story endet. Gehört der Inhalt zur Story selbst, setzen Sie ihn stattdessen in einen Block „Scrollytelling-Nachspann“ innerhalb der Story."
+msgstr "Mit „Bühne auf das Medium begrenzen“ ist die Bühne niedriger als der Bildschirm, und der Inhalt nach der Story folgt erst auf den letzten Schritt. Schalten Sie im Story-Block „Folgenden Inhalt hochziehen“ ein: Der Inhalt danach steht dann direkt unter der Bühne, während die Schritte ablaufen, und scrollt weiter, sobald die Story endet. Gehört der Inhalt zur Story selbst, setzen Sie ihn stattdessen in einen Block „Scrollytelling-Nachspann“ innerhalb der Story."
 
 #. Found in faq paragraph.
 msgid "Yes. Open \"Position\" in the settings of the step and switch on \"Keep the text box in place\". The text box then stays where it is on the screen while the visitor scrolls through the step, and leaves at the top when the step ends. How long it stays depends on the height of the step: give the step a height above 100 percent under \"Height\", 150 percent keeps the box for half a screen of scrolling. In the same place a step can put its text box somewhere else than the rest of the story. A text box kept in place has no text effect, and inside a row the setting has no effect."
-msgstr "Ja. Öffnen Sie in den Einstellungen des Schritts „Position“ und schalten Sie „Textkasten stehen lassen“ ein. Der Textkasten bleibt dann an seiner Stelle auf dem Bildschirm stehen, während der Besucher durch den Schritt scrollt, und geht oben hinaus, wenn der Schritt endet. Wie lange er stehen bleibt, hängt von der Höhe des Schritts ab: Geben Sie dem Schritt unter „Höhe“ eine Höhe über 100 Prozent; 150 Prozent halten den Kasten für eine halbe Bildschirmhöhe Scrollweg. An derselben Stelle kann ein Schritt seinen Textkasten anders platzieren als der Rest der Story. Ein stehen gelassener Textkasten hat keinen Texteffekt, und innerhalb einer Reihe hat die Einstellung keine Wirkung."
+msgstr "Ja. Öffnen Sie in den Einstellungen des Schritts „Position“ und schalten Sie „Textkasten stehen lassen“ ein. Der Textkasten bleibt dann an seiner Stelle auf dem Bildschirm stehen, während der Besucher durch den Schritt scrollt, und verlässt den Bildschirm nach oben, wenn der Schritt endet. Wie lange er stehen bleibt, hängt von der Höhe des Schritts ab: Geben Sie dem Schritt unter „Höhe“ eine Höhe über 100 Prozent; 150 Prozent halten den Kasten für eine halbe Bildschirmhöhe Scrollweg. An derselben Stelle kann ein Schritt seinen Textkasten anders platzieren als der Rest der Story. Ein stehen gelassener Textkasten hat keinen Texteffekt, und innerhalb einer Reihe hat die Einstellung keine Wirkung."
 
 #. Found in faq paragraph.
 msgid "Yes. Give the first step the title image and switch on \"Let the image scroll along\" under \"Medium\". The image fills the screen when the page loads and scrolls away with the step, while the medium of the next step already shows behind it. An image that is taller than the screen at full width keeps its height, and the step becomes as tall as the image; give the step a height of its own under \"Height\" and the image fills exactly that. Combined with a text box that is kept in place, a hint or a headline stays on screen while the title image leaves. Only images can scroll along, not videos, and inside a row the setting has no effect."
@@ -61,7 +61,7 @@ msgstr "Ein Querformat-Bild, das einen hochkant gehaltenen Bildschirm füllt, ze
 
 #. Found in faq paragraph.
 msgid "For \"fill the frame\" the aspect ratio does not matter, but the resolution does: a screen-high medium needs roughly screen height times aspect ratio in width, so about 2560 pixels for a 16:9 image. For \"show the whole medium\" it is worth giving every medium of a story the same aspect ratio, otherwise the free margins change from step to step."
-msgstr "Bei „Ausschnitt füllen“ spielt das Seitenverhältnis keine Rolle, wohl aber die Auflösung: Ein bildschirmhohes Medium braucht in der Breite etwa Bildschirmhöhe mal Seitenverhältnis, also rund 2560 Pixel für ein 16:9-Bild. Bei „Ganzes Medium zeigen“ lohnt es sich, allen Medien einer Story dasselbe Seitenverhältnis zu geben, sonst ändern sich die freien Ränder von Schritt zu Schritt."
+msgstr "Bei „Ausschnitt füllen“ spielt das Seitenverhältnis keine Rolle, wohl aber die Auflösung: Ein bildschirmhohes Medium braucht in der Breite etwa Bildschirmhöhe mal Seitenverhältnis, also rund 2.560 Pixel für ein 16:9-Bild. Bei „Ganzes Medium zeigen“ lohnt es sich, allen Medien einer Story dasselbe Seitenverhältnis zu geben, sonst ändern sich die freien Ränder von Schritt zu Schritt."
 
 #. Found in faq header.
 msgid "Does the text stay readable on a bright image?"
@@ -125,7 +125,7 @@ msgstr "Das Plugin verwendet keine Bibliotheken von Drittanbietern."
 
 #. Found in description paragraph.
 msgid "The build tool is <a href=\"https://www.npmjs.com/package/@wordpress/scripts\">@wordpress/scripts</a> (webpack); <code>package.json</code> ships with the plugin. To regenerate <code>build/</code> from <code>src/</code>, run these commands in the plugin folder, with Node.js and npm installed:"
-msgstr "Das Build-Werkzeug ist <a href=\"https://www.npmjs.com/package/@wordpress/scripts\">@wordpress/scripts</a> (webpack); <code>package.json</code> liegt dem Plugin bei. Um <code>build/</code> aus <code>src/</code> neu zu erzeugen, führen Sie diese Befehle im Plugin-Ordner aus, mit installiertem Node.js und npm:"
+msgstr "Das Build-Werkzeug ist <a href=\"https://www.npmjs.com/package/@wordpress/scripts\">@wordpress/scripts</a> (webpack); <code>package.json</code> liegt dem Plugin bei. Um <code>build/</code> aus <code>src/</code> neu zu erzeugen, führen Sie bei installiertem Node.js und npm diese Befehle im Plugin-Ordner aus:"
 
 #. Found in description paragraph.
 msgid "The files in <code>build/</code> are compiled and minified. Their human-readable sources ship with the plugin in the folder <code>src/</code>, one subfolder per block: <code>src/story/</code>, <code>src/step/</code>, <code>src/row/</code> and <code>src/after/</code>. The complete source code, including the development tools, is public at <a href=\"https://github.com/jgorres/gorres-scrollytelling-plugin\">github.com/jgorres/gorres-scrollytelling-plugin</a>."
@@ -133,7 +133,7 @@ msgstr "Die Dateien in <code>build/</code> sind kompiliert und minifiziert. Dere
 
 #. Found in description paragraph.
 msgid "The online help shows every block and setting live, see the section Documentation."
-msgstr "Die Onlinehilfe zeigt jeden Block und jede Einstellung live, siehe Abschnitt Dokumentation."
+msgstr "Die Onlinehilfe zeigt jeden Block und jede Einstellung live, siehe Abschnitt „Dokumentation“."
 
 #. Found in description paragraph.
 msgid "A story is put together from four kinds of blocks, and it can hold as many of them as it needs:"
@@ -177,15 +177,15 @@ msgstr "<strong>Screenreader bekommen immer nur ein Medium.</strong> Alle Medien
 
 #. Found in description list item.
 msgid "<strong>Works with the keyboard.</strong> A link or a field in a step of a row that is not on screen yet is brought into view when it receives the focus, and so is a step that a link points to."
-msgstr "<strong>Funktioniert mit der Tastatur.</strong> Ein Link oder ein Feld in einem Schritt einer Reihe, der noch nicht auf dem Bildschirm ist, wird ins Bild gebracht, sobald es den Fokus erhält; ebenso ein Schritt, auf den ein Link zeigt."
+msgstr "<strong>Funktioniert mit der Tastatur.</strong> Erhält ein Link oder ein Feld in einem Schritt einer Reihe den Fokus, wird der Schritt ins Bild gebracht, falls er noch nicht auf dem Bildschirm ist; ebenso ein Schritt, auf den ein Link zeigt."
 
 #. Found in description list item.
 msgid "<strong>Respects reduced motion.</strong> No cross-fade, no text effect, no sideways movement and no playing video when the visitor asked for less motion."
-msgstr "<strong>Respektiert reduzierte Bewegung.</strong> Kein Überblenden, kein Texteffekt, keine Seitwärtsbewegung und kein laufendes Video, wenn der Besucher weniger Bewegung wünscht."
+msgstr "<strong>Berücksichtigt reduzierte Bewegung.</strong> Kein Überblenden, kein Texteffekt, keine Seitwärtsbewegung und kein laufendes Video, wenn der Besucher weniger Bewegung wünscht."
 
 #. Found in description list item.
 msgid "<strong>Readable without JavaScript.</strong> The first medium stays visible and the text follows underneath, so the page never breaks. The steps of a row then simply follow each other."
-msgstr "<strong>Lesbar ohne JavaScript.</strong> Das erste Medium bleibt sichtbar, und der Text folgt darunter, sodass die Seite nie zerbricht. Die Schritte einer Reihe folgen dann einfach aufeinander."
+msgstr "<strong>Lesbar ohne JavaScript.</strong> Das erste Medium bleibt sichtbar, und der Text folgt darunter, sodass die Seite immer benutzbar bleibt. Die Schritte einer Reihe folgen dann einfach aufeinander."
 
 #. Found in description list item.
 msgid "<strong>No JavaScript library.</strong> The front end script is about seven kilobytes, a little over two when compressed, and uses the browser's own IntersectionObserver."
@@ -201,7 +201,7 @@ msgstr "Ein Bild, das mit seinem Schritt wegscrollt, statt stehen zu bleiben, f�
 
 #. Found in description list item.
 msgid "Focal point per medium, so the right part survives the crop"
-msgstr "Fokuspunkt je Medium, damit der richtige Teil den Zuschnitt überlebt"
+msgstr "Fokuspunkt je Medium, damit der richtige Teil beim Zuschnitt erhalten bleibt"
 
 #. Found in description list item.
 msgid "Cross-fade or instant change between media"
@@ -241,11 +241,11 @@ msgstr "Wie die Textkästen erscheinen und verschwinden: Einblenden, Hochgleiten
 
 #. Found in description list item.
 msgid "Typography per step: font family, size, weight and style, line height, letter spacing, letter case, decoration and text alignment"
-msgstr "Typografie je Schritt: Schriftfamilie, Schriftgröße, Schriftstärke und Schriftstil, Zeilenhöhe, Buchstabenabstand, Groß-/Kleinschreibung, Dekoration und Textausrichtung"
+msgstr "Typografie je Schritt: Schriftfamilie, Schriftgröße, Schriftstärke und Schriftstil, Zeilenhöhe, Zeichenabstand, Schreibweise, Dekoration und Textausrichtung"
 
 #. Found in description list item.
 msgid "Look of a text box per step: background, border, rounded corners, shadow and padding"
-msgstr "Aussehen eines Textkastens je Schritt: Hintergrund, Rahmen, abgerundete Ecken, Schatten und Innenabstand"
+msgstr "Aussehen eines Textkastens je Schritt: Hintergrund, Rand, abgerundete Ecken, Schatten und Innenabstand"
 
 #. Found in description list item.
 msgid "Width of the text boxes in percent of the available column"
@@ -261,19 +261,19 @@ msgstr "Position der Textkästen: links, mittig oder rechts, horizontal und vert
 
 #. Found in description list item.
 msgid "<strong>Scrollytelling Afterword</strong> — optional content that follows the last step. Below a stage that is limited to the medium it shows up right under the stage from the first step on, instead of leaving that space empty."
-msgstr "<strong>Scrollytelling-Nachspann</strong> – optionaler Inhalt, der auf den letzten Schritt folgt. Unter einer auf das Medium begrenzten Bühne erscheint er ab dem ersten Schritt direkt unter der Bühne, statt diesen Raum leer zu lassen."
+msgstr "<strong>Scrollytelling-Nachspann</strong> – optionaler Inhalt, der auf den letzten Schritt folgt. Unter einer auf das Medium begrenzten Bühne erscheint er ab dem ersten Schritt direkt unter der Bühne, statt diesen Raum leer zu lassen."
 
 #. Found in description list item.
 msgid "<strong>Scrollytelling Row</strong> — optional group of steps inside a story that pass sideways: the screen stays in place and the steps move through it while the visitor keeps scrolling down. Steps before and after the row scroll vertically as usual."
-msgstr "<strong>Scrollytelling-Reihe</strong> – optionale Gruppe von Schritten innerhalb einer Story, die seitwärts vorbeiziehen: Der Bildschirm bleibt stehen, und die Schritte bewegen sich durch ihn hindurch, während der Besucher weiter nach unten scrollt. Schritte vor und nach der Reihe scrollen wie gewohnt vertikal."
+msgstr "<strong>Scrollytelling-Reihe</strong> – optionale Gruppe von Schritten innerhalb einer Story, die seitwärts vorbeiziehen: Der Bildschirm bleibt stehen, und die Schritte bewegen sich durch ihn hindurch, während der Besucher weiter nach unten scrollt. Schritte vor und nach der Reihe scrollen wie gewohnt vertikal."
 
 #. Found in description list item.
 msgid "<strong>Scrollytelling Step</strong> — one step of the story. It carries its own image or video plus any blocks you want as text. A story takes any number of steps. A step without a medium keeps the medium of the step before, so several text boxes can scroll across the same image or video one after the other."
-msgstr "<strong>Scrollytelling-Schritt</strong> – ein Schritt der Story. Er trägt sein eigenes Bild oder Video und dazu beliebige Blöcke Ihrer Wahl als Text. Eine Story nimmt beliebig viele Schritte auf. Ein Schritt ohne Medium behält das Medium des vorherigen Schritts, sodass mehrere Textkästen nacheinander über dasselbe Bild oder Video scrollen können."
+msgstr "<strong>Scrollytelling-Schritt</strong> – ein Schritt der Story. Er trägt sein eigenes Bild oder Video und dazu beliebige Blöcke Ihrer Wahl als Text. Eine Story nimmt beliebig viele Schritte auf. Ein Schritt ohne Medium behält das Medium des vorherigen Schritts, sodass mehrere Textkästen nacheinander über dasselbe Bild oder Video scrollen können."
 
 #. Found in description list item.
 msgid "<strong>Scrollytelling Story</strong> — the frame. It holds the layout of the text boxes, the dimming of the media and the length of a step."
-msgstr "<strong>Scrollytelling-Story</strong> – der Rahmen. Sie enthält das Layout der Textkästen, die Abdunkelung der Medien und die Länge eines Schritts."
+msgstr "<strong>Scrollytelling-Story</strong> – der Rahmen. Sie enthält das Layout der Textkästen, die Abdunkelung der Medien und die Länge eines Schritts."
 
 #. Found in description header.
 msgid "Source code"
@@ -285,7 +285,7 @@ msgstr "Dokumentation"
 
 #. Found in description header.
 msgid "Built to behave"
-msgstr "Rücksichtsvoll gebaut"
+msgstr "Sorgfältig umgesetzt"
 
 #. Found in description header.
 msgid "What you can set"
@@ -310,7 +310,7 @@ msgstr "Eine Story im Frontend: Die Medien bleiben stehen und wechseln, während
 #. Found in changelog list item.
 #, gp-priority: low
 msgid "First public release."
-msgstr "Erste öffentliche Veröffentlichung."
+msgstr "Erste öffentliche Version."
 
 #. Found in changelog list item.
 #, gp-priority: low
@@ -325,7 +325,7 @@ msgstr "Intern: Frontend-Script und Styles des Story-Blocks sind in Module aufge
 #. Found in changelog list item.
 #, gp-priority: low
 msgid "Changed: background, border and padding of a step now apply to its text box instead of the whole step. A box with a background gets a default padding and, unless a text color is set, the text color of the theme."
-msgstr "Geändert: Hintergrund, Rahmen und Innenabstand eines Schritts gelten jetzt für seinen Textkasten statt für den ganzen Schritt. Ein Kasten mit Hintergrund erhält einen Standard-Innenabstand und, sofern keine Textfarbe gesetzt ist, die Textfarbe des Themes."
+msgstr "Geändert: Hintergrund, Rand und Innenabstand eines Schritts gelten jetzt für seinen Textkasten statt für den ganzen Schritt. Ein Kasten mit Hintergrund erhält einen Standard-Innenabstand und, sofern keine Textfarbe gesetzt ist, die Textfarbe des Themes."
 
 #. Found in changelog list item.
 #, gp-priority: low
@@ -335,7 +335,7 @@ msgstr "Neu: Schatten für den Textkasten eines Schritts."
 #. Found in changelog list item.
 #, gp-priority: low
 msgid "New: typography settings for a step: font family, weight and style, letter spacing, letter case, decoration and text alignment."
-msgstr "Neu: Typografie-Einstellungen für einen Schritt: Schriftfamilie, Schriftstärke und Schriftstil, Buchstabenabstand, Groß-/Kleinschreibung, Dekoration und Textausrichtung."
+msgstr "Neu: Typografie-Einstellungen für einen Schritt: Schriftfamilie, Schriftstärke und Schriftstil, Zeichenabstand, Schreibweise, Dekoration und Textausrichtung."
 
 #. Found in changelog list item.
 #, gp-priority: low
@@ -345,7 +345,7 @@ msgstr "Browser mit Scroll-Timelines koppeln den Effekt an die Scrollposition; a
 #. Found in changelog list item.
 #, gp-priority: low
 msgid "New: text effects. The text boxes can fade, slide or zoom in when they enter the screen and leave the same way. Set the effect for the whole story or per step."
-msgstr "Neu: Texteffekte. Die Textkästen können einblenden, hochgleiten oder heranzoomen, wenn sie den Bildschirm betreten, und ihn auf dieselbe Weise verlassen. Legen Sie den Effekt für die ganze Story oder je Schritt fest."
+msgstr "Neu: Texteffekte. Die Textkästen können eingeblendet werden, hochgleiten oder heranzoomen, wenn sie den Bildschirm betreten, und ihn auf dieselbe Weise verlassen. Legen Sie den Effekt für die ganze Story oder je Schritt fest."
 
 #. Found in changelog list item.
 #, gp-priority: low
@@ -385,7 +385,7 @@ msgstr "Readme: Beschreibung überarbeitet, Spendenlink ergänzt. Keine Verhalte
 #. Found in changelog list item.
 #, gp-priority: low
 msgid "New: donation link in the row of the plugin in the plugin list."
-msgstr "Neu: Spendenlink in der Zeile des Plugins in der Pluginliste."
+msgstr "Neu: Spendenlink in der Zeile des Plugins in der Plugin-Liste."
 
 #. Found in changelog list item.
 #, gp-priority: low
@@ -465,7 +465,7 @@ msgstr "Hinzugefügt: Der Plugin-Header verlinkt auf das Quellcode-Repository au
 #. Found in changelog list item.
 #, gp-priority: low
 msgid "Added: links to the online help in WordPress Playground, in the readme and in the row of the plugin in the plugin list."
-msgstr "Hinzugefügt: Links zur Onlinehilfe in WordPress Playground, in der Readme und in der Zeile des Plugins in der Pluginliste."
+msgstr "Hinzugefügt: Links zur Onlinehilfe in WordPress Playground, in der Readme und in der Zeile des Plugins in der Plugin-Liste."
 
 #. Found in changelog list item.
 #, gp-priority: low
